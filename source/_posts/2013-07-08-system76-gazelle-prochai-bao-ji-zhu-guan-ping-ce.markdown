@@ -1,0 +1,95 @@
+---
+layout: post
+title: "System76 Gazelle Pro拆包及主观评测"
+date: 2013-07-08 12:51
+comments: true
+categories: 
+- 评测
+- Review
+---
+最近买了一台System76出的[Ubuntu](http://www.ubuntu.com/)专用笔记本电脑[Gazelle Pro](https://www.system76.com/laptops/model/gazp9)。从现在起鄙人也是一名蛋疼的Linux用户啦。呵呵。
+
+### 拆包
+
+{% img /images/IMAG0299.jpg 500 280 '1' %}
+
+包装简单实惠。硬板纸挺硬的。
+
+{% img /images/IMAG0303.jpg 500 280 '2' %}
+
+打开包装。泡沫塑料夹着电脑，旁边是电源。
+
+{% img /images/IMAG0305.jpg 500 280 '3' %}
+
+就一电脑一电源。
+
+{% img /images/IMAG0309.jpg 500 280 '4' %}
+
+掀起盖头，套子摘掉。屏幕有透明塑料膜保护着。
+
+### 外部
+
+{% img /images/IMAG0310.jpg 500 280 '5' %}
+
+键盘挺舒服的。看各人习惯，因人而异。鄙人还是比较喜欢每个按键能像think pad那样，稍稍凹进去一些。感觉那样还要更加舒服。
+
+{% img /images/IMAG0315.jpg 280 500 '6' %}
+
+鼠标触版也很光滑。鼠标按键稍微有点僵僵的感觉。
+
+{% img /images/IMAG0317.jpg 500 280 '7' %}
+
+左侧面从左至右依次为：电源，散热，VGA，网线，eSATA，HDMI，USB 3.0。*（注：此手非吾手）*
+
+{% img /images/IMAG0325.jpg 500 280 '8' %}
+
+右侧面从左至右依次为：话筒，耳机，USB 2.0，USB 3.0，光驱。*（注：此手非吾手）*
+
+### VS Mac Book（外观）
+
+{% img /images/IMAG0327.jpg 280 500 '9' %}
+
+重量几乎与13寸Mac Book相同。*（注：误差估计在正负0.3千克之间）*
+
+{% img /images/IMAG0330.jpg 500 280 '10' %}
+
+厚是要厚些。个人没有太大所谓。
+
+{% img /images/IMAG0332.jpg 500 280 '11' %}
+
+正面来一张。
+
+### 价格与配置
+
++ Base System Price 	**$799.00**
++ Ubuntu 13.04 64 bit
++ 5 Free GB of Ubuntu One Online Storage and Sync
++ 15.6" 1080p Full High Definition ColorPro IPS Display with Matte Surface ( 1920 x 1080 ) 	**+$79.00**
++ Intel® HD Graphics 4600
++ 4th Generation Intel® Core™ i7-4700MQ Processor ( 2.4 GHz 6MB L3 Cache - 4 Cores plus Hyperthreading )
++ 4 GB DDR3 SDRAM at 1600MHz - 1 X 4 GB
++ United States Keyboard Layout
++ 500 GB 7200 RPM SATA II
++ No Secondary Hard Drive
++ Caddy Case without Hard Drive (Use your own drive in the optical bay) 	**+$15.00**
++ Intel Centrino 2230 - 802.11 b/g/n Wireless LAN + Bluetooth Combo Module
++ No Bag
++ 1 Yr. Ltd. Warranty and 1 Yr. Technical Support
++ No Canada Warranty Shipping Coverage
++ No donation, thank you
++ California LCD Recycling Fee ( Over 15" )     **+$4.00**
+
+California Sales Tax ( 7.5% ):	  	  	**$66.98**  
+Shipping & Handling: 	UPS Ground: 	**$29.08**  
+Order Total: 	**$993.06**
+ 
+### 总结
+
+总体来说，鄙人对这台Gazelle Pro还是非常满意的。价钱感觉稍稍贵了一点，但是这年头想搞1080p显示屏的笔记本，可能都要这个价了吧？据说很多Linux笔记本都是翻[ZaReason](http://zareason.com/shop/Laptops/)和[Clevo](http://www.clevo.com.tw/en/products/index.asp)的机子。不过俺也管不了这么多了，亏了就亏了吧。
+
+OS方面，Ubuntu挺不错。但有时候，会有这样那样的小错。比如说按下`Ubuntu建`后，出现的Utilty launcher有时候不会出现在最上层。有时滚轴多滚几下，会留下残留的滚轴，看上去有点奇怪。有时候看视频时，全屏模式下画面上方会出现一条黑线。还有据说Flash以后的版本不会对Linux提供支持了。有时候看视频会挂掉，有时会有屏闪。
+
+最后，个人觉得电池的续航能力还是挺强的。充满之后目测能用4，5个小时。
+
+*P.S. 如题本文大多是本人的主观评测，几乎没有客观数据支持我的观点。*
+
