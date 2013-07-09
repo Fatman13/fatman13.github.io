@@ -3,6 +3,7 @@ layout: post
 title: "System76 Gazelle Pro拆包及主观评测"
 date: 2013-07-08 12:51
 comments: true
+published: true
 categories: 
 - 评测
 - Review
@@ -11,51 +12,51 @@ categories:
 
 ### 拆包
 
-{% img /images/IMAG0299.jpg 500 280 '1' %}
+{% img /images/IMAG0299.resized.jpg 500 280 '1' %}
 
 包装简单实惠。硬板纸挺硬的。
 
-{% img /images/IMAG0303.jpg 500 280 '2' %}
+{% img /images/IMAG0303.resized.jpg 500 280 '2' %}
 
 打开包装。泡沫塑料夹着电脑，旁边是电源。
 
-{% img /images/IMAG0305.jpg 500 280 '3' %}
+{% img /images/IMAG0305.resized.jpg 500 280 '3' %}
 
 就一电脑一电源。
 
-{% img /images/IMAG0309.jpg 500 280 '4' %}
+{% img /images/IMAG0309.resized.jpg 500 280 '4' %}
 
 掀起盖头，套子摘掉。屏幕有透明塑料膜保护着。
 
 ### 外部
 
-{% img /images/IMAG0310.jpg 500 280 '5' %}
+{% img /images/IMAG0310.resized.jpg 500 280 '5' %}
 
 键盘挺舒服的。看各人习惯，因人而异。鄙人还是比较喜欢每个按键能像think pad那样，稍稍凹进去一些。感觉那样还要更加舒服。
 
-{% img /images/IMAG0315.jpg 280 500 '6' %}
+{% img /images/IMAG0315.resized.jpg 280 500 '6' %}
 
 鼠标触版也很光滑。鼠标按键稍微有点僵僵的感觉。
 
-{% img /images/IMAG0317.jpg 500 280 '7' %}
+{% img /images/IMAG0317.resized.jpg 500 280 '7' %}
 
 左侧面从左至右依次为：电源，散热，VGA，网线，eSATA，HDMI，USB 3.0。*（注：此手非吾手）*
 
-{% img /images/IMAG0325.jpg 500 280 '8' %}
+{% img /images/IMAG0325.resized.jpg 500 280 '8' %}
 
 右侧面从左至右依次为：话筒，耳机，USB 2.0，USB 3.0，光驱。*（注：此手非吾手）*
 
 ### VS Mac Book（外观）
 
-{% img /images/IMAG0327.jpg 280 500 '9' %}
+{% img /images/IMAG0327.resized.jpg 280 500 '9' %}
 
 重量几乎与13寸Mac Book相同。*（注：误差估计在正负0.3千克之间）*
 
-{% img /images/IMAG0330.jpg 500 280 '10' %}
+{% img /images/IMAG0330.resized.jpg 500 280 '10' %}
 
 厚是要厚些。个人没有太大所谓。
 
-{% img /images/IMAG0332.jpg 500 280 '11' %}
+{% img /images/IMAG0332.resized.jpg 500 280 '11' %}
 
 正面来一张。
 

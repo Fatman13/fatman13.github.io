@@ -3,13 +3,14 @@ layout: post
 title: "System76 Gazelle Pro拆包及主观评测"
 date: 2013-07-08 12:51
 comments: true
+published: true
 categories: 
 - 评测
 - Review
 ---
 最近买了一台System76出的[Ubuntu](http://www.ubuntu.com/)专用笔记本电脑[Gazelle Pro](https://www.system76.com/laptops/model/gazp9)。从现在起鄙人也是一名蛋疼的Linux用户啦。呵呵。
 
-### ///拆包///
+### 拆包
 
 {% img /images/IMAG0299.jpg 500 280 '1' %}
 
@@ -27,7 +28,7 @@ categories:
 
 掀起盖头，套子摘掉。屏幕有透明塑料膜保护着。
 
-### ///外部///
+### 外部
 
 {% img /images/IMAG0310.jpg 500 280 '5' %}
 
@@ -45,7 +46,7 @@ categories:
 
 右侧面从左至右依次为：话筒，耳机，USB 2.0，USB 3.0，光驱。*（注：此手非吾手）*
 
-### ///VS Mac Book（外观）///
+### VS Mac Book（外观）
 
 {% img /images/IMAG0327.jpg 280 500 '9' %}
 
@@ -59,7 +60,7 @@ categories:
 
 正面来一张。
 
-### ///价格与配置///
+### 价格与配置
 
 + Base System Price 	**$799.00**
 + Ubuntu 13.04 64 bit
@@ -83,7 +84,7 @@ California Sales Tax ( 7.5% ):	  	  	**$66.98**
 Shipping & Handling: 	UPS Ground: 	**$29.08**  
 Order Total: 	**$993.06**
  
-### ///总结///
+### 总结
 
 总体来说，鄙人对这台Gazelle Pro还是非常满意的。价钱感觉稍稍贵了一点，但是这年头想搞1080p显示屏的笔记本，可能都要这个价了吧？据说很多Linux笔记本都是翻[ZaReason](http://zareason.com/shop/Laptops/)和[Clevo](http://www.clevo.com.tw/en/products/index.asp)的机子。不过俺也管不了这么多了，亏了就亏了吧。
 
