@@ -4,7 +4,7 @@
   <title><![CDATA[Fatman13]]></title>
   <link href="http://Fatman13.github.io/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2013-07-10T18:37:35-07:00</updated>
+  <updated>2013-07-10T18:57:22-07:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[滑行者(Glider)：一个通用的黑客纹章 by Eric S. Raymond]]></title>
+    <link href="http://Fatman13.github.io/blog/2013/07/10/hua-xing-zhe-glider-%3A%5B%3F%5D-ge-tong-yong-de-hei-ke-wen-zhang-by-eric-s-raymond/"/>
+    <updated>2013-07-10T18:55:00-07:00</updated>
+    <id>http://Fatman13.github.io/blog/2013/07/10/hua-xing-zhe-glider-:[?]-ge-tong-yong-de-hei-ke-wen-zhang-by-eric-s-raymond</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[System76 Gazelle Pro拆包及主观评测]]></title>
