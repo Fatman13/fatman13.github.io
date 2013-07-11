@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 技术 | Fatman13]]></title>
   <link href="http://Fatman13.github.io/blog/categories/ji-zhu/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2013-07-10T18:57:22-07:00</updated>
+  <updated>2013-07-10T19:38:12-07:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -19,6 +19,9 @@
     <updated>2013-06-24T12:11:00-07:00</updated>
     <id>http://Fatman13.github.io/blog/2013/06/24/shi-yong-octopressjiao-cheng-da-he-ji</id>
     <content type="html"><![CDATA[<p>小的消息闭塞，最近才开始使用<code>Octopress</code>。在这儿整理下各种实用的教程，以供大家参考！</p>
+
+<!--more-->
+
 
 <p><strong>1</strong> 首先是官方<code>Octopress</code>教程在<a href="http://octopress.org/docs/">这里</a>。</p>
 
@@ -45,6 +48,8 @@
 <p><strong>9</strong> 如何在<code>Octopress</code>里面增加自己的<code>About</code>页面在<a href="http://gangmax.me/blog/2012/05/04/add-about-page-in-octopress/">这里</a>。</p>
 
 <p><strong>10</strong> 使用<code>rake gen_deploy</code>和<code>rake preview</code>之后可以在本地<code>localhost:4000</code>预览还没有上传的博文。修改博文后，<code>rake</code>会自动重新生成，刷新本地页面就能浏览更新的东西了。</p>
+
+<p><strong>11</strong> Octopress各种实用小技巧，包括修改字体，颜色，favicon等等。请看<a href="http://colors4.us/blog/2012/01/08/octopressbo-ke-cong-ling-kai-shi-iii/">这里</a></p>
 
 <p>最后奉上能快速上手markdown的<a href="http://support.mashery.com/docs/customizing_your_portal/Markdown_Cheat_Sheet">作弊小抄</a>。这里有更高阶的<a href="http://daringfireball.net/projects/markdown/syntax">作弊小抄</a></p>
 

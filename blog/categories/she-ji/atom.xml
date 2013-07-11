@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 设计 | Fatman13]]></title>
   <link href="http://Fatman13.github.io/blog/categories/she-ji/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2013-07-10T18:57:22-07:00</updated>
+  <updated>2013-07-10T19:38:12-07:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -19,6 +19,9 @@
     <updated>2013-06-28T12:37:00-07:00</updated>
     <id>http://Fatman13.github.io/blog/2013/06/28/xiao-tan-tan-dan-mu-she-ji</id>
     <content type="html"><![CDATA[<p>最近很喜欢使用<a href="http://www.bilibili.tv/">弹幕网站</a>看动画片。我记得我最早是从<a href="http://baike.baidu.com/view/1306119.htm#sub9272586">王者天下</a>的弹幕视频开始的。<a href="http://baike.baidu.com/view/1306119.htm#sub9272586">王者天下</a>这个片子一开始10话是在一个一般的<a href="http://www.letv.com/">视频网站</a>上看的。看得时候感觉总体挺好看的，但是剧情对我来说稍慢。看到第10话的时候，就一直搁那儿了。后来突然有一天想起来的时候，发现这片子第一季已经播完了。于是在<a href="http://www.bilibili.tv/">B站</a>找到了这篇子的<a href="http://www.bilibili.tv/sp/%E7%8E%8B%E8%80%85%E5%A4%A9%E4%B8%8B">专辑</a>，开始了弹幕之旅。刚刚开始的时侯有那么一点点抵触情绪。感觉弹幕破坏了原作的气氛。但是后来越来越喜欢，以至于没有弹幕<a href="http://baike.baidu.com/view/308283.htm?fr=ala0_1_1">吐槽</a>，很多视频都看不下去了。个人觉得<a href="http://baike.baidu.com/view/1306119.htm#sub9272586">王者天下</a>的弹幕厚度正对本人的口味。相比与一些<a href="http://baike.baidu.com/view/1497143.htm?fromId=409248&amp;redirected=seachword">新番</a>，有时候半屏半屏的弹幕，反而来不及读有趣的<a href="http://baike.baidu.com/view/308283.htm?fr=ala0_1_1">吐槽</a>。于是乎，鄙人想了如下设计以增进用户体验。</p>
+
+<!--more-->
+
 
 <h3>假设</h3>
 
@@ -115,6 +118,9 @@
     <updated>2013-06-20T10:46:00-07:00</updated>
     <id>http://Fatman13.github.io/blog/2013/06/20/xin-ying-xiong-san-li-she-ji-fang-an</id>
     <content type="html"><![CDATA[<p>最近无意间上网发现了一个叫《300英雄》的国产类似LOL的游戏。然后正好发现他们在搞一个征集新英雄三笠技能的活动。我也燃起了我内心的游戏设计之魂！提供了以下方案以供参考与学习。</p>
+
+<!--more-->
+
 
 <h3>英雄定位</h3>
 
