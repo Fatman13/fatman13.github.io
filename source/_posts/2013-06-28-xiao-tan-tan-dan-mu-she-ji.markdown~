@@ -52,21 +52,21 @@ categories: 设计
 
 *高阶弹幕效果触发前：*
 
-{% img /images/custom/abc111.jpg 500 300 '事前' %}
+{% img /images/abc111.jpg 500 300 '事前' %}
 
 *高阶弹幕效果触发后：*
 
-{% img /images/custom/abc123.jpg 500 300 '事后' %}
+{% img /images/abc123.jpg 500 300 '事后' %}
 
 **2** **注释类**。此高阶弹幕效果在获得一定评分后，能在指定位置化身成为一个有指向性的弹幕。感觉有点一言难尽，上个图。
 
 *高阶弹幕效果触发前：*
 
-{% img /images/custom/xin_ttt2.jpg 500 300 '事前' %}
+{% img /images/xin_ttt2.jpg 500 300 '事前' %}
 
 *高阶弹幕效果触发后：*
 
-{% img /images/custom/ttt5.jpg 500 300 '事后' %}
+{% img /images/ttt5.jpg 500 300 '事后' %}
 
 **3** **野生弹幕菌类**。此高阶弹幕效果在获得一定评分后，则出现在字幕的地方，且无法被其他弹幕覆盖。
 

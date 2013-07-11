@@ -7,6 +7,8 @@ categories: 设计
 ---
 最近很喜欢使用[弹幕网站](http://www.bilibili.tv/)看动画片。我记得我最早是从[王者天下](http://baike.baidu.com/view/1306119.htm#sub9272586)的弹幕视频开始的。[王者天下](http://baike.baidu.com/view/1306119.htm#sub9272586)这个片子一开始10话是在一个一般的[视频网站](http://www.letv.com/)上看的。看得时候感觉总体挺好看的，但是剧情对我来说稍慢。看到第10话的时候，就一直搁那儿了。后来突然有一天想起来的时候，发现这片子第一季已经播完了。于是在[B站](http://www.bilibili.tv/)找到了这篇子的[专辑](http://www.bilibili.tv/sp/%E7%8E%8B%E8%80%85%E5%A4%A9%E4%B8%8B)，开始了弹幕之旅。刚刚开始的时侯有那么一点点抵触情绪。感觉弹幕破坏了原作的气氛。但是后来越来越喜欢，以至于没有弹幕[吐槽](http://baike.baidu.com/view/308283.htm?fr=ala0_1_1)，很多视频都看不下去了。个人觉得[王者天下](http://baike.baidu.com/view/1306119.htm#sub9272586)的弹幕厚度正对本人的口味。相比与一些[新番](http://baike.baidu.com/view/1497143.htm?fromId=409248&redirected=seachword)，有时候半屏半屏的弹幕，反而来不及读有趣的[吐槽](http://baike.baidu.com/view/308283.htm?fr=ala0_1_1)。于是乎，鄙人想了如下设计以增进用户体验。
 
+<!--more-->
+
 ### 假设
 在介绍本人所设想的功能之前，有以下假设条件：
 

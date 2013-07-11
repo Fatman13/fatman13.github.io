@@ -10,6 +10,8 @@ categories:
 ---
 最近买了一台System76出的[Ubuntu](http://www.ubuntu.com/)专用笔记本电脑[Gazelle Pro](https://www.system76.com/laptops/model/gazp9)。从现在起鄙人也是一名蛋疼的Linux用户啦。呵呵。
 
+<!--more-->
+
 ### 拆包
 
 {% img /images/IMAG0299.resized.jpg 500 280 '1' %}
