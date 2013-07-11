@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 评测 | Fatman13]]></title>
+  <link href="http://Fatman13.github.io/blog/categories/ping-ce/atom.xml" rel="self"/>
+  <link href="http://Fatman13.github.io/"/>
+  <updated>2013-07-10T18:37:35-07:00</updated>
+  <id>http://Fatman13.github.io/</id>
+  <author>
+    <name><![CDATA[Fatman13]]></name>
+    <email><![CDATA[tctctcly@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[System76 Gazelle Pro拆包及主观评测]]></title>
+    <link href="http://Fatman13.github.io/blog/2013/07/08/system76-gazelle-prochai-bao-ji-zhu-guan-ping-ce/"/>
+    <updated>2013-07-08T12:51:00-07:00</updated>
+    <id>http://Fatman13.github.io/blog/2013/07/08/system76-gazelle-prochai-bao-ji-zhu-guan-ping-ce</id>
+    <content type="html"><![CDATA[<p>最近买了一台System76出的<a href="http://www.ubuntu.com/">Ubuntu</a>专用笔记本电脑<a href="https://www.system76.com/laptops/model/gazp9">Gazelle Pro</a>。从现在起鄙人也是一名蛋疼的Linux用户啦。呵呵。</p>
+
+<h3>拆包</h3>
+
+<p><img src="/images/IMAG0299.resized.jpg" width="500" height="280" title="&lsquo;1&rsquo;" ></p>
+
+<p>包装简单实惠。硬板纸挺硬的。</p>
+
+<p><img src="/images/IMAG0303.resized.jpg" width="500" height="280" title="&lsquo;2&rsquo;" ></p>
+
+<p>打开包装。泡沫塑料夹着电脑，旁边是电源。</p>
+
+<p><img src="/images/IMAG0305.resized.jpg" width="500" height="280" title="&lsquo;3&rsquo;" ></p>
+
+<p>就一电脑一电源。</p>
+
+<p><img src="/images/IMAG0309.resized.jpg" width="500" height="280" title="&lsquo;4&rsquo;" ></p>
+
+<p>掀起盖头，套子摘掉。屏幕有透明塑料膜保护着。</p>
+
+<h3>外部</h3>
+
+<p><img src="/images/IMAG0310.resized.jpg" width="500" height="280" title="&lsquo;5&rsquo;" ></p>
+
+<p>键盘挺舒服的。看各人习惯，因人而异。鄙人还是比较喜欢每个按键能像think pad那样，稍稍凹进去一些。感觉那样还要更加舒服。</p>
+
+<p><img src="/images/IMAG0315.resized.jpg" width="280" height="500" title="&lsquo;6&rsquo;" ></p>
+
+<p>鼠标触版也很光滑。鼠标按键稍微有点僵僵的感觉。</p>
+
+<p><img src="/images/IMAG0317.resized.jpg" width="500" height="280" title="&lsquo;7&rsquo;" ></p>
+
+<p>左侧面从左至右依次为：电源，散热，VGA，网线，eSATA，HDMI，USB 3.0。<em>（注：此手非吾手）</em></p>
+
+<p><img src="/images/IMAG0325.resized.jpg" width="500" height="280" title="&lsquo;8&rsquo;" ></p>
+
+<p>右侧面从左至右依次为：话筒，耳机，USB 2.0，USB 3.0，光驱。<em>（注：此手非吾手）</em></p>
+
+<h3>VS Mac Book（外观）</h3>
+
+<p><img src="/images/IMAG0327.resized.jpg" width="280" height="500" title="&lsquo;9&rsquo;" ></p>
+
+<p>重量几乎与13寸Mac Book相同。<em>（注：误差估计在正负0.3千克之间）</em></p>
+
+<p><img src="/images/IMAG0330.resized.jpg" width="500" height="280" title="&lsquo;10&rsquo;" ></p>
+
+<p>厚是要厚些。个人没有太大所谓。</p>
+
+<p><img src="/images/IMAG0332.resized.jpg" width="500" height="280" title="&lsquo;11&rsquo;" ></p>
+
+<p>正面来一张。</p>
+
+<h3>价格与配置</h3>
+
+<ul>
+<li>Base System Price     <strong>$799.00</strong></li>
+<li>Ubuntu 13.04 64 bit</li>
+<li>5 Free GB of Ubuntu One Online Storage and Sync</li>
+<li>15.6" 1080p Full High Definition ColorPro IPS Display with Matte Surface ( 1920 x 1080 )  <strong>+$79.00</strong></li>
+<li>Intel® HD Graphics 4600</li>
+<li>4th Generation Intel® Core™ i7-4700MQ Processor ( 2.4 GHz 6MB L3 Cache &ndash; 4 Cores plus Hyperthreading )</li>
+<li>4 GB DDR3 SDRAM at 1600MHz &ndash; 1 X 4 GB</li>
+<li>United States Keyboard Layout</li>
+<li>500 GB 7200 RPM SATA II</li>
+<li>No Secondary Hard Drive</li>
+<li>Caddy Case without Hard Drive (Use your own drive in the optical bay)     <strong>+$15.00</strong></li>
+<li>Intel Centrino 2230 &ndash; 802.11 b/g/n Wireless LAN + Bluetooth Combo Module</li>
+<li>No Bag</li>
+<li>1 Yr. Ltd. Warranty and 1 Yr. Technical Support</li>
+<li>No Canada Warranty Shipping Coverage</li>
+<li>No donation, thank you</li>
+<li>California LCD Recycling Fee ( Over 15" )     <strong>+$4.00</strong></li>
+</ul>
+
+
+<p>California Sales Tax ( 7.5% ):          <strong>$66.98</strong><br/>
+Shipping &amp; Handling:    UPS Ground:     <strong>$29.08</strong><br/>
+Order Total:    <strong>$993.06</strong></p>
+
+<h3>总结</h3>
+
+<p>总体来说，鄙人对这台Gazelle Pro还是非常满意的。价钱感觉稍稍贵了一点，但是这年头想搞1080p显示屏的笔记本，可能都要这个价了吧？据说很多Linux笔记本都是翻<a href="http://zareason.com/shop/Laptops/">ZaReason</a>和<a href="http://www.clevo.com.tw/en/products/index.asp">Clevo</a>的机子。不过俺也管不了这么多了，亏了就亏了吧。</p>
+
+<p>OS方面，Ubuntu挺不错。但有时候，会有这样那样的小错。比如说按下<code>Ubuntu建</code>后，出现的Utilty launcher有时候不会出现在最上层。有时滚轴多滚几下，会留下残留的滚轴，看上去有点奇怪。有时候看视频时，全屏模式下画面上方会出现一条黑线。还有据说Flash以后的版本不会对Linux提供支持了。有时候看视频会挂掉，有时会有屏闪。</p>
+
+<p>最后，个人觉得电池的续航能力还是挺强的。充满之后目测能用4，5个小时。</p>
+
+<p><em>P.S. 如题本文大多是本人的主观评测，几乎没有客观数据支持我的观点。</em></p>
+]]></content>
+  </entry>
+  
+</feed>

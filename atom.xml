@@ -1,170 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE HTML>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Fatman13</title>
-	<meta name="author" content="Fatman13">
-
-	
-	<meta name="description" content="Jul 8th, 2013 Review, 评测 System76 Gazelle Pro拆包及主观评测 最近买了一台System76出的Ubuntu专用笔记本电脑Gazelle Pro。从现在起鄙人也是一名蛋疼的Linux用户啦。呵呵。 拆包 包装简单实惠。硬板纸挺硬的。 打开包装。 &hellip;">
-	
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<link href="/atom.xml" rel="alternate" title="Fatman13" type="application/atom+xml">
-	
-	<link rel="canonical" href="http://Fatman13.github.io/">
-	<link href="/favicon.png" rel="shortcut icon">
-	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-	
-	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
-	<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-</head>
-
-
-<body>
-	<div class="container">
-		<div class="left-col">
-			<div class="intrude-less">
-			<header id="header" class="inner"><div class="profilepic">	
-	<script src="/javascripts/md5.js"></script>
-	<script type="text/javascript">
-		document.write("<img src='http://www.gravatar.com/avatar/" + MD5("tctctcly@gmail.com") + "?s=160' alt='Profile Picture' style='width: 160px;' />");
-	</script>
-</div>
-<h1><a href="/">Fatman13</a></h1>
-<p class="subtitle">The Tauntaun Slayer</p>
-<nav id="main-nav"><ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-  <li><a href="http://about.me/yu.leng">About</a></li>
-  <!--<li><a href="/blog/archives">Archives</a></li>-->
-</ul>
-</nav>
-<nav id="sub-nav">
-	<div class="social">
-		
-		<a class="weibo" href="http://www.weibo.com/FATman13CC" title="Weibo">Weibo</a>
-		
-		
-		
-		
-		
-		<a class="github" href="https://github.com/Fatman13" title="GitHub">GitHub</a>
-		
-		
-		
-		
-		
-		
-		
-		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
-		
-	</div>
-</nav>
-<!--<hgroup>
-  <h1><a href="/">Fatman13</a></h1>
-  
-    <h2>The Tauntaun Slayer</h2>
-  
-</hgroup>
--->
-</header>				
-			</div>
-		</div>	
-		<div class="mid-col">
-			
-				
-			
-			<div class="mid-col-container">
-				<div id="content" class="inner">
-<div itemscope itemtype="http://schema.org/Blog">
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
+  <title><![CDATA[Fatman13]]></title>
+  <link href="http://Fatman13.github.io/atom.xml" rel="self"/>
+  <link href="http://Fatman13.github.io/"/>
+  <updated>2013-07-10T18:37:35-07:00</updated>
+  <id>http://Fatman13.github.io/</id>
+  <author>
+    <name><![CDATA[Fatman13]]></name>
+    <email><![CDATA[tctctcly@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
-
-
-<time datetime="2013-07-08T12:51:00-07:00" data-updated="true" itemprop="datePublished">Jul 8<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/review/'>Review</a>, <a class='category' href='/blog/categories/ping-ce/'>评测</a>
-
-
-</div>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/07/08/system76-gazelle-prochai-bao-ji-zhu-guan-ping-ce/" itemprop="url">System76 Gazelle Pro拆包及主观评测</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>最近买了一台System76出的<a href="http://www.ubuntu.com/">Ubuntu</a>专用笔记本电脑<a href="https://www.system76.com/laptops/model/gazp9">Gazelle Pro</a>。从现在起鄙人也是一名蛋疼的Linux用户啦。呵呵。</p>
+  <entry>
+    <title type="html"><![CDATA[System76 Gazelle Pro拆包及主观评测]]></title>
+    <link href="http://Fatman13.github.io/blog/2013/07/08/system76-gazelle-prochai-bao-ji-zhu-guan-ping-ce/"/>
+    <updated>2013-07-08T12:51:00-07:00</updated>
+    <id>http://Fatman13.github.io/blog/2013/07/08/system76-gazelle-prochai-bao-ji-zhu-guan-ping-ce</id>
+    <content type="html"><![CDATA[<p>最近买了一台System76出的<a href="http://www.ubuntu.com/">Ubuntu</a>专用笔记本电脑<a href="https://www.system76.com/laptops/model/gazp9">Gazelle Pro</a>。从现在起鄙人也是一名蛋疼的Linux用户啦。呵呵。</p>
 
 <h3>拆包</h3>
 
-<p><img src="/images/IMAG0299.resized.jpg" width="500" height="280" title="'1'" ></p>
+<p><img src="http://Fatman13.github.io/images/IMAG0299.resized.jpg" width="500" height="280" title="'1'" ></p>
 
 <p>包装简单实惠。硬板纸挺硬的。</p>
 
-<p><img src="/images/IMAG0303.resized.jpg" width="500" height="280" title="'2'" ></p>
+<p><img src="http://Fatman13.github.io/images/IMAG0303.resized.jpg" width="500" height="280" title="'2'" ></p>
 
 <p>打开包装。泡沫塑料夹着电脑，旁边是电源。</p>
 
-<p><img src="/images/IMAG0305.resized.jpg" width="500" height="280" title="'3'" ></p>
+<p><img src="http://Fatman13.github.io/images/IMAG0305.resized.jpg" width="500" height="280" title="'3'" ></p>
 
 <p>就一电脑一电源。</p>
 
-<p><img src="/images/IMAG0309.resized.jpg" width="500" height="280" title="'4'" ></p>
+<p><img src="http://Fatman13.github.io/images/IMAG0309.resized.jpg" width="500" height="280" title="'4'" ></p>
 
 <p>掀起盖头，套子摘掉。屏幕有透明塑料膜保护着。</p>
 
 <h3>外部</h3>
 
-<p><img src="/images/IMAG0310.resized.jpg" width="500" height="280" title="'5'" ></p>
+<p><img src="http://Fatman13.github.io/images/IMAG0310.resized.jpg" width="500" height="280" title="'5'" ></p>
 
 <p>键盘挺舒服的。看各人习惯，因人而异。鄙人还是比较喜欢每个按键能像think pad那样，稍稍凹进去一些。感觉那样还要更加舒服。</p>
 
-<p><img src="/images/IMAG0315.resized.jpg" width="280" height="500" title="'6'" ></p>
+<p><img src="http://Fatman13.github.io/images/IMAG0315.resized.jpg" width="280" height="500" title="'6'" ></p>
 
 <p>鼠标触版也很光滑。鼠标按键稍微有点僵僵的感觉。</p>
 
-<p><img src="/images/IMAG0317.resized.jpg" width="500" height="280" title="'7'" ></p>
+<p><img src="http://Fatman13.github.io/images/IMAG0317.resized.jpg" width="500" height="280" title="'7'" ></p>
 
 <p>左侧面从左至右依次为：电源，散热，VGA，网线，eSATA，HDMI，USB 3.0。<em>（注：此手非吾手）</em></p>
 
-<p><img src="/images/IMAG0325.resized.jpg" width="500" height="280" title="'8'" ></p>
+<p><img src="http://Fatman13.github.io/images/IMAG0325.resized.jpg" width="500" height="280" title="'8'" ></p>
 
 <p>右侧面从左至右依次为：话筒，耳机，USB 2.0，USB 3.0，光驱。<em>（注：此手非吾手）</em></p>
 
 <h3>VS Mac Book（外观）</h3>
 
-<p><img src="/images/IMAG0327.resized.jpg" width="280" height="500" title="'9'" ></p>
+<p><img src="http://Fatman13.github.io/images/IMAG0327.resized.jpg" width="280" height="500" title="'9'" ></p>
 
 <p>重量几乎与13寸Mac Book相同。<em>（注：误差估计在正负0.3千克之间）</em></p>
 
-<p><img src="/images/IMAG0330.resized.jpg" width="500" height="280" title="'10'" ></p>
+<p><img src="http://Fatman13.github.io/images/IMAG0330.resized.jpg" width="500" height="280" title="'10'" ></p>
 
 <p>厚是要厚些。个人没有太大所谓。</p>
 
-<p><img src="/images/IMAG0332.resized.jpg" width="500" height="280" title="'11'" ></p>
+<p><img src="http://Fatman13.github.io/images/IMAG0332.resized.jpg" width="500" height="280" title="'11'" ></p>
 
 <p>正面来一张。</p>
 
@@ -204,41 +106,15 @@ Order Total:    <strong>$993.06</strong></p>
 <p>最后，个人觉得电池的续航能力还是挺强的。充满之后目测能用4，5个小时。</p>
 
 <p><em>P.S. 如题本文大多是本人的主观评测，几乎没有客观数据支持我的观点。</em></p>
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
+]]></content>
+  </entry>
   
-
-
-<time datetime="2013-06-28T12:37:00-07:00" data-updated="true" itemprop="datePublished">Jun 28<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/she-ji/'>设计</a>
-
-
-</div>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/06/28/xiao-tan-tan-dan-mu-she-ji/" itemprop="url">小谈谈弹幕设计</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>最近很喜欢使用<a href="http://www.bilibili.tv/">弹幕网站</a>看动画片。我记得我最早是从<a href="http://baike.baidu.com/view/1306119.htm#sub9272586">王者天下</a>的弹幕视频开始的。<a href="http://baike.baidu.com/view/1306119.htm#sub9272586">王者天下</a>这个片子一开始10话是在一个一般的<a href="http://www.letv.com/">视频网站</a>上看的。看得时候感觉总体挺好看的，但是剧情对我来说稍慢。看到第10话的时候，就一直搁那儿了。后来突然有一天想起来的时候，发现这片子第一季已经播完了。于是在<a href="http://www.bilibili.tv/">B站</a>找到了这篇子的<a href="http://www.bilibili.tv/sp/%E7%8E%8B%E8%80%85%E5%A4%A9%E4%B8%8B">专辑</a>，开始了弹幕之旅。刚刚开始的时侯有那么一点点抵触情绪。感觉弹幕破坏了原作的气氛。但是后来越来越喜欢，以至于没有弹幕<a href="http://baike.baidu.com/view/308283.htm?fr=ala0_1_1">吐槽</a>，很多视频都看不下去了。个人觉得<a href="http://baike.baidu.com/view/1306119.htm#sub9272586">王者天下</a>的弹幕厚度正对本人的口味。相比与一些<a href="http://baike.baidu.com/view/1497143.htm?fromId=409248&amp;redirected=seachword">新番</a>，有时候半屏半屏的弹幕，反而来不及读有趣的<a href="http://baike.baidu.com/view/308283.htm?fr=ala0_1_1">吐槽</a>。于是乎，鄙人想了如下设计以增进用户体验。</p>
+  <entry>
+    <title type="html"><![CDATA[小谈谈弹幕设计]]></title>
+    <link href="http://Fatman13.github.io/blog/2013/06/28/xiao-tan-tan-dan-mu-she-ji/"/>
+    <updated>2013-06-28T12:37:00-07:00</updated>
+    <id>http://Fatman13.github.io/blog/2013/06/28/xiao-tan-tan-dan-mu-she-ji</id>
+    <content type="html"><![CDATA[<p>最近很喜欢使用<a href="http://www.bilibili.tv/">弹幕网站</a>看动画片。我记得我最早是从<a href="http://baike.baidu.com/view/1306119.htm#sub9272586">王者天下</a>的弹幕视频开始的。<a href="http://baike.baidu.com/view/1306119.htm#sub9272586">王者天下</a>这个片子一开始10话是在一个一般的<a href="http://www.letv.com/">视频网站</a>上看的。看得时候感觉总体挺好看的，但是剧情对我来说稍慢。看到第10话的时候，就一直搁那儿了。后来突然有一天想起来的时候，发现这片子第一季已经播完了。于是在<a href="http://www.bilibili.tv/">B站</a>找到了这篇子的<a href="http://www.bilibili.tv/sp/%E7%8E%8B%E8%80%85%E5%A4%A9%E4%B8%8B">专辑</a>，开始了弹幕之旅。刚刚开始的时侯有那么一点点抵触情绪。感觉弹幕破坏了原作的气氛。但是后来越来越喜欢，以至于没有弹幕<a href="http://baike.baidu.com/view/308283.htm?fr=ala0_1_1">吐槽</a>，很多视频都看不下去了。个人觉得<a href="http://baike.baidu.com/view/1306119.htm#sub9272586">王者天下</a>的弹幕厚度正对本人的口味。相比与一些<a href="http://baike.baidu.com/view/1497143.htm?fromId=409248&amp;redirected=seachword">新番</a>，有时候半屏半屏的弹幕，反而来不及读有趣的<a href="http://baike.baidu.com/view/308283.htm?fr=ala0_1_1">吐槽</a>。于是乎，鄙人想了如下设计以增进用户体验。</p>
 
 <h3>假设</h3>
 
@@ -299,21 +175,21 @@ Order Total:    <strong>$993.06</strong></p>
 
 <p><em>高阶弹幕效果触发前：</em></p>
 
-<p><img src="/images/abc111.jpg" width="500" height="300" title="'事前'" ></p>
+<p><img src="http://Fatman13.github.io/images/abc111.jpg" width="500" height="300" title="'事前'" ></p>
 
 <p><em>高阶弹幕效果触发后：</em></p>
 
-<p><img src="/images/abc123.jpg" width="500" height="300" title="'事后'" ></p>
+<p><img src="http://Fatman13.github.io/images/abc123.jpg" width="500" height="300" title="'事后'" ></p>
 
 <p><strong>2</strong> <strong>注释类</strong>。此高阶弹幕效果在获得一定评分后，能在指定位置化身成为一个有指向性的弹幕。感觉有点一言难尽，上个图。</p>
 
 <p><em>高阶弹幕效果触发前：</em></p>
 
-<p><img src="/images/xin_ttt2.jpg" width="500" height="300" title="'事前'" ></p>
+<p><img src="http://Fatman13.github.io/images/xin_ttt2.jpg" width="500" height="300" title="'事前'" ></p>
 
 <p><em>高阶弹幕效果触发后：</em></p>
 
-<p><img src="/images/ttt5.jpg" width="500" height="300" title="'事后'" ></p>
+<p><img src="http://Fatman13.github.io/images/ttt5.jpg" width="500" height="300" title="'事后'" ></p>
 
 <p><strong>3</strong> <strong>野生弹幕菌类</strong>。此高阶弹幕效果在获得一定评分后，则出现在字幕的地方，且无法被其他弹幕覆盖。</p>
 
@@ -326,41 +202,15 @@ Order Total:    <strong>$993.06</strong></p>
 <p>通过成就系统。对用户进行排名，并公布每周吐槽排行榜等。用户可对一些特定用户进行关注（像微博一样）。如用户A关注了用户B，那么用户A在观看视频时，用户B所发的弹幕会以<font color="Crimson"><strong>红色弹幕菌</strong></font>身份出现在滚动弹幕第一行。</p>
 
 <p><em>申明：本人对现大多数弹幕网站功能并不完全熟悉。本文中所提到的功能，如有雷同纯属巧合！</em></p>
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
+]]></content>
+  </entry>
   
-
-
-<time datetime="2013-06-24T12:11:00-07:00" data-updated="true" itemprop="datePublished">Jun 24<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/ji-zhu/'>技术</a>
-
-
-</div>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/06/24/shi-yong-octopressjiao-cheng-da-he-ji/" itemprop="url">使用Octopress教程大合集</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>小的消息闭塞，最近才开始使用<code>Octopress</code>。在这儿整理下各种实用的教程，以供大家参考！</p>
+  <entry>
+    <title type="html"><![CDATA[使用Octopress教程大合集]]></title>
+    <link href="http://Fatman13.github.io/blog/2013/06/24/shi-yong-octopressjiao-cheng-da-he-ji/"/>
+    <updated>2013-06-24T12:11:00-07:00</updated>
+    <id>http://Fatman13.github.io/blog/2013/06/24/shi-yong-octopressjiao-cheng-da-he-ji</id>
+    <content type="html"><![CDATA[<p>小的消息闭塞，最近才开始使用<code>Octopress</code>。在这儿整理下各种实用的教程，以供大家参考！</p>
 
 <p><strong>1</strong> 首先是官方<code>Octopress</code>教程在<a href="http://octopress.org/docs/">这里</a>。</p>
 
@@ -393,41 +243,15 @@ Order Total:    <strong>$993.06</strong></p>
 <p>最后奉上能快速上手markdown的<a href="http://support.mashery.com/docs/customizing_your_portal/Markdown_Cheat_Sheet">作弊小抄</a>。这里有更高阶的<a href="http://daringfireball.net/projects/markdown/syntax">作弊小抄</a></p>
 
 <p>先写这点，以后有好de发现继续更新。:&ndash;)</p>
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
+]]></content>
+  </entry>
   
-
-
-<time datetime="2013-06-20T10:46:00-07:00" data-updated="true" itemprop="datePublished">Jun 20<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/she-ji/'>设计</a>
-
-
-</div>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/06/20/xin-ying-xiong-san-li-she-ji-fang-an/" itemprop="url">新英雄三笠设计方案</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>最近无意间上网发现了一个叫《300英雄》的国产类似LOL的游戏。然后正好发现他们在搞一个征集新英雄三笠技能的活动。我也燃起了我内心的游戏设计之魂！提供了以下方案以供参考与学习。</p>
+  <entry>
+    <title type="html"><![CDATA[新英雄三笠设计方案]]></title>
+    <link href="http://Fatman13.github.io/blog/2013/06/20/xin-ying-xiong-san-li-she-ji-fang-an/"/>
+    <updated>2013-06-20T10:46:00-07:00</updated>
+    <id>http://Fatman13.github.io/blog/2013/06/20/xin-ying-xiong-san-li-she-ji-fang-an</id>
+    <content type="html"><![CDATA[<p>最近无意间上网发现了一个叫《300英雄》的国产类似LOL的游戏。然后正好发现他们在搞一个征集新英雄三笠技能的活动。我也燃起了我内心的游戏设计之魂！提供了以下方案以供参考与学习。</p>
 
 <h3>英雄定位</h3>
 
@@ -503,41 +327,15 @@ Order Total:    <strong>$993.06</strong></p>
 <h3>P.S.</h3>
 
 <p>忽然发现octopress的table没有边框。有大牛在<a href="http://programus.github.io/blog/2012/03/07/add-table-data-css-for-octopress/">这里</a>解决了这个问题。</p>
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
+]]></content>
+  </entry>
   
-
-
-<time datetime="2013-06-19T15:47:00-07:00" data-updated="true" itemprop="datePublished">Jun 19<span>th</span>, 2013</time></div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/sheng-huo/'>生活</a>
-
-
-</div>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2013/06/19/shi-jie-ni-hao/" itemprop="url">世界你好</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<h2>要要要，切可闹！</h2>
+  <entry>
+    <title type="html"><![CDATA[世界你好]]></title>
+    <link href="http://Fatman13.github.io/blog/2013/06/19/shi-jie-ni-hao/"/>
+    <updated>2013-06-19T15:47:00-07:00</updated>
+    <id>http://Fatman13.github.io/blog/2013/06/19/shi-jie-ni-hao</id>
+    <content type="html"><![CDATA[<h2>要要要，切可闹！</h2>
 
 <h5>闹太套！</h5>
 
@@ -586,7 +384,7 @@ feeling-lucky), a [wiki: test] link to a Wikipedia page, and a link to
 <p>Now some inline markup like <em>italics</em>,  <strong>bold</strong>, and <code>code()</code>. Note that underscores in
 words are ignored in Markdown Extra.</p>
 
-<p><img src="/images/photo.jpeg" title="Title is optional" alt="picture alt" /></p>
+<p><img src="http://Fatman13.github.io/images/photo.jpeg" title="Title is optional" alt="picture alt" /></p>
 
 <blockquote><p>Blockquotes are like quoted text in email replies</p>
 
@@ -692,54 +490,7 @@ Pop
 
 
 <p>*[ABBR]: Markdown plus abbreviations (produces an <abbr> tag)</p>
-
-		
-		
-	</div>
-
-</article>
-
-</div>
-<nav id="pagenavi">
-    
-    
-    <div class="center"><a href="/blog/archives">Blog Archives</a></div>
-</nav></div>
-			</div>
-			<footer id="footer" class="inner"><p>
-  Copyright &copy; 2013 - Fatman13 -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
-Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a></footer>
-			<script src="/javascripts/slash.js"></script>
-<script src="/javascripts/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-(function($){
-	$('.fancybox').fancybox();
-})(jQuery);
-</script> <!-- Delete or comment this line to disable Fancybox -->
-
-
-<script type="text/javascript">
-      var disqus_shortname = 'Fatman13';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
-
-
-
-
-
-
-		</div>
-	</div>
-</body>
-</html>
+]]></content>
+  </entry>
+  
+</feed>
