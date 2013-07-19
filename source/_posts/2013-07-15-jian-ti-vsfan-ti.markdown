@@ -6,7 +6,7 @@ comments: true
 categories: 
 - 随笔
 ---
-最近无意间看见这个[新闻](http://gongyi.people.com.cn/n/2013/0715/c152509-22197217.html)。回想起之前看见一个很牛B的孩子写的一篇[博客](https://www.byvoid.com/blog/refute-asiwt/)。鄙人也要来发表一下我的看法。
+最近[百度新闻](http://news.baidu.com/)上无意间看见这个[新闻](http://gongyi.people.com.cn/n/2013/0715/c152509-22197217.html)。回想起之前看见一个很牛B的孩子写的一篇[博客](https://www.byvoid.com/blog/refute-asiwt/)。鄙人也要来发表一下我的看法。
 
 <!--more-->
 

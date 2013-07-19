@@ -4,7 +4,6 @@ title: "How-to: Disable Bluetooth on startup (Ubuntu 13.04)"
 date: 2013-07-12 16:53
 comments: true
 categories: 
-- technical
 - Ubuntu
 - 技术
 ---

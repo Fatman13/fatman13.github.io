@@ -40,7 +40,7 @@ If you set `Ubuntu` to login automatically like I did. Then you might be prompt 
 
 **2**. Go to `View`->`By keyring`. You should see the following window.
 
-{% img /images/pass&keyringWindow.png 400 513 1 %}
+{% img /images/pass&keyringWindow.png 450 577 1 %}
 
 **3**. Right click `Login`, choose `Change Password`. Type in your old password, then leave new password as empty.
 
