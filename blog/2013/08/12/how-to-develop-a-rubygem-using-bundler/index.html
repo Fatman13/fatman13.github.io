@@ -1,0 +1,452 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>How-to: Develop a RubyGem using Bundler - Fatman13</title>
+	<meta name="author" content="Fatman13">
+
+	
+	<meta name="description" content="How-to: Develop a RubyGem Using Bundler I am by no means a Ruby expert. This is my humble attempt of sharing what I have learned and serves as a &hellip;">
+	
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Fatman13" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://Fatman13.github.io/blog/2013/08/12/how-to-develop-a-rubygem-using-bundler/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+	<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">	
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		document.write("<img src='http://www.gravatar.com/avatar/" + MD5("tctctcly@gmail.com") + "?s=160' alt='Profile Picture' style='width: 160px;' />");
+	</script>
+</div>
+<h1><a href="/">Fatman13</a></h1>
+<p class="subtitle">The Tauntaun Slayer</p>
+<nav id="main-nav"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="http://about.me/yu.leng">About</a></li>
+  <!--<li><a href="/blog/archives">Archives</a></li>-->
+</ul>
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+		<a class="weibo" href="http://www.weibo.com/FATman13CC" title="Weibo">Weibo</a>
+		
+		
+		
+		
+		
+		<a class="github" href="https://github.com/Fatman13" title="GitHub">GitHub</a>
+		
+		
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+<!--<hgroup>
+  <h1><a href="/">Fatman13</a></h1>
+  
+    <h2>The Tauntaun Slayer</h2>
+  
+</hgroup>
+-->
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">How-to: Develop a RubyGem Using Bundler</h1>
+	<div class="entry-content" itemprop="articleBody"><p>I am by no means a Ruby expert. This is my humble attempt of sharing what I have learned and serves as a note to future me. It should be helpful to whoever is new to Ruby and would like to have a jump start on developing a Ruby gem.</p>
+
+<!--more-->
+
+
+<h1>Prerequisites</h1>
+
+<h3>Ruby</h3>
+
+<p>Ruby is a powerful scripting language which gains popularity with the rise of many active open source projects and communities built around it. Before thinking build some library from scratch, there might already be a free open source library which you can easily leverage. Therefore saving tons of development time.</p>
+
+<h3>gem</h3>
+
+<p>A <code>gem</code> is a Ruby library packaged in a standard format. You can easily download and install gems to help your development through RubyGems, which will be discussed later in the article. In a nutshell, RubyGems works a lot like <code>apt</code> or <code>yum</code>.</p>
+
+<h3>rvm</h3>
+
+<p><code>rvm</code> stands for Ruby enVironment Manager. <code>rvm</code> allows you to switch to a specific Ruby version and a specific set of gems for different projects. It is highly recommended that you install <code>rvm</code> to manage different versions of Ruby and gemsets for your projects.</p>
+
+<p>To install <code>rvm</code>, do.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>curl -L https://get.rvm.io | bash -s stable –ruby</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To install Ruby 1.9.3, do.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rvm install 1.9.3
+</span><span class='line'>rvm use 1.9.3
+</span><span class='line'>rvm rubygems latest</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Use <code>rvm list</code> to verify your Ruby installation. Use <code>rvm list known</code> to see a list of available Ruby versions that rvm is capable of installing.</p>
+
+<p>Notice the last command <code>rvm rubygems lastest</code> will install latest version of <code>rubygems</code>, which is a Ruby library packaging and distribution manager.</p>
+
+<h3>RubyGems</h3>
+
+<p>As mentioned above, with RubyGems, installing libraries published by others is made very easy.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem install [gem_name]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Substitute [gem_name] in above command to install the actual gem you want.</p>
+
+<ul>
+<li><p><strong>Note</strong>: A gem may depend on other gems. Therefore installing one gem may result in installing multiple other gems.</p></li>
+<li><p><strong>Tip</strong>: You can specify which version of the gem you want to install by <code>gem install [gem_name] -v ‘1.0.0’</code>,  <code>gem install [gem_name] -v ‘&gt;=1.0.0’</code>, or <code>gem install [gem_name] -v ‘~&gt;1.0.0’</code></p></li>
+<li><p><strong>Important</strong>: If you are using <code>rvm</code> like many people recommended, <strong>DO NOT</strong> use <code>sudo</code> when installing gems. You may come across many tutorials telling you to do things like <code>sudo gem install devise</code>. <strong>DON’T</strong> do that. Because <code>sudo</code> will mess up your <code>rvm</code>. See more details on why not using <code>sudo</code> <a href="http://rvm.io/rubies/rubygems">here</a> if you are interested.</p></li>
+</ul>
+
+
+<h3>Git</h3>
+
+<p>Install git, do.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install git</span></code></pre></td></tr></table></div></figure>
+
+
+<!--p2-->
+
+
+<h1>Building your first gem using Bundler</h1>
+
+<p><code>Bundler</code> is a great gem which can do a lot of things. Scaffolding a new gem is one of its many features.</p>
+
+<p>I will be using <a href="https://github.com/Fatman13/ColorfulMD">colorfulMD</a> as an example gem for this walk through. ColorfulMD colorfies your markdown text by adding <code>&lt;font color=”a_color”&gt;&lt;/color&gt;</code> tag to certain text defined in a <code>config.yaml</code> file.</p>
+
+<p><em>There is a very good guide <a href="https://github.com/radar/guides/blob/master/gem-development.md">here</a>. I will be explaining things that might not be too obvious. At least not so obvious to me.</em></p>
+
+<h3>Getting started</h3>
+
+<p>To install Bundler, do.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem install bundler</span></code></pre></td></tr></table></div></figure>
+
+
+<p>To create a new gem, do.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bundle gem colorfulMD</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This should create a new folder called <code>colorfulMD</code>. Some skeleton files and directories will be created under <code>./colorfulMD</code>.</p>
+
+<blockquote><p>If you have Git installed, <code>bundle gem colorfulMD</code> also initializes a Git repository in <code>./colorfulMD</code> so you can start committing right away.</p></blockquote>
+
+<ul>
+<li><p><strong>Tip</strong>: You can add <code>.*~</code> and <code>*~</code> to <code>.gitignore</code> file if your text editor creates tmp file ending with <code>~</code>. This will prevent unnecessary files get pushed into your repo.</p></li>
+<li><p><strong>Tip</strong>: If you are using IDEs like <code>RubyMine</code>. You may also want to add <code>.idea</code> to your <code>.gitignore</code> file.</p></li>
+<li><p><strong>Tip</strong>: Usually you can define all your gem dependencies in your <code>Gemfile</code>. But <code>Bundler</code> creates <code>[gem_name].gemspec</code> file by default and defines dependencies there.</p></li>
+<li><p><strong>Tip</strong>: It is a good practice that you put a <code>.rvmrc</code> like <a href="https://github.com/Fatman13/ColorfulMD/blob/master/.rvmrc">this one</a> in <code>colorfulMD</code> folder. <code>cd</code> out of <code>colorfulMD</code> folder and <code>cd</code> back in, you should see that <code>rvm</code> will initialize a independent Ruby environment for this project. This means when working in <code>colorfulMD</code> folder, you are using different Ruby version or gemsets than the global ones.</p></li>
+</ul>
+
+
+<h3>Following BDD</h3>
+
+<p>I didn’t find <a href="http://en.wikipedia.org/wiki/Behavior-driven_development">BDD</a> particularly intriguing. But as for this walk through, we shall start writing our test cases even before any actual coding following BDD discipline.</p>
+
+<p>Open <code>colorfulMD.gemspec</code> file and add the following. (<a href="https://github.com/Fatman13/ColorfulMD/blob/master/colorfulMD.gemspec">example here</a>)</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">add_development_dependency</span> <span class="s2">&quot;cucumber&quot;</span>
+</span><span class='line'><span class="n">s</span><span class="o">.</span><span class="n">add_development_dependency</span> <span class="s2">&quot;aruba&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>
+(<em><code>add_development_dependency</code> means those gems will only be installed for development use.</em>)</p>
+
+<p><code>cucumber</code> gem and <code>aruba</code> gem are great testing tools help us generate test code following BDD discipline. (<em><a href="http://blog.jcoglan.com/2009/10/03/getting-started-with-cucumber-rspec-webrat-and-multiruby/">here</a> is a pretty good introductive tutorial for <code>cucumber</code></em>) <code>bundle install</code> is a command that goes through gemspec file, figure out the dependency and installs gems needed.</p>
+
+<p>Run <code>bundle install</code> to install dependencies.</p>
+
+<p>Inside <code>colorfulMD</code>, do <code>mkdir features</code>. <code>cd</code> into <code>features</code> and create directory structure and files like shown <a href="https://github.com/Fatman13/ColorfulMD/tree/master/features">here</a>.</p>
+
+<ul>
+<li><p><strong>/support</strong>: Ruby files in <code>support</code> folder will be executed before <code>cucumber</code> runs any actual tests, therefore it is good to put code that sets up environment here.</p></li>
+<li><p><strong>/step_definitions</strong>: Actual test code for a feature will be in this folder.</p></li>
+<li><p><strong>cli.feature</strong>: Write your feature in this file. You can name it differently.</p></li>
+</ul>
+
+
+<p>I put down the following into my <code>cli.feature</code> file.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="ss">Feature</span><span class="p">:</span> <span class="no">CLI</span>
+</span><span class='line'>  <span class="no">In</span> <span class="n">order</span> <span class="n">to</span> <span class="n">colorfy</span> <span class="n">markdown</span>
+</span><span class='line'>  <span class="no">As</span> <span class="n">a</span> <span class="no">CLI</span>
+</span><span class='line'>  <span class="n">I</span> <span class="n">want</span> <span class="n">to</span> <span class="n">add</span> <span class="o">&lt;</span><span class="n">font</span> <span class="n">color</span><span class="o">&gt;</span> <span class="n">tag</span> <span class="n">to</span> <span class="n">some</span> <span class="n">text</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="ss">Scenario</span><span class="p">:</span> <span class="n">add</span> <span class="o">&lt;</span><span class="n">font</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;given_color&quot;</span><span class="o">&gt;</span> <span class="n">tag</span> <span class="n">to</span> <span class="s2">&quot;given_string&quot;</span>
+</span><span class='line'>    <span class="no">Given</span> <span class="n">three</span> <span class="n">arguments</span> <span class="s2">&quot;given_color&quot;</span><span class="p">,</span> <span class="s2">&quot;given_string&quot;</span> <span class="ow">and</span> <span class="s2">&quot;text&quot;</span>
+</span><span class='line'>    <span class="no">When</span> <span class="n">I</span> <span class="n">call</span> <span class="n">colorfy</span> <span class="n">of</span> <span class="no">CLI</span> <span class="n">with</span> <span class="s2">&quot;red&quot;</span> <span class="s2">&quot;apple&quot;</span> <span class="k">in</span> <span class="s2">&quot;I had an apple this afternoon&quot;</span>
+</span><span class='line'>    <span class="no">Then</span> <span class="n">the</span> <span class="n">output</span> <span class="n">should</span> <span class="n">equal</span>
+</span><span class='line'>      <span class="s2">&quot;&quot;&quot;</span>
+</span><span class='line'><span class="s2">      I had an &lt;font color=&quot;</span><span class="n">red</span><span class="s2">&quot;&gt;apple&lt;/font&gt; this afternoon</span>
+</span><span class='line'><span class="s2">      &quot;&quot;&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It doesn’t seem to really matter what you put right after <code>Feature:</code> and <code>Scenario:</code>.  The main thing you want to define here is what follows <code>Given</code>, <code>When</code> and <code>Then</code> keywords. It is relatively comprehensive. <code>Given</code> defines what argument(s) your method is taking. (<em>you don’t need <code>given</code> if you are not going to do anything fancy with the arguments</em>) I specified values of the three arguments with <code>When</code> keyword. Note how close the test case is to natural language. That is supposed to be the beauty of BDD. Given the arguments specified after <code>When</code>, I put down the expected output after <code>Then</code> keyword. Triple quotes was used for escaping the quotes in the expected output.</p>
+
+<p>After all that, run <code>bundle exec cucumber features/</code>.  Copy paste the output after <code>You can implement step definitions for undefined steps with these snippets:
+</code> to <code>/step_definitions/colorfy_steps.rb</code>. (<em>you should copy paste something close to the below</em>)</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Given</span><span class="p">(</span><span class="sr">/^three arguments &quot;(.*?)&quot;, &quot;(.*?)&quot; and &quot;(.*?)&quot;$/</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">pending</span> <span class="c1"># express the regexp above with the code you wish you had</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">When</span><span class="p">(</span><span class="sr">/^I call colorfy of CLI with &quot;(.*?)&quot; &quot;(.*?)&quot; in &quot;(.*?)&quot;$/</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">pending</span> <span class="c1"># express the regexp above with the code you wish you had</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">Then</span><span class="p">(</span><span class="sr">/^the output should equal$/</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">string</span><span class="o">|</span>
+</span><span class='line'>  <span class="n">pending</span> <span class="c1"># express the regexp above with the code you wish you had</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now add some actual testing code to <code>colorfy_steps.rb</code> like shown <a href="https://github.com/Fatman13/ColorfulMD/blob/master/features/step_definitions/colorfy_steps.rb">here</a>.</p>
+
+<h3>Implementing CLI</h3>
+
+<p>Add <code>spec.add_dependency "thor"</code> to your <code>gemspec</code> file. And run <code>bundle install</code>.</p>
+
+<p>At project root, do <code>mkdir lib/colorfulMD</code>, <code>touch lib/colorfulMD/cli.rb</code> and <code>touch lib/colorfulMD/colorfulMD.rb</code>. Paste the following to <code>cli.rb</code> and <code>colorfulMD.rb</code> respectively.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># $LOAD_PATH.unshift(File.dirname(__FILE__))</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;thor&#39;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;colorfulMD&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">module</span> <span class="nn">ColorfulMD</span>
+</span><span class='line'>  <span class="k">class</span> <span class="nc">CLI</span> <span class="o">&lt;</span> <span class="no">Thor</span>
+</span><span class='line'>    <span class="n">desc</span> <span class="s2">&quot;colorfy GIVEN_COLOR GIVEN_STRING TEXT&quot;</span><span class="p">,</span> <span class="s2">&quot;colorfy a given word by a given color defined in yaml&quot;</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">colorfy</span><span class="p">(</span><span class="n">given_color</span><span class="p">,</span> <span class="n">given_string</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</span><span class='line'>        <span class="n">clrmd</span> <span class="o">=</span> <span class="ss">ColorfulMD</span><span class="p">:</span><span class="ss">:Colorfulmd</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'>        <span class="n">clrmd</span><span class="o">.</span><span class="n">colorfy</span><span class="p">(</span><span class="n">given_color</span><span class="p">,</span> <span class="n">given_string</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">module</span> <span class="nn">ColorfulMD</span>
+</span><span class='line'>    <span class="k">class</span> <span class="nc">Colorfulmd</span>
+</span><span class='line'>        <span class="c1"># colorfy</span>
+</span><span class='line'>        <span class="k">def</span> <span class="nf">colorfy</span><span class="p">(</span><span class="n">given_color</span><span class="p">,</span> <span class="n">given_string</span><span class="p">,</span> <span class="n">text</span><span class="p">)</span>
+</span><span class='line'>          <span class="n">text</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="n">given_string</span><span class="p">,</span> <span class="s2">&quot;&lt;font color=</span><span class="se">\&quot;</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">given_color</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">&gt;&quot;</span> <span class="o">+</span> <span class="n">given_string</span> <span class="o">+</span> <span class="s2">&quot;&lt;/font&gt;&quot;</span> <span class="p">)</span>
+</span><span class='line'>        <span class="k">end</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>At this point, if you run <code>bundle exec cucumber features</code>, you should see you have passed all cucumber test! Systems all green!</p>
+
+<p>And now we just need to make a cli executable.</p>
+
+<p>At project root, do <code>mkdir bin</code>. Do <code>touch bin/colorfulMD</code> and <code>sudo chmod +x bin/colorfulMD</code>. <code>bin/colorfulMD</code> will be your CLI executable for your gem. Paste the following code to <code>bin/colorfulMD</code></p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1">#!/usr/bin/env ruby</span>
+</span><span class='line'><span class="vg">$LOAD_PATH</span><span class="o">.</span><span class="n">unshift</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="bp">__FILE__</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/../lib/colorfulMD&#39;</span><span class="p">)</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;colorfulMD/cli&#39;</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;colorfulMD&#39;</span>
+</span><span class='line'><span class="ss">ColorfulMD</span><span class="p">:</span><span class="ss">:CLI</span><span class="o">.</span><span class="n">start</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Run your executable by <code>bundle exec bin/colorfulMD colorfy red apple apple</code>. You can modify the code to have colorfy method output string by replacing <code>text.gsub(given_string, "&lt;font color=\"" + given_color + "\"&gt;" + given_string + "&lt;/font&gt;" )</code> with <code>puts text.gsub(given_string, "&lt;font color=\"" + given_color + "\"&gt;" + given_string + "&lt;/font&gt;" )</code> in <code>colorfulMD.rb</code>.</p>
+
+<p>This concludes the tutorial.</p>
+</div>
+
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style addthis_16x16_style">
+	
+	<a class="addthis_button_sinaweibo"></a>
+	
+	
+	
+	<a class="addthis_button_twitter"></a>
+	
+	
+	
+	<a class="addthis_button_compact"></a>
+	<a class="addthis_counter addthis_bubble_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h1 class="title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+			</div>
+			<footer id="footer" class="inner"><p>
+  Copyright &copy; 2013 - Fatman13 -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+Designed by: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a>
+</footer>
+			<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'Fatman13';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://Fatman13.github.io/blog/2013/08/12/how-to-develop-a-rubygem-using-bundler/';
+        var disqus_url = 'http://Fatman13.github.io/blog/2013/08/12/how-to-develop-a-rubygem-using-bundler/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-42348539-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42348539-1', 'fatman13.me');
+  ga('send', 'pageview');
+
+</script>
+
+		</div>
+	</div>
+</body>
+</html>

@@ -65,8 +65,14 @@
         <lastmod>2013-08-10T23:58:49-07:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://Fatman13.github.io/blog/2013/08/12/how-to-develop-a-rubygem-using-bundler/
+        </loc>
+        <lastmod>2013-08-13T00:31:37-07:00</lastmod>
+    </url>
+    <url>
         <loc>http://Fatman13.github.io/</loc>
-        <lastmod>2013-08-10T23:58:49-07:00</lastmod>
+        <lastmod>2013-08-13T00:31:37-07:00</lastmod>
     </url>
     <url>
         <loc>http://Fatman13.github.io/robots.txt</loc>
@@ -74,6 +80,6 @@
     </url>
     <url>
         <loc>http://Fatman13.github.io/blog/archives/</loc>
-        <lastmod>2013-08-10T23:58:49-07:00</lastmod>
+        <lastmod>2013-08-13T00:31:37-07:00</lastmod>
     </url>
 </urlset>
