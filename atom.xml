@@ -4,7 +4,7 @@
   <title><![CDATA[Fatman13]]></title>
   <link href="http://Fatman13.github.io/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2013-08-13T00:33:27-07:00</updated>
+  <updated>2013-08-14T10:41:17-07:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -27,7 +27,7 @@
 
 <h3>Ruby</h3>
 
-<p>Ruby is a powerful scripting language which gains popularity with the rise of many active open source projects and communities built around it. Before thinking build some library from scratch, there might already be a free open source library which you can easily leverage. Therefore saving tons of development time.</p>
+<p>Ruby is a powerful programming language which gains popularity with the rise of many active open source projects and communities built around it. Before thinking build some library from scratch, there might already be a free open source library which you can easily leverage. Therefore saving tons of development time.</p>
 
 <h3>gem</h3>
 
