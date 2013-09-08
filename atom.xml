@@ -4,7 +4,7 @@
   <title><![CDATA[Fatman13]]></title>
   <link href="http://Fatman13.github.io/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2013-09-05T20:51:43-07:00</updated>
+  <updated>2013-09-08T15:23:09-07:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -12,6 +12,62 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Eador: Masters of the broken worlds 新手心得]]></title>
+    <link href="http://Fatman13.github.io/blog/2013/09/08/eador-masters-of-the-broken-worlds-xin-shou-xin-de/"/>
+    <updated>2013-09-08T13:55:00-07:00</updated>
+    <id>http://Fatman13.github.io/blog/2013/09/08/eador-masters-of-the-broken-worlds-xin-shou-xin-de</id>
+    <content type="html"><![CDATA[<p><code>Eador: Masters of the broken worlds</code>是最近少有的奇幻系<a href="http://en.wikipedia.org/wiki/Turn-based_strategy">TBS</a>类型的游戏。玩了几盘，还不错。写下心得体会。</p>
+
+<!--more-->
+
+
+<p><em>注：本人玩的都是</em><code>beginner</code><em>难度，高阶难度是否适用不得而知&hellip;&hellip;</em></p>
+
+<h1>游戏简介</h1>
+
+<p>这里使用SplatterCat制作的游戏流程影像。</p>
+
+<iframe width="853" height="480" src="http://Fatman13.github.io//www.youtube.com/embed/q4ARvRq8z34?list=PLWIol4T7LuShSOr8zmTvtVbAS0Z-0WxmO" frameborder="0" allowfullscreen></iframe>
+
+
+<h1>英雄</h1>
+
+<ul>
+<li><p>个人比较喜欢<a href="http://eador-masters-of-the-broken-world.wikia.com/wiki/Wizard">法师</a>。英雄升级技能主<code>Necromancy</code>和<code>Magic Power</code>比较实用。特别是<code>Necromancy</code>能使召唤出来的不死族加入到英雄的军队中。初期非常实用。</p></li>
+<li><p>法师中后期没有高阶法术的支持，不太好打。但是如果运气好在explore的时候打到好的spell的话，会很强。有一次我在explore province的时候，捡到了<a href="http://eador-masters-of-the-broken-world.wikia.com/wiki/Elemental_Magic">Incinerate</a>，能对对方单体造成40点伤害。初期几乎见谁秒谁。</p></li>
+</ul>
+
+
+<h1>省（Province）</h1>
+
+<ul>
+<li><p>一般离主城越近的province敌人的守卫越弱。离主城越远，敌人守卫等级越高，数量也越多。</p></li>
+<li><p>省份攻略难度大致为：Free Settlement &lt; Golbin Land, Orcish Tribe &lt; Outlaw Brigand &lt; Lizard Land &lt; Dwarf, Halfing（这儿开始没有T2的兵就很难打了&hellip;）&lt; Nomad &lt; Elven &lt; Centaur  &lt; Giant Spider</p></li>
+</ul>
+
+
+<h1>经济</h1>
+
+<ul>
+<li>经济发展主要还是要靠打仗收入，和占领省市。一直捂在家里很难发展起来。初期法师英雄建议早造Shaman帮助英雄打掉主城周围一圈的省份。</li>
+</ul>
+
+
+<h1>作弊大法</h1>
+
+<ul>
+<li>由于战役做的实在太冗长&hellip;每次去打新地图的时候，主城，英雄都要从头开始。于是我不能忍了。就作弊了。在<code>Documents/Eador/profiles/player0/saves</code>路径下找到存档文件。用文字编辑器打开存档文件。按<code>ctrl + f</code>寻找<code>gold=</code>找到之后就能修改这个存档的金钱了。要注意的是修改不能改位子位数。例如<code>gold=100</code>那就只能改成<code>gold=999</code>，如果改成<code>gold=99999</code>就会污染存档，导致无法读取&hellip;</li>
+</ul>
+
+
+<h1>附录</h1>
+
+<iframe width="853" height="480" src="http://Fatman13.github.io//www.youtube.com/embed/qIxSwn9l41I" frameborder="0" allowfullscreen></iframe>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[写给毛藏的使用指南]]></title>
