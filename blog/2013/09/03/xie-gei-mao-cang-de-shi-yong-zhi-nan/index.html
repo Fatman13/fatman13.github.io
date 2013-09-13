@@ -120,6 +120,16 @@ cd &hellip;">
 
 <p><strong>4</strong>. 打开浏览器。输入地址<code>localhost:3000/products</code>。</p>
 
+<h1>如何打开服务器</h1>
+
+<p><strong>1</strong>. 打开命令行</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd c:\Sites\MaoZangLED
+</span><span class='line'>rails s</span></code></pre></td></tr></table></div></figure>
+
+
 <h1>如何更新</h1>
 
 <p><strong>1</strong>. 使用以下命令更新代码。</p>
@@ -128,13 +138,13 @@ cd &hellip;">
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
+<span class='line-number'>5</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>cd c:\Sites\MaoZangLED
-</span><span class='line'>git pull origin master
-</span><span class='line'>bundle install
+</span><span class='line'>git fetch --all
+</span><span class='line'>git reset --hard origin/master
+</span><span class='line'>bundle install --path .bundle
 </span><span class='line'>rake db:migrate</span></code></pre></td></tr></table></div></figure>
 
-
-<p><em>注：这里同样，如果有除了c盘以外其他分盘的话需要替换</em><code>bundle install</code><em>为</em><code>bundle install --path .bundle</code><em>。好像sass在windows上有bug。</em></p>
 </div>
 
 </article>

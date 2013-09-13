@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 技术 | Fatman13]]></title>
   <link href="http://Fatman13.github.io/blog/categories/ji-zhu/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2013-09-08T15:23:09-07:00</updated>
+  <updated>2013-09-12T21:44:42-07:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -42,18 +42,26 @@ rake db:migrate
 
 <p><strong>4</strong>. 打开浏览器。输入地址<code>localhost:3000/products</code>。</p>
 
+<h1>如何打开服务器</h1>
+
+<p><strong>1</strong>. 打开命令行</p>
+
+<p><code>
+cd c:\Sites\MaoZangLED
+rails s
+</code></p>
+
 <h1>如何更新</h1>
 
 <p><strong>1</strong>. 使用以下命令更新代码。</p>
 
 <p><code>
 cd c:\Sites\MaoZangLED
-git pull origin master
-bundle install
+git fetch --all
+git reset --hard origin/master
+bundle install --path .bundle
 rake db:migrate
 </code></p>
-
-<p><em>注：这里同样，如果有除了c盘以外其他分盘的话需要替换</em><code>bundle install</code><em>为</em><code>bundle install --path .bundle</code><em>。好像sass在windows上有bug。</em></p>
 ]]></content>
   </entry>
   
