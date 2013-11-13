@@ -4,7 +4,7 @@
   <title><![CDATA[Fatman13]]></title>
   <link href="http://Fatman13.github.io/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2013-10-16T16:52:15-07:00</updated>
+  <updated>2013-11-13T14:03:49-08:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -12,6 +12,73 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[noisehush freedom BT700蓝牙耳机评测]]></title>
+    <link href="http://Fatman13.github.io/blog/2013/11/13/noisehush-freedom-bt700lan-ya-er-ji-ping-ce/"/>
+    <updated>2013-11-13T13:08:00-08:00</updated>
+    <id>http://Fatman13.github.io/blog/2013/11/13/noisehush-freedom-bt700lan-ya-er-ji-ping-ce</id>
+    <content type="html"><![CDATA[<p>最近买了一个<a href="http://www.amazon.com/NoiseHush-BT700-12266-Freedom-Bluetooth-Headphones/dp/B00EP7B800/ref=sr_1_2?ie=UTF8&amp;qid=1384377703&amp;sr=8-2&amp;keywords=noisehush+bt700">新耳机</a>。感觉还不错，写一个评测。</p>
+
+<!--more-->
+
+
+<h1>外观&amp;功能</h1>
+
+<p><img src="http://Fatman13.github.io/images/IMAG0848.resized.jpg" width="600" height="339" title="1" ></p>
+
+<p>盒子不错，简单大方。很硬。</p>
+
+<p><img src="http://Fatman13.github.io/images/IMAG0852.resized.jpg" width="600" height="339" title="1" ></p>
+
+<p>左耳，以及左耳上的功能键。</p>
+
+<p><img src="http://Fatman13.github.io/images/IMAG0853.resized.jpg" width="600" height="339" title="1" ></p>
+
+<p>最上：上一首；下一首；播放；暂停；音量+-<br/>
+中间：usb mini接口（<em>充电用</em>）<br/>
+最下：电源开关（<em>开机&mdash;&ndash;>长按3秒；关机&mdash;&ndash;>长按3秒；蓝牙搜索&mdash;&mdash;&ndash;>长按5秒</em>)</p>
+
+<p><img src="http://Fatman13.github.io/images/IMAG0855.resized.jpg" width="600" height="339" title="1" ></p>
+
+<p>右耳。</p>
+
+<p><img src="http://Fatman13.github.io/images/IMAG0856.resized.jpg" width="600" height="339" title="1" ></p>
+
+<p>耳朵内侧。</p>
+
+<h1>兼容性</h1>
+
+<p>经测试，以下设备都成功链接上了这个耳机。<br/>
+* HTC Sensation<br/>
+* Nokia Lumia 820<br/>
+* System76 Gazelle-pro （Ubuntu 13.04）</p>
+
+<h1>总体评价</h1>
+
+<p>用下来感觉还是很不错的。第一次用蓝牙耳机，那种没有被一般耳机的那一根线牵着的感觉很好。当然本人不是对声音很敏感的人，所以也听不出好耳机跟坏耳机的区别。声音感觉过得去就行了。这个耳机戴在耳朵上的感觉也不会太紧。感觉开机后左耳的那个灯，晚上的话，会特别闪，可能要贴一张胶布遮住。由于2个耳朵是圆形的设计，所以并不能完全覆盖整个耳朵，所以隔音效果可能没有长方形的耳机好。再来就是有<a href="https://www.youtube.com/watch?v=QK8mJJJvaes">某一些视频</a>会有声音慢半拍的现象，但是经测试大多数情况还是正常的，比如说<a href="http://www.bilibili.tv/">b站</a>什么的。</p>
+
+<h1>附录</h1>
+
+<p>U<br/>
+U<br/>
+U<br/>
+U<br/>
+U<br/>
+U<br/>
+U<br/>
+U<br/>
+U<br/>
+U<br/>
+U<br/>
+U</p>
+
+<iframe width="640" height="360" src="http://Fatman13.github.io//www.youtube.com/embed/XeFxdkaFzRA" frameborder="0" allowfullscreen></iframe>
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Google Analytics统计的本博客的流量]]></title>
@@ -1647,172 +1714,6 @@ Order Total:    <strong>$993.06</strong></p>
 <h3>P.S.</h3>
 
 <p>忽然发现octopress的table没有边框。有大牛在<a href="http://programus.github.io/blog/2012/03/07/add-table-data-css-for-octopress/">这里</a>解决了这个问题。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[世界你好]]></title>
-    <link href="http://Fatman13.github.io/blog/2013/06/19/shi-jie-ni-hao/"/>
-    <updated>2013-06-19T15:47:00-07:00</updated>
-    <id>http://Fatman13.github.io/blog/2013/06/19/shi-jie-ni-hao</id>
-    <content type="html"><![CDATA[<h2>要要要，切可闹！</h2>
-
-<h5>闹太套！</h5>
-
-<p>我是一个段落。我是一个段落。我是一个段落。我是一个段落。我是一个段落。我是一个段落。我是一个段落。我是一个段落。我是一个段落。^_^</p>
-
-<ul>
-<li>其一</li>
-<li>其二</li>
-<li>其三</li>
-<li>气死</li>
-</ul>
-
-
-<!--more-->
-
-
-<p>上海
-： 位于中国东部长江入海口的一个直辖市。</p>
-
-<p>我很<em>粗</em>
-我很<em>粗</em></p>
-
-<p><a href="http://baike.baidu.com/">百度百科</a></p>
-
-<p>啧啧～</p>
-
-<h1>Header 1</h1>
-
-<h2>Header 2</h2>
-
-<h3>Header 3 ###             (Hashes on right are optional)</h3>
-
-<h4>Header 4</h4>
-
-<h5>Header 5</h5>
-
-<h2>Markdown plus h2 with a custom ID ##         {#id-goes-here}</h2>
-
-<p><a href="#id-goes-here">Link back to H2</a></p>
-
-<p>This is a paragraph, which is text surrounded by whitespace. Paragraphs can be on one
-line (or many), and can drone on for hours.</p>
-
-<p>Here is a Markdown link to <a href="http://warpedvisions.org">Warped</a>, and a literal .
-Now some SimpleLinks, like one to [google] (automagically links to are-you-
-feeling-lucky), a [wiki: test] link to a Wikipedia page, and a link to
-[foldoc: CPU]s at foldoc.</p>
-
-<p>Now some inline markup like <em>italics</em>,  <strong>bold</strong>, and <code>code()</code>. Note that underscores in
-words are ignored in Markdown Extra.</p>
-
-<p><img src="http://Fatman13.github.io/images/photo.jpeg" title="Title is optional" alt="picture alt" /></p>
-
-<blockquote><p>Blockquotes are like quoted text in email replies</p>
-
-<blockquote><p>And, they can be nested</p></blockquote></blockquote>
-
-<ul>
-<li>Bullet lists are easy too</li>
-<li>Another one</li>
-<li><p>Another one</p></li>
-<li><p>A numbered list</p></li>
-<li>Which is numbered</li>
-<li>With periods and a space</li>
-</ul>
-
-
-<p>And now some code:</p>
-
-<pre><code>// Code is just text indented a bit
-which(is_easy) to_remember();
-</code></pre>
-
-<p>~~~</p>
-
-<p>// Markdown extra adds un-indented code blocks too</p>
-
-<p>if (this_is_more_code == true &amp;&amp; !indented) {</p>
-
-<pre><code>// tild wrapped code blocks, also not indented
-</code></pre>
-
-<p>}</p>
-
-<p>~~~</p>
-
-<p>Text with<br/>
-two trailing spaces<br/>
-(on the right)<br/>
-can be used<br/>
-for things like poems</p>
-
-<h3>Horizontal rules</h3>
-
-<hr />
-
-<hr />
-
-<hr />
-
-<div class="custom-class" markdown="1">
-This is a div wrapping some Markdown plus.  Without the DIV attribute, it ignores the 
-block. 
-</div>
-
-
-<h2>Markdown plus tables</h2>
-
-<table>
-<thead>
-<tr>
-<th></th>
-<th> Header </th>
-<th> Header </th>
-<th align="right"> Right  </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td>  Cell  </td>
-<td>  Cell  </td>
-<td align="right">   $10  |</td>
-</tr>
-<tr>
-<td></td>
-<td>  Cell  </td>
-<td>  Cell  </td>
-<td align="right">   $20  |</td>
-</tr>
-</tbody>
-</table>
-
-
-<ul>
-<li>Outer pipes on tables are optional</li>
-<li>Colon used for alignment (right versus left)</li>
-</ul>
-
-
-<h2>Markdown plus definition lists</h2>
-
-<p>Bottled water
-: $ 1.25
-: $ 1.55 (Large)</p>
-
-<p>Milk
-Pop
-: $ 1.75</p>
-
-<ul>
-<li>Multiple definitions and terms are possible</li>
-<li>Definitions can include multiple paragraphs too</li>
-</ul>
-
-
-<p>*[ABBR]: Markdown plus abbreviations (produces an <abbr> tag)</p>
 ]]></content>
   </entry>
   
