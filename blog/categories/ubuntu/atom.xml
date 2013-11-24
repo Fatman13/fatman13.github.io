@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Ubuntu | Fatman13]]></title>
   <link href="http://Fatman13.github.io/blog/categories/ubuntu/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2013-11-13T14:03:49-08:00</updated>
+  <updated>2013-11-24T14:27:43+08:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[How-to: Disable Bluetooth on startup (Ubuntu 13.04)]]></title>
     <link href="http://Fatman13.github.io/blog/2013/07/12/how-to-disable-bluetooth-on-startup-ubuntu-13-dot-04/"/>
-    <updated>2013-07-12T16:53:00-07:00</updated>
+    <updated>2013-07-12T16:53:00+08:00</updated>
     <id>http://Fatman13.github.io/blog/2013/07/12/how-to-disable-bluetooth-on-startup-ubuntu-13-dot-04</id>
     <content type="html"><![CDATA[<p>Somehow whenever I boot up my <code>Ubuntu</code>, <code>Bluetooth</code> would be set to <strong>ON</strong>. <code>Ubuntu</code> didn&rsquo;t seem to remember whether <code>Bluetooth</code> was set to <strong>ON</strong> or <strong>OFF</strong> from last session. Personally I don&rsquo;t use any <code>Bluetooth</code> input devices. I&rsquo;d like to have it <strong>OFF</strong> so that it doesn&rsquo;t waste battery.</p>
 

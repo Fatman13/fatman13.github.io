@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 技术 | Fatman13]]></title>
   <link href="http://Fatman13.github.io/blog/categories/ji-zhu/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2013-11-13T14:03:49-08:00</updated>
+  <updated>2013-11-24T14:27:43+08:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[How-to: Host rails app on OpenShift for FREE]]></title>
     <link href="http://Fatman13.github.io/blog/2013/09/16/how-to-host-rails-app-on-openshift-for-free/"/>
-    <updated>2013-09-16T14:39:00-07:00</updated>
+    <updated>2013-09-16T14:39:00+08:00</updated>
     <id>http://Fatman13.github.io/blog/2013/09/16/how-to-host-rails-app-on-openshift-for-free</id>
     <content type="html"><![CDATA[<p>There are many great options for hosting your rails application. For instances, <a href="http://en.wikipedia.org/wiki/Platform_as_a_service">PaaS</a> like <a href="https://www.engineyard.com/">engine yard</a> and <a href="https://www.heroku.com/">heroku</a> provide great scalability and automations to ease your deployment. VPS like <a href="https://www.linode.com/">Linode</a> provides more traditional hosting services, which gives you full control of a node. But what if you just want to test your idea and have a public domain name (no tunneling and router tricks)? Then OpenShift is a great choice, cause it is FREE! (at least for your first 3 gears)</p>
 
@@ -158,7 +158,7 @@ git pull -s recursive -X theirs upstream master
   <entry>
     <title type="html"><![CDATA[写给毛藏的使用指南]]></title>
     <link href="http://Fatman13.github.io/blog/2013/09/03/xie-gei-mao-cang-de-shi-yong-zhi-nan/"/>
-    <updated>2013-09-03T16:46:00-07:00</updated>
+    <updated>2013-09-03T16:46:00+08:00</updated>
     <id>http://Fatman13.github.io/blog/2013/09/03/xie-gei-mao-cang-de-shi-yong-zhi-nan</id>
     <content type="html"><![CDATA[<p>写给毛藏的使用指南。</p>
 
@@ -210,7 +210,7 @@ rake db:migrate
   <entry>
     <title type="html"><![CDATA[How-to: Develop a RubyGem using Bundler]]></title>
     <link href="http://Fatman13.github.io/blog/2013/08/12/how-to-develop-a-rubygem-using-bundler/"/>
-    <updated>2013-08-12T15:08:00-07:00</updated>
+    <updated>2013-08-12T15:08:00+08:00</updated>
     <id>http://Fatman13.github.io/blog/2013/08/12/how-to-develop-a-rubygem-using-bundler</id>
     <content type="html"><![CDATA[<p>I am by no means a Ruby expert. This is my humble attempt of sharing what I have learned and serves as a note to future me. It should be helpful to whoever is new to Ruby and would like to have a jump start on developing a Ruby gem.</p>
 
@@ -442,7 +442,7 @@ ColorfulMD::CLI.start
   <entry>
     <title type="html"><![CDATA[How-to: Disable Bluetooth on startup (Ubuntu 13.04)]]></title>
     <link href="http://Fatman13.github.io/blog/2013/07/12/how-to-disable-bluetooth-on-startup-ubuntu-13-dot-04/"/>
-    <updated>2013-07-12T16:53:00-07:00</updated>
+    <updated>2013-07-12T16:53:00+08:00</updated>
     <id>http://Fatman13.github.io/blog/2013/07/12/how-to-disable-bluetooth-on-startup-ubuntu-13-dot-04</id>
     <content type="html"><![CDATA[<p>Somehow whenever I boot up my <code>Ubuntu</code>, <code>Bluetooth</code> would be set to <strong>ON</strong>. <code>Ubuntu</code> didn&rsquo;t seem to remember whether <code>Bluetooth</code> was set to <strong>ON</strong> or <strong>OFF</strong> from last session. Personally I don&rsquo;t use any <code>Bluetooth</code> input devices. I&rsquo;d like to have it <strong>OFF</strong> so that it doesn&rsquo;t waste battery.</p>
 
@@ -488,7 +488,7 @@ $ sudo gedit /etc/bluetooth/main.conf
   <entry>
     <title type="html"><![CDATA[使用Octopress教程大合集]]></title>
     <link href="http://Fatman13.github.io/blog/2013/06/24/shi-yong-octopressjiao-cheng-da-he-ji/"/>
-    <updated>2013-06-24T12:11:00-07:00</updated>
+    <updated>2013-06-24T12:11:00+08:00</updated>
     <id>http://Fatman13.github.io/blog/2013/06/24/shi-yong-octopressjiao-cheng-da-he-ji</id>
     <content type="html"><![CDATA[<p>小的消息闭塞，最近才开始使用<code>Octopress</code>。在这儿整理下各种实用的教程，以供大家参考！</p>
 
