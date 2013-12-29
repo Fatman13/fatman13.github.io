@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: VPN | Fatman13]]></title>
+  <link href="http://Fatman13.github.io/blog/categories/vpn/atom.xml" rel="self"/>
+  <link href="http://Fatman13.github.io/"/>
+  <updated>2013-12-29T15:29:42+08:00</updated>
+  <id>http://Fatman13.github.io/</id>
+  <author>
+    <name><![CDATA[Fatman13]]></name>
+    <email><![CDATA[tctctcly@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[How-to: Setup your personal VPN with Amazon EC2 for FREE]]></title>
+    <link href="http://Fatman13.github.io/blog/2013/12/29/how-to-setup-your-personal-vpn-with-amazon-ec2-for-free/"/>
+    <updated>2013-12-29T11:20:00+08:00</updated>
+    <id>http://Fatman13.github.io/blog/2013/12/29/how-to-setup-your-personal-vpn-with-amazon-ec2-for-free</id>
+    <content type="html"><![CDATA[<p>This tutorial will walk you through setting up a personal <a href="http://en.wikipedia.org/wiki/Point-to-Point_Tunneling_Protocol">PPTP</a> VPN server and connecting to it from a Windows Client. Using a VPN have merits like browsing the internet in relative privacy, bypassing censorship like the infamous <a href="http://en.wikipedia.org/wiki/Great_Firewall_of_China">GFW</a> and many more. Also new signups can use Amazon EC2 micro instance without paying for the first year.</p>
+
+<!--more-->
+
+
+<h1>Step 1: Get Set Up</h1>
+
+<p>Follow the official <code>get set up</code> guide for Amazon EC2 <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html">here</a>. The intructions are more comprehensive, in my opinoin, than blog posts from Google search results.</p>
+
+<h1>Step 2: Create EC2 Instance</h1>
+
+<p>Follow <code>step 1: Launch an Instance</code> and <code>step 2: Connect to your Instance</code> of the offical <code>get started</code> guide for Amazon EC2 <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html">here</a>.<br/>
+<strong>Note1:</strong> Instead of <strong>Select an Amazon Machine Image(AMI)</strong>, choose a <code>ubuntu 12.04 server</code> image.<br/>
+<strong>Note2:</strong> The dafault accout for AMI images is <code>ec2-user</code>, however, for ubuntu images you have to use <code>ubuntu</code> to connect to your instance.<br/>
+<strong>Note3:</strong> In the <code>AWS Management Console</code>, choose a regoin that is geograpgically closest to your location to have best browsing experience. I have chosen Singapore as shown below.</p>
+
+<p><img src="/images/ec2_region.jpg" width="233" height="317" title="1" ></p>
+
+<p><strong>Note4:</strong> Below is the my security group settings for your reference.</p>
+
+<p><img src="/images/ec2_sg.jpg" width="613" height="253" title="1" ></p>
+
+<h1>Step 3: Configure EC2 Instance</h1>
+
+<p>Follow the guide on the offical Ubuntu documentation <a href="https://help.ubuntu.com/community/PPTPServer">here</a> to configure your ec2 instance into a PPTP server. Remember to right-click on your running instance in <code>AWS Management Console</code> and reboot your ec2 instance after you are done.</p>
+
+<h1>Step 4.1: Connecting from a Windows 7 Client</h1>
+
+<p>Open your Google Chrome, type in <code>chrome://settings/search#proxy</code>, hit <code>enter</code> and then click on <code>Change proxy settings</code> button. Click <code>new VPN(p)</code>. Enter either your ec2 instance public name or ip address as <code>internet address</code> and check the 3rd checkbox like shown below.</p>
+
+<p><img src="/images/ec2_conn.jpg" width="635" height="504" title="1" ></p>
+
+<p>Click <code>next</code>, enter your VPN account name and password you have just setup in setp 3, click <code>next</code> and finally click <code>finish</code>. Now you should be able to see your VPN connection once you click the network icon in the notification area on your windows task bar. Right click on your VPN connection, go to <code>properties</code>, under <code>security tab</code>, configure everything the same as the screenshot below.</p>
+
+<p><img src="/images/vpn_conf.jpg" width="378" height="456" title="1" ></p>
+
+<p>Now go ahead connect to your VPN, type in your account and password. Wait till the status turns into <code>Connected</code>.</p>
+
+<p><img src="/images/vpn_conn.jpg" width="278" height="393" title="1" ></p>
+
+<p>Congratulations! You now have your own personal VPN.</p>
+
+<h1>Welcome to the Internet!</h1>
+
+<p><img src="/images/vpn_gate_kai.jpg" width="700" height="407" title="1" ></p>
+]]></content>
+  </entry>
+  
+</feed>
