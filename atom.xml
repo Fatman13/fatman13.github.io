@@ -4,7 +4,7 @@
   <title><![CDATA[Fatman13]]></title>
   <link href="http://Fatman13.github.io/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2013-12-29T15:29:42+08:00</updated>
+  <updated>2014-01-03T21:44:29+08:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -12,59 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[How-to: Setup your personal VPN with Amazon EC2 for FREE]]></title>
-    <link href="http://Fatman13.github.io/blog/2013/12/29/how-to-setup-your-personal-vpn-with-amazon-ec2-for-free/"/>
-    <updated>2013-12-29T11:20:00+08:00</updated>
-    <id>http://Fatman13.github.io/blog/2013/12/29/how-to-setup-your-personal-vpn-with-amazon-ec2-for-free</id>
-    <content type="html"><![CDATA[<p>This tutorial will walk you through setting up a personal <a href="http://en.wikipedia.org/wiki/Point-to-Point_Tunneling_Protocol">PPTP</a> VPN server and connecting to it from a Windows Client. Using a VPN have merits like browsing the internet in relative privacy, bypassing censorship like the infamous <a href="http://en.wikipedia.org/wiki/Great_Firewall_of_China">GFW</a> and many more. Also new signups can use Amazon EC2 micro instance without paying for the first year.</p>
-
-<!--more-->
-
-
-<h1>Step 1: Get Set Up</h1>
-
-<p>Follow the official <code>get set up</code> guide for Amazon EC2 <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html">here</a>. The intructions are more comprehensive, in my opinoin, than blog posts from Google search results.</p>
-
-<h1>Step 2: Create EC2 Instance</h1>
-
-<p>Follow <code>step 1: Launch an Instance</code> and <code>step 2: Connect to your Instance</code> of the offical <code>get started</code> guide for Amazon EC2 <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html">here</a>.<br/>
-<strong>Note1:</strong> Instead of <strong>Select an Amazon Machine Image(AMI)</strong>, choose a <code>ubuntu 12.04 server</code> image.<br/>
-<strong>Note2:</strong> The dafault accout for AMI images is <code>ec2-user</code>, however, for ubuntu images you have to use <code>ubuntu</code> to connect to your instance.<br/>
-<strong>Note3:</strong> In the <code>AWS Management Console</code>, choose a regoin that is geograpgically closest to your location to have best browsing experience. I have chosen Singapore as shown below.</p>
-
-<p><img src="http://Fatman13.github.io/images/ec2_region.jpg" width="233" height="317" title="1" ></p>
-
-<p><strong>Note4:</strong> Below is the my security group settings for your reference.</p>
-
-<p><img src="http://Fatman13.github.io/images/ec2_sg.jpg" width="613" height="253" title="1" ></p>
-
-<h1>Step 3: Configure EC2 Instance</h1>
-
-<p>Follow the guide on the offical Ubuntu documentation <a href="https://help.ubuntu.com/community/PPTPServer">here</a> to configure your ec2 instance into a PPTP server. Remember to right-click on your running instance in <code>AWS Management Console</code> and reboot your ec2 instance after you are done.</p>
-
-<h1>Step 4.1: Connecting from a Windows 7 Client</h1>
-
-<p>Open your Google Chrome, type in <code>chrome://settings/search#proxy</code>, hit <code>enter</code> and then click on <code>Change proxy settings</code> button. Click <code>new VPN(p)</code>. Enter either your ec2 instance public name or ip address as <code>internet address</code> and check the 3rd checkbox like shown below.</p>
-
-<p><img src="http://Fatman13.github.io/images/ec2_conn.jpg" width="635" height="504" title="1" ></p>
-
-<p>Click <code>next</code>, enter your VPN account name and password you have just setup in setp 3, click <code>next</code> and finally click <code>finish</code>. Now you should be able to see your VPN connection once you click the network icon in the notification area on your windows task bar. Right click on your VPN connection, go to <code>properties</code>, under <code>security tab</code>, configure everything the same as the screenshot below.</p>
-
-<p><img src="http://Fatman13.github.io/images/vpn_conf.jpg" width="378" height="456" title="1" ></p>
-
-<p>Now go ahead connect to your VPN, type in your account and password. Wait till the status turns into <code>Connected</code>.</p>
-
-<p><img src="http://Fatman13.github.io/images/vpn_conn.jpg" width="278" height="393" title="1" ></p>
-
-<p>Congratulations! You now have your own personal VPN.</p>
-
-<h1>Welcome to the Internet!</h1>
-
-<p><img src="http://Fatman13.github.io/images/vpn_gate_kai.jpg" width="700" height="407" title="1" ></p>
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[乐高园游记]]></title>
@@ -1701,6 +1648,52 @@ Order Total:    <strong>$993.06</strong></p>
 <p>通过成就系统。对用户进行排名，并公布每周吐槽排行榜等。用户可对一些特定用户进行关注（像微博一样）。如用户A关注了用户B，那么用户A在观看视频时，用户B所发的弹幕会以<font color="Crimson"><strong>红色弹幕菌</strong></font>身份出现在滚动弹幕第一行。</p>
 
 <p><em>申明：本人对现大多数弹幕网站功能并不完全熟悉。本文中所提到的功能，如有雷同纯属巧合！</em></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[使用Octopress教程大合集]]></title>
+    <link href="http://Fatman13.github.io/blog/2013/06/24/shi-yong-octopressjiao-cheng-da-he-ji/"/>
+    <updated>2013-06-24T12:11:00+08:00</updated>
+    <id>http://Fatman13.github.io/blog/2013/06/24/shi-yong-octopressjiao-cheng-da-he-ji</id>
+    <content type="html"><![CDATA[<p>小的消息闭塞，最近才开始使用<code>Octopress</code>。在这儿整理下各种实用的教程，以供大家参考！</p>
+
+<!--more-->
+
+
+<p><strong>1</strong> 首先是官方<code>Octopress</code>教程在<a href="http://octopress.org/docs/">这里</a>。</p>
+
+<p><strong>2</strong> 使用自定义域名在<a href="http://learnaholic.me/2012/10/10/deploying-octopress-to-github-pages-and-setting-custom-subdomain-cname/">这里</a>。</p>
+
+<p><strong>3</strong> 使用<code>Octopress</code>各种皮肤在<a href="https://github.com/imathis/octopress/wiki/3rd-Party-Octopress-Themes">这里</a>。</p>
+
+<p><strong>4</strong> 使用<code>greyshade</code>皮肤加上新浪微博在<a href="http://imallen.com/blog/2013/05/12/add-support-for-weibo-and-dribbble-to-greyshade.html">这里</a>。</p>
+
+<p><em>如果你先装<code>greyshade</code>再装这个的话，代码会有点小错，<code>source/_includes/header.html</code>里面的以下这句注释掉。否则在右边会出现2遍博客名和简介。</em></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>% include custom/header.html %</span></code></pre></td></tr></table></div></figure>
+
+
+<p><em>在<code>_config.yml</code>里面设置<code>weibo_user:</code>的时候，别忘了在微薄里面设置好自己在微薄上的域名。否则会发生找不到id的情况。</em></p>
+
+<p><strong>5</strong> <code>Octopress</code>中的表格没有边框？！请看<a href="http://programus.github.io/blog/2012/03/07/add-table-data-css-for-octopress/">这里</a>。</p>
+
+<p><strong>6</strong> 在不同电脑上用<code>Octopress</code>写博客。请看<a href="http://blog.zerosharp.com/clone-your-octopress-to-blog-from-two-places/">这里</a>。</p>
+
+<p><strong>7</strong> 如果你有很多博文，如何只生成最新写的那篇。参看<a href="http://robdodson.me/blog/2012/06/11/some-octopress-rake-tips/">这里</a>。</p>
+
+<p><strong>8</strong> 如何删除一片博文在<a href="http://stackoverflow.com/questions/16762325/how-to-rename-or-delete-a-new-octopress-post">这里</a>。</p>
+
+<p><strong>9</strong> 如何在<code>Octopress</code>里面增加自己的<code>About</code>页面在<a href="http://gangmax.me/blog/2012/05/04/add-about-page-in-octopress/">这里</a>。</p>
+
+<p><strong>10</strong> 使用<code>rake gen_deploy</code>和<code>rake preview</code>之后可以在本地<code>localhost:4000</code>预览还没有上传的博文。修改博文后，<code>rake</code>会自动重新生成，刷新本地页面就能浏览更新的东西了。</p>
+
+<p><strong>11</strong> Octopress各种实用小技巧，包括修改字体，颜色，favicon等等。请看<a href="http://colors4.us/blog/2012/01/08/octopressbo-ke-cong-ling-kai-shi-iii/">这里</a></p>
+
+<p>最后奉上能快速上手markdown的<a href="http://support.mashery.com/docs/customizing_your_portal/Markdown_Cheat_Sheet">作弊小抄</a>。这里有更高阶的<a href="http://daringfireball.net/projects/markdown/syntax">作弊小抄</a></p>
+
+<p>先写这点，以后有好de发现继续更新。:&ndash;)</p>
 ]]></content>
   </entry>
   
