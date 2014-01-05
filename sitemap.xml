@@ -111,8 +111,14 @@
         <lastmod>2013-11-24T14:26:02+08:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://Fatman13.github.io/blog/2013/12/29/how-to-setup-your-personal-vpn-with-amazon-ec2-for-free/
+        </loc>
+        <lastmod>2014-01-05T20:54:13+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://Fatman13.github.io/</loc>
-        <lastmod>2013-11-24T14:26:02+08:00</lastmod>
+        <lastmod>2014-01-05T20:54:13+08:00</lastmod>
     </url>
     <url>
         <loc>http://Fatman13.github.io/robots.txt</loc>
@@ -120,6 +126,6 @@
     </url>
     <url>
         <loc>http://Fatman13.github.io/blog/archives/</loc>
-        <lastmod>2013-11-24T14:26:02+08:00</lastmod>
+        <lastmod>2014-01-05T20:54:13+08:00</lastmod>
     </url>
 </urlset>

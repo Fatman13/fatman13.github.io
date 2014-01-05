@@ -3,11 +3,11 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>GeoGuessr新手心得 - Fatman13</title>
+	<title>How-to: Setup your personal VPN with Amazon EC2 for FREE - Fatman13</title>
 	<meta name="author" content="Fatman13">
 
 	
-	<meta name="description" content="GeoGuessr新手心得 经同事介绍一个叫GeoGuessr的网页小游戏。玩一下还可以。记录一下心得。 游戏流程 游戏随机把你放到世界某个地方的谷歌街景。然后你可以根据周围的风景，猜你在哪儿。结果离正确答案越近，分数越高。猜完5次以后，结束一个周目。你获得的总分会被显示出来。 心得 &hellip;">
+	<meta name="description" content="How-to: Setup Your Personal VPN With Amazon EC2 for FREE This tutorial will walk you through setting up a personal PPTP VPN server and connecting to &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -17,7 +17,7 @@
 
 	<link href="/atom.xml" rel="alternate" title="Fatman13" type="application/atom+xml">
 	
-	<link rel="canonical" href="http://Fatman13.github.io/blog/2013/09/26/geoguessrxin-shou-xin-de/">
+	<link rel="canonical" href="http://Fatman13.github.io/blog/2013/12/29/how-to-setup-your-personal-vpn-with-amazon-ec2-for-free/">
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	
@@ -87,71 +87,50 @@
 			
 			<div class="mid-col-container">
 				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
-	<h1 class="title" itemprop="name">GeoGuessr新手心得</h1>
-	<div class="entry-content" itemprop="articleBody"><p>经同事介绍一个叫<a href="http://geoguessr.com/">GeoGuessr</a>的网页小游戏。玩一下还可以。记录一下心得。</p>
+	<h1 class="title" itemprop="name">How-to: Setup Your Personal VPN With Amazon EC2 for FREE</h1>
+	<div class="entry-content" itemprop="articleBody"><p>This tutorial will walk you through setting up a personal <a href="http://en.wikipedia.org/wiki/Point-to-Point_Tunneling_Protocol">PPTP</a> VPN server and connecting to it from a Windows Client. Using a VPN have merits like browsing the internet in relative privacy. Also new signups can use Amazon EC2 micro instance without paying for the first year.</p>
 
 <!--more-->
 
 
-<h1>游戏流程</h1>
+<h1>Step 1: Get Set Up</h1>
 
-<p>游戏随机把你放到世界某个地方的谷歌街景。然后你可以根据周围的风景，猜你在哪儿。结果离正确答案越近，分数越高。猜完5次以后，结束一个周目。你获得的总分会被显示出来。</p>
+<p>Follow the official <code>get set up</code> guide for Amazon EC2 <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/get-set-up-for-amazon-ec2.html">here</a>. The intructions are more comprehensive, in my opinoin, than blog posts from Google search results.</p>
 
-<h1>心得</h1>
+<h1>Step 2: Create EC2 Instance</h1>
 
-<ul>
-<li><p>很多国家还没有谷歌街景，所以一般可以排除非洲大多数国家，南美(除巴西)，中国(除香港)，很多南亚国家，印度，很多中东国家，等等。</p></li>
-<li><p>欧洲很多马路中间分界线是白色的。一般大多数其他国家都是黄色的。</p></li>
-<li><p>土壤是红色的话，这个地方比较热。可以参考猜澳洲，中美洲，巴西。</p></li>
-<li><p>关于高速公路。</p>
+<p>Follow <code>step 1: Launch an Instance</code> and <code>step 2: Connect to your Instance</code> of the offical <code>get started</code> guide for Amazon EC2 <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html">here</a>.<br/>
+<strong>Note1:</strong> Instead of <strong>Select an Amazon Machine Image(AMI)</strong>, choose a <code>ubuntu 12.04 server</code> image.<br/>
+<strong>Note2:</strong> The dafault accout for AMI images is <code>ec2-user</code>, however, for ubuntu images you have to use <code>ubuntu</code> to connect to your instance.<br/>
+<strong>Note3:</strong> In the <code>AWS Management Console</code>, choose a regoin that is geograpgically closest to your location to have best browsing experience. I have chosen Singapore as shown below.</p>
 
-<ul>
-<li>看周围的植物。是比较热带的感觉还是比较寒冷的感觉。</li>
-<li>看周围是否是大山环绕，还是开阔的平原。</li>
-<li>看高速路上的标志，是用英制单位还是国际单位。英制单位的话很有可能就是美国了。</li>
-<li>看路上车子的款式。</li>
-</ul>
-</li>
-<li><p>俄罗斯的交通标志跟国内很像。特别是<code>此处有人行道</code>的交通标志。</p></li>
-<li><p>街景中看见地名的标志，路牌等等，当然可以直接谷歌下，但是有舞弊的嫌疑&hellip;</p></li>
-</ul>
+<p><img src="/images/ec2_region.jpg" width="233" height="317" title="1" ></p>
 
+<p><strong>Note4:</strong> Below is the my security group settings for your reference.</p>
 
-<h1>截图</h1>
+<p><img src="/images/ec2_sg.jpg" width="613" height="253" title="1" ></p>
 
-<p><img src="/images/g10.JPG" width="665" height="500" title="最高记录" ></p>
+<h1>Step 3: Configure EC2 Instance</h1>
 
-<p>随手一猜，竟然只差100公里。啧啧。</p>
+<p>Follow the guide on the offical Ubuntu documentation <a href="https://help.ubuntu.com/community/PPTPServer">here</a> to configure your ec2 instance into a PPTP server. Remember to right-click on your running instance in <code>AWS Management Console</code> and reboot your ec2 instance after you are done.</p>
 
-<p><img src="/images/g20.JPG" width="852" height="600" title="一周目" ></p>
+<h1>Step 4.1: Connecting from a Windows 7 Client</h1>
 
-<p>一周目结束。</p>
+<p>Open your Google Chrome, type in <code>chrome://settings/search#proxy</code>, hit <code>enter</code> and then click on <code>Change proxy settings</code> button. Click <code>new VPN(p)</code>. Enter either your ec2 instance public name or ip address as <code>internet address</code> and check the 3rd checkbox like shown below.</p>
 
-<h1>附录</h1>
+<p><img src="/images/ec2_conn.jpg" width="635" height="504" title="1" ></p>
 
-<p>U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U</p>
+<p>Click <code>next</code>, enter your VPN account name and password you have just setup in setp 3, click <code>next</code> and finally click <code>finish</code>. Now you should be able to see your VPN connection once you click the network icon in the notification area on your windows task bar. Right click on your VPN connection, go to <code>properties</code>, under <code>security tab</code>, configure everything the same as the screenshot below.</p>
 
-<iframe width="480" height="360" src="//www.youtube.com/embed/8EmRZO9fwvk" frameborder="0" allowfullscreen></iframe>
+<p><img src="/images/vpn_conf.jpg" width="378" height="456" title="1" ></p>
 
+<p>Now go ahead connect to your VPN, type in your account and password. Wait till the status turns into <code>Connected</code>.</p>
+
+<p><img src="/images/vpn_conn.jpg" width="278" height="393" title="1" ></p>
+
+<p>Congratulations! You now have your own personal VPN.</p>
+
+<h1>Welcome to the Internet!</h1>
 </div>
 
 </article>
@@ -203,8 +182,8 @@ Theme Designed by: <a href="http://shashankmehta.in/archive/2012/greyshade.html"
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://Fatman13.github.io/blog/2013/09/26/geoguessrxin-shou-xin-de/';
-        var disqus_url = 'http://Fatman13.github.io/blog/2013/09/26/geoguessrxin-shou-xin-de/';
+        var disqus_identifier = 'http://Fatman13.github.io/blog/2013/12/29/how-to-setup-your-personal-vpn-with-amazon-ec2-for-free/';
+        var disqus_url = 'http://Fatman13.github.io/blog/2013/12/29/how-to-setup-your-personal-vpn-with-amazon-ec2-for-free/';
         var disqus_script = 'embed.js';
       
     (function () {
