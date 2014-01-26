@@ -117,8 +117,14 @@
         <lastmod>2014-01-05T20:54:13+08:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://Fatman13.github.io/blog/2014/01/26/ru-he-shi-yong-capybarahe-cucumbershi-xian-ye-mian-ji-bie-zi-dong-hua/
+        </loc>
+        <lastmod>2014-01-26T21:48:31+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://Fatman13.github.io/</loc>
-        <lastmod>2014-01-05T20:54:13+08:00</lastmod>
+        <lastmod>2014-01-26T21:48:31+08:00</lastmod>
     </url>
     <url>
         <loc>http://Fatman13.github.io/robots.txt</loc>
@@ -126,6 +132,6 @@
     </url>
     <url>
         <loc>http://Fatman13.github.io/blog/archives/</loc>
-        <lastmod>2014-01-05T20:54:13+08:00</lastmod>
+        <lastmod>2014-01-26T21:48:31+08:00</lastmod>
     </url>
 </urlset>
