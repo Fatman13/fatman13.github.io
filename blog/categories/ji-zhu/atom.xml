@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 技术 | Fatman13]]></title>
   <link href="http://Fatman13.github.io/blog/categories/ji-zhu/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2014-02-13T21:40:22+08:00</updated>
+  <updated>2014-02-15T16:04:48+08:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -12,6 +12,151 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[如何使用Cucumber小黄瓜做结算中心数据校验自动化]]></title>
+    <link href="http://Fatman13.github.io/blog/2014/02/15/ru-he-shi-yong-cucumberxiao-huang-gua-zuo-jie-suan-zhong-xin-shu-ju-xiao-yan-zi-dong-hua/"/>
+    <updated>2014-02-15T15:53:00+08:00</updated>
+    <id>http://Fatman13.github.io/blog/2014/02/15/ru-he-shi-yong-cucumberxiao-huang-gua-zuo-jie-suan-zhong-xin-shu-ju-xiao-yan-zi-dong-hua</id>
+    <content type="html"><![CDATA[<p>本文将简单介绍如何使用<code>小黄瓜</code>来实结算中心数据比对的自动化。如果你对小黄瓜还没有初步认识的话，推荐阅读我之前写的一篇<a href="http://tauntaunslayer13.me/blog/2014/01/26/ru-he-shi-yong-capybarahe-cucumbershi-xian-ye-mian-ji-bie-zi-dong-hua/">文章</a>。</p>
+
+<!--more-->
+
+
+<h1>运行自动化</h1>
+
+<p>按照惯例，下载代码，解压，打开命令行，切换到解压后的文件夹中。<br/>
+运行<code>bundle install</code>。<br/>
+运行<code>cucumber features/wgpc_sc.feature</code>，运行成功的话，应该能看见如下输出。</p>
+
+<p><img src="http://i.imgur.com/oPyqlVY.jpg" alt="" /></p>
+
+<p>注意这个case挂掉了，因为<code>jianzhong</code>2月14号的数据跟线上数据校验后有出入。输出中浅蓝色的字体（{&ldquo;540&rdquo;=>[46.0, 0.0]}）为账户金额有出入的商家id以及<code>jianzhong</code>与线上数据金额的差额。</p>
+
+<h1>feature文档</h1>
+
+<p>这次的feature文档简单很多。如对feature文档中的关键词存有疑惑，可参考我之前写的这篇<a href="http://tauntaunslayer13.me/blog/2014/02/13/ru-he-shi-yong-xiao-huang-gua-lai-zuo-jie-kou-ji-ce-shi/">文章</a>。</p>
+
+<p>``` cucumber
+Feature: 比对结算数据
+  为了保证结算数据中各个资金帐户余额的准确性，跟建忠计算的数据进行验对。</p>
+
+<p>  Scenario: 校验逻辑</p>
+
+<pre><code>Given 我读取"./data/sc/2014-02-13.xls"建忠excel文件中的数据
+And 我打开"http://settlement.weigou.baidu.com/macount/account_info?merchantId="线上结算中心网站并抓取结算数据
+When 我比对这二组数据
+Then 我将会生成校验报告并评估此次校验
+</code></pre>
+
+<p>```</p>
+
+<p>整个比对过程大致为，打开<code>jianzhong</code>的excel文件，打开线上的结算中心，并抓取线上结算中心网页上的数据，并跟<code>jianzhong</code>的数据进行比对，如有出入，打印有出入的商家id以及2份数据余额的差额并断言。（注：本来想自动发email的，但是mail这个gem所依赖的mime-type这个gem跟cucumber也不知道是capybara用到的mime-type的版本好像有冲突。望高人留言指点。）</p>
+
+<h1>代码详解</h1>
+
+<p>``` ruby
+Given /^我读取"(.*?)&ldquo;建忠excel文件中的数据$/ do |excel_file|
+  # 使用spreadsheet这个gem来读取xls文件
+  sc_file = Spreadsheet.open excel_file
+  # 选择记录各资金账户余额的一张sheet
+  sc_sheet = sc_file.worksheet 2
+  # @sc_data_jianzhong以商家id为key，对应value为长度为2的一个数组
+  # 数组中第1个值为用户担保帐余额，第2个是待结算账户余额
+  @sc_data_jianzhong = Hash.new
+  counter = 0
+  # 读取每一行
+  sc_sheet.each do |row|</p>
+
+<pre><code># 跳过第一行，其实不跳也没关系
+counter += 1
+if counter == 1
+  next
+end 
+# row[2]就是用户担保帐余额，row[3]是待结算账户余额
+@sc_data_jianzhong[row[0]] = Array.new
+@sc_data_jianzhong[row[0]] &lt;&lt; row[2]    
+@sc_data_jianzhong[row[0]] &lt;&lt; row[3]
+</code></pre>
+
+<p>  end
+end
+```</p>
+
+<p>从excel文件里面读取<code>jianzhong</code>结算的结算数据，并保存到<code>@sc_data_jianzhong</code>这个变量中。</p>
+
+<p>``` ruby
+Given /^我打开"(.*?)&ldquo;线上结算中心网站并抓取结算数据$/ do |sc_url|
+  # 访问结算中心线上环境
+  visit sc_url
+  # 算一下一共有多少行商家
+  count = page.all(&lsquo;table tr&rsquo;).count
+  @sc_data_yanghu = Hash.new
+  # 有多少行，就loop多少次
+  count.times do |i|</p>
+
+<pre><code># 跳过第一行，其实也可以不跳
+if i == 0
+  next
+end 
+# 用xpath选到每一行，拿他的text。
+row = find(:xpath, "(//tr)[" + (i + 1).to_s + "]").text.split
+@sc_data_yanghu[row[1]] = Array.new
+# row[4]为用户担保帐余额，row[5]为待结算账户余额
+@sc_data_yanghu[row[1]] &lt;&lt; row[4][1, row[4].length]
+@sc_data_yanghu[row[1]] &lt;&lt; row[5][1, row[5].length]
+</code></pre>
+
+<p>  end
+end
+```</p>
+
+<p>使用<code>selenium-webdriver</code>配合<code>capybara</code>打开结算中心线上环境。并抓取页面上的数据，保存至<code>@sc_data_yanghu</code>这个参数中。</p>
+
+<p>``` ruby
+When /^我比对这二组数据$/ do
+  # 数据比对结果
+  @result = Hash.new
+  # 比对@sc_data_yanghu和@sc_data_jianzhong，写的比较死，不是最灵活
+  @sc_data_yanghu.each do |key, value|</p>
+
+<pre><code>if @sc_data_jianzhong.has_key?(key)
+  if @sc_data_jianzhong[key][0].to_f != value[0].delete(',').to_f || @sc_data_jianzhong[key][1].to_f != value[1].delete(',').to_f
+    @result[key] = Array.new
+    # 现在想来可能这个delete(',')的处理放在上面可能比较好。
+    @result[key] &lt;&lt; (@sc_data_jianzhong[key][0].to_f - value[0].delete(',').to_f)
+    @result[key] &lt;&lt; (@sc_data_jianzhong[key][1].to_f - value[1].delete(',').to_f)
+  end
+end
+</code></pre>
+
+<p>  end
+end
+```</p>
+
+<p>比对@sc_data_yanghu和@sc_data_jianzhong里面的数据，如果数据有出入的话，保存商家id至<code>@result</code>中，然后计算2份数据之间的差额，差额越大bug的可能性也越大，大概。。。</p>
+
+<p>``` ruby
+Then /^我将会生成校验报告并评估此次校验$/ do
+  # 本来想自动发email的，但是这个mail的依赖好像有冲突，求高人指点
+  # Mail.deliver do
+  #   from     &lsquo;<a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#113;&#x61;&#45;&#97;&#x75;&#116;&#111;&#109;&#97;&#116;&#x69;&#x6f;&#x6e;&#64;&#98;&#x61;&#105;&#100;&#x75;&#x2e;&#x63;&#111;&#109;">&#113;&#x61;&#45;&#x61;&#117;&#116;&#111;&#x6d;&#97;&#x74;&#105;&#111;&#110;&#64;&#x62;&#x61;&#105;&#x64;&#117;&#46;&#99;&#111;&#109;</a>&rsquo;
+  #   to       &lsquo;<a href="&#x6d;&#x61;&#105;&#108;&#116;&#x6f;&#58;&#108;&#x65;&#x6e;&#103;&#121;&#117;&#64;&#98;&#x61;&#105;&#100;&#x75;&#x2e;&#99;&#111;&#109;">&#x6c;&#101;&#x6e;&#x67;&#121;&#x75;&#64;&#x62;&#97;&#x69;&#x64;&#x75;&#x2e;&#x63;&#x6f;&#x6d;</a>&rsquo;
+  #   subject  &lsquo;【结算中心线上数据与建忠数据比对结果】&rsquo;
+  #   body     @result.to_s
+  #   # add_file &lsquo;/full/path/to/somefile.png&rsquo;
+  # end</p>
+
+<p>  # 打印结果
+  puts @result
+  # 断言，@result应该为空。
+  @result.should be_empty
+end
+```</p>
+
+<p>最后看<code>@result</code>是否为空，不是的话，就需要断言。说明2份数据有出入。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[如何使用小黄瓜来做接口级自动化测试]]></title>
@@ -458,238 +603,6 @@ git reset --hard origin/master
 bundle install --path .bundle
 rake db:migrate
 </code></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How-to: Develop a RubyGem using Bundler]]></title>
-    <link href="http://Fatman13.github.io/blog/2013/08/12/how-to-develop-a-rubygem-using-bundler/"/>
-    <updated>2013-08-12T15:08:00+08:00</updated>
-    <id>http://Fatman13.github.io/blog/2013/08/12/how-to-develop-a-rubygem-using-bundler</id>
-    <content type="html"><![CDATA[<p>I am by no means a Ruby expert. This is my humble attempt of sharing what I have learned and serves as a note to future me. It should be helpful to whoever is new to Ruby and would like to have a jump start on developing a Ruby gem.</p>
-
-<!--more-->
-
-
-<h1>Prerequisites</h1>
-
-<h3>Ruby</h3>
-
-<p>Ruby is a powerful programming language which gains popularity with the rise of many active open source projects and communities built around it. Before thinking build some library from scratch, there might already be a free open source library which you can easily leverage. Therefore saving tons of development time.</p>
-
-<h3>gem</h3>
-
-<p>A <code>gem</code> is a Ruby library packaged in a standard format. You can easily download and install gems to help your development through RubyGems, which will be discussed later in the article. In a nutshell, RubyGems works a lot like <code>apt</code> or <code>yum</code>.</p>
-
-<h3>rvm</h3>
-
-<p><code>rvm</code> stands for Ruby enVironment Manager. <code>rvm</code> allows you to switch to a specific Ruby version and a specific set of gems for different projects. It is highly recommended that you install <code>rvm</code> to manage different versions of Ruby and gemsets for your projects.</p>
-
-<p>To install <code>rvm</code>, do.</p>
-
-<p><code>
-curl -L https://get.rvm.io | bash -s stable –ruby
-</code></p>
-
-<p>To install Ruby 1.9.3, do.</p>
-
-<p><code>
-rvm install 1.9.3
-rvm use 1.9.3
-rvm rubygems latest
-</code></p>
-
-<p>Use <code>rvm list</code> to verify your Ruby installation. Use <code>rvm list known</code> to see a list of available Ruby versions that rvm is capable of installing.</p>
-
-<p>Notice the last command <code>rvm rubygems lastest</code> will install latest version of <code>rubygems</code>, which is a Ruby library packaging and distribution manager.</p>
-
-<h3>RubyGems</h3>
-
-<p>As mentioned above, with RubyGems, installing libraries published by others is made very easy.</p>
-
-<p><code>
-gem install [gem_name]
-</code></p>
-
-<p>Substitute [gem_name] in above command to install the actual gem you want.</p>
-
-<ul>
-<li><p><strong>Note</strong>: A gem may depend on other gems. Therefore installing one gem may result in installing multiple other gems.</p></li>
-<li><p><strong>Tip</strong>: You can specify which version of the gem you want to install by <code>gem install [gem_name] -v ‘1.0.0’</code>,  <code>gem install [gem_name] -v ‘&gt;=1.0.0’</code>, or <code>gem install [gem_name] -v ‘~&gt;1.0.0’</code></p></li>
-<li><p><strong>Important</strong>: If you are using <code>rvm</code> like many people recommended, <strong>DO NOT</strong> use <code>sudo</code> when installing gems. You may come across many tutorials telling you to do things like <code>sudo gem install devise</code>. <strong>DON’T</strong> do that. Because <code>sudo</code> will mess up your <code>rvm</code>. See more details on why not using <code>sudo</code> <a href="http://rvm.io/rubies/rubygems">here</a> if you are interested.</p></li>
-</ul>
-
-
-<h3>Git</h3>
-
-<p>Install git, do.</p>
-
-<p><code>
-sudo apt-get install git
-</code></p>
-
-<!--p2-->
-
-
-<h1>Building your first gem using Bundler</h1>
-
-<p><code>Bundler</code> is a great gem which can do a lot of things. Scaffolding a new gem is one of its many features.</p>
-
-<p>I will be using <a href="https://github.com/Fatman13/ColorfulMD">colorfulMD</a> as an example gem for this walk through. ColorfulMD colorfies your markdown text by adding <code>&lt;font color=”a_color”&gt;&lt;/color&gt;</code> tag to certain text defined in a <code>config.yaml</code> file.</p>
-
-<p><em>There is a very good guide <a href="https://github.com/radar/guides/blob/master/gem-development.md">here</a>. I will be explaining things that might not be too obvious. At least not so obvious to me.</em></p>
-
-<h3>Getting started</h3>
-
-<p>To install Bundler, do.</p>
-
-<p><code>
-gem install bundler
-</code></p>
-
-<p>To create a new gem, do.</p>
-
-<p><code>
-bundle gem colorfulMD
-</code></p>
-
-<p>This should create a new folder called <code>colorfulMD</code>. Some skeleton files and directories will be created under <code>./colorfulMD</code>.</p>
-
-<blockquote><p>If you have Git installed, <code>bundle gem colorfulMD</code> also initializes a Git repository in <code>./colorfulMD</code> so you can start committing right away.</p></blockquote>
-
-<ul>
-<li><p><strong>Tip</strong>: You can add <code>.*~</code> and <code>*~</code> to <code>.gitignore</code> file if your text editor creates tmp file ending with <code>~</code>. This will prevent unnecessary files get pushed into your repo.</p></li>
-<li><p><strong>Tip</strong>: If you are using IDEs like <code>RubyMine</code>. You may also want to add <code>.idea</code> to your <code>.gitignore</code> file.</p></li>
-<li><p><strong>Tip</strong>: Usually you can define all your gem dependencies in your <code>Gemfile</code>. But <code>Bundler</code> creates <code>[gem_name].gemspec</code> file by default and defines dependencies there.</p></li>
-<li><p><strong>Tip</strong>: It is a good practice that you put a <code>.rvmrc</code> like <a href="https://github.com/Fatman13/ColorfulMD/blob/master/.rvmrc">this one</a> in <code>colorfulMD</code> folder. <code>cd</code> out of <code>colorfulMD</code> folder and <code>cd</code> back in, you should see that <code>rvm</code> will initialize a independent Ruby environment for this project. This means when working in <code>colorfulMD</code> folder, you are using different Ruby version or gemsets than the global ones.</p></li>
-</ul>
-
-
-<h3>Following BDD</h3>
-
-<p>I didn’t find <a href="http://en.wikipedia.org/wiki/Behavior-driven_development">BDD</a> particularly intriguing. But as for this walk through, we shall start writing our test cases even before any actual coding following BDD discipline.</p>
-
-<p>Open <code>colorfulMD.gemspec</code> file and add the following. (<a href="https://github.com/Fatman13/ColorfulMD/blob/master/colorfulMD.gemspec">example here</a>)</p>
-
-<p><code>ruby
-s.add_development_dependency "cucumber"
-s.add_development_dependency "aruba"
-</code>
-(<em><code>add_development_dependency</code> means those gems will only be installed for development use.</em>)</p>
-
-<p><code>cucumber</code> gem and <code>aruba</code> gem are great testing tools help us generate test code following BDD discipline. (<em><a href="http://blog.jcoglan.com/2009/10/03/getting-started-with-cucumber-rspec-webrat-and-multiruby/">here</a> is a pretty good introductive tutorial for <code>cucumber</code></em>) <code>bundle install</code> is a command that goes through gemspec file, figure out the dependency and installs gems needed.</p>
-
-<p>Run <code>bundle install</code> to install dependencies.</p>
-
-<p>Inside <code>colorfulMD</code>, do <code>mkdir features</code>. <code>cd</code> into <code>features</code> and create directory structure and files like shown <a href="https://github.com/Fatman13/ColorfulMD/tree/master/features">here</a>.</p>
-
-<ul>
-<li><p><strong>/support</strong>: Ruby files in <code>support</code> folder will be executed before <code>cucumber</code> runs any actual tests, therefore it is good to put code that sets up environment here.</p></li>
-<li><p><strong>/step_definitions</strong>: Actual test code for a feature will be in this folder.</p></li>
-<li><p><strong>cli.feature</strong>: Write your feature in this file. You can name it differently.</p></li>
-</ul>
-
-
-<p>I put down the following into my <code>cli.feature</code> file.</p>
-
-<p>``` ruby
-Feature: CLI
-  In order to colorfy markdown
-  As a CLI
-  I want to add <font color> tag to some text</p>
-
-<p>  Scenario: add <font color="given_color"> tag to &ldquo;given_string&rdquo;</p>
-
-<pre><code>Given three arguments "given_color", "given_string" and "text"  
-When I call colorfy of CLI with "red" "apple" in "I had an apple this afternoon" 
-Then the output should equal 
-  """
-  I had an &lt;font color="red"&gt;apple&lt;/font&gt; this afternoon
-  """
-</code></pre>
-
-<p>```</p>
-
-<p>It doesn’t seem to really matter what you put right after <code>Feature:</code> and <code>Scenario:</code>.  The main thing you want to define here is what follows <code>Given</code>, <code>When</code> and <code>Then</code> keywords. It is relatively comprehensive. <code>Given</code> defines what argument(s) your method is taking. (<em>you don’t need <code>given</code> if you are not going to do anything fancy with the arguments</em>) I specified values of the three arguments with <code>When</code> keyword. Note how close the test case is to natural language. That is supposed to be the beauty of BDD. Given the arguments specified after <code>When</code>, I put down the expected output after <code>Then</code> keyword. Triple quotes was used for escaping the quotes in the expected output.</p>
-
-<p>After all that, run <code>bundle exec cucumber features/</code>.  Copy paste the output after <code>You can implement step definitions for undefined steps with these snippets:
-</code> to <code>/step_definitions/colorfy_steps.rb</code>. (<em>you should copy paste something close to the below</em>)</p>
-
-<p>``` ruby
-Given(/^three arguments &ldquo;(.<em>?)&rdquo;, &ldquo;(.</em>?)&rdquo; and &ldquo;(.*?)&rdquo;$/) do |arg1, arg2, arg3|
-  pending # express the regexp above with the code you wish you had
-end</p>
-
-<p>When(/^I call colorfy of CLI with &ldquo;(.<em>?)&rdquo; &ldquo;(.</em>?)&rdquo; in &ldquo;(.*?)&rdquo;$/) do |arg1, arg2, arg3|
-  pending # express the regexp above with the code you wish you had
-end</p>
-
-<p>Then(/^the output should equal$/) do |string|
-  pending # express the regexp above with the code you wish you had
-end
-<code>``
-Now add some actual testing code to</code>colorfy_steps.rb` like shown <a href="https://github.com/Fatman13/ColorfulMD/blob/master/features/step_definitions/colorfy_steps.rb">here</a>.</p>
-
-<h3>Implementing CLI</h3>
-
-<p>Add <code>spec.add_dependency "thor"</code> to your <code>gemspec</code> file. And run <code>bundle install</code>.</p>
-
-<p>At project root, do <code>mkdir lib/colorfulMD</code>, <code>touch lib/colorfulMD/cli.rb</code> and <code>touch lib/colorfulMD/colorfulMD.rb</code>. Paste the following to <code>cli.rb</code> and <code>colorfulMD.rb</code> respectively.</p>
-
-<p>``` ruby</p>
-
-<h1>$LOAD_PATH.unshift(File.dirname(<strong>FILE</strong>))</h1>
-
-<p>require &lsquo;thor&rsquo;
-require &lsquo;colorfulMD&rsquo;</p>
-
-<p>module ColorfulMD
-  class CLI &lt; Thor</p>
-
-<pre><code>desc "colorfy GIVEN_COLOR GIVEN_STRING TEXT", "colorfy a given word by a given color defined in yaml"
-def colorfy(given_color, given_string, text)
-    clrmd = ColorfulMD::Colorfulmd.new
-    clrmd.colorfy(given_color, given_string, text)
-end  
-</code></pre>
-
-<p>  end
-end
-```</p>
-
-<p>``` ruby
-module ColorfulMD</p>
-
-<pre><code>class Colorfulmd
-    # colorfy
-    def colorfy(given_color, given_string, text)
-      text.gsub(given_string, "&lt;font color=\"" + given_color + "\"&gt;" + given_string + "&lt;/font&gt;" )
-    end      
-end
-</code></pre>
-
-<p>end
-```</p>
-
-<p>At this point, if you run <code>bundle exec cucumber features</code>, you should see you have passed all cucumber test! Systems all green!</p>
-
-<p>And now we just need to make a cli executable.</p>
-
-<p>At project root, do <code>mkdir bin</code>. Do <code>touch bin/colorfulMD</code> and <code>sudo chmod +x bin/colorfulMD</code>. <code>bin/colorfulMD</code> will be your CLI executable for your gem. Paste the following code to <code>bin/colorfulMD</code></p>
-
-<p>``` ruby</p>
-
-<h1>!/usr/bin/env ruby</h1>
-
-<p>$LOAD_PATH.unshift(File.dirname(<strong>FILE</strong>) + &lsquo;/../lib/colorfulMD&rsquo;)
-require &lsquo;colorfulMD/cli&rsquo;
-require &lsquo;colorfulMD&rsquo;
-ColorfulMD::CLI.start
-```</p>
-
-<p>Run your executable by <code>bundle exec bin/colorfulMD colorfy red apple apple</code>. You can modify the code to have colorfy method output string by replacing <code>text.gsub(given_string, "&lt;font color=\"" + given_color + "\"&gt;" + given_string + "&lt;/font&gt;" )</code> with <code>puts text.gsub(given_string, "&lt;font color=\"" + given_color + "\"&gt;" + given_string + "&lt;/font&gt;" )</code> in <code>colorfulMD.rb</code>.</p>
-
-<p>This concludes the tutorial.</p>
 ]]></content>
   </entry>
   
