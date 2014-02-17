@@ -1,0 +1,248 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>如何整合Cucumber小黄瓜至Jenkins持续集成服务器 - Fatman13</title>
+	<meta name="author" content="Fatman13">
+
+	
+	<meta name="description" content="如何整合Cucumber小黄瓜至Jenkins持续集成服务器 本文将简单介绍如何将Cucumber小黄瓜的测试case整合到你的Jenkins CI服务器中。 软件安装 以Windows工作机为例
+&ndash; JDK或者JRE（记得设置JAVA_HOME这个环境变量）
+&ndash; git &hellip;">
+	
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="Fatman13" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://Fatman13.github.io/blog/2014/02/17/ru-he-zheng-he-cucumberxiao-huang-gua-zhi-jenkinschi-xu-ji-cheng-fu-wu-qi/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,700' rel='stylesheet' type='text/css'>
+	<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">	
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		document.write("<img src='http://www.gravatar.com/avatar/" + MD5("tctctcly@gmail.com") + "?s=160' alt='Profile Picture' style='width: 160px;' />");
+	</script>
+</div>
+<h1><a href="/">Fatman13</a></h1>
+<p class="subtitle">The Tauntaun Slayer</p>
+<nav id="main-nav"><ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="http://about.me/yu.leng">About</a></li>
+  <!--<li><a href="/blog/archives">Archives</a></li>-->
+</ul>
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+		<a class="weibo" href="http://www.weibo.com/FATman13CC" title="Weibo">Weibo</a>
+		
+		
+		
+		
+		
+		<a class="github" href="https://github.com/Fatman13" title="GitHub">GitHub</a>
+		
+		
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+<!--<hgroup>
+  <h1><a href="/">Fatman13</a></h1>
+  
+    <h2>The Tauntaun Slayer</h2>
+  
+</hgroup>
+-->
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">如何整合Cucumber小黄瓜至Jenkins持续集成服务器</h1>
+	<div class="entry-content" itemprop="articleBody"><p>本文将简单介绍如何将<code>Cucumber</code>小黄瓜的测试case整合到你的<code>Jenkins CI服务器</code>中。</p>
+
+<!--more-->
+
+
+<h1>软件安装</h1>
+
+<p>以Windows工作机为例<br/>
+&ndash; JDK或者JRE（记得设置JAVA_HOME这个环境变量）<br/>
+&ndash; git（如果你已经安装了<a href="http://rubyinstaller.org/">RubyInstaller</a>，里面是包含git的）<br/>
+&ndash; 下载最新稳定版的<a href="http://mirrors.jenkins-ci.org/war/latest/jenkins.war">Jenkins</a></p>
+
+<h1>本地建立git代码库</h1>
+
+<p>下载，解压源代码，打开命令行，cd至刚解压的文件夹中，运行以下命令。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git init
+</span><span class='line'>git add .
+</span><span class='line'>git commit -m "initial commit"</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>本地配置和运行Jenkins</h1>
+
+<ul>
+<li>拷贝<code>Jenkins</code>的<code>war包</code>至你想要的文件夹，打开命令行，cd至那个文件夹。</li>
+<li>运行<code>java -Dfile.encoding=UTF-8 -jar jenkins.war</code>。</li>
+<li>在网页浏览器中打开<code>http://localhost:8080/configureSecurity/</code>，按下图中的配置以后点击<code>Save</code>。</li>
+</ul>
+
+
+<p><img src="http://i.imgur.com/ea5IK3k.jpg" alt="" /></p>
+
+<ul>
+<li>打开<code>http://localhost:8080/pluginManager/available</code>，勾选<code>Source Code Management</code>下的<code>Git Plugin</code>和<code>Build Tools</code>下的<code>Rake plugin</code>。点击<code>Download now and install after restart</code>。</li>
+<li>等待Jenkins安装插件，失败的话再重新装。安装完成后<code>ctrl+c</code>杀掉进程，并重新运行<code>Jenkins</code>。</li>
+<li>打开<code>http://localhost:8080/view/All/newJob</code>。填入你想要的Job名称，选择<code>Build a free-style software project</code>。点击<code>OK</code>。</li>
+<li>打开<code>http://localhost:8080/job/[job名称]/configure</code>。</li>
+<li>在<code>Source Code Management</code>下，选择<code>Git</code>。并在<code>Repository URL</code>中填上小黄瓜case所在的文件夹地址。如下图。</li>
+</ul>
+
+
+<p><img src="http://i.imgur.com/OVjhttE.jpg" alt="" /></p>
+
+<ul>
+<li>在<code>Build Triggers</code>中勾选<code>Trigger builds remotely</code>。填一个你喜欢的token。这样这个job就可以被远程执行了。以下图为例，在浏览器中输入<code>http://localhost:8080/job/wg_merchant_oc_regression/build?token=lengyu</code>就能执行这个job了。</li>
+</ul>
+
+
+<p><img src="http://i.imgur.com/YhfCOzS.jpg" alt="" /></p>
+
+<ul>
+<li>在<code>Build</code>下，点击<code>Add Build Step</code>，并选择<code>Invoke Rake</code>。点击<code>Advanced</code>。配置如下图。<code>features</code>是一个<code>rake task</code>，需要在前面<code>Repository URL</code>目录中配置<code>Rakefile</code>，参见上传的代码。</li>
+</ul>
+
+
+<p><img src="http://i.imgur.com/V7AfNPc.jpg" alt="" /></p>
+
+<h1>总结</h1>
+
+<p>在<code>git plugin</code>和<code>rake plugin</code>的帮助下，轻轻松松就能将小黄瓜整合到<code>jenkins</code>中。如有问题可发送邮件至<a href="mailto:lengu@baidu.com">lengyu@baidu.com</a>。</p>
+</div>
+
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style addthis_16x16_style">
+	
+	<a class="addthis_button_sinaweibo"></a>
+	
+	
+	
+	<a class="addthis_button_twitter"></a>
+	
+	
+	
+	<a class="addthis_button_compact"></a>
+	<a class="addthis_counter addthis_bubble_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h1 class="title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+			</div>
+			<footer id="footer" class="inner"><p>
+  Copyright &copy; 2014 - Fatman13 -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+Theme Designed by: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a>
+</footer>
+			<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'Fatman13';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://Fatman13.github.io/blog/2014/02/17/ru-he-zheng-he-cucumberxiao-huang-gua-zhi-jenkinschi-xu-ji-cheng-fu-wu-qi/';
+        var disqus_url = 'http://Fatman13.github.io/blog/2014/02/17/ru-he-zheng-he-cucumberxiao-huang-gua-zhi-jenkinschi-xu-ji-cheng-fu-wu-qi/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-42348539-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-42348539-1', 'tauntaunslayer13.me');
+  ga('send', 'pageview');
+
+</script>
+
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Jenkins | Fatman13]]></title>
+  <link href="http://Fatman13.github.io/blog/categories/jenkins/atom.xml" rel="self"/>
+  <link href="http://Fatman13.github.io/"/>
+  <updated>2014-02-17T21:36:42+08:00</updated>
+  <id>http://Fatman13.github.io/</id>
+  <author>
+    <name><![CDATA[Fatman13]]></name>
+    <email><![CDATA[tctctcly@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[如何整合Cucumber小黄瓜至Jenkins持续集成服务器]]></title>
+    <link href="http://Fatman13.github.io/blog/2014/02/17/ru-he-zheng-he-cucumberxiao-huang-gua-zhi-jenkinschi-xu-ji-cheng-fu-wu-qi/"/>
+    <updated>2014-02-17T21:18:00+08:00</updated>
+    <id>http://Fatman13.github.io/blog/2014/02/17/ru-he-zheng-he-cucumberxiao-huang-gua-zhi-jenkinschi-xu-ji-cheng-fu-wu-qi</id>
+    <content type="html"><![CDATA[<p>本文将简单介绍如何将<code>Cucumber</code>小黄瓜的测试case整合到你的<code>Jenkins CI服务器</code>中。</p>
+
+<!--more-->
+
+
+<h1>软件安装</h1>
+
+<p>以Windows工作机为例<br/>
+&ndash; JDK或者JRE（记得设置JAVA_HOME这个环境变量）<br/>
+&ndash; git（如果你已经安装了<a href="http://rubyinstaller.org/">RubyInstaller</a>，里面是包含git的）<br/>
+&ndash; 下载最新稳定版的<a href="http://mirrors.jenkins-ci.org/war/latest/jenkins.war">Jenkins</a></p>
+
+<h1>本地建立git代码库</h1>
+
+<p>下载，解压源代码，打开命令行，cd至刚解压的文件夹中，运行以下命令。</p>
+
+<p><code>
+git init
+git add .
+git commit -m "initial commit"
+</code></p>
+
+<h1>本地配置和运行Jenkins</h1>
+
+<ul>
+<li>拷贝<code>Jenkins</code>的<code>war包</code>至你想要的文件夹，打开命令行，cd至那个文件夹。</li>
+<li>运行<code>java -Dfile.encoding=UTF-8 -jar jenkins.war</code>。</li>
+<li>在网页浏览器中打开<code>http://localhost:8080/configureSecurity/</code>，按下图中的配置以后点击<code>Save</code>。</li>
+</ul>
+
+
+<p><img src="http://i.imgur.com/ea5IK3k.jpg" alt="" /></p>
+
+<ul>
+<li>打开<code>http://localhost:8080/pluginManager/available</code>，勾选<code>Source Code Management</code>下的<code>Git Plugin</code>和<code>Build Tools</code>下的<code>Rake plugin</code>。点击<code>Download now and install after restart</code>。</li>
+<li>等待Jenkins安装插件，失败的话再重新装。安装完成后<code>ctrl+c</code>杀掉进程，并重新运行<code>Jenkins</code>。</li>
+<li>打开<code>http://localhost:8080/view/All/newJob</code>。填入你想要的Job名称，选择<code>Build a free-style software project</code>。点击<code>OK</code>。</li>
+<li>打开<code>http://localhost:8080/job/[job名称]/configure</code>。</li>
+<li>在<code>Source Code Management</code>下，选择<code>Git</code>。并在<code>Repository URL</code>中填上小黄瓜case所在的文件夹地址。如下图。</li>
+</ul>
+
+
+<p><img src="http://i.imgur.com/OVjhttE.jpg" alt="" /></p>
+
+<ul>
+<li>在<code>Build Triggers</code>中勾选<code>Trigger builds remotely</code>。填一个你喜欢的token。这样这个job就可以被远程执行了。以下图为例，在浏览器中输入<code>http://localhost:8080/job/wg_merchant_oc_regression/build?token=lengyu</code>就能执行这个job了。</li>
+</ul>
+
+
+<p><img src="http://i.imgur.com/YhfCOzS.jpg" alt="" /></p>
+
+<ul>
+<li>在<code>Build</code>下，点击<code>Add Build Step</code>，并选择<code>Invoke Rake</code>。点击<code>Advanced</code>。配置如下图。<code>features</code>是一个<code>rake task</code>，需要在前面<code>Repository URL</code>目录中配置<code>Rakefile</code>，参见上传的代码。</li>
+</ul>
+
+
+<p><img src="http://i.imgur.com/V7AfNPc.jpg" alt="" /></p>
+
+<h1>总结</h1>
+
+<p>在<code>git plugin</code>和<code>rake plugin</code>的帮助下，轻轻松松就能将小黄瓜整合到<code>jenkins</code>中。如有问题可发送邮件至<a href="mailto:lengu@baidu.com">lengyu@baidu.com</a>。</p>
+]]></content>
+  </entry>
+  
+</feed>
