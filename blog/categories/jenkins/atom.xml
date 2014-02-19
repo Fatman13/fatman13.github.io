@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Jenkins | Fatman13]]></title>
   <link href="http://Fatman13.github.io/blog/categories/jenkins/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2014-02-17T21:36:42+08:00</updated>
+  <updated>2014-02-19T21:42:50+08:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -27,7 +27,7 @@
 
 <p>以Windows工作机为例<br/>
 &ndash; JDK或者JRE（记得设置JAVA_HOME这个环境变量）<br/>
-&ndash; git（如果你已经安装了<a href="http://rubyinstaller.org/">RubyInstaller</a>，里面是包含git的）<br/>
+&ndash; git（如果你已经安装了<a href="http://railsinstaller.org/">RailsInstaller</a>，里面是包含git的）<br/>
 &ndash; 下载最新稳定版的<a href="http://mirrors.jenkins-ci.org/war/latest/jenkins.war">Jenkins</a></p>
 
 <h1>本地建立git代码库</h1>

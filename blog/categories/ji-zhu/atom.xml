@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 技术 | Fatman13]]></title>
   <link href="http://Fatman13.github.io/blog/categories/ji-zhu/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2014-02-17T21:36:42+08:00</updated>
+  <updated>2014-02-19T21:42:50+08:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -12,6 +12,184 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[测试桩使用指南]]></title>
+    <link href="http://Fatman13.github.io/blog/2014/02/19/ce-shi-zhuang-shi-yong-zhi-nan/"/>
+    <updated>2014-02-19T21:35:00+08:00</updated>
+    <id>http://Fatman13.github.io/blog/2014/02/19/ce-shi-zhuang-shi-yong-zhi-nan</id>
+    <content type="html"><![CDATA[<p>本文将简单介绍<code>测试桩</code>现有的一些功能以及如何使用<code>测试桩</code>提供的<code>API</code>接口。</p>
+
+<!--more-->
+
+
+<h1>测试桩简介</h1>
+
+<p>现在测试桩使用<code>Django</code>框架，大致分为<code>mysite</code>，<code>jsonrpc</code>，<code>scaffolding</code>这3个模块。<br/>
+（注：在项目的根目录使用了<code>python manage.py startapp [模块名]</code>这个命令创建了这些模块，模块化<code>Django</code>提供的服务）</p>
+
+<ul>
+<li><code>mysite</code>是项目的第一个模块。主要提供了kv以及商品库的几个接受jsonrpc请求的接口。<code>mysite</code>下的<code>urls.py</code>是定义<code>测试桩</code>各项API接口url的主入口。</li>
+<li><code>jsonrpc</code>提供了几个发送jsonrpc请求的接口（mcpack封装），还有发送通用的jsonrpc请求的接口。（无mcpack封装，vanilla版jsonrpc请求）</li>
+<li><code>scaffolding</code>主要负责提供制造各种mock商品的接口，便于自动化case的setup中，制造case所需的mock商品。</li>
+</ul>
+
+
+<h1>Chrome插件</h1>
+
+<p>使用<code>chrome</code>的<code>cRest Client</code>插件可以手动向<code>测试桩</code>发送各种请求。</p>
+
+<p><img src="http://i.imgur.com/oJEztF2.jpg" alt="" /></p>
+
+<h1>Jsonrpc工具</h1>
+
+<p>输入<code>测试桩</code>商品库地址<code>http://st01-ecom-jn2.st01.baidu.com:8890/serviceAPI/api</code>，选择api，method，并填入请求参数就可以手动给<code>测试桩</code>发送jsonrpc请求了。jsonrpc工具可在附件中下载。</p>
+
+<p><img src="http://i.imgur.com/ALJTrbi.jpg" alt="" /></p>
+
+<h1>1. Mysite接口</h1>
+
+<p>（可试用jsonrpc工具手动访问这些接口，或者使用renliang开发的jsonrpc-client）</p>
+
+<h3>1.1 ProductAPI/queryInfo 获取商品详情</h3>
+
+<ul>
+<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/serviceAPI/api">http://st01-ecom-jn2.st01.baidu.com:8890/serviceAPI/api</a></li>
+<li>ProductAPI</li>
+<li>queryInfo</li>
+<li>{&ldquo;products&rdquo;:[&ldquo;183019616&rdquo;],&ldquo;uc_id&rdquo;:29844}</li>
+</ul>
+
+
+<h3>1.2 PromotionAPI/query 获取促销详情</h3>
+
+<ul>
+<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/serviceAPI/api">http://st01-ecom-jn2.st01.baidu.com:8890/serviceAPI/api</a></li>
+<li>PromotionAPI</li>
+<li>query</li>
+<li>{&ldquo;promotion_id&rdquo;:&ldquo;3000&rdquo;,&ldquo;uc_id&rdquo;:29844}</li>
+</ul>
+
+
+<h3>1.3 StockAPI/updateIncrement 增减库存</h3>
+
+<ul>
+<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/serviceAPI/api">http://st01-ecom-jn2.st01.baidu.com:8890/serviceAPI/api</a></li>
+<li>StockAPI</li>
+<li>updateIncrement</li>
+<li>{&ldquo;uc_id&rdquo;:6195321,&ldquo;products&rdquo;:[{&ldquo;product_id&rdquo;:&ldquo;600528576&rdquo;,&ldquo;items&rdquo;:[{&ldquo;stock&rdquo;:-2,&ldquo;region&rdquo;:&ldquo;全国&rdquo;}]}]}</li>
+</ul>
+
+
+<h3>1.4 PromotionAPI/updateStockInc 增减促销库存</h3>
+
+<ul>
+<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/serviceAPI/api">http://st01-ecom-jn2.st01.baidu.com:8890/serviceAPI/api</a></li>
+<li>PromotionAPI</li>
+<li>updateStockInc</li>
+<li>{&ldquo;uc_id&rdquo;: 29844,&ldquo;product_outerid&rdquo;:&ldquo;F47&rdquo;,&ldquo;promotion_id&rdquo;:37,&ldquo;stock_inc&rdquo;:5}</li>
+</ul>
+
+
+<h1>2. kv接口</h1>
+
+<p>（kv接口主要应用于验单时，查询该商品是否存在。新kv接口是一个新的技术优化，与老kv接口还并存着。。。）</p>
+
+<h3>2.1 新kv接口</h3>
+
+<p><a href="http://st01-ecom-jn2.st01.baidu.com:8890/serviceAPI/midpage/product/details?ids=183019611">http://st01-ecom-jn2.st01.baidu.com:8890/serviceAPI/midpage/product/details?ids=183019611</a></p>
+
+<h3>2.2 老kv接口</h3>
+
+<p><a href="http://st01-ecom-jn2.st01.baidu.com:8890/api/midpage/product/details?ids=183019611">http://st01-ecom-jn2.st01.baidu.com:8890/api/midpage/product/details?ids=183019611</a></p>
+
+<h1>3. Scaffolding接口</h1>
+
+<p>（主要用于各种商品库接口的mock数据的制造，便于自动化case的setup。）</p>
+
+<h3>3.1 制造kv接口的返回值</h3>
+
+<ul>
+<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/scaffolding/create/kv?product_id=77582589&amp;stock=0&amp;promotionId=1013">http://st01-ecom-jn2.st01.baidu.com:8890/scaffolding/create/kv?product_id=77582589&amp;stock=0&amp;promotionId=1013</a></li>
+<li>(可以跟更多参数。参照<code>mysite/response/new_KV/new_kv_template.json</code>。)</li>
+</ul>
+
+
+<h3>3.2 制造老kv接口的返回值（老kv）</h3>
+
+<ul>
+<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/scaffolding/create/oldkv?product_id=77582589&amp;merchantId=298440&amp;newPrice=100.00">http://st01-ecom-jn2.st01.baidu.com:8890/scaffolding/create/oldkv?product_id=77582589&amp;merchantId=298440&amp;newPrice=100.00</a></li>
+<li>(可以跟更多参数。参照<code>mysite/response/KV/kv_template.json</code>。)</li>
+</ul>
+
+
+<h3>3.3 制造queryInfo接口的返回值</h3>
+
+<ul>
+<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/scaffolding/create/ProductAPI/queryInfo?product_id=77582589&amp;active=0&amp;fid=1157">http://st01-ecom-jn2.st01.baidu.com:8890/scaffolding/create/ProductAPI/queryInfo?product_id=77582589&amp;active=0&amp;fid=1157</a></li>
+<li>(可以跟更多参数。参照<code>mysite/response/ProductAPI/queryInfo/queryInfo_template.json</code>。)</li>
+</ul>
+
+
+<h3>3.4 制造query接口的返回值</h3>
+
+<ul>
+<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/scaffolding/create/PromotionAPI/query?product_id=77582589&amp;active=0&amp;fid=1157">http://st01-ecom-jn2.st01.baidu.com:8890/scaffolding/create/PromotionAPI/query?product_id=77582589&amp;active=0&amp;fid=1157</a></li>
+<li>(可以跟更多参数。参照<code>mysite/response/PromotionAPI/query/query_template.json</code>。)</li>
+</ul>
+
+
+<h1>4. Jsonrpc接口</h1>
+
+<p>（用post方法，带着参数，访问这些接口。<code>测试桩</code>会代为发送jsonrpc请求，相当于一个接口级的jsonrpc工具。推荐使用上文提到的Chrome中<code>cRest Client</code>这个插件。使用post方法的话，Request entity中放请求的json串，或者其他参数。）</p>
+
+<h3>4.1 vanilla示例（无mcpack封装，支持大多数jsonrpc的api）</h3>
+
+<ul>
+<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/jsonrpc/vanilla/ProductAPI/queryInfo">http://st01-ecom-jn2.st01.baidu.com:8890/jsonrpc/vanilla/ProductAPI/queryInfo</a></li>
+<li>{&ldquo;products&rdquo;:[&ldquo;183019611&rdquo;],&ldquo;uc_id&rdquo;:29844}</li>
+</ul>
+
+
+<h3>4.2 jsonrpc示例（有mcpack封装，只支持个别jsonrpc的api）</h3>
+
+<h4>4.2.1 OrderInnerAPI/daigouCreateOrder（代购api）</h4>
+
+<ul>
+<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/jsonrpc/send/OrderInnerAPI/daigouCreateOrder">http://st01-ecom-jn2.st01.baidu.com:8890/jsonrpc/send/OrderInnerAPI/daigouCreateOrder</a></li>
+<li>{&ldquo;daigouOrder&rdquo;:{&ldquo;daigouId&rdquo;:1,&ldquo;passportId&rdquo;:&ldquo;1245&rdquo;,&ldquo;productIds&rdquo;:&ldquo;181835090&rdquo;,&ldquo;productCounts&rdquo;:&ldquo;1&rdquo;,&ldquo;customer&rdquo;:&ldquo;木根&rdquo;,&ldquo;mobile&rdquo;:&ldquo;12383846326&rdquo;,&ldquo;payStyle&rdquo;:&ldquo;DAIGOU&rdquo;,&ldquo;province&rdquo;:&ldquo;山东&rdquo;,&ldquo;city&rdquo;:&ldquo;济南市&rdquo;,&ldquo;district&rdquo;:&ldquo;大观区&rdquo;,&ldquo;town&rdquo;:&ldquo;白贤镇&rdquo;,&ldquo;districtId&rdquo;:&ldquo;120001&rdquo;,&ldquo;detailAddress&rdquo;:&ldquo;龙山路22号&rdquo;,&ldquo;needInvoice&rdquo;:&ldquo;true&rdquo;,&ldquo;invoiceTitle&rdquo;:&ldquo;百度中国&rdquo;},&ldquo;token&rdquo;:&ldquo;daigou_token_26e588a503074&rdquo;}</li>
+</ul>
+
+
+<h4>4.2.2 PostageAPI/addTemplate（添加运费模板api）</h4>
+
+<ul>
+<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/jsonrpc/send/PostageAPI/addTemplate">http://st01-ecom-jn2.st01.baidu.com:8890/jsonrpc/send/PostageAPI/addTemplate</a></li>
+<li>{&ldquo;name&rdquo;:&ldquo;运费模板名称&rdquo;,&ldquo;ucId&rdquo;:29844,&ldquo;outerId&rdquo;:null,&ldquo;assumer&rdquo;:&ldquo;SELLER&rdquo;,&ldquo;valuation&rdquo;:&ldquo;QUANTITY&rdquo;,&ldquo;consignAreaId&rdquo;:&ldquo;110101&rdquo;,&ldquo;lastModify&rdquo;:&ldquo;2014-01-02 19:06:01&rdquo;,&ldquo;shippingMethodList&rdquo;:[{&ldquo;name&rdquo;:&ldquo;COD&rdquo;,&ldquo;defaultStartStandards&rdquo;:&ldquo;1&rdquo;,&ldquo;defaultStartFees&rdquo;:&ldquo;10.00&rdquo;,&ldquo;defaultAddStandards&rdquo;:&ldquo;1&rdquo;,&ldquo;defaultAddFees&rdquo;:&ldquo;4.00&rdquo;,&ldquo;regionGroupList&rdquo;:[]}]}</li>
+</ul>
+
+
+<h4>4.2.3 PostageAPI/deleteTemplate（删除运费模板api）</h4>
+
+<ul>
+<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/jsonrpc/send/PostageAPI/deleteTemplate">http://st01-ecom-jn2.st01.baidu.com:8890/jsonrpc/send/PostageAPI/deleteTemplate</a></li>
+<li>109</li>
+</ul>
+
+
+<h4>4.2.4 DeliveryRegionsAPI/updateDeliveryRegions（更新配送范围api）</h4>
+
+<ul>
+<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/jsonrpc/send/DeliveryRegionsAPI/updateDeliveryRegions">http://st01-ecom-jn2.st01.baidu.com:8890/jsonrpc/send/DeliveryRegionsAPI/updateDeliveryRegions</a></li>
+<li>0</li>
+</ul>
+
+
+<h1>总结</h1>
+
+<p>如有问题可以发送邮件至<a href="mailto:lengyu@baidu.com">lengyu@baidu.com</a>。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[如何整合Cucumber小黄瓜至Jenkins持续集成服务器]]></title>
@@ -27,7 +205,7 @@
 
 <p>以Windows工作机为例<br/>
 &ndash; JDK或者JRE（记得设置JAVA_HOME这个环境变量）<br/>
-&ndash; git（如果你已经安装了<a href="http://rubyinstaller.org/">RubyInstaller</a>，里面是包含git的）<br/>
+&ndash; git（如果你已经安装了<a href="http://railsinstaller.org/">RailsInstaller</a>，里面是包含git的）<br/>
 &ndash; 下载最新稳定版的<a href="http://mirrors.jenkins-ci.org/war/latest/jenkins.war">Jenkins</a></p>
 
 <h1>本地建立git代码库</h1>
@@ -209,8 +387,8 @@ end
 Then /^我将会生成校验报告并评估此次校验$/ do
   # 本来想自动发email的，但是这个mail的依赖好像有冲突，求高人指点
   # Mail.deliver do
-  #   from     &lsquo;<a href="&#x6d;&#x61;&#105;&#x6c;&#x74;&#x6f;&#58;&#113;&#97;&#45;&#97;&#x75;&#116;&#111;&#x6d;&#x61;&#x74;&#105;&#111;&#x6e;&#64;&#98;&#97;&#105;&#100;&#x75;&#x2e;&#x63;&#111;&#x6d;">&#x71;&#x61;&#45;&#x61;&#x75;&#116;&#111;&#x6d;&#97;&#x74;&#x69;&#111;&#110;&#64;&#98;&#x61;&#x69;&#100;&#x75;&#x2e;&#x63;&#x6f;&#x6d;</a>&rsquo;
-  #   to       &lsquo;<a href="&#109;&#x61;&#x69;&#x6c;&#116;&#x6f;&#58;&#108;&#101;&#x6e;&#103;&#121;&#117;&#64;&#98;&#x61;&#105;&#x64;&#x75;&#x2e;&#x63;&#x6f;&#x6d;">&#108;&#101;&#x6e;&#103;&#x79;&#x75;&#x40;&#98;&#x61;&#x69;&#x64;&#117;&#x2e;&#99;&#111;&#x6d;</a>&rsquo;
+  #   from     &lsquo;<a href="&#x6d;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#113;&#97;&#45;&#97;&#x75;&#116;&#x6f;&#x6d;&#97;&#116;&#105;&#x6f;&#110;&#64;&#98;&#x61;&#x69;&#x64;&#x75;&#x2e;&#99;&#111;&#109;">&#113;&#x61;&#45;&#x61;&#117;&#x74;&#x6f;&#x6d;&#x61;&#x74;&#x69;&#x6f;&#x6e;&#x40;&#98;&#97;&#x69;&#100;&#117;&#46;&#99;&#111;&#x6d;</a>&rsquo;
+  #   to       &lsquo;<a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#111;&#x3a;&#x6c;&#101;&#x6e;&#x67;&#x79;&#x75;&#64;&#98;&#97;&#x69;&#100;&#x75;&#46;&#x63;&#111;&#109;">&#x6c;&#101;&#110;&#x67;&#121;&#117;&#x40;&#x62;&#97;&#x69;&#x64;&#x75;&#46;&#x63;&#111;&#x6d;</a>&rsquo;
   #   subject  &lsquo;【结算中心线上数据与建忠数据比对结果】&rsquo;
   #   body     @result.to_s
   #   # add_file &lsquo;/full/path/to/somefile.png&rsquo;
@@ -394,7 +572,7 @@ end
 <h1>软件安装</h1>
 
 <p>请参看<code>小黄瓜全书</code>里面的Appendix 2: Installing cucumber的章节。以工作机为例，安装以下即可。<br/>
-&ndash; <a href="http://rubyinstaller.org/">RubyInstaller</a><br/>
+&ndash; <a href="http://railsinstaller.org/">RailsInstaller</a>（RailsInstaller包含了Ruby1.9.3，Bundler，Git等等众多Ruby开发工具。）<br/>
 &ndash; <a href="https://github.com/adoxa/ansicon/downloads">ANSICON</a></p>
 
 <h1>运行自动化</h1>
@@ -478,148 +656,6 @@ end
 <h1>总结</h1>
 
 <p><code>Capybara/Cucumner</code>是一个有完善文档的，非常强大的测试框架。希望以后能用于主流程的保证。不知道医疗那边的同学需不需要？无论是测死链，或者是ajax也都完全没有问题。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How-to: Host rails app on OpenShift for FREE]]></title>
-    <link href="http://Fatman13.github.io/blog/2013/09/16/how-to-host-rails-app-on-openshift-for-free/"/>
-    <updated>2013-09-16T14:39:00+08:00</updated>
-    <id>http://Fatman13.github.io/blog/2013/09/16/how-to-host-rails-app-on-openshift-for-free</id>
-    <content type="html"><![CDATA[<p>There are many great options for hosting your rails application. For instances, <a href="http://en.wikipedia.org/wiki/Platform_as_a_service">PaaS</a> like <a href="https://www.engineyard.com/">engine yard</a> and <a href="https://www.heroku.com/">heroku</a> provide great scalability and automations to ease your deployment. VPS like <a href="https://www.linode.com/">Linode</a> provides more traditional hosting services, which gives you full control of a node. But what if you just want to test your idea and have a public domain name (no tunneling and router tricks)? Then OpenShift is a great choice, cause it is FREE! (at least for your first 3 gears)</p>
-
-<!--more-->
-
-
-<h1>Good Resources</h1>
-
-<ul>
-<li><p>Official rails quick starter <a href="https://www.openshift.com/kb/kb-e1005-ruby-on-rails-openshift-quickstart-guide">guide</a>.</p></li>
-<li><p>Official sample rails app on <a href="https://github.com/openshift-quickstart/rails-sunspot-openshift-quickstart">github</a>.</p></li>
-<li><p>Official documentation on deployment <a href="http://openshift.github.io/documentation/oo_cartridge_developers_guide.html#openshift-builds">scripts</a>.</p></li>
-<li><p>Deployment tutorial <a href="http://ror-tech.blogspot.com/2013/04/deploying-rails-application-on-to.html">guide</a>.</p></li>
-</ul>
-
-
-<h1>Deployment</h1>
-
-<p><em>This guide will be similar to steps described in the resouces mentioned above. I will add my thoughts to some of the steps.</em></p>
-
-<p><strong>1</strong>. Create an <a href="http://www.openshift.com">OpenShift</a> account.</p>
-
-<p><strong>2</strong>.  Install <code>rhc</code> gem. (If you are using <code>rvm</code>, don’t use <code>sudo</code>.)
-<code>
-gem install rhc
-</code></p>
-
-<p><strong>3</strong>. Create your cartridge. This should create a folder called <code>[your_rails_app_name]</code> at <code>.</code>.
-<code>
-rhc app create -a [your_rails_app_name] -t ruby-1.9
-</code></p>
-
-<p><strong>4</strong>. Add database support to your application.
-<code>
-rhc cartridge add -a [your_rails_app_name] -c [database_name]
-</code>
-Here is a list of supported database.</p>
-
-<table>
-<thead>
-<tr>
-<th align="left">Short Name </th>
-<th align="left"> Full name</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">10gen-mms-agent-0.1 </td>
-<td align="left"> 10gen Mongo Monitoring Service Agent</td>
-</tr>
-<tr>
-<td align="left">cron-1.4 </td>
-<td align="left"> Cron 1.4</td>
-</tr>
-<tr>
-<td align="left">jenkins-client-1 </td>
-<td align="left"> Jenkins Client</td>
-</tr>
-<tr>
-<td align="left">mongodb-2.2 </td>
-<td align="left"> MongoDB NoSQL Database 2.2</td>
-</tr>
-<tr>
-<td align="left">mysql-5.1 </td>
-<td align="left"> MySQL Database 5.1</td>
-</tr>
-<tr>
-<td align="left">metrics-0.1 </td>
-<td align="left"> OpenShift Metrics 0.1</td>
-</tr>
-<tr>
-<td align="left">haproxy-1.4 </td>
-<td align="left"> OpenShift Web Balancer</td>
-</tr>
-<tr>
-<td align="left">phpmyadmin-3 </td>
-<td align="left"> phpMyAdmin 3.4</td>
-</tr>
-<tr>
-<td align="left">postgresql-8.4 </td>
-<td align="left"> PostgreSQL Database 8.4</td>
-</tr>
-<tr>
-<td align="left">postgresql-9.2 </td>
-<td align="left"> PostgreSQL Database 9.2</td>
-</tr>
-<tr>
-<td align="left">rockmongo-1.1 </td>
-<td align="left"> RockMongo 1.1</td>
-</tr>
-<tr>
-<td align="left">switchyard-0 </td>
-<td align="left"> SwitchYard 0.8.0</td>
-</tr>
-</tbody>
-</table>
-
-
-<p><strong>5</strong>. Add <code>deploy</code> script to <code>[your_rails_app_name]/.openshift/action_hooks/</code>.
-<code>
-touch [your_rails_app_name]/.openshift/action_hooks/deploy
-</code>
-Add the following code to <code>deploy</code> file to initialize database.
-<code>ruby
-pushd ${OPENSHIFT_REPO_DIR} &gt; /dev/null
-bundle exec rake db:migrate RAILS_ENV="production"
-popd &gt; /dev/null
-</code>
-<em>NOTE: This might be obvious to experienced Linux user, but I failed to realize this the first time. You have to do a <code>sudo chmod +x [your_rails_app_name]/.openshift/action_hooks/deploy</code> on your <code>deploy</code> script or it won’t be run by the server.</em></p>
-
-<p><strong>6</strong>. Change production database configuration in <code>config/database.yml</code>. Then submit your change to your <a href="https://github.com/">github</a> repository.
-``` yaml</p>
-
-<p>production:
-  adapter: mysql2
-  encoding: utf8
-  reconnect: false
-  pool: 5
-  database: &lt;%=ENV[&lsquo;OPENSHIFT_APP_NAME&rsquo;]%>
-  username: &lt;%=ENV[&lsquo;OPENSHIFT_MYSQL_DB_USERNAME&rsquo;]%>
-  password: &lt;%=ENV[&lsquo;OPENSHIFT_MYSQL_DB_PASSWORD&rsquo;]%>
-  socket: &lt;%=ENV[&lsquo;OPENSHIFT_MYSQL_DB_SOCKET&rsquo;]%>
-  host: &lt;%=ENV[&lsquo;OPENSHIFT_MYSQL_DB_HOST&rsquo;]%>
-  port: &lt;%=ENV[&lsquo;OPENSHIFT_MYSQL_DB_PORT&rsquo;]%>
-<code>``
-*NOTE: Remember to change adapter and ENV variable to corresponding database your are using. For example, If your are using postgresql then change</code>&lt;%=ENV[&lsquo;OPENSHIFT_MYSQL_DB_USERNAME&rsquo;]%><code>to</code>&lt;%=ENV[&lsquo;OPENSHIFT_POSTGRESQL_DB_USERNAME&rsquo;]%>`*</p>
-
-<p><strong>7</strong>. Download your rails application from your github repository.
-<code>
-cd railsapp
-git remote add upstream -m master [your_git_repo_ssh_url]
-git pull -s recursive -X theirs upstream master
-</code></p>
-
-<p><strong>8</strong>. Do <code>git push</code>. <code>git push</code> will initialize the server and trigger the <code>deploy</code> script. If everything goes alright, you should see your application running on <code>http://[your_rails_app_name]-[your_namespace].rhcloud.com</code>. You can customize your domain name too. Check this <a href="http://ror-tech.blogspot.com/2013/04/deploying-rails-application-on-to.html">post</a> out to learn details.</p>
 ]]></content>
   </entry>
   
