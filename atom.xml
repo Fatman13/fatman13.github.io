@@ -4,7 +4,7 @@
   <title><![CDATA[Fatman13]]></title>
   <link href="http://Fatman13.github.io/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2014-02-19T21:42:50+08:00</updated>
+  <updated>2014-02-27T20:26:07+08:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -12,6 +12,361 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[如何使用Jacoco远程统计tomcat服务的覆盖率]]></title>
+    <link href="http://Fatman13.github.io/blog/2014/02/27/ru-he-shi-yong-jacocoyuan-cheng-tong-ji-tomcatfu-wu-de-fu-gai-lu/"/>
+    <updated>2014-02-27T20:18:00+08:00</updated>
+    <id>http://Fatman13.github.io/blog/2014/02/27/ru-he-shi-yong-jacocoyuan-cheng-tong-ji-tomcatfu-wu-de-fu-gai-lu</id>
+    <content type="html"><![CDATA[<p>本文将简单介绍如何使用<code>Jacoco</code>生成远程<code>tomcat</code>服务的覆盖率报告。<br/>
+(<em>注：使用<code>jacoco</code>打开远程服务端口，有一定安全风险。</em>)</p>
+
+<!--more-->
+
+
+<h1>软件安装</h1>
+
+<ul>
+<li><a href="http://ant.apache.org/bindownload.cgi">Ant</a></li>
+<li><a href="http://www.eclemma.org/jacoco/">Jacoco</a></li>
+</ul>
+
+
+<h1>远程Tomcat服务配置</h1>
+
+<ul>
+<li><code>sh shutdown.sh</code>先关闭<code>tomcat</code>服务。</li>
+<li>修改<code>bin/catalina.sh</code>中<code>JAVA_OPTS</code>的配置。</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c"># -javaagent: 的后面跟jacoco的安装路径</span>
+</span><span class='line'><span class="c"># includes= 选项，选择你要覆盖率的服务</span>
+</span><span class='line'><span class="c"># port= 选项，选择你要打开的端口</span>
+</span><span class='line'><span class="c"># address= 选项，tomcat服务所在机器的ip地址（如果想在跟tomcat服务同一台机器上执行ant任务的话，需要改为127.0.0.1）</span>
+</span><span class='line'><span class="nv">JAVA_OPTS</span><span class="o">=</span><span class="s2">&quot;-javaagent:/path/to/your/jacoco_0.6.4/lib/jacocoagent.jar=includes=com.baidu.*,output=tcpserver,port=8893,address=10.81.14.77&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><code>sh startup.sh</code>重新启动<code>tomcat</code>服务。</li>
+</ul>
+
+
+<h1>本地Ant任务配置</h1>
+
+<ul>
+<li>配置<code>build.xml</code>。</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
+</span><span class='line'><span class="nt">&lt;project</span> <span class="na">name=</span><span class="s">&quot;Lengyu&quot;</span> <span class="na">xmlns:jacoco=</span><span class="s">&quot;antlib:org.jacoco.ant&quot;</span> <span class="na">default=</span><span class="s">&quot;jacoco&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="c">&lt;!--Jacoco的安装路径--&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;jacocoantPath&quot;</span> <span class="na">value=</span><span class="s">&quot;/home/work/software/jacoco_0.6.4/lib/jacocoant.jar&quot;</span><span class="nt">/&gt;</span>
+</span><span class='line'>  <span class="c">&lt;!--最终生成.exec文件的路径，Jacoco就是根据这个文件生成最终的报告的--&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;jacocoexecPath&quot;</span> <span class="na">value=</span><span class="s">&quot;/home/work/local/hudson_home/workspace/wg_merchant_oc_regression/jacoco.exec&quot;</span><span class="nt">/&gt;</span>
+</span><span class='line'>    <span class="c">&lt;!--生成覆盖率报告的路径--&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;reportfolderPath&quot;</span> <span class="na">value=</span><span class="s">&quot;E:/Libs/coverage_ant_task/report/&quot;</span><span class="nt">/&gt;</span>
+</span><span class='line'>  <span class="c">&lt;!--远程tomcat服务的ip地址--&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;server_ip&quot;</span> <span class="na">value=</span><span class="s">&quot;10.81.14.77&quot;</span><span class="nt">/&gt;</span>
+</span><span class='line'>  <span class="c">&lt;!--前面配置的远程tomcat服务打开的端口，要跟上面配置的一样--&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;server_port&quot;</span> <span class="na">value=</span><span class="s">&quot;8893&quot;</span><span class="nt">/&gt;</span>
+</span><span class='line'>  <span class="c">&lt;!--源代码路径--&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;checkOrderSrcpath&quot;</span> <span class="na">value=</span><span class="s">&quot;E:/Src/ordercenter/ordercenter-biz/src/main/java/&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>  <span class="c">&lt;!--.class文件路径--&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;checkOrderClasspath&quot;</span> <span class="na">value=</span><span class="s">&quot;E:/Src/ordercenter/ordercenter-biz/target/classes/com/baidu/ordercenter/service/Impl&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c">&lt;!--让ant知道去哪儿找Jacoco--&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;taskdef</span> <span class="na">uri=</span><span class="s">&quot;antlib:org.jacoco.ant&quot;</span> <span class="na">resource=</span><span class="s">&quot;org/jacoco/ant/antlib.xml&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;classpath</span> <span class="na">path=</span><span class="s">&quot;${jacocoantPath}&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/taskdef&gt;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c">&lt;!--dump任务:</span>
+</span><span class='line'><span class="c">      根据前面配置的ip地址，和端口号，</span>
+</span><span class='line'><span class="c">      访问目标tomcat服务，并生成.exec文件。--&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;dump&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;jacoco:dump</span> <span class="na">address=</span><span class="s">&quot;${server_ip}&quot;</span> <span class="na">reset=</span><span class="s">&quot;false&quot;</span> <span class="na">destfile=</span><span class="s">&quot;${jacocoexecPath}&quot;</span> <span class="na">port=</span><span class="s">&quot;${server_port}&quot;</span> <span class="na">append=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/target&gt;</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c">&lt;!--jacoco任务:</span>
+</span><span class='line'><span class="c">      根据前面配置的源代码路径和.class文件路径，</span>
+</span><span class='line'><span class="c">      根据dump后，生成的.exec文件，生成最终的html覆盖率报告。--&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;report&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;delete</span> <span class="na">dir=</span><span class="s">&quot;${reportfolderPath}&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;mkdir</span> <span class="na">dir=</span><span class="s">&quot;${reportfolderPath}&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>      
+</span><span class='line'>      <span class="nt">&lt;jacoco:report&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;executiondata&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;file</span> <span class="na">file=</span><span class="s">&quot;${jacocoexecPath}&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;/executiondata&gt;</span>
+</span><span class='line'>              
+</span><span class='line'>          <span class="nt">&lt;structure</span> <span class="na">name=</span><span class="s">&quot;JaCoCo Report&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;group</span> <span class="na">name=</span><span class="s">&quot;Check Order related&quot;</span><span class="nt">&gt;</span>           
+</span><span class='line'>                  <span class="nt">&lt;classfiles&gt;</span>
+</span><span class='line'>                      <span class="nt">&lt;fileset</span> <span class="na">dir=</span><span class="s">&quot;${checkOrderClasspath}&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>                  <span class="nt">&lt;/classfiles&gt;</span>
+</span><span class='line'>                  <span class="nt">&lt;sourcefiles</span> <span class="na">encoding=</span><span class="s">&quot;gbk&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>                      <span class="nt">&lt;fileset</span> <span class="na">dir=</span><span class="s">&quot;${checkOrderSrcpath}&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>                  <span class="nt">&lt;/sourcefiles&gt;</span>
+</span><span class='line'>              <span class="nt">&lt;/group&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;/structure&gt;</span>
+</span><span class='line'>
+</span><span class='line'>          <span class="nt">&lt;html</span> <span class="na">destdir=</span><span class="s">&quot;${reportfolderPath}&quot;</span> <span class="na">encoding=</span><span class="s">&quot;utf-8&quot;</span> <span class="nt">/&gt;</span>         
+</span><span class='line'>      <span class="nt">&lt;/jacoco:report&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/target&gt;</span>
+</span><span class='line'><span class="nt">&lt;/project&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>生成覆盖率报告</h1>
+
+<ul>
+<li>执行<code>ant dump</code>。成功的话，应会有如下输出。</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'>[work@st01-ecom-jn2.st01.baidu.com ant]$ ant dump
+</span><span class='line'>Buildfile: /home/work/local/hudson_home/workspace/wg_merchant_oc_regression/ant/build.xml
+</span><span class='line'>
+</span><span class='line'>dump:
+</span><span class='line'>[jacoco:dump] Connecting to /10.81.14.77:8893
+</span><span class='line'>[jacoco:dump] Dumping execution data to /home/work/local/hudson_home/workspace/wg_merchant_oc_regression/jacoco.exec
+</span><span class='line'>
+</span><span class='line'>BUILD SUCCESSFUL
+</span><span class='line'>Total time: 0 seconds
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>最后执行<code>ant report</code>。<code>jacoco</code>就会在你指定的路径生成覆盖率报告了。</li>
+</ul>
+
+
+<h1>附录</h1>
+
+<ul>
+<li>更多关于<code>Jacocoagent</code>以及各种<code>task</code>可以参考<a href="http://www.eclemma.org/jacoco/trunk/doc/ant.html">官方文档</a></li>
+<li><code>Jenkins</code>的<code>Jacoco plugin</code>可以根据<code>.exec</code>文件直接生成覆盖率报告，并在<code>Jenkins</code>中生成图表等等。那样的话，<code>ant report</code>这个任务就没用了。</li>
+<li>如有问题，可发email至<a href="mailto:lengyu@baidu.com">lengyu@baidu.com</a>。</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[如何在没有外网的机器上安装gem]]></title>
+    <link href="http://Fatman13.github.io/blog/2014/02/27/ru-he-zai-mei-you-wai-wang-de-ji-qi-shang-an-zhuang-gem/"/>
+    <updated>2014-02-27T20:16:00+08:00</updated>
+    <id>http://Fatman13.github.io/blog/2014/02/27/ru-he-zai-mei-you-wai-wang-de-ji-qi-shang-an-zhuang-gem</id>
+    <content type="html"><![CDATA[<p>本文将简单介绍如何在没有外网的机器上安装<code>Cucumber</code>小黄瓜自动化测所需的<code>gem</code>库。</p>
+
+<!--more-->
+
+
+<h1>1. 软件安装（Jenkins机器）</h1>
+
+<ul>
+<li>安装<code>Jumbo</code>。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bash -c "$( curl http://jumbo.baidu.com/install_jumbo.sh )"; source ~/.bashrc</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>安装<code>Ruby 1.9.3</code>。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>jumbo install ruby</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>安装<code>svn</code>。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>jumbo install subversion</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>2. 在无外网的Jenkins服务器（或者Slave机）上安装Gem</h1>
+
+<ul>
+<li>在jenkins机器上，选择一个合适的文件夹。从<code>svn</code>上下载小黄瓜所依赖的<code>gem</code>。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>svn export https://svn.baidu.com/app-test/ecom/shifen/sf-crm/trunk/weigou/cuke_gems/</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><code>cd cuke_gems</code>至刚刚下载的文件夹中。运行如下指令，会先安装<code>bundler</code>这个<code>gem</code>。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem install --local bundler-1.3.4.gem</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>安装完成后，运行以下指令。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bundle install --local </span></code></pre></td></tr></table></div></figure>
+
+
+<h1>3. 添加新的Gem</h1>
+
+<ul>
+<li>如果需要添加新的gem的话，找一台有外网的机器。（如果Jenkins或者Slave机器是Linux机器，就得用Linux机器，是Windows就得用Windows机器。）</li>
+<li>先<code>co</code>之前的<code>gem</code>库。</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>svn co https://svn.baidu.com/app-test/ecom/shifen/sf-crm/trunk/weigou/cuke_gems/</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><code>cd cuke_gems</code>至刚下载的文件夹中，修改<code>Gemfile</code>，添加新的<code>gem</code>。（最好能选定<code>gem</code>的版本）例如：</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">source</span> <span class="s1">&#39;http://rubygems.org&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;json&#39;</span><span class="p">,</span> <span class="s1">&#39;1.7.3&#39;</span>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;bundler&#39;</span><span class="p">,</span> <span class="s1">&#39;1.3.4&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># 添加新Gem示例 &lt;------</span>
+</span><span class='line'><span class="n">gem</span> <span class="s1">&#39;new_gem&#39;</span><span class="p">,</span> <span class="s1">&#39;0.0.1&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">group</span> <span class="ss">:test</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;cucumber&#39;</span><span class="p">,</span> <span class="s1">&#39;1.2.1&#39;</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;rspec&#39;</span><span class="p">,</span> <span class="s1">&#39;2.11.0&#39;</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;httparty&#39;</span><span class="p">,</span> <span class="s1">&#39;0.8.3&#39;</span>
+</span><span class='line'>  <span class="n">gem</span> <span class="s1">&#39;rest-client&#39;</span><span class="p">,</span> <span class="s1">&#39;1.6.7&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>添加完成后，运行<code>bundle install</code>，然后运行<code>bundle package</code>。这样<code>bundler</code>就会生成新添加的<code>gem</code>的<code>.gem</code>文件以提供本地安装了。</li>
+<li>把更新后的代码提交至<code>svn</code>。</li>
+</ul>
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">svn</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="s2">&quot;add new gem(s)&quot;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>最后重复上文第2大点中的步骤，就能更新Jenkins机器上的<code>gem</code>库了。</li>
+</ul>
+
+
+<h1>附录</h1>
+
+<ul>
+<li><code>bundler</code>是给<code>gem</code>打包的一个<code>gem</code>，所以在上文中先安装了<code>bundler</code>，然后让<code>bundler</code>去本地安装其他的<code>gem</code>。</li>
+<li>更多关于<code>Gemfile</code>的使用方法，可以参考<a href="http://bundler.io/">官方网站</a>。</li>
+<li>所有<code>.gem</code>文件都可以在<a href="http://rubygems.org/">rubygems.org</a>上下载到。其中包括<code>gem</code>的所有历史版本。</li>
+<li>如有更多问题，发送email至<a href="mailto:lengyu@baidu.com">lengyu@baidu.com</a>。</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[测试桩使用指南]]></title>
@@ -2007,105 +2362,6 @@ U<br/>
 
 
 <p><font color="SaddleBrown"></font></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[懒人料理其1 五花肉小炒]]></title>
-    <link href="http://Fatman13.github.io/blog/2013/07/28/lan-ren-liao-li-qi-1-wu-hua-rou-xiao-chao/"/>
-    <updated>2013-07-28T13:54:00+08:00</updated>
-    <id>http://Fatman13.github.io/blog/2013/07/28/lan-ren-liao-li-qi-1-wu-hua-rou-xiao-chao</id>
-    <content type="html"><![CDATA[<p>嗯，一不注意，一个礼拜没写博客了。这次写一篇刚刚测试成功的食谱。</p>
-
-<!--more-->
-
-
-<h1>懒人料理宗旨</h1>
-
-<p>制作简单，能偷懒就偷懒，但是味道还不错。一般都比较能下饭。</p>
-
-<h1>食材</h1>
-
-<p><img src="http://Fatman13.github.io/images/IMAG0343.resized.jpg" width="460" height="260" title="1" ></p>
-
-<p><strong>1</strong> 一盒切薄片的<font color="Crimson">五花猪肉</font>。（<em>个人喜欢偏肥的</em>）</p>
-
-<p><strong>2</strong> 一个<font color="ForestGreen">洋葱</font>。</p>
-
-<h1>制作方法</h1>
-
-<p><strong>1</strong>. 把炒锅加热至<strong>高温</strong>。温度要高，据说这样能保住肉味。（<em>等待加温时可洗个杯子，泡个茶什么的</em>）</p>
-
-<p><strong>2</strong>. 把<font color="Crimson">五花肉</font>倒如锅内，均匀翻炒至肉只剩一至二成可见的<font color="DeepPink">粉红色</font>。（<em>注意，如果是不沾锅的话，不要加油</em>）</p>
-
-<p><strong>3</strong>. 加入<font color="SaddleBrown">料酒</font>，<font color="ForestGreen">洋葱</font>。继续翻炒至没有粉红色。（<em>我用的是MIRIN酒</em>）</p>
-
-<p><strong>4</strong>. 加入少量的<font color="DodgerBlue">水</font>，加盖，调至中火。煮2-3分钟。</p>
-
-<p><strong>5</strong>. 开盖。加入<font color="SaddleBrown">盐</font>，<font color="SaddleBrown">糖</font>，<font color="SaddleBrown">少量酱油</font>，<font color="SaddleBrown">老干妈</font>。均匀搅拌，加盖，煮半分钟即可食用。</p>
-
-<h1>出锅</h1>
-
-<p><img src="http://Fatman13.github.io/images/IMAG0342.resized.jpg" width="555" height="313" title="1" ></p>
-
-<p>好吃～</p>
-
-<h1>变化</h1>
-
-<p>洋葱可以换成青椒，泡菜等等，都很好吃。</p>
-
-<h1>附录</h1>
-
-<p><img src="http://Fatman13.github.io/images/IMAG0345.resized.jpg" width="220" height="389" title="1" ></p>
-
-<p><font color="SaddleBrown">老干妈</font>个人推荐辣三丁油辣椒口味。感觉比一般的要好吃。</p>
-
-<p><img src="http://Fatman13.github.io/images/IMAG0347.resized.jpg" width="220" height="389" title="1" ></p>
-
-<p><font color="SaddleBrown">MIRIN</font>料酒。</p>
-
-<!--肉-->
-
-
-<p><font color="Crimson"></font></p>
-
-<!--蔬菜-->
-
-
-<p><font color="ForestGreen"></font></p>
-
-<!--生肉-->
-
-
-<p><font color="DeepPink"></font></p>
-
-<!--水-->
-
-
-<p><font color="DodgerBlue"></font></p>
-
-<!--调料-->
-
-
-<p><font color="SaddleBrown"></font></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[苏州烟雨记-读后感]]></title>
-    <link href="http://Fatman13.github.io/blog/2013/07/18/su-zhou-yan-yu-ji-du-hou-gan/"/>
-    <updated>2013-07-18T20:31:00+08:00</updated>
-    <id>http://Fatman13.github.io/blog/2013/07/18/su-zhou-yan-yu-ji-du-hou-gan</id>
-    <content type="html"><![CDATA[<p>诸君不要误会，鄙人绝不是什么喜欢读书之类。碰巧读了<a href="http://tieba.baidu.com/p/870627983">《苏州烟雨记》</a>是在写上一篇<a href="http://fatman13.me/blog/2013/07/15/jian-ti-vsfan-ti/">博客</a>的时候，看了<a href="http://baike.baidu.com/">百度百科</a>关于<a href="http://baike.baidu.com/view/14153.htm">郁君</a>的词条。滚到词条的最后看见如下这段<a href="http://tieba.baidu.com/p/870627983">《苏州烟雨记》</a>的原文摘录。并促生了拜读原文的兴趣。（<em>注：原文是篇游记，所以并不长，太长我也读不下去&hellip;</em>）</p>
-
-<!--more-->
-
-
-<blockquote><p>我们同车的几个“仙侣”，好像是什么女学校的学生。她们的活泼样子——使恶魔讲起来就是轻佻——丰肥的肉体——使恶魔讲起来就是多淫——和烂热的青春，都是神仙应有的条件，但是只有一件，只有一件事情，使我无论如何也不能把她们当作神仙的眷属看。非但如此，为这一件事情的原故，我简直不能把她们当作我的同胞看。这是什么呢，这便是她们故意想出风头而用的英文的谈话。假使我是不懂英文的人，那么从她们的绯红的嘴唇里滚出来的叽哩咕噜，正可以当作天女的灵言听了，倒能够对她们更加一层敬意。假使我是崇拜英文的人，那么听了她们的话，也可以感得几分亲热。但是我偏偏是一个程度与她们相仿的半通英文而又轻视英文的人，所以我的对她们的热意，被她们的假话一吹几乎吹得冰冷了。世界上的人类，抱着功利主义，受利欲的催眠最深的，我想没有过于英美民族的了。但我们的这几位女同胞，不用《西厢》、《牡丹亭》上的说白来表现她们的思想，不把《红楼梦》上言文一致的文字来代替她们的说话，偏偏要选了商人用的这一种有金钱臭味的英语来卖弄风情，是多么煞风景的事情啊!你们即使要用外国文，也应选择那神韵悠扬的法国语，或者更适当一点的就该用半清半俗，薄爱民语(LaLanguedesBohemiers),何以要用这卑俗的英语呢?啊啊，当现在崇拜黄金的世界，也无怪某某女学堂卒业出来的学生，不愿为正当的中国人的糟糠之宝，而愿意自荐枕席于那些犹太种的英美的下流商人的。我的朋友有一次说：“我们中国亡了，倒没有什么可惜，我们中国的女性亡了，却是很可惜的。现在在洋场上作寓公的有钱有势的中国的人物，尤其是外交商界政界的人物，他们的妻女，差不多没有一个不失身于外国的下流流氓的，你看这事伤心不伤心哩!”我是两性问题上的一个国粹保存主义者，最不忍见我国的娇美的女同胞，被那些外国流氓去作践。我的在外国留学时代的游荡，也是本于这主义的一种复仇的心思。我现在若有黄金千万，还想去买些白奴来，供我们中国的黄包车夫苦力小工享乐啦!</p></blockquote>
-
-<p><a href="http://baike.baidu.com/view/14153.htm">郁君</a>不愧是风流才子，不知道是不是跟<a href="http://baike.baidu.com/view/5162.htm">唐伯虎</a>有的一拼？文章写得好搞笑。<a href="http://baike.baidu.com/view/14153.htm">郁君</a>你若地下有知，其实你当年说的那些，现在也没变化太多。只是你当年游玩的城隍庙，鄙人是见识不到liao，可惜哉。以后准备拜读<a href="http://www.millionbook.net/mj/y/yudafu/ydfz/002.htm">《沉沦》</a>和其他的游记。</p>
-
-<blockquote><p>Written with <a href="http://benweet.github.io/stackedit/">StackEdit</a>.</p></blockquote>
 ]]></content>
   </entry>
   
