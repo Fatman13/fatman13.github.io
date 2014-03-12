@@ -4,7 +4,7 @@
   <title><![CDATA[Fatman13]]></title>
   <link href="http://Fatman13.github.io/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2014-02-27T20:26:07+08:00</updated>
+  <updated>2014-03-12T20:50:48+08:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -12,6 +12,210 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Cucumber小黄瓜页面级自动化测试入门教程]]></title>
+    <link href="http://Fatman13.github.io/blog/2014/03/12/cucumberxiao-huang-gua-ye-mian-ji-zi-dong-hua-ce-shi-ru-men-jiao-cheng/"/>
+    <updated>2014-03-12T20:44:00+08:00</updated>
+    <id>http://Fatman13.github.io/blog/2014/03/12/cucumberxiao-huang-gua-ye-mian-ji-zi-dong-hua-ce-shi-ru-men-jiao-cheng</id>
+    <content type="html"><![CDATA[<p>之前也写了<a href="http://tauntaunslayer13.me/blog/2014/01/26/ru-he-shi-yong-capybarahe-cucumbershi-xian-ye-mian-ji-bie-zi-dong-hua/">一篇</a>小黄瓜页面级自动化测试的教程，但是感觉写的可能不是最好。再尝试写一篇入门级别的页面自动化教程。源代码在<a href="https://github.com/Fatman13/cuke_midpage">这里</a>。</p>
+
+<!--more-->
+
+
+<h1>自动化测试对象</h1>
+
+<p>这段<a href="https://github.com/Fatman13/cuke_midpage">源代码</a>主要自动化测试了<code>百度微购</code>页面上的几个链接是否为死链。</p>
+
+<h1>使用代码</h1>
+
+<ul>
+<li>首先<code>git clone https://github.com/Fatman13/cuke_midpage.git</code>。</li>
+<li><code>cd cuke_midpage</code>进入刚下载的文件夹中。</li>
+<li>运行<code>bundle install</code>。</li>
+<li>跑自动化case运行<code>cucumber</code>。（你应该能看到小黄瓜打开火狐，并验证给予的链接是否是死链）</li>
+</ul>
+
+
+<h1>源代码结构</h1>
+
+<p>小黄瓜大致文件结构如下。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>D:.
+</span><span class='line'>└─features
+</span><span class='line'>    ├─step_definitions
+</span><span class='line'>    └─support</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><code>features</code>文件夹：主要存放<code>.feature</code>文档。是每个测试case的文字解释。</li>
+<li><code>step_definition</code>文件夹：主要存放<code>.rb</code>文件。每个case具体执行的代码，都应该放在这里。</li>
+<li><code>support</code>文件夹：主要存放<code>env.rb</code>。主要定义一个环境变量。所有<code>require</code>都可以放在这儿里。因为<code>小黄瓜</code>在运行测试前，一定会先运行<code>env.rb</code>这个文件。</li>
+</ul>
+
+
+<p>如上所示，开发者只需将对应的<code>.feature</code>，<code>.rb</code>文件等等，按照小黄瓜约定，放入对应的文件夹中。运行<code>cucumber</code>时，小黄瓜就会自动在对应的文件夹中找运行case所需的代码。</p>
+
+<h1>feature文档讲解</h1>
+
+<p>作为一个<a href="http://en.wikipedia.org/wiki/Behavior-driven_development">BDD</a>行为驱动测试框架，小黄瓜会逼迫你写一些文档。给测死链case写一个feature文档可能略显<code>鸡肋</code>。这里主要是作为一个简单的例子做讲解一下<code>features/wgmp_link.feature</code>。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+</pre></td><td class='code'><pre><code class='cucumber'><span class='line'><span class="k">Feature:</span><span class="nf"> 中间页死链</span>
+</span><span class='line'><span class="nf">  为了保证中间页没有死链。</span>
+</span><span class='line'>
+</span><span class='line'><span class="nf">  </span><span class="k">Scenario Outline:</span><span class="nf"> 测死链（Capybara）</span>
+</span><span class='line'><span class="k">    When </span><span class="nf">我访问&quot;</span><span class="s">http://weigou.baidu.com</span><span class="nf">&quot;并点击</span><span class="nv">&lt;some_link&gt;</span><span class="nf">链接时</span>
+</span><span class='line'><span class="nf">    </span><span class="k">Then </span><span class="nf">页面状态应该为&quot;</span><span class="s">200</span><span class="nf">&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nf">  </span><span class="k">Examples:</span><span class="nf"> 点这些</span><span class="k"></span>
+</span><span class='line'><span class="k">      |</span><span class="nv"> some_link</span><span class="k"> |</span><span class="nf"></span>
+</span><span class='line'><span class="k">      |</span><span class="s"> 团购</span><span class="k"> |</span>
+</span><span class='line'>
+</span><span class='line'><span class="nf">  </span><span class="nt">@new</span><span class="nf">   </span>
+</span><span class='line'><span class="nf">  </span><span class="k">Scenario Outline:</span><span class="nf"> 测死链（http client）</span>
+</span><span class='line'><span class="k">    When </span><span class="nf">我访问</span><span class="nv">&lt;some_link&gt;</span><span class="nf">链接时</span>
+</span><span class='line'><span class="nf">    </span><span class="k">Then </span><span class="nf">我得到的页面状态应该为&quot;</span><span class="s">200</span><span class="nf">&quot;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nf">  </span><span class="k">Examples:</span><span class="nf"> 点这些</span><span class="k"></span>
+</span><span class='line'><span class="k">      |</span><span class="nv"> some_link</span><span class="k"> |</span><span class="nf"></span>
+</span><span class='line'><span class="k">      |</span><span class="s"> http://weigou.baidu.com/</span><span class="k"> |</span><span class="nf"></span>
+</span><span class='line'><span class="k">      |</span><span class="s"> http://weigou.baidu.com/topic/food</span><span class="k"> |</span><span class="nf"></span>
+</span><span class='line'><span class="k">      |</span><span class="s"> http://weigou.baidu.com/topic/beauty</span><span class="k"> |</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>feature</code>文档使用的是<a href="https://github.com/cucumber/cucumber/wiki/Gherkin">Gerkins</a>的语法。以上这篇<code>feature</code>文档，使用了<code>Scenario Outline:</code>关键词，写了2个case。第一个是使用<code>Capybara</code>测死链，第二个是直接使用<code>http</code>客户端测死链。<code>Given</code>，<code>When</code>，<code>Then</code>三个关键词可以用来定义一个case所需要走的一个流程。（这个例子中省略了<code>Given</code>）这三个关键词后面的话都是可以根据case的需求改写的。<code>小黄瓜</code>会用这些话，用正则表达式自动对应到<code>feature/step_definitions/link_steps.rb</code>中每句话对应的<code>code block</code>中，并在测试时，运行每句话所对应的代码。</p>
+
+<h1>代码讲解</h1>
+
+<p>接下来讲解一下<code>feature/step_definitions/link_steps.rb</code>中的代码。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># encoding: utf-8</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># 使用Capybara</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">When</span> <span class="sr">/^我访问&quot;(.*?)&quot;并点击(.*)链接时$/</span> <span class="k">do</span> <span class="o">|</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="o">|</span>
+</span><span class='line'>  <span class="c1"># 正则不仅将When关键词的话对应到这个code block中，</span>
+</span><span class='line'>  <span class="c1"># 还能从那句话中读取参数。</span>
+</span><span class='line'>  <span class="c1"># arg1的值是&quot;http://weigou.baidu.com&quot;</span>
+</span><span class='line'>  <span class="c1"># arg2的值是&quot;团购&quot;</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># visit是capybara封装的一个函数。</span>
+</span><span class='line'>  <span class="c1"># 他会自动打开火狐，并访问arg1。 </span>
+</span><span class='line'>  <span class="n">visit</span> <span class="n">arg1</span>
+</span><span class='line'>  <span class="c1"># find是capybara封装的一个函数。</span>
+</span><span class='line'>  <span class="c1"># 这里通过html的a元素上的text找到了这个a元素，</span>
+</span><span class='line'>  <span class="c1"># 并将他存到@elem变量中。</span>
+</span><span class='line'>  <span class="vi">@elem</span> <span class="o">=</span> <span class="n">find</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="ss">:text</span> <span class="o">=&gt;</span> <span class="sr">/\A</span><span class="si">#{</span><span class="n">arg2</span><span class="si">}</span><span class="sr">\z/</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">Then</span> <span class="sr">/^页面状态应该为&quot;(.*?)&quot;$/</span> <span class="k">do</span> <span class="o">|</span><span class="n">arg1</span><span class="o">|</span>
+</span><span class='line'>  <span class="c1"># 点击该链接</span>
+</span><span class='line'>  <span class="vi">@elem</span><span class="o">.</span><span class="n">click</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1"># 使用http client</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">When</span> <span class="sr">/^我访问(.*)链接时$/</span> <span class="k">do</span> <span class="o">|</span><span class="n">arg1</span><span class="o">|</span>
+</span><span class='line'>  <span class="c1"># 由于在feature文档中使用了examples关键词</span>
+</span><span class='line'>  <span class="c1"># 这里arg1分别对应了</span>
+</span><span class='line'>  <span class="c1"># &quot;http://weigou.baidu.com/&quot;</span>
+</span><span class='line'>  <span class="c1"># &quot;http://weigou.baidu.com/topic/food&quot;</span>
+</span><span class='line'>  <span class="c1"># &quot;http://weigou.baidu.com/topic/beauty&quot;</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="n">arg1</span>
+</span><span class='line'>  <span class="c1"># 直接使用http客户端，向每个arg1发送get请求。</span>
+</span><span class='line'>  <span class="vi">@response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="o">.</span><span class="n">get</span> <span class="n">arg1</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="no">Then</span> <span class="sr">/^我得到的页面状态应该为&quot;(.*)&quot;$/</span> <span class="k">do</span> <span class="o">|</span><span class="n">arg1</span><span class="o">|</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="n">arg1</span>
+</span><span class='line'>  <span class="c1"># 检查页面status是不是200。</span>
+</span><span class='line'>  <span class="vi">@response</span><span class="o">.</span><span class="n">code</span><span class="o">.</span><span class="n">to_s</span><span class="o">.</span><span class="n">should</span> <span class="n">eq</span><span class="p">(</span><span class="n">arg1</span><span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这里可以清楚的看到，在<code>feature</code>文档中，<code>When</code>和<code>Then</code>后面跟的话，都一一对应了一块代码。在运行自动化case时，他们会按照<code>feature</code>文档中每个<code>Scenario</code>的顺序，依次执行每一段对应的代码。</p>
+
+<h1>附录</h1>
+
+<ul>
+<li>如有问题可以发送邮件至<a href="mailto:lengyu@baidu.com">lengyu@baidu.com</a>。</li>
+<li><a href="https://s3.amazonaws.com/macslow/index.html">这个</a>挺有意思。</li>
+</ul>
+
+
+<object data="https://s3.amazonaws.com/macslow/clock7.svg?w=3&amp;h=3" id="clock1" type="image/svg+xml"></object>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[如何使用Jacoco远程统计tomcat服务的覆盖率]]></title>
@@ -2291,77 +2495,6 @@ U<br/>
 
 
 <p><font color="LightSteelBlue"></font></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[懒人料理其2 咖喱]]></title>
-    <link href="http://Fatman13.github.io/blog/2013/08/04/lan-ren-liao-li-qi-2-ka-li/"/>
-    <updated>2013-08-04T16:45:00+08:00</updated>
-    <id>http://Fatman13.github.io/blog/2013/08/04/lan-ren-liao-li-qi-2-ka-li</id>
-    <content type="html"><![CDATA[<p>继续写食谱。</p>
-
-<!--more-->
-
-
-<h1>懒人料理宗旨</h1>
-
-<p>制作简单，能偷懒就偷懒，但是味道还不错。一般都比较能下饭。</p>
-
-<h1>食材</h1>
-
-<p><img src="http://Fatman13.github.io/images/IMAG0362.resized.jpg" width="460" height="260" title="1" ></p>
-
-<p><strong>1</strong> 一个<font color="ForestGreen">洋葱</font>。二或三个<font color="ForestGreen">土豆</font>。二或三个<font color="ForestGreen">胡萝卜</font>。</p>
-
-<h1>制作方法</h1>
-
-<p><strong>1</strong>. 把炒锅加热至<strong>高温</strong>。加入<font color="GoldenRod">食用油</font>。（<em><font color="GoldenRod">黄油</font>也可以</em>）</p>
-
-<p><strong>2</strong>. 把<font color="ForestGreen">洋葱</font>，<font color="ForestGreen">土豆</font>，<font color="ForestGreen">胡萝卜</font>都倒入锅子里面。均匀翻炒3-5分钟。大概会问到一股<font color="ForestGreen">蔬菜</font>的香味，<font color="ForestGreen">洋葱</font>透明即可。</p>
-
-<p><strong>3</strong>. 加入<font color="DodgerBlue">水</font>。（<em><font color="DodgerBlue">水</font>没有淹过菜，差一点淹过菜，太多咖喱会<font color="DodgerBlue">水</font>东东</em>）加盖，调至中火。煮10分钟。（<em>可以开盖拿出土豆或者胡萝卜吃吃看看是否达到自己要求的硬度</em>)</p>
-
-<p><strong>4</strong>. 关火。开盖。加入<font color="SaddleBrown">咖喱快</font>，<font color="SaddleBrown">胡椒粉</font>。均匀搅拌至咖喱块融化。</p>
-
-<p><strong>5</strong>. 开微火，继续搅拌5分钟。完成！</p>
-
-<h1>出锅</h1>
-
-<p><img src="http://Fatman13.github.io/images/IMAG0369.resized.jpg" width="555" height="313" title="1" ></p>
-
-<p>这次咖喱水太多了。材料也放太多了。好像烧得不是很熟。</p>
-
-<h1>附录</h1>
-
-<p><img src="http://Fatman13.github.io/images/IMAG0365.resized.jpg" width="220" height="389" title="1" ></p>
-
-<p><font color="SaddleBrown">咖喱块</font>。</p>
-
-<!--肉-->
-
-
-<p><font color="Crimson"></font></p>
-
-<!--蔬菜-->
-
-
-<p><font color="ForestGreen"></font></p>
-
-<!--生肉-->
-
-
-<p><font color="DeepPink"></font></p>
-
-<!--水-->
-
-
-<p><font color="DodgerBlue"></font></p>
-
-<!--调料-->
-
-
-<p><font color="SaddleBrown"></font></p>
 ]]></content>
   </entry>
   

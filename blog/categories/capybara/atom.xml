@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Capybara | Fatman13]]></title>
   <link href="http://Fatman13.github.io/blog/categories/capybara/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2014-02-27T20:26:07+08:00</updated>
+  <updated>2014-03-12T20:50:48+08:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -12,6 +12,157 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Cucumber小黄瓜页面级自动化测试入门教程]]></title>
+    <link href="http://Fatman13.github.io/blog/2014/03/12/cucumberxiao-huang-gua-ye-mian-ji-zi-dong-hua-ce-shi-ru-men-jiao-cheng/"/>
+    <updated>2014-03-12T20:44:00+08:00</updated>
+    <id>http://Fatman13.github.io/blog/2014/03/12/cucumberxiao-huang-gua-ye-mian-ji-zi-dong-hua-ce-shi-ru-men-jiao-cheng</id>
+    <content type="html"><![CDATA[<p>之前也写了<a href="http://tauntaunslayer13.me/blog/2014/01/26/ru-he-shi-yong-capybarahe-cucumbershi-xian-ye-mian-ji-bie-zi-dong-hua/">一篇</a>小黄瓜页面级自动化测试的教程，但是感觉写的可能不是最好。再尝试写一篇入门级别的页面自动化教程。源代码在<a href="https://github.com/Fatman13/cuke_midpage">这里</a>。</p>
+
+<!--more-->
+
+
+<h1>自动化测试对象</h1>
+
+<p>这段<a href="https://github.com/Fatman13/cuke_midpage">源代码</a>主要自动化测试了<code>百度微购</code>页面上的几个链接是否为死链。</p>
+
+<h1>使用代码</h1>
+
+<ul>
+<li>首先<code>git clone https://github.com/Fatman13/cuke_midpage.git</code>。</li>
+<li><code>cd cuke_midpage</code>进入刚下载的文件夹中。</li>
+<li>运行<code>bundle install</code>。</li>
+<li>跑自动化case运行<code>cucumber</code>。（你应该能看到小黄瓜打开火狐，并验证给予的链接是否是死链）</li>
+</ul>
+
+
+<h1>源代码结构</h1>
+
+<p>小黄瓜大致文件结构如下。</p>
+
+<p>```
+D:.
+└─features</p>
+
+<pre><code>├─step_definitions
+└─support
+</code></pre>
+
+<p>```</p>
+
+<ul>
+<li><code>features</code>文件夹：主要存放<code>.feature</code>文档。是每个测试case的文字解释。</li>
+<li><code>step_definition</code>文件夹：主要存放<code>.rb</code>文件。每个case具体执行的代码，都应该放在这里。</li>
+<li><code>support</code>文件夹：主要存放<code>env.rb</code>。主要定义一个环境变量。所有<code>require</code>都可以放在这儿里。因为<code>小黄瓜</code>在运行测试前，一定会先运行<code>env.rb</code>这个文件。</li>
+</ul>
+
+
+<p>如上所示，开发者只需将对应的<code>.feature</code>，<code>.rb</code>文件等等，按照小黄瓜约定，放入对应的文件夹中。运行<code>cucumber</code>时，小黄瓜就会自动在对应的文件夹中找运行case所需的代码。</p>
+
+<h1>feature文档讲解</h1>
+
+<p>作为一个<a href="http://en.wikipedia.org/wiki/Behavior-driven_development">BDD</a>行为驱动测试框架，小黄瓜会逼迫你写一些文档。给测死链case写一个feature文档可能略显<code>鸡肋</code>。这里主要是作为一个简单的例子做讲解一下<code>features/wgmp_link.feature</code>。</p>
+
+<p>``` cucumber
+Feature: 中间页死链
+  为了保证中间页没有死链。</p>
+
+<p>  Scenario Outline: 测死链（Capybara）</p>
+
+<pre><code>When 我访问"http://weigou.baidu.com"并点击&lt;some_link&gt;链接时
+Then 页面状态应该为"200"
+</code></pre>
+
+<p>  Examples: 点这些</p>
+
+<pre><code>| some_link |
+| 团购 |
+</code></pre>
+
+<p>  @new<br/>
+  Scenario Outline: 测死链（http client）</p>
+
+<pre><code>When 我访问&lt;some_link&gt;链接时
+Then 我得到的页面状态应该为"200"
+</code></pre>
+
+<p>  Examples: 点这些</p>
+
+<pre><code>| some_link |
+| http://weigou.baidu.com/ |
+| http://weigou.baidu.com/topic/food |
+| http://weigou.baidu.com/topic/beauty |
+</code></pre>
+
+<p>```</p>
+
+<p><code>feature</code>文档使用的是<a href="https://github.com/cucumber/cucumber/wiki/Gherkin">Gerkins</a>的语法。以上这篇<code>feature</code>文档，使用了<code>Scenario Outline:</code>关键词，写了2个case。第一个是使用<code>Capybara</code>测死链，第二个是直接使用<code>http</code>客户端测死链。<code>Given</code>，<code>When</code>，<code>Then</code>三个关键词可以用来定义一个case所需要走的一个流程。（这个例子中省略了<code>Given</code>）这三个关键词后面的话都是可以根据case的需求改写的。<code>小黄瓜</code>会用这些话，用正则表达式自动对应到<code>feature/step_definitions/link_steps.rb</code>中每句话对应的<code>code block</code>中，并在测试时，运行每句话所对应的代码。</p>
+
+<h1>代码讲解</h1>
+
+<p>接下来讲解一下<code>feature/step_definitions/link_steps.rb</code>中的代码。</p>
+
+<p>```ruby</p>
+
+<h1>encoding: utf-8</h1>
+
+<h1>使用Capybara</h1>
+
+<p>When /^我访问"(.<em>?)&ldquo;并点击(.</em>)链接时$/ do |arg1, arg2|
+  # 正则不仅将When关键词的话对应到这个code block中，
+  # 还能从那句话中读取参数。
+  # arg1的值是"<a href="http://weigou.baidu.com">http://weigou.baidu.com</a>&rdquo;
+  # arg2的值是"团购"</p>
+
+<p>  # visit是capybara封装的一个函数。
+  # 他会自动打开火狐，并访问arg1。
+  visit arg1
+  # find是capybara封装的一个函数。
+  # 这里通过html的a元素上的text找到了这个a元素，
+  # 并将他存到@elem变量中。
+  @elem = find(&ldquo;a&rdquo;, :text => /\A#{arg2}\z/)
+end</p>
+
+<p>Then /^页面状态应该为"(.*?)&ldquo;$/ do |arg1|
+  # 点击该链接
+  @elem.click
+end</p>
+
+<h1>使用http client</h1>
+
+<p>When /^我访问(.*)链接时$/ do |arg1|
+  # 由于在feature文档中使用了examples关键词
+  # 这里arg1分别对应了
+  # &ldquo;<a href="http://weigou.baidu.com/">http://weigou.baidu.com/</a>&rdquo;
+  # &ldquo;<a href="http://weigou.baidu.com/topic/food">http://weigou.baidu.com/topic/food</a>&rdquo;
+  # &ldquo;<a href="http://weigou.baidu.com/topic/beauty">http://weigou.baidu.com/topic/beauty</a>&rdquo;
+  puts arg1
+  # 直接使用http客户端，向每个arg1发送get请求。
+  @response = RestClient.get arg1
+end</p>
+
+<p>Then /^我得到的页面状态应该为"(.*)&ldquo;$/ do |arg1|
+  puts arg1
+  # 检查页面status是不是200。
+  @response.code.to_s.should eq(arg1)
+end
+```</p>
+
+<p>这里可以清楚的看到，在<code>feature</code>文档中，<code>When</code>和<code>Then</code>后面跟的话，都一一对应了一块代码。在运行自动化case时，他们会按照<code>feature</code>文档中每个<code>Scenario</code>的顺序，依次执行每一段对应的代码。</p>
+
+<h1>附录</h1>
+
+<ul>
+<li>如有问题可以发送邮件至<a href="mailto:lengyu@baidu.com">lengyu@baidu.com</a>。</li>
+<li><a href="https://s3.amazonaws.com/macslow/index.html">这个</a>挺有意思。</li>
+</ul>
+
+
+<object data="https://s3.amazonaws.com/macslow/clock7.svg?w=3&amp;h=3" id="clock1" type="image/svg+xml"></object>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[如何使用Capybara和Cucumber实现页面级别自动化]]></title>

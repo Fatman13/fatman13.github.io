@@ -157,8 +157,14 @@
         <lastmod>2014-02-27T20:21:06+08:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://Fatman13.github.io/blog/2014/03/12/cucumberxiao-huang-gua-ye-mian-ji-zi-dong-hua-ce-shi-ru-men-jiao-cheng/
+        </loc>
+        <lastmod>2014-03-12T20:45:58+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://Fatman13.github.io/</loc>
-        <lastmod>2014-02-27T20:21:06+08:00</lastmod>
+        <lastmod>2014-03-12T20:45:58+08:00</lastmod>
     </url>
     <url>
         <loc>http://Fatman13.github.io/robots.txt</loc>
@@ -166,6 +172,6 @@
     </url>
     <url>
         <loc>http://Fatman13.github.io/blog/archives/</loc>
-        <lastmod>2014-02-27T20:21:06+08:00</lastmod>
+        <lastmod>2014-03-12T20:45:58+08:00</lastmod>
     </url>
 </urlset>
