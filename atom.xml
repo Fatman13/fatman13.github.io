@@ -4,7 +4,7 @@
   <title><![CDATA[Fatman13]]></title>
   <link href="http://Fatman13.github.io/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2014-03-28T23:07:52+08:00</updated>
+  <updated>2014-04-18T21:50:07+08:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -12,6 +12,55 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[顾妈妈网一期试运营版正式上线]]></title>
+    <link href="http://Fatman13.github.io/blog/2014/04/18/gu-ma-ma-wang-yi-qi-shi-yun-ying-ban-zheng-shi-shang-xian/"/>
+    <updated>2014-04-18T21:44:00+08:00</updated>
+    <id>http://Fatman13.github.io/blog/2014/04/18/gu-ma-ma-wang-yi-qi-shi-yun-ying-ban-zheng-shi-shang-xian</id>
+    <content type="html"><![CDATA[<p>公告，顾妈妈网一期试运行版上线啦。大家也快来<a href="gumama13.com">访问</a>吧。非常可惜<code>gumama.com</code>这个域名被人捷足先登了。好像是一个叫<code>谷妈妈</code>的婚庆网站。在下只能屈就于<code>gumama13.com</code>这个域名了。现在随便写下点什么。</p>
+
+<!--more-->
+
+
+<h2>流量统计</h2>
+
+<p><img src="http://i.imgur.com/u4MlWXT.jpg" alt="" /></p>
+
+<p>使用<a href="http://www.google.com/analytics/">Google Analytics</a>统计的第一天的流量。不过由于<code>Rails 4</code>自带的<code>turbo link</code>功能，不一定每次翻页都统计进去了。尝试了<code>SO</code>上<a href="http://stackoverflow.com/questions/18632644/google-analytics-with-rails-4">这个</a>答案。但是好像没有起到作用。</p>
+
+<h2>部署</h2>
+
+<p>这次部署使用了<a href="http://www.aliyun.com/?utm_medium=text&amp;utm_source=bdbrand&amp;utm_campaign=bdbrand">阿里云</a>。用下来真的挺好。而且阿里在使用百度推广的时候确实也挺精明。在大搜中搜索例如<code>Azure</code>，<code>ucloud</code>等等其他云服务供应商的时候，阿里故意买这些敏感词汇，然后打出自己的广告。</p>
+
+<p><img src="http://i.imgur.com/S3PtAJL.jpg" alt="" /></p>
+
+<p>搜索&#8221;Azure&#8221;。</p>
+
+<p><img src="http://i.imgur.com/a4456Kx.jpg" alt="" /></p>
+
+<p>搜索&#8221;uCloud&#8221;</p>
+
+<p>而且<code>阿里云</code>在同类型云服务提供商中间，确实有价格优势，一个月55元。1核CPU，512MB内存，20G硬盘，1MBps网络流量，<code>Ubuntu 12.04</code>，对一个初出茅庐的小网站，是绰绰有余了。阿里杭州机房的响应速度也是良好。在用<code>passenger</code>部署我的<code>Rails 4</code>应用的时候，<code>passenger</code>提示我最好有1G内存，并且给了增加<code>swap</code>内存的指令。阿里云机器默认没有<code>swap</code>内存，不过使用root之后倒也改成功了。不知道是不是阿里云的初衷。</p>
+
+<h2>题外话</h2>
+
+<p>推荐一个4月神番，<a href="http://comic.letv.com/zt/pingpongbili/index.shtml#p1">乒乓</a>。就第一集来看，在下非常喜欢这部片子。鄙人总结了一些该番的看点。虽然都是一些商业片惯用的手法，但是运用的恰到好处。</p>
+
+<h4>&mdash;&ndash;> 剧透分割线 &lt;&mdash;&ndash;</h4>
+
+<ul>
+<li>猪脚不苟言笑，但是有个外号叫&#8221;smile&#8221;</li>
+<li>片子开头和当中2段<code>教练</code>和<code>山田队长</code>的对话，埋下了很多伏笔。不经意间带过了很多事情。特别是开头那段对话，后面<code>阿扁</code>被<code>China</code>打败时，让人不禁有“哇~”的感觉。</li>
+<li>分镜和<code>BGM</code>也是一流。（从分镜就能感觉到制作满满的诚意）</li>
+<li>人物各种幽默的对话，在CV的演绎下，感觉特别好。这个<code>China</code>的教练的CV很好，<code>China</code>的CV一般。</li>
+<li><code>12:58</code>和<code>13:17</code>日本教练的细节表情。<code>16:32</code>天空中有鸟飞过。</li>
+<li><code>China</code>和<code>阿扁</code>的对局很燃！</li>
+<li>对局后<code>China</code>的自我评价，让人对角色的好感度上升很多。</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Cucumber小黄瓜页面级自动化测试入门教程]]></title>
@@ -2414,87 +2463,6 @@ U<br/>
 &mdash;<cite>《<a href="http://baike.baidu.com/view/2674.htm#sub5089533">东周列国传</a>》第50回 东门遂援立子倭　赵宣子桃园强谏</cite></p></blockquote>
 
 <p>看到这一段的时候，我又笑了。我猜这个<a href="http://baike.baidu.com/view/28749.htm">冯梦龙</a>很有可能是江南人。果不起然，在百度百科上面看见他是苏州人。呵呵。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[懒人料理其3 营养早午餐]]></title>
-    <link href="http://Fatman13.github.io/blog/2013/08/04/lan-ren-liao-li-qi-3-ying-yang-zao-wu-can/"/>
-    <updated>2013-08-04T19:05:00+08:00</updated>
-    <id>http://Fatman13.github.io/blog/2013/08/04/lan-ren-liao-li-qi-3-ying-yang-zao-wu-can</id>
-    <content type="html"><![CDATA[<p>继续写食谱。</p>
-
-<!--more-->
-
-
-<h1>懒人料理宗旨</h1>
-
-<p>制作简单，能偷懒就偷懒，但是味道还不错。一般都比较能下饭。</p>
-
-<h1>食材</h1>
-
-<p><strong>1</strong> <font color="GoldenRod">面包</font>，<font color="GoldenRod">麦片</font>，<font color="GoldenRod">黄油</font>，<font color="LightSteelBlue">牛奶</font>。</p>
-
-<h1>制作方法</h1>
-
-<p><strong>1</strong>. 把<font color="GoldenRod">麦片</font>倒入碗内，加入<font color="LightSteelBlue">牛奶</font>。</p>
-
-<p><strong>2</strong>. 把<font color="GoldenRod">黄油</font>切片，夹到<font color="GoldenRod">面包</font>内。</p>
-
-<h1>出锅</h1>
-
-<p><img src="http://Fatman13.github.io/images/IMAG0355.resized.jpg" width="555" height="313" title="1" ></p>
-
-<p>很懒。</p>
-
-<h1>附录</h1>
-
-<p><img src="http://Fatman13.github.io/images/IMAG0360.resized.jpg" width="220" height="389" title="1" ></p>
-
-<p><font color="GoldenRod">面包</font>。</p>
-
-<p><img src="http://Fatman13.github.io/images/IMAG0358.resized.jpg" width="220" height="389" title="1" ></p>
-
-<p><font color="GoldenRod">麦片</font>。</p>
-
-<p><img src="http://Fatman13.github.io/images/IMAG0359.resized.jpg" width="220" height="389" title="1" ></p>
-
-<p>香蕉。</p>
-
-<!--肉-->
-
-
-<p><font color="Crimson"></font></p>
-
-<!--蔬菜-->
-
-
-<p><font color="ForestGreen"></font></p>
-
-<!--生肉-->
-
-
-<p><font color="DeepPink"></font></p>
-
-<!--水-->
-
-
-<p><font color="DodgerBlue"></font></p>
-
-<!--调料-->
-
-
-<p><font color="SaddleBrown"></font></p>
-
-<!--谷物，黄油-->
-
-
-<p><font color="GoldenRod"></font></p>
-
-<!--牛奶-->
-
-
-<p><font color="LightSteelBlue"></font></p>
 ]]></content>
   </entry>
   

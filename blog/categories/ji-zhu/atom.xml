@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 技术 | Fatman13]]></title>
   <link href="http://Fatman13.github.io/blog/categories/ji-zhu/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2014-03-28T23:07:52+08:00</updated>
+  <updated>2014-04-18T21:50:07+08:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -12,6 +12,55 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[顾妈妈网一期试运营版正式上线]]></title>
+    <link href="http://Fatman13.github.io/blog/2014/04/18/gu-ma-ma-wang-yi-qi-shi-yun-ying-ban-zheng-shi-shang-xian/"/>
+    <updated>2014-04-18T21:44:00+08:00</updated>
+    <id>http://Fatman13.github.io/blog/2014/04/18/gu-ma-ma-wang-yi-qi-shi-yun-ying-ban-zheng-shi-shang-xian</id>
+    <content type="html"><![CDATA[<p>公告，顾妈妈网一期试运行版上线啦。大家也快来<a href="gumama13.com">访问</a>吧。非常可惜<code>gumama.com</code>这个域名被人捷足先登了。好像是一个叫<code>谷妈妈</code>的婚庆网站。在下只能屈就于<code>gumama13.com</code>这个域名了。现在随便写下点什么。</p>
+
+<!--more-->
+
+
+<h2>流量统计</h2>
+
+<p><img src="http://i.imgur.com/u4MlWXT.jpg" alt="" /></p>
+
+<p>使用<a href="http://www.google.com/analytics/">Google Analytics</a>统计的第一天的流量。不过由于<code>Rails 4</code>自带的<code>turbo link</code>功能，不一定每次翻页都统计进去了。尝试了<code>SO</code>上<a href="http://stackoverflow.com/questions/18632644/google-analytics-with-rails-4">这个</a>答案。但是好像没有起到作用。</p>
+
+<h2>部署</h2>
+
+<p>这次部署使用了<a href="http://www.aliyun.com/?utm_medium=text&amp;utm_source=bdbrand&amp;utm_campaign=bdbrand">阿里云</a>。用下来真的挺好。而且阿里在使用百度推广的时候确实也挺精明。在大搜中搜索例如<code>Azure</code>，<code>ucloud</code>等等其他云服务供应商的时候，阿里故意买这些敏感词汇，然后打出自己的广告。</p>
+
+<p><img src="http://i.imgur.com/S3PtAJL.jpg" alt="" /></p>
+
+<p>搜索"Azure"。</p>
+
+<p><img src="http://i.imgur.com/a4456Kx.jpg" alt="" /></p>
+
+<p>搜索"uCloud"</p>
+
+<p>而且<code>阿里云</code>在同类型云服务提供商中间，确实有价格优势，一个月55元。1核CPU，512MB内存，20G硬盘，1MBps网络流量，<code>Ubuntu 12.04</code>，对一个初出茅庐的小网站，是绰绰有余了。阿里杭州机房的响应速度也是良好。在用<code>passenger</code>部署我的<code>Rails 4</code>应用的时候，<code>passenger</code>提示我最好有1G内存，并且给了增加<code>swap</code>内存的指令。阿里云机器默认没有<code>swap</code>内存，不过使用root之后倒也改成功了。不知道是不是阿里云的初衷。</p>
+
+<h2>题外话</h2>
+
+<p>推荐一个4月神番，<a href="http://comic.letv.com/zt/pingpongbili/index.shtml#p1">乒乓</a>。就第一集来看，在下非常喜欢这部片子。鄙人总结了一些该番的看点。虽然都是一些商业片惯用的手法，但是运用的恰到好处。</p>
+
+<h4>&mdash;&ndash;> 剧透分割线 &lt;&mdash;&ndash;</h4>
+
+<ul>
+<li>猪脚不苟言笑，但是有个外号叫"smile"</li>
+<li>片子开头和当中2段<code>教练</code>和<code>山田队长</code>的对话，埋下了很多伏笔。不经意间带过了很多事情。特别是开头那段对话，后面<code>阿扁</code>被<code>China</code>打败时，让人不禁有“哇~”的感觉。</li>
+<li>分镜和<code>BGM</code>也是一流。（从分镜就能感觉到制作满满的诚意）</li>
+<li>人物各种幽默的对话，在CV的演绎下，感觉特别好。这个<code>China</code>的教练的CV很好，<code>China</code>的CV一般。</li>
+<li><code>12:58</code>和<code>13:17</code>日本教练的细节表情。<code>16:32</code>天空中有鸟飞过。</li>
+<li><code>China</code>和<code>阿扁</code>的对局很燃！</li>
+<li>对局后<code>China</code>的自我评价，让人对角色的好感度上升很多。</li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Cucumber小黄瓜页面级自动化测试入门教程]]></title>
@@ -282,7 +331,7 @@ end
 
 
 <p>```
-[<a href="&#x6d;&#x61;&#105;&#x6c;&#116;&#x6f;&#58;&#x77;&#x6f;&#114;&#107;&#x40;&#x73;&#x74;&#48;&#49;&#x2d;&#x65;&#99;&#111;&#x6d;&#x2d;&#x6a;&#110;&#x32;&#x2e;&#115;&#x74;&#48;&#49;&#x2e;&#x62;&#x61;&#x69;&#100;&#117;&#x2e;&#99;&#x6f;&#109;">&#x77;&#x6f;&#x72;&#107;&#64;&#115;&#116;&#x30;&#x31;&#x2d;&#101;&#99;&#111;&#x6d;&#x2d;&#x6a;&#110;&#x32;&#46;&#x73;&#x74;&#x30;&#49;&#46;&#x62;&#x61;&#105;&#100;&#x75;&#x2e;&#99;&#111;&#109;</a> ant]$ ant dump
+[<a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#111;&#x3a;&#x77;&#x6f;&#114;&#x6b;&#x40;&#115;&#116;&#x30;&#49;&#x2d;&#101;&#x63;&#111;&#109;&#x2d;&#x6a;&#x6e;&#x32;&#x2e;&#115;&#x74;&#x30;&#x31;&#46;&#98;&#x61;&#105;&#100;&#117;&#46;&#x63;&#x6f;&#x6d;">&#119;&#111;&#114;&#107;&#x40;&#115;&#116;&#48;&#49;&#x2d;&#101;&#99;&#x6f;&#109;&#x2d;&#106;&#x6e;&#50;&#46;&#x73;&#x74;&#48;&#x31;&#46;&#98;&#x61;&#105;&#100;&#x75;&#x2e;&#x63;&#x6f;&#x6d;</a> ant]$ ant dump
 Buildfile: /home/work/local/hudson_home/workspace/wg_merchant_oc_regression/ant/build.xml</p>
 
 <p>dump:
@@ -606,75 +655,6 @@ svn commit -m "add new gem(s)"
 <h1>总结</h1>
 
 <p>如有问题可以发送邮件至<a href="mailto:lengyu@baidu.com">lengyu@baidu.com</a>。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[如何整合Cucumber小黄瓜至Jenkins持续集成服务器]]></title>
-    <link href="http://Fatman13.github.io/blog/2014/02/17/ru-he-zheng-he-cucumberxiao-huang-gua-zhi-jenkinschi-xu-ji-cheng-fu-wu-qi/"/>
-    <updated>2014-02-17T21:18:00+08:00</updated>
-    <id>http://Fatman13.github.io/blog/2014/02/17/ru-he-zheng-he-cucumberxiao-huang-gua-zhi-jenkinschi-xu-ji-cheng-fu-wu-qi</id>
-    <content type="html"><![CDATA[<p>本文将简单介绍如何将<code>Cucumber</code>小黄瓜的测试case整合到你的<code>Jenkins CI服务器</code>中。</p>
-
-<!--more-->
-
-
-<h1>软件安装</h1>
-
-<p>以Windows工作机为例<br/>
-&ndash; JDK或者JRE（记得设置JAVA_HOME这个环境变量）<br/>
-&ndash; git（如果你已经安装了<a href="http://railsinstaller.org/">RailsInstaller</a>，里面是包含git的）<br/>
-&ndash; 下载最新稳定版的<a href="http://mirrors.jenkins-ci.org/war/latest/jenkins.war">Jenkins</a></p>
-
-<h1>本地建立git代码库</h1>
-
-<p>下载，解压源代码，打开命令行，cd至刚解压的文件夹中，运行以下命令。</p>
-
-<p><code>
-git init
-git add .
-git commit -m "initial commit"
-</code></p>
-
-<h1>本地配置和运行Jenkins</h1>
-
-<ul>
-<li>拷贝<code>Jenkins</code>的<code>war包</code>至你想要的文件夹，打开命令行，cd至那个文件夹。</li>
-<li>运行<code>java -Dfile.encoding=UTF-8 -jar jenkins.war</code>。</li>
-<li>在网页浏览器中打开<code>http://localhost:8080/configureSecurity/</code>，按下图中的配置以后点击<code>Save</code>。</li>
-</ul>
-
-
-<p><img src="http://i.imgur.com/ea5IK3k.jpg" alt="" /></p>
-
-<ul>
-<li>打开<code>http://localhost:8080/pluginManager/available</code>，勾选<code>Source Code Management</code>下的<code>Git Plugin</code>和<code>Build Tools</code>下的<code>Rake plugin</code>。点击<code>Download now and install after restart</code>。</li>
-<li>等待Jenkins安装插件，失败的话再重新装。安装完成后<code>ctrl+c</code>杀掉进程，并重新运行<code>Jenkins</code>。</li>
-<li>打开<code>http://localhost:8080/view/All/newJob</code>。填入你想要的Job名称，选择<code>Build a free-style software project</code>。点击<code>OK</code>。</li>
-<li>打开<code>http://localhost:8080/job/[job名称]/configure</code>。</li>
-<li>在<code>Source Code Management</code>下，选择<code>Git</code>。并在<code>Repository URL</code>中填上小黄瓜case所在的文件夹地址。如下图。</li>
-</ul>
-
-
-<p><img src="http://i.imgur.com/OVjhttE.jpg" alt="" /></p>
-
-<ul>
-<li>在<code>Build Triggers</code>中勾选<code>Trigger builds remotely</code>。填一个你喜欢的token。这样这个job就可以被远程执行了。以下图为例，在浏览器中输入<code>http://localhost:8080/job/wg_merchant_oc_regression/build?token=lengyu</code>就能执行这个job了。</li>
-</ul>
-
-
-<p><img src="http://i.imgur.com/YhfCOzS.jpg" alt="" /></p>
-
-<ul>
-<li>在<code>Build</code>下，点击<code>Add Build Step</code>，并选择<code>Invoke Rake</code>。点击<code>Advanced</code>。配置如下图。<code>features</code>是一个<code>rake task</code>，需要在前面<code>Repository URL</code>目录中配置<code>Rakefile</code>，参见上传的代码。</li>
-</ul>
-
-
-<p><img src="http://i.imgur.com/V7AfNPc.jpg" alt="" /></p>
-
-<h1>总结</h1>
-
-<p>在<code>git plugin</code>和<code>rake plugin</code>的帮助下，轻轻松松就能将小黄瓜整合到<code>jenkins</code>中。如有问题可发送邮件至<a href="mailto:lengu@baidu.com">lengyu@baidu.com</a>。</p>
 ]]></content>
   </entry>
   
