@@ -1,0 +1,35 @@
+---
+layout: post
+title: "Google Analytics统计的本博客的流量"
+date: 2013-10-16 16:20
+comments: true
+categories:
+- 半技术 
+---
+发表一下使用[Google Analytics](http://www.google.com/analytics/)统计的本博客的流量。
+
+<!--more-->
+
+{% img /images/ga_1.resized.JPG 951 223 1 %}
+
+55个访客！你们好！
+
+{% img /images/ga_2.resized.jpg 672 415 1 %}
+
+世界你好！最近习总是不是刚去过坦桑尼亚？之前我记得有2个伊朗的访客呀，被谷歌掐掉了吗？！
+
+{% img /images/ga_3.resized.JPG 867 410 1 %}
+
+根据国家划分访客。
+
+{% img /images/ga_4.resized.JPG 848 307 1 %}
+
+根据网页浏览器划分访客。发现Opera....
+
+{% img /images/ga_6.resized.JPG 851 245 1 %}
+
+移动端访客使用的都是苹果...
+
+{% img /images/ga_7.resized.JPG %}
+
+根据网络供应商划分访客。

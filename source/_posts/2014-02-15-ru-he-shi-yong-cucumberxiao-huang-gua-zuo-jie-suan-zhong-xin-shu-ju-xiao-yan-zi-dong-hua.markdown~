@@ -1,0 +1,134 @@
+---
+layout: post
+title: "如何使用Cucumber小黄瓜做结算中心数据校验自动化"
+date: 2014-02-15 15:53
+comments: true
+categories: 
+- 技术
+- Ruby
+- Cucumber
+---
+本文将简单介绍如何使用`小黄瓜`来实结算中心数据比对的自动化。如果你对小黄瓜还没有初步认识的话，推荐阅读我之前写的一篇[文章](http://tauntaunslayer13.me/blog/2014/01/26/ru-he-shi-yong-capybarahe-cucumbershi-xian-ye-mian-ji-bie-zi-dong-hua/)。
+
+<!--more-->
+
+# 运行自动化
+
+按照惯例，下载代码，解压，打开命令行，切换到解压后的文件夹中。  
+运行`bundle install`。  
+运行`cucumber features/wgpc_sc.feature`，运行成功的话，应该能看见如下输出。
+
+![](http://i.imgur.com/oPyqlVY.jpg)
+
+注意这个case挂掉了，因为`jianzhong`的数据跟线上数据校验后有出入。输出中浅蓝色的字体（{"540"=>[46.0, 0.0]}）为账户金额有出入的商家id以及`jianzhong`与线上数据金额的差额。
+
+# feature文档
+
+这次的feature文档简单很多。如对feature文档中的关键词存有疑惑，可参考我之前写的这篇[文章](http://tauntaunslayer13.me/blog/2014/02/13/ru-he-shi-yong-xiao-huang-gua-lai-zuo-jie-kou-ji-ce-shi/)。
+
+``` cucumber
+Feature: 比对结算数据
+  为了保证结算数据中各个资金帐户余额的准确性，跟建忠计算的数据进行验对。
+
+  Scenario: 校验逻辑
+    Given 我读取"./data/sc/2014-02-13.xls"建忠excel文件中的数据
+    And 我打开"http://settlement.weigou.baidu.com/macount/account_info?merchantId="线上结算中心网站并抓取结算数据
+    When 我比对这二组数据
+    Then 我将会生成校验报告并评估此次校验
+```
+
+整个比对过程大致为，打开`jianzhong`的excel文件，打开线上的结算中心，并抓取线上结算中心网页上的数据，并跟`jianzhong`的数据进行比对，如有出入，打印有出入的商家id以及2份数据余额的差额并断言。（注：本来想自动发email的，但是mail这个gem所依赖的mime-type这个gem跟cucumber也不知道是capybara用到的mime-type的版本好像有冲突。望高人留言指点。）
+
+# 代码详解
+
+``` ruby 
+Given /^我读取"(.*?)"建忠excel文件中的数据$/ do |excel_file|
+  # 使用spreadsheet这个gem来读取xls文件
+  sc_file = Spreadsheet.open excel_file
+  # 选择记录各资金账户余额的一张sheet
+  sc_sheet = sc_file.worksheet 2
+  # @sc_data_jianzhong以商家id为key，对应value为长度为2的一个数组
+  # 数组中第1个值为用户担保帐余额，第2个是待结算账户余额
+  @sc_data_jianzhong = Hash.new 
+  counter = 0
+  # 读取每一行
+  sc_sheet.each do |row|
+    # 跳过第一行，其实不跳也没关系
+    counter += 1
+    if counter == 1
+      next
+    end 
+    # row[2]就是用户担保帐余额，row[3]是待结算账户余额
+    @sc_data_jianzhong[row[0]] = Array.new
+    @sc_data_jianzhong[row[0]] << row[2]    
+    @sc_data_jianzhong[row[0]] << row[3]
+  end 
+end
+```
+
+从excel文件里面读取`jianzhong`结算的结算数据，并保存到`@sc_data_jianzhong`这个变量中。
+
+``` ruby 
+Given /^我打开"(.*?)"线上结算中心网站并抓取结算数据$/ do |sc_url|
+  # 访问结算中心线上环境
+  visit sc_url
+  # 算一下一共有多少行商家
+  count = page.all('table tr').count
+  @sc_data_yanghu = Hash.new
+  # 有多少行，就loop多少次
+  count.times do |i|
+    # 跳过第一行，其实也可以不跳
+    if i == 0
+      next
+    end 
+    # 用xpath选到每一行，拿他的text。
+    row = find(:xpath, "(//tr)[" + (i + 1).to_s + "]").text.split
+    @sc_data_yanghu[row[1]] = Array.new
+    # row[4]为用户担保帐余额，row[5]为待结算账户余额
+    @sc_data_yanghu[row[1]] << row[4][1, row[4].length]
+    @sc_data_yanghu[row[1]] << row[5][1, row[5].length]
+  end
+end
+```
+
+使用`selenium-webdriver`配合`capybara`打开结算中心线上环境。并抓取页面上的数据，保存至`@sc_data_yanghu`这个参数中。
+
+``` ruby 
+When /^我比对这二组数据$/ do
+  # 数据比对结果
+  @result = Hash.new
+  # 比对@sc_data_yanghu和@sc_data_jianzhong，写的比较死，不是最灵活
+  @sc_data_yanghu.each do |key, value|
+    if @sc_data_jianzhong.has_key?(key)
+      if @sc_data_jianzhong[key][0].to_f != value[0].delete(',').to_f || @sc_data_jianzhong[key][1].to_f != value[1].delete(',').to_f
+        @result[key] = Array.new
+        # 现在想来可能这个delete(',')的处理放在上面可能比较好。
+        @result[key] << (@sc_data_jianzhong[key][0].to_f - value[0].delete(',').to_f)
+        @result[key] << (@sc_data_jianzhong[key][1].to_f - value[1].delete(',').to_f)
+      end
+    end
+  end
+end
+```
+
+比对@sc_data_yanghu和@sc_data_jianzhong里面的数据，如果数据有出入的话，保存商家id至`@result`中，然后计算2份数据之间的差额，差额越大bug的可能性也越大，大概。。。
+
+``` ruby 
+Then /^我将会生成校验报告并评估此次校验$/ do
+  # 本来想自动发email的，但是这个mail的依赖好像有冲突，求高人指点
+  # Mail.deliver do
+  #   from     'qa-automation@baidu.com'
+  #   to       'lengyu@baidu.com'
+  #   subject  '【结算中心线上数据与建忠数据比对结果】'
+  #   body     @result.to_s
+  #   # add_file '/full/path/to/somefile.png'
+  # end
+
+  # 打印结果
+  puts @result
+  # 断言，@result应该为空。
+  @result.should be_empty
+end
+```
+
+最后看`@result`是否为空，不是的话，就需要断言。说明2份数据有出入。

@@ -1,0 +1,111 @@
+---
+layout: post
+title: "如何使用Capybara和Cucumber实现页面级别自动化"
+date: 2014-01-26 21:37
+comments: true
+categories: 
+- 技术
+- Cucumber
+- Capybara
+- Ruby
+---
+
+本文将简单介绍如何使用capybara/cucumber来实现页面级别的自动化。并将结合微购的订单流程做一个讲解。在这儿为大家强烈推讲下[The Cucumber Book](http://pragprog.com/book/hwcuc/the-cucumber-book)以及[Cucumber Recipes](http://pragprog.com/book/dhwcr/cucumber-recipes)这2本书。几乎包含了关于`小黄瓜`的一切。[当当网](http://product.dangdang.com/23280484.html#ddclick?act=click&pos=23280484_16_1_p&cat=01.00.00.00.00.00&key=Cucumber&qinfo=&pinfo=20_1_72&minfo=&ninfo=&custid=&permid=20140126101508135714985587192225073&ref=http%3A%2F%2Fbook.dangdang.com%2F&rcount=&type=&t=1390702656000)上也有购买，有兴趣的同学可以问我借阅。以下将这2本书简称为`小黄瓜全书`和`小黄瓜食谱`。
+
+<!--more-->
+
+# Capybara简介
+
+Capybara封装了众多帮助页面自动化的函数。极大的简化了开发流程。Capybara的API可参看`小黄瓜全书`中`15.3 The Capybara API`章节。
+
+# Cucumber简介
+
+小黄瓜是一个强大的自动化测试框架。完善的文档，Gherkin式的测试文档，全局/Case级别的setup/teardown，配合Ruby庞大的gem库，支持各种格式report的生成，等等。
+
+# 软件安装
+
+请参看`小黄瓜全书`里面的Appendix 2: Installing cucumber的章节。以工作机为例，安装以下即可。  
+- [RailsInstaller](http://railsinstaller.org/)  
+- [ANSICON](https://github.com/adoxa/ansicon/downloads)
+
+# 运行自动化
+
+下载代码，解压，打开命令行，切换到解压后的文件夹中，运行`bundle install`，修改`cuke_pc/features/step_definitions/cod_steps.rb`，把以下登录信息改为你自己的百度账号和密码。
+
+``` ruby
+fill_in 'userName', :with => '在此输入你的百度账号'
+fill_in 'TANGRAM__PSP_4__password', :with => '在此输入你的百度帐号密码'
+```
+
+运行`cucumber features/wgpc_cod.feature`，自动化就跑起来了！
+
+# 代码讲解
+
+在这个`cucumber features/wgpc_cod.feature`自动化Case中，  
+代码都在`cuke_pc/features/step_definitions/cod_steps.rb`里面。为大家详解一下`cod_steps.rb`中的代码。
+
+``` ruby
+Given /^我已登录用户中心$/ do
+  # 访问个人中心页面
+  visit 'http://zhixin.baidu.com/Login/index?module=onesite&u=http%3A%2F%2Fcp01-testing-cbbs06.cp01.baidu.com%3A8888%2Fitem%3Fid%3D181835090&from='
+  # 在登录页面中，输入自己的百度账号
+  fill_in 'userName', :with => '在此输入你的百度账号'
+  # 输入自己百度账号密码
+  fill_in 'TANGRAM__PSP_4__password', :with => '在此输入你的百度帐号密码'
+  # 点击登录
+  click_button 'TANGRAM__PSP_4__submit'
+end
+```
+
+`visit`函数: 根据配置，自动打开网页浏览器，并访问参数中指定的url。  
+`fill_in`函数: 根据id,name或者label text找到输入框，并填写参数所指定的String。  
+`click_button`函数: 根据id,name或者label text找到按钮，并点击该按钮。  
+以上代码实现的是，首先打开火狐，进入个人中心页面，输入用户名密码，并点击登录。
+
+``` ruby
+Given /^我在中间页对"(.*?)"商品下单:一$/ do |arg1|
+  # 这个暂时不关注
+  @expected_time_range = Time.now .. (Time.now + 600) 
+  # 点击立即购买
+  find('#detail-buy').click
+  # 浏览器窗口最大化
+  page.driver.browser.manage.window.maximize
+end
+```
+
+`find`函数: 根据CSS Selector或者Xpath找到对应的元素。以便于更进一步的操作。  
+以上代码实现的是，在中间页，点击`立刻购买`。
+
+``` ruby
+When /^我选取货到付款$/ do
+  # 根据lablel元素上的字，找到“货到付款”并点击
+  find("label", :text => /\A货到付款\z/).click
+  # 等待“提交订单”的出现
+  find('.order-summary-submit')
+  # 点击“提交订单”
+  find('.order-summary-submit').click
+  # 通过xpath，找到查看所有订单按钮，并点击
+  find(:xpath, "//a[@href='/service/user/order/list']").click
+end
+```
+
+以上代码实现的是，在验单页面，点击`货到付款`，点击`提交订单`，点击`查看订单`。注意，如果提交订单失败的话，这个case就会在这儿挂掉。
+
+``` ruby
+Then /^个人中心订单状态被告更改为"(.*?)"$/ do |arg1|
+  # 这个暂时不关注
+  puts find(:xpath, "(//td[@class='time'])[1]").text
+  @order_time = DateTime.strptime(find(:xpath, "(//td[@class='time'])[1]").text, '%Y-%m-%d %H:%M:%S')
+  puts @expected_time_range.cover?(@order_time)
+  # 使用xpath，找到之前下的订单，并比较订单状态是否是“等待发货”
+  find(:xpath, "(//span[@class=' status_confirm'])[1]").should have_content(arg1)
+end
+```
+
+`should`函数: RSpec里面的一个断言的方法。  
+`have_content`函数: 判定元素中是否存在参数中的字段。  
+以上代码实现的是，回到个人中心后，比较最近的一个订单是不是处于`等待发货`状态，如果状态错误Case就会挂掉。
+
+# 总结
+
+`Capybara/Cucumner`是一个有完善文档的，非常强大的测试框架。希望以后能用于主流程的保证。不知道医疗那边的同学需不需要？无论是测死链，或者是ajax也都完全没有问题。

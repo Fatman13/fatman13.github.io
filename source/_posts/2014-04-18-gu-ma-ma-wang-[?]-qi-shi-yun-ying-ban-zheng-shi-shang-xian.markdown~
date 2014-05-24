@@ -1,0 +1,46 @@
+---
+layout: post
+title: "顾妈妈网一期试运营版正式上线"
+date: 2014-04-18 21:44
+comments: true
+categories: 
+- 技术
+- 随笔
+---
+公告，顾妈妈网一期试运行版上线啦。大家也快来[访问](gumama13.com)吧。非常可惜`gumama.com`这个域名被人捷足先登了。好像是一个叫`谷妈妈`的婚庆网站。在下只能屈就于`gumama13.com`这个域名了。现在随便写下点什么。
+
+<!--more-->
+
+## 流量统计
+
+![](http://i.imgur.com/u4MlWXT.jpg)
+
+使用[Google Analytics](http://www.google.com/analytics/)统计的第一天的流量。不过由于`Rails 4`自带的`turbo link`功能，不一定每次翻页都统计进去了。尝试了`SO`上[这个](http://stackoverflow.com/questions/18632644/google-analytics-with-rails-4)答案。但是好像没有起到作用。
+
+## 部署
+
+这次部署使用了[阿里云](http://www.aliyun.com/?utm_medium=text&utm_source=bdbrand&utm_campaign=bdbrand)。用下来真的挺好。而且阿里在使用百度推广的时候确实也挺精明。在大搜中搜索例如`Azure`，`ucloud`等等其他云服务供应商的时候，阿里故意买这些敏感词汇，然后打出自己的广告。
+
+![](http://i.imgur.com/S3PtAJL.jpg)
+
+搜索"Azure"。
+
+![](http://i.imgur.com/a4456Kx.jpg)
+
+搜索"uCloud"
+
+而且`阿里云`在同类型云服务提供商中间，确实有价格优势，一个月55元。1核CPU，512MB内存，20G硬盘，1MBps网络流量，`Ubuntu 12.04`，对一个初出茅庐的小网站，是绰绰有余了。阿里杭州机房的响应速度也是良好。在用`passenger`部署我的`Rails 4`应用的时候，`passenger`提示我最好有1G内存，并且给了增加`swap`内存的指令。阿里云机器默认没有`swap`内存，不过使用root之后倒也改成功了。不知道是不是阿里云的初衷。
+
+## 题外话
+
+推荐一个4月神番，[乒乓](http://comic.letv.com/zt/pingpongbili/index.shtml#p1)。就第一集来看，在下非常喜欢这部片子。鄙人总结了一些该番的看点。虽然都是一些商业片惯用的手法，但是运用的恰到好处。
+
+#### ---> 剧透分割线 <---
+
+- 猪脚不苟言笑，但是有个外号叫"smile"
+- 片子开头和当中2段`教练`和`山田队长`的对话，埋下了很多伏笔。不经意间带过了很多事情。特别是开头那段对话，后面`阿扁`被`China`打败时，让人不禁有“哇~”的感觉。
+- 分镜和`BGM`也是一流。（从分镜就能感觉到制作满满的诚意）
+- 人物各种幽默的对话，在CV的演绎下，感觉特别好。这个`China`的教练的CV很好，`China`的CV一般。
+- `12:58`和`13:17`日本教练的细节表情。`16:32`天空中有鸟飞过。
+- `China`和`阿扁`的对局很燃！
+- 对局后`China`的自我评价，让人对角色的好感度上升很多。

@@ -1,0 +1,32 @@
+---
+layout: post
+title: "用户指南 写给毛藏"
+date: 2013-09-03 16:29
+comments: true
+categories: 
+---
+
+写给毛藏。
+
+<!--more-->
+
+# 如何本地运行
+
+**1**. 下载并安装[RailsInstaller](http://files.rubyforge.vm.bytemark.co.uk/railsinstaller/railsinstaller-2.2.1.exe)。
+
+**2**. 安装完成之后，应该会有一个`命令行`跳出来。输入以下指令。
+
+```
+git clone https://github.com/Fatman13/MaoZangLED.git
+cd MaoZangLED
+bundle install
+rake db:migrate
+```
+
+**3**. 至此安装完成。运行`rails s`，使用本地服务器。
+
+**4**. 打开浏览器。输入地址`localhost:3000/products`。
+
+# 如何更新
+
+**1**.
