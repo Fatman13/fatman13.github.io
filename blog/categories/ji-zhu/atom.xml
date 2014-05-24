@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 技术 | Fatman13]]></title>
   <link href="http://Fatman13.github.io/blog/categories/ji-zhu/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2014-04-18T21:55:04+08:00</updated>
+  <updated>2014-05-24T21:36:37+08:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -12,6 +12,114 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[How-to: Deploy Rails 4 app from Windows dev environment using Capistrano 3]]></title>
+    <link href="http://Fatman13.github.io/blog/2014/05/24/how-to-deploy-rails-4-app-from-windows-dev-environment-using-capistrano-3/"/>
+    <updated>2014-05-24T21:26:00+08:00</updated>
+    <id>http://Fatman13.github.io/blog/2014/05/24/how-to-deploy-rails-4-app-from-windows-dev-environment-using-capistrano-3</id>
+    <content type="html"><![CDATA[<p>This post will be primarily sharing some gotchas when I went through this <a href="http://corlewsolutions.com/articles/article-10-how-to-deploy-rails-applications-using-capistrano-3-1-and-windows-7">post</a> for deploying to a Linux server from Windows development machines using capistrano 3.</p>
+
+<!--more-->
+
+
+<h1>Environment</h1>
+
+<ul>
+<li>Development on Windows 7</li>
+<li>Deployment on <a href="http://www.aliyun.com/">aliyun ECS</a> Ubuntu 12.04 image</li>
+<li>Rails 4</li>
+<li>Capistrano 3</li>
+</ul>
+
+
+<h1>Sidenote</h1>
+
+<ul>
+<li>Capistrano will automatically run <code>rake db:migration</code> for you if you uncomment <code>require 'capistrano/rails/migrations'</code> in capfile.</li>
+<li>Capistrano will automatically precompile assets for you if you uncomment <code>require 'capistrano/rails/assets'</code> in capfile.</li>
+</ul>
+
+
+<h1>fetch not working?</h1>
+
+<p>When running <code>cap production git:check</code>, I always get something like the following error when I use a variable defined by <code>set</code> method.</p>
+
+<p><code>ruby
+set :github_user, 'Fatman13'
+set :repo_url, 'https://github.com/#{fetch(:github_user)}/foo.git'
+</code></p>
+
+<p><code>
+DEBUG [39feea1e] Running /usr/bin/env git ls-remote -h https://github.com/#{fetch(:github_user)}/foo.git on 114.***.***.***
+DEBUG [39feea1e] Command: ( GIT_ASKPASS=/bin/echo GIT_SSH=/tmp/foo/git-ssh.sh /usr/bin/env git ls-remote -h https://github.com/#{fetch(:github_user)}/foo.git )
+DEBUG [39feea1e] Finished in 0.962 seconds with exit status 1 (failed).
+DEBUG [39feea1e]        bash: -c: line 0: syntax error near unexpected token `('
+DEBUG [39feea1e]        bash: -c: line 0: `( GIT_ASKPASS=/bin/echo GIT_SSH=/tmp/deepot/git-ssh.sh /usr/bin/env git ls-remote -h https://github.com/#{fetch(:github_user)}/foo.git )'
+DEBUG [39feea1e] Finished in 0.962 seconds with exit status 1 (failed).
+</code></p>
+
+<p>I have to ditch <code>fetch</code> method and write something like&hellip;</p>
+
+<p><code>ruby
+set :repo_url, 'https://github.com/Fatman13/foo.git'
+</code></p>
+
+<h1>No such file to load &mdash; bcrypt</h1>
+
+<p>Capistrano will try to precompile assets at somepoint while running <code>cap production deploy</code>. It kept throwing an error saying <code>No such file to load -- bcrypt</code>. I found a comment from <a href="http://railscasts.com/episodes/335-deploying-to-a-vps?view=comments">Railscast</a> solved my problem.</p>
+
+<blockquote><p>I had this issue. I develop on Windows 7, and certain gems have windows-specific versions. I went into my Gemfile.lock and removed all &ldquo;x86-mingw32&rdquo; in the gem version numbers. After commiting the changes and deploying again, it worked. I also had this problem with postgres and the pg gem.
+(by <a href="https://github.com/jdresner">jdresner</a>)</p></blockquote>
+
+<h1>References</h1>
+
+<ul>
+<li>[1] My <a href="https://github.com/Fatman13/deepot/blob/master/Gemfile">gemfile</a>.</li>
+<li>[2] Corlew solutions&rsquo;s <a href="http://corlewsolutions.com/articles/article-10-how-to-deploy-rails-applications-using-capistrano-3-1-and-windows-7">How-To Deploy Rails Applications Using Capistrano 3.1 and Windows 7</a></li>
+<li>[3] Corlew solutions&rsquo;s <a href="http://corlewsolutions.com/articles/article-11-guide-to-setting-up-ssh-on-windows-7">Guide To Setting Up SSH on Windows 7</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Rails4 strong parameter gotcha for beginners]]></title>
+    <link href="http://Fatman13.github.io/blog/2014/05/24/rails4-strong-parameter-gotcha-for-beginners/"/>
+    <updated>2014-05-24T21:24:00+08:00</updated>
+    <id>http://Fatman13.github.io/blog/2014/05/24/rails4-strong-parameter-gotcha-for-beginners</id>
+    <content type="html"><![CDATA[<p><code>Rails 4</code> gotcha for noobies(like me) &mdash; Strong Parameters</p>
+
+<!--more-->
+
+
+<p><code>Rails 4</code> now comes with <a href="https://github.com/rails/strong_parameters">strong_parameters</a> gem as part of standard installation now. For example if you run <code>rails g scaffold product name price:decimal</code>, the following will be generated in <code>app/controllers/products_controller.rb</code> under <code>private</code> methods section.</p>
+
+<p>``` ruby</p>
+
+<h1>Never trust parameters from the scary internet, only allow the white list through.</h1>
+
+<p>def product_params
+  params.require(:product).permit(:name, :price)
+end
+```</p>
+
+<p>As the comments suggested, <code>product_params</code> will only allow a whitelist of product attributes. This is done by using <code>permit</code> method as shown above.</p>
+
+<p>Now the gotcha part&hellip; When you add new columns using <code>rails g migration add_stock_to_product stock:integer</code>, <code>rake db:migrate</code>, changing the corresponding scaffold <code>html.erb</code> files. You expect the new product attribute <code>stock</code> to work, but it won&rsquo;t. You still need to add <code>:stock</code> hash to <code>permit</code> method like the following.</p>
+
+<p>``` ruby</p>
+
+<h1>Never trust parameters from the scary internet, only allow the white list through.</h1>
+
+<p>def product_params
+  params.require(:product).permit(:name, :price, :stock)
+end
+```</p>
+
+<p>I kept forgetting adding new attribute to <code>permit</code>. Thus render controller methods not recognizing new attributes. It got me twice, so putting a note here. Hopefully helping someone on the way.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[顾妈妈网一期试运营版正式上线]]></title>
@@ -331,7 +439,7 @@ end
 
 
 <p>```
-[<a href="&#109;&#97;&#x69;&#x6c;&#116;&#x6f;&#58;&#119;&#x6f;&#114;&#107;&#x40;&#x73;&#116;&#x30;&#49;&#45;&#101;&#99;&#111;&#109;&#x2d;&#x6a;&#110;&#x32;&#x2e;&#115;&#116;&#x30;&#49;&#46;&#x62;&#97;&#105;&#x64;&#117;&#x2e;&#x63;&#111;&#109;">&#x77;&#x6f;&#114;&#x6b;&#x40;&#x73;&#x74;&#48;&#49;&#x2d;&#101;&#99;&#111;&#109;&#45;&#x6a;&#x6e;&#x32;&#x2e;&#115;&#x74;&#48;&#49;&#x2e;&#98;&#x61;&#105;&#x64;&#117;&#46;&#x63;&#x6f;&#x6d;</a> ant]$ ant dump
+[<a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#111;&#58;&#119;&#111;&#114;&#107;&#x40;&#x73;&#116;&#48;&#x31;&#x2d;&#101;&#x63;&#x6f;&#x6d;&#x2d;&#106;&#110;&#x32;&#x2e;&#x73;&#x74;&#x30;&#x31;&#46;&#x62;&#x61;&#105;&#100;&#x75;&#46;&#99;&#x6f;&#x6d;">&#119;&#x6f;&#114;&#107;&#x40;&#x73;&#x74;&#x30;&#x31;&#45;&#101;&#x63;&#x6f;&#109;&#x2d;&#x6a;&#x6e;&#50;&#46;&#115;&#x74;&#48;&#x31;&#46;&#x62;&#x61;&#x69;&#x64;&#117;&#46;&#99;&#111;&#109;</a> ant]$ ant dump
 Buildfile: /home/work/local/hudson_home/workspace/wg_merchant_oc_regression/ant/build.xml</p>
 
 <p>dump:
@@ -355,306 +463,6 @@ Total time: 0 seconds
 <li>如有问题，可发email至<a href="mailto:lengyu@baidu.com">lengyu@baidu.com</a>。</li>
 </ul>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[如何在没有外网的机器上安装gem]]></title>
-    <link href="http://Fatman13.github.io/blog/2014/02/27/ru-he-zai-mei-you-wai-wang-de-ji-qi-shang-an-zhuang-gem/"/>
-    <updated>2014-02-27T20:16:00+08:00</updated>
-    <id>http://Fatman13.github.io/blog/2014/02/27/ru-he-zai-mei-you-wai-wang-de-ji-qi-shang-an-zhuang-gem</id>
-    <content type="html"><![CDATA[<p>本文将简单介绍如何在没有外网的机器上安装<code>Cucumber</code>小黄瓜自动化测所需的<code>gem</code>库。</p>
-
-<!--more-->
-
-
-<h1>1. 软件安装（Jenkins机器）</h1>
-
-<ul>
-<li>安装<code>Jumbo</code>。</li>
-</ul>
-
-
-<p><code>
-bash -c "$( curl http://jumbo.baidu.com/install_jumbo.sh )"; source ~/.bashrc
-</code></p>
-
-<ul>
-<li>安装<code>Ruby 1.9.3</code>。</li>
-</ul>
-
-
-<p><code>
-jumbo install ruby
-</code></p>
-
-<ul>
-<li>安装<code>svn</code>。</li>
-</ul>
-
-
-<p><code>
-jumbo install subversion
-</code></p>
-
-<h1>2. 在无外网的Jenkins服务器（或者Slave机）上安装Gem</h1>
-
-<ul>
-<li>在jenkins机器上，选择一个合适的文件夹。从<code>svn</code>上下载小黄瓜所依赖的<code>gem</code>。</li>
-</ul>
-
-
-<p><code>
-svn export https://svn.baidu.com/app-test/ecom/shifen/sf-crm/trunk/weigou/cuke_gems/
-</code></p>
-
-<ul>
-<li><code>cd cuke_gems</code>至刚刚下载的文件夹中。运行如下指令，会先安装<code>bundler</code>这个<code>gem</code>。</li>
-</ul>
-
-
-<p><code>
-gem install --local bundler-1.3.4.gem
-</code></p>
-
-<ul>
-<li>安装完成后，运行以下指令。</li>
-</ul>
-
-
-<p><code>
-bundle install --local
-</code></p>
-
-<h1>3. 添加新的Gem</h1>
-
-<ul>
-<li>如果需要添加新的gem的话，找一台有外网的机器。（如果Jenkins或者Slave机器是Linux机器，就得用Linux机器，是Windows就得用Windows机器。）</li>
-<li>先<code>co</code>之前的<code>gem</code>库。</li>
-</ul>
-
-
-<p><code>
-svn co https://svn.baidu.com/app-test/ecom/shifen/sf-crm/trunk/weigou/cuke_gems/
-</code>
-&ndash; <code>cd cuke_gems</code>至刚下载的文件夹中，修改<code>Gemfile</code>，添加新的<code>gem</code>。（最好能选定<code>gem</code>的版本）例如：</p>
-
-<p>``` ruby
-source &lsquo;<a href="http://rubygems.org">http://rubygems.org</a>&rsquo;</p>
-
-<p>gem &lsquo;json&rsquo;, &lsquo;1.7.3&rsquo;
-gem &lsquo;bundler&rsquo;, &lsquo;1.3.4&rsquo;</p>
-
-<h1>添加新Gem示例 &lt;&mdash;&mdash;&mdash;</h1>
-
-<p>gem &lsquo;new_gem&rsquo;, &lsquo;0.0.1&rsquo;</p>
-
-<p>group :test do
-  gem &lsquo;cucumber&rsquo;, &lsquo;1.2.1&rsquo;
-  gem &lsquo;rspec&rsquo;, &lsquo;2.11.0&rsquo;
-  gem &lsquo;httparty&rsquo;, &lsquo;0.8.3&rsquo;
-  gem &lsquo;rest-client&rsquo;, &lsquo;1.6.7&rsquo;
-end
-<code>``
-- 添加完成后，运行</code>bundle install<code>，然后运行</code>bundle package<code>。这样</code>bundler<code>就会生成新添加的</code>gem<code>的</code>.gem<code>文件以提供本地安装了。
-- 把更新后的代码提交至</code>svn`。</p>
-
-<p><code>
-svn commit -m "add new gem(s)"
-</code></p>
-
-<ul>
-<li>最后重复上文第2大点中的步骤，就能更新Jenkins机器上的<code>gem</code>库了。</li>
-</ul>
-
-
-<h1>附录</h1>
-
-<ul>
-<li><code>bundler</code>是给<code>gem</code>打包的一个<code>gem</code>，所以在上文中先安装了<code>bundler</code>，然后让<code>bundler</code>去本地安装其他的<code>gem</code>。</li>
-<li>更多关于<code>Gemfile</code>的使用方法，可以参考<a href="http://bundler.io/">官方网站</a>。</li>
-<li>所有<code>.gem</code>文件都可以在<a href="http://rubygems.org/">rubygems.org</a>上下载到。其中包括<code>gem</code>的所有历史版本。</li>
-<li>如有更多问题，发送email至<a href="mailto:lengyu@baidu.com">lengyu@baidu.com</a>。</li>
-</ul>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[测试桩使用指南]]></title>
-    <link href="http://Fatman13.github.io/blog/2014/02/19/ce-shi-zhuang-shi-yong-zhi-nan/"/>
-    <updated>2014-02-19T21:35:00+08:00</updated>
-    <id>http://Fatman13.github.io/blog/2014/02/19/ce-shi-zhuang-shi-yong-zhi-nan</id>
-    <content type="html"><![CDATA[<p>本文将简单介绍<code>测试桩</code>现有的一些功能以及如何使用<code>测试桩</code>提供的<code>API</code>接口。</p>
-
-<!--more-->
-
-
-<h1>测试桩简介</h1>
-
-<p>现在测试桩使用<code>Django</code>框架，大致分为<code>mysite</code>，<code>jsonrpc</code>，<code>scaffolding</code>这3个模块。<br/>
-（注：在项目的根目录使用了<code>python manage.py startapp [模块名]</code>这个命令创建了这些模块，模块化<code>Django</code>提供的服务）</p>
-
-<ul>
-<li><code>mysite</code>是项目的第一个模块。主要提供了kv以及商品库的几个接受jsonrpc请求的接口。<code>mysite</code>下的<code>urls.py</code>是定义<code>测试桩</code>各项API接口url的主入口。</li>
-<li><code>jsonrpc</code>提供了几个发送jsonrpc请求的接口（mcpack封装），还有发送通用的jsonrpc请求的接口。（无mcpack封装，vanilla版jsonrpc请求）</li>
-<li><code>scaffolding</code>主要负责提供制造各种mock商品的接口，便于自动化case的setup中，制造case所需的mock商品。</li>
-</ul>
-
-
-<h1>Chrome插件</h1>
-
-<p>使用<code>chrome</code>的<code>cRest Client</code>插件可以手动向<code>测试桩</code>发送各种请求。</p>
-
-<p><img src="http://i.imgur.com/oJEztF2.jpg" alt="" /></p>
-
-<h1>Jsonrpc工具</h1>
-
-<p>输入<code>测试桩</code>商品库地址<code>http://st01-ecom-jn2.st01.baidu.com:8890/serviceAPI/api</code>，选择api，method，并填入请求参数就可以手动给<code>测试桩</code>发送jsonrpc请求了。jsonrpc工具可在附件中下载。</p>
-
-<p><img src="http://i.imgur.com/ALJTrbi.jpg" alt="" /></p>
-
-<h1>1. Mysite接口</h1>
-
-<p>（可试用jsonrpc工具手动访问这些接口，或者使用renliang开发的jsonrpc-client）</p>
-
-<h3>1.1 ProductAPI/queryInfo 获取商品详情</h3>
-
-<ul>
-<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/serviceAPI/api">http://st01-ecom-jn2.st01.baidu.com:8890/serviceAPI/api</a></li>
-<li>ProductAPI</li>
-<li>queryInfo</li>
-<li>{&ldquo;products&rdquo;:[&ldquo;183019616&rdquo;],&ldquo;uc_id&rdquo;:29844}</li>
-</ul>
-
-
-<h3>1.2 PromotionAPI/query 获取促销详情</h3>
-
-<ul>
-<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/serviceAPI/api">http://st01-ecom-jn2.st01.baidu.com:8890/serviceAPI/api</a></li>
-<li>PromotionAPI</li>
-<li>query</li>
-<li>{&ldquo;promotion_id&rdquo;:&ldquo;3000&rdquo;,&ldquo;uc_id&rdquo;:29844}</li>
-</ul>
-
-
-<h3>1.3 StockAPI/updateIncrement 增减库存</h3>
-
-<ul>
-<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/serviceAPI/api">http://st01-ecom-jn2.st01.baidu.com:8890/serviceAPI/api</a></li>
-<li>StockAPI</li>
-<li>updateIncrement</li>
-<li>{&ldquo;uc_id&rdquo;:6195321,&ldquo;products&rdquo;:[{&ldquo;product_id&rdquo;:&ldquo;600528576&rdquo;,&ldquo;items&rdquo;:[{&ldquo;stock&rdquo;:-2,&ldquo;region&rdquo;:&ldquo;全国&rdquo;}]}]}</li>
-</ul>
-
-
-<h3>1.4 PromotionAPI/updateStockInc 增减促销库存</h3>
-
-<ul>
-<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/serviceAPI/api">http://st01-ecom-jn2.st01.baidu.com:8890/serviceAPI/api</a></li>
-<li>PromotionAPI</li>
-<li>updateStockInc</li>
-<li>{&ldquo;uc_id&rdquo;: 29844,&ldquo;product_outerid&rdquo;:&ldquo;F47&rdquo;,&ldquo;promotion_id&rdquo;:37,&ldquo;stock_inc&rdquo;:5}</li>
-</ul>
-
-
-<h1>2. kv接口</h1>
-
-<p>（kv接口主要应用于验单时，查询该商品是否存在。新kv接口是一个新的技术优化，与老kv接口还并存着。。。）</p>
-
-<h3>2.1 新kv接口</h3>
-
-<p><a href="http://st01-ecom-jn2.st01.baidu.com:8890/serviceAPI/midpage/product/details?ids=183019611">http://st01-ecom-jn2.st01.baidu.com:8890/serviceAPI/midpage/product/details?ids=183019611</a></p>
-
-<h3>2.2 老kv接口</h3>
-
-<p><a href="http://st01-ecom-jn2.st01.baidu.com:8890/api/midpage/product/details?ids=183019611">http://st01-ecom-jn2.st01.baidu.com:8890/api/midpage/product/details?ids=183019611</a></p>
-
-<h1>3. Scaffolding接口</h1>
-
-<p>（主要用于各种商品库接口的mock数据的制造，便于自动化case的setup。）</p>
-
-<h3>3.1 制造kv接口的返回值</h3>
-
-<ul>
-<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/scaffolding/create/kv?product_id=77582589&amp;stock=0&amp;promotionId=1013">http://st01-ecom-jn2.st01.baidu.com:8890/scaffolding/create/kv?product_id=77582589&amp;stock=0&amp;promotionId=1013</a></li>
-<li>(可以跟更多参数。参照<code>mysite/response/new_KV/new_kv_template.json</code>。)</li>
-</ul>
-
-
-<h3>3.2 制造老kv接口的返回值（老kv）</h3>
-
-<ul>
-<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/scaffolding/create/oldkv?product_id=77582589&amp;merchantId=298440&amp;newPrice=100.00">http://st01-ecom-jn2.st01.baidu.com:8890/scaffolding/create/oldkv?product_id=77582589&amp;merchantId=298440&amp;newPrice=100.00</a></li>
-<li>(可以跟更多参数。参照<code>mysite/response/KV/kv_template.json</code>。)</li>
-</ul>
-
-
-<h3>3.3 制造queryInfo接口的返回值</h3>
-
-<ul>
-<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/scaffolding/create/ProductAPI/queryInfo?product_id=77582589&amp;active=0&amp;fid=1157">http://st01-ecom-jn2.st01.baidu.com:8890/scaffolding/create/ProductAPI/queryInfo?product_id=77582589&amp;active=0&amp;fid=1157</a></li>
-<li>(可以跟更多参数。参照<code>mysite/response/ProductAPI/queryInfo/queryInfo_template.json</code>。)</li>
-</ul>
-
-
-<h3>3.4 制造query接口的返回值</h3>
-
-<ul>
-<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/scaffolding/create/PromotionAPI/query?product_id=77582589&amp;active=0&amp;fid=1157">http://st01-ecom-jn2.st01.baidu.com:8890/scaffolding/create/PromotionAPI/query?product_id=77582589&amp;active=0&amp;fid=1157</a></li>
-<li>(可以跟更多参数。参照<code>mysite/response/PromotionAPI/query/query_template.json</code>。)</li>
-</ul>
-
-
-<h1>4. Jsonrpc接口</h1>
-
-<p>（用post方法，带着参数，访问这些接口。<code>测试桩</code>会代为发送jsonrpc请求，相当于一个接口级的jsonrpc工具。推荐使用上文提到的Chrome中<code>cRest Client</code>这个插件。使用post方法的话，Request entity中放请求的json串，或者其他参数。）</p>
-
-<h3>4.1 vanilla示例（无mcpack封装，支持大多数jsonrpc的api）</h3>
-
-<ul>
-<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/jsonrpc/vanilla/ProductAPI/queryInfo">http://st01-ecom-jn2.st01.baidu.com:8890/jsonrpc/vanilla/ProductAPI/queryInfo</a></li>
-<li>{&ldquo;products&rdquo;:[&ldquo;183019611&rdquo;],&ldquo;uc_id&rdquo;:29844}</li>
-</ul>
-
-
-<h3>4.2 jsonrpc示例（有mcpack封装，只支持个别jsonrpc的api）</h3>
-
-<h4>4.2.1 OrderInnerAPI/daigouCreateOrder（代购api）</h4>
-
-<ul>
-<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/jsonrpc/send/OrderInnerAPI/daigouCreateOrder">http://st01-ecom-jn2.st01.baidu.com:8890/jsonrpc/send/OrderInnerAPI/daigouCreateOrder</a></li>
-<li>{&ldquo;daigouOrder&rdquo;:{&ldquo;daigouId&rdquo;:1,&ldquo;passportId&rdquo;:&ldquo;1245&rdquo;,&ldquo;productIds&rdquo;:&ldquo;181835090&rdquo;,&ldquo;productCounts&rdquo;:&ldquo;1&rdquo;,&ldquo;customer&rdquo;:&ldquo;木根&rdquo;,&ldquo;mobile&rdquo;:&ldquo;12383846326&rdquo;,&ldquo;payStyle&rdquo;:&ldquo;DAIGOU&rdquo;,&ldquo;province&rdquo;:&ldquo;山东&rdquo;,&ldquo;city&rdquo;:&ldquo;济南市&rdquo;,&ldquo;district&rdquo;:&ldquo;大观区&rdquo;,&ldquo;town&rdquo;:&ldquo;白贤镇&rdquo;,&ldquo;districtId&rdquo;:&ldquo;120001&rdquo;,&ldquo;detailAddress&rdquo;:&ldquo;龙山路22号&rdquo;,&ldquo;needInvoice&rdquo;:&ldquo;true&rdquo;,&ldquo;invoiceTitle&rdquo;:&ldquo;百度中国&rdquo;},&ldquo;token&rdquo;:&ldquo;daigou_token_26e588a503074&rdquo;}</li>
-</ul>
-
-
-<h4>4.2.2 PostageAPI/addTemplate（添加运费模板api）</h4>
-
-<ul>
-<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/jsonrpc/send/PostageAPI/addTemplate">http://st01-ecom-jn2.st01.baidu.com:8890/jsonrpc/send/PostageAPI/addTemplate</a></li>
-<li>{&ldquo;name&rdquo;:&ldquo;运费模板名称&rdquo;,&ldquo;ucId&rdquo;:29844,&ldquo;outerId&rdquo;:null,&ldquo;assumer&rdquo;:&ldquo;SELLER&rdquo;,&ldquo;valuation&rdquo;:&ldquo;QUANTITY&rdquo;,&ldquo;consignAreaId&rdquo;:&ldquo;110101&rdquo;,&ldquo;lastModify&rdquo;:&ldquo;2014-01-02 19:06:01&rdquo;,&ldquo;shippingMethodList&rdquo;:[{&ldquo;name&rdquo;:&ldquo;COD&rdquo;,&ldquo;defaultStartStandards&rdquo;:&ldquo;1&rdquo;,&ldquo;defaultStartFees&rdquo;:&ldquo;10.00&rdquo;,&ldquo;defaultAddStandards&rdquo;:&ldquo;1&rdquo;,&ldquo;defaultAddFees&rdquo;:&ldquo;4.00&rdquo;,&ldquo;regionGroupList&rdquo;:[]}]}</li>
-</ul>
-
-
-<h4>4.2.3 PostageAPI/deleteTemplate（删除运费模板api）</h4>
-
-<ul>
-<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/jsonrpc/send/PostageAPI/deleteTemplate">http://st01-ecom-jn2.st01.baidu.com:8890/jsonrpc/send/PostageAPI/deleteTemplate</a></li>
-<li>109</li>
-</ul>
-
-
-<h4>4.2.4 DeliveryRegionsAPI/updateDeliveryRegions（更新配送范围api）</h4>
-
-<ul>
-<li><a href="http://st01-ecom-jn2.st01.baidu.com:8890/jsonrpc/send/DeliveryRegionsAPI/updateDeliveryRegions">http://st01-ecom-jn2.st01.baidu.com:8890/jsonrpc/send/DeliveryRegionsAPI/updateDeliveryRegions</a></li>
-<li>0</li>
-</ul>
-
-
-<h1>总结</h1>
-
-<p>如有问题可以发送邮件至<a href="mailto:lengyu@baidu.com">lengyu@baidu.com</a>。</p>
 ]]></content>
   </entry>
   

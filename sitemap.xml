@@ -169,8 +169,20 @@
         <lastmod>2014-04-18T21:54:50+08:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://Fatman13.github.io/blog/2014/05/24/rails4-strong-parameter-gotcha-for-beginners/
+        </loc>
+        <lastmod>2014-05-24T21:30:00+08:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://Fatman13.github.io/blog/2014/05/24/how-to-deploy-rails-4-app-from-windows-dev-environment-using-capistrano-3/
+        </loc>
+        <lastmod>2014-05-24T21:33:15+08:00</lastmod>
+    </url>
+    <url>
         <loc>http://Fatman13.github.io/</loc>
-        <lastmod>2014-04-18T21:54:50+08:00</lastmod>
+        <lastmod>2014-05-24T21:33:15+08:00</lastmod>
     </url>
     <url>
         <loc>http://Fatman13.github.io/robots.txt</loc>
@@ -178,6 +190,6 @@
     </url>
     <url>
         <loc>http://Fatman13.github.io/blog/archives/</loc>
-        <lastmod>2014-04-18T21:54:50+08:00</lastmod>
+        <lastmod>2014-05-24T21:33:15+08:00</lastmod>
     </url>
 </urlset>
