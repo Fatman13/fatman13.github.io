@@ -4,7 +4,7 @@
   <title><![CDATA[Fatman13]]></title>
   <link href="http://Fatman13.github.io/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2014-05-24T21:36:37+08:00</updated>
+  <updated>2014-06-21T12:56:16+08:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -12,6 +12,261 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[如何整合支付宝到Rails应用中]]></title>
+    <link href="http://Fatman13.github.io/blog/2014/06/21/ru-he-zheng-he-zhi-fu-bao-dao-railsying-yong-zhong/"/>
+    <updated>2014-06-21T12:38:00+08:00</updated>
+    <id>http://Fatman13.github.io/blog/2014/06/21/ru-he-zheng-he-zhi-fu-bao-dao-railsying-yong-zhong</id>
+    <content type="html"><![CDATA[<p>本文将简单介绍如何接入支付宝到你的<code>Rails4</code>应用中。本人已知的一些支持接入支付宝的<code>gem</code>有<a href="https://github.com/transist/pay_fu">pay_fu</a>，<a href="https://github.com/flyerhzm/activemerchant_patch_for_china">activemerchant_patch_for_china</a>等等。但是由于<code>RoR</code>目前国内仍然比较非主流，这2个<code>gem</code>并没有维护的非常好。本文将介绍如何自己写一个简单接入支付宝的<code>Rails helper</code>。（用到了很多<a href="https://github.com/transist/pay_fu">pay_fu</a>，<a href="https://github.com/flyerhzm/activemerchant_patch_for_china">activemerchant_patch_for_china</a>中的源代码）</p>
+
+<!--more-->
+
+
+<h1>申请支付宝商家服务</h1>
+
+<p>在技术集成之前，首先需要申请支付宝<a href="https://b.alipay.com/">商家服务</a>产品，获取<code>PID</code>和<code>Key</code>。现在支付宝商家服务最常见的产品包括<code>双功能收款</code>和<code>平台商双功能收款</code>。二者的主要区别在于<code>双功能收款</code>的买家只能对你进行付款，<code>平台商双功能收款</code>能让买家直接对入驻你平台的卖家进行付款。审核通过后，就能在<a href="https://b.alipay.com/order/techService.htm?src=nsf05/">这里</a>找到相关的技术文档，进行技术集成了。</p>
+
+<h1>支付宝接口调用流程</h1>
+
+<p>当用户在你的应用上完成订单，点击例如<code>去支付</code>之类的按钮时，按照<a href="https://b.alipay.com/order/techService.htm?src=nsf05/">支付宝文档</a>中的参数要求生成请求参数，利用<code>Rails</code>的 <code>redirect_to</code>函数，让用户跳转到<code>支付宝网关的url+请求参数</code>。你应用这边的事情就结束了，一切顺利的话，用户跳转到支付宝网关，登录支付宝账号并支付，一笔交易就完成啦！需要注意的是，请求参数中提供了2个可选参数<code>return_url</code>和<code>notify_url</code>。分别是支付宝交易处理完成后，同步和异步反调请求地址。也就是说，你的应用需要提供2个<code>url</code>给支付宝调用，用来通知你交易的状态。如果这2个参数为空，支付宝不会进行反调。所有交易记录都可以在支付宝账号中查看。</p>
+
+<h1>关于生成签名</h1>
+
+<p>你发送给支付宝网关的请求参数，支付宝会通过验证<code>sign</code>和<code>sign_type</code>这2个必填参数来判断请求的合法性。但是如何生成<code>sign</code>和<code>sign_type</code>呢？举个例子，假如说现在除了<code>sign</code>和<code>sign_type</code>我只要传<code>a=1</code>，<code>b=2</code>，<code>c=3</code>这三个参数给支付宝网关。那么sign的值应该如下。（注意：参数需按照字母顺序排序。示例使用<code>sign_type</code>为MD5，其他还有<code>RSA</code>等等的验证方式。<code>key</code>就是之前申请支付宝商家服务时，支付宝给你的一个密钥。）</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sign      = MD5('a=1&b=2&c=3' + key )
+</span><span class='line'>sign_type = 'MD5'</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>helper函数</h1>
+
+<p>首先在helper文件夹下建<code>alipay</code>文件夹。这里比较随意，你也可以不建这个文件夹。在<code>alipay</code>下建立<code>gateway_helper.rb</code>。名字可以随意，<code>_helper.rb</code>后缀能保证默认配置下，<code>Rails</code>读取这个文件。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>D:.
+</span><span class='line'>├─app
+</span><span class='line'>│  ├─assets
+</span><span class='line'>│  ├─controllers
+</span><span class='line'>│  ├─helpers
+</span><span class='line'>│  │  └─alipay</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>生成请求参数</h1>
+
+<p>在<code>gateway_helper.rb</code>中添加如下代码。（其中用到了很多<a href="https://github.com/transist/pay_fu">pay_fu</a>，<a href="https://github.com/flyerhzm/activemerchant_patch_for_china">activemerchant_patch_for_china</a>中的源代码）</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="c1"># encoding: utf-8</span>
+</span><span class='line'><span class="nb">require</span> <span class="s1">&#39;digest/md5&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">module</span> <span class="nn">Alipay</span> <span class="c1">#:nodoc:</span>
+</span><span class='line'>  <span class="k">module</span> <span class="nn">GatewayHelper</span> <span class="c1">#:nodoc:</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c1"># 直接叫这个函数，放入参数，就能实现跳转啦</span>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">alipay_purchase</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="p">{})</span>
+</span><span class='line'>    <span class="c1"># 准备请求参数</span>
+</span><span class='line'>      <span class="n">query</span> <span class="o">=</span> <span class="n">prep_params</span><span class="p">(</span><span class="n">options</span><span class="p">)</span>
+</span><span class='line'>    <span class="c1"># 阿里网关url + 请求参数</span>
+</span><span class='line'>      <span class="n">alipay_url</span> <span class="o">=</span> <span class="s1">&#39;https://mapi.alipay.com/gateway.do?&#39;</span> <span class="o">+</span> <span class="n">querify_esc</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</span><span class='line'>    <span class="c1"># 页面跳转</span>
+</span><span class='line'>      <span class="n">redirect_to</span> <span class="n">alipay_url</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kp">private</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">prep_params</span><span class="p">(</span><span class="n">options</span><span class="o">=</span><span class="p">{})</span>
+</span><span class='line'>      <span class="n">query_params</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>        <span class="c1"># ===&gt; 配置信息 &lt;===</span>
+</span><span class='line'>      <span class="c1">#   隐藏隐私信息在配置文件中，配置文件不要用SCM管理。</span>
+</span><span class='line'>        <span class="ss">:partner</span> <span class="o">=&gt;</span> <span class="no">ALIPAY_CONFIG</span><span class="o">[</span><span class="no">Rails</span><span class="o">.</span><span class="n">env</span><span class="o">][</span><span class="s1">&#39;pid&#39;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>        <span class="ss">:&quot;_input_charset&quot;</span> <span class="o">=&gt;</span> <span class="s1">&#39;utf-8&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="c1"># return_url和notify_url暂时不用</span>
+</span><span class='line'>        <span class="c1"># :notify_url =&gt; options[:notify_url],</span>
+</span><span class='line'>        <span class="c1"># :return_url =&gt; options[:return_url],</span>
+</span><span class='line'>      <span class="c1"># 支付宝商家服务类型，这里是双功能收款。</span>
+</span><span class='line'>        <span class="ss">:service</span> <span class="o">=&gt;</span> <span class="s1">&#39;trade_create_by_buyer&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="c1"># ===&gt; 交易信息 &lt;===</span>
+</span><span class='line'>      <span class="c1">#   你系统中的订单号，交易成功的订单号再次请求会失败</span>
+</span><span class='line'>        <span class="ss">:out_trade_no</span> <span class="o">=&gt;</span> <span class="n">options</span><span class="o">[</span><span class="ss">:out_trade_no</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>        <span class="ss">:price</span> <span class="o">=&gt;</span> <span class="n">options</span><span class="o">[</span><span class="ss">:price</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>        <span class="ss">:quantity</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+</span><span class='line'>        <span class="c1"># :seller_email =&gt; SELLER_EMAIL,</span>
+</span><span class='line'>        <span class="ss">:seller_id</span> <span class="o">=&gt;</span> <span class="no">ALIPAY_CONFIG</span><span class="o">[</span><span class="no">Rails</span><span class="o">.</span><span class="n">env</span><span class="o">][</span><span class="s1">&#39;pid&#39;</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>        <span class="ss">:payment_type</span> <span class="o">=&gt;</span> <span class="mi">1</span><span class="p">,</span>
+</span><span class='line'>      <span class="c1">#   题目（你网站名称）</span>
+</span><span class='line'>        <span class="ss">:subject</span> <span class="o">=&gt;</span> <span class="n">options</span><span class="o">[</span><span class="ss">:subject</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>      <span class="c1">#   商品清单（我个人理解。。。）</span>
+</span><span class='line'>        <span class="ss">:body</span> <span class="o">=&gt;</span> <span class="n">options</span><span class="o">[</span><span class="ss">:body</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>        <span class="c1"># ===&gt; 物流 &lt;===</span>
+</span><span class='line'>        <span class="ss">:logistics_type</span> <span class="o">=&gt;</span> <span class="s1">&#39;POST&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="ss">:logistics_fee</span> <span class="o">=&gt;</span> <span class="mi">0</span><span class="p">,</span>
+</span><span class='line'>        <span class="ss">:logistics_payment</span> <span class="o">=&gt;</span> <span class="s1">&#39;BUYER_PAY&#39;</span><span class="p">,</span>
+</span><span class='line'>        <span class="c1"># ===&gt; 用户信息 &lt;=== </span>
+</span><span class='line'>        <span class="ss">:receive_name</span> <span class="o">=&gt;</span> <span class="n">options</span><span class="o">[</span><span class="ss">:receive_name</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>        <span class="ss">:receive_address</span> <span class="o">=&gt;</span> <span class="n">options</span><span class="o">[</span><span class="ss">:receive_address</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>        <span class="ss">:receive_mobile</span> <span class="o">=&gt;</span> <span class="n">options</span><span class="o">[</span><span class="ss">:receive_mobile</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>        <span class="ss">:receive_zip</span> <span class="o">=&gt;</span> <span class="n">options</span><span class="o">[</span><span class="ss">:receive_zip</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>        <span class="ss">:receive_phone</span> <span class="o">=&gt;</span> <span class="n">options</span><span class="o">[</span><span class="ss">:receive_phone</span><span class="o">]</span><span class="p">,</span>
+</span><span class='line'>      <span class="p">}</span>
+</span><span class='line'>      <span class="n">query_params</span> <span class="o">=</span> <span class="no">Hash</span><span class="o">[</span><span class="n">query_params</span><span class="o">.</span><span class="n">sort</span><span class="o">]</span>
+</span><span class='line'>    <span class="c1"># sign = MD5(&#39;a=1&amp;b=2&amp;c=3&#39; + key )</span>
+</span><span class='line'>      <span class="n">query_params</span><span class="o">[</span><span class="ss">:sign</span><span class="o">]</span> <span class="o">=</span> <span class="ss">Digest</span><span class="p">:</span><span class="ss">:MD5</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">(</span><span class="n">querify</span><span class="p">(</span><span class="n">query_params</span><span class="p">)</span> <span class="o">+</span> <span class="no">ALIPAY_CONFIG</span><span class="o">[</span><span class="no">Rails</span><span class="o">.</span><span class="n">env</span><span class="o">][</span><span class="s1">&#39;key&#39;</span><span class="o">]</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">query_params</span><span class="o">[</span><span class="ss">:sign_type</span><span class="o">]</span> <span class="o">=</span> <span class="s1">&#39;MD5&#39;</span>
+</span><span class='line'>      <span class="n">query_params</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">querify</span><span class="p">(</span><span class="n">query_hash</span><span class="p">)</span>
+</span><span class='line'>    <span class="c1"># 把哈希变成&#39;a=1&amp;b=2&amp;c=3&#39;，验证md5用</span>
+</span><span class='line'>      <span class="n">query_hash</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span><span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2">=</span><span class="si">#{</span><span class="n">value</span><span class="o">.</span><span class="n">to_s</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;&amp;&quot;</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">def</span> <span class="nf">querify_esc</span><span class="p">(</span><span class="n">query_hash</span><span class="p">)</span>
+</span><span class='line'>      <span class="c1"># 把哈希变成&#39;a=1&amp;b=2&amp;c=3&#39;，跳转用</span>
+</span><span class='line'>      <span class="n">query_hash</span><span class="o">.</span><span class="n">map</span> <span class="p">{</span><span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">key</span><span class="si">}</span><span class="s2">=</span><span class="si">#{</span><span class="no">CGI</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">to_s</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span> <span class="p">}</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;&amp;&quot;</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">end</span>    
+</span><span class='line'>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>这样就<code>okay</code>了。下面将简单示范参考调用方法。</p>
+
+<h1>在routes.rb中 （参考用法）</h1>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">resources</span> <span class="ss">:orders</span> <span class="k">do</span>
+</span><span class='line'>  <span class="n">post</span> <span class="s1">&#39;pay&#39;</span><span class="p">,</span> <span class="ss">on</span><span class="p">:</span> <span class="ss">:member</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>在View中 （参考用法）</h1>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='erb'><span class='line'><span class="cp">&lt;%=</span> <span class="n">link_to</span> <span class="n">pay_order_path</span><span class="p">(</span><span class="vi">@order</span><span class="p">),</span> <span class="ss">class</span><span class="p">:</span> <span class="s1">&#39;btn-u&#39;</span><span class="p">,</span> <span class="nb">method</span><span class="p">:</span> <span class="ss">:post</span> <span class="k">do</span> <span class="cp">%&gt;</span><span class="x">去支付</span><span class="cp">&lt;%</span> <span class="k">end</span> <span class="cp">%&gt;</span><span class="x"> </span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>在Controller中 （参考用法）</h1>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">pay</span>
+</span><span class='line'>  <span class="n">alipay_purchase</span><span class="p">(</span>
+</span><span class='line'>      <span class="ss">:out_trade_no</span> <span class="o">=&gt;</span> <span class="vi">@order</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+</span><span class='line'>      <span class="ss">:price</span> <span class="o">=&gt;</span> <span class="vi">@order</span><span class="o">.</span><span class="n">total_price</span><span class="p">,</span>
+</span><span class='line'>      <span class="ss">:subject</span> <span class="o">=&gt;</span> <span class="s1">&#39;某某网&#39;</span><span class="p">,</span>
+</span><span class='line'>      <span class="ss">:body</span> <span class="o">=&gt;</span> <span class="vi">@order</span><span class="o">.</span><span class="n">products</span><span class="p">,</span>
+</span><span class='line'>      <span class="ss">:receive_name</span> <span class="o">=&gt;</span> <span class="vi">@order</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+</span><span class='line'>      <span class="ss">:receive_address</span> <span class="o">=&gt;</span> <span class="vi">@order</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>
+</span><span class='line'>      <span class="ss">:receive_mobile</span> <span class="o">=&gt;</span> <span class="vi">@order</span><span class="o">.</span><span class="n">cell_phone</span><span class="p">,</span>
+</span><span class='line'>      <span class="ss">:receive_zip</span> <span class="o">=&gt;</span> <span class="vi">@order</span><span class="o">.</span><span class="n">zip</span><span class="p">,</span>
+</span><span class='line'>      <span class="ss">:receive_phone</span> <span class="o">=&gt;</span> <span class="vi">@order</span><span class="o">.</span><span class="n">phone</span>
+</span><span class='line'>  <span class="p">)</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h1>附录</h1>
+
+<ul>
+<li>平台商双功能收款接入<a href="http://pan.baidu.com/s/1qWwgs7E">文档</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[How-to: Deploy Rails 4 app from Windows dev environment using Capistrano 3]]></title>
@@ -2135,76 +2390,6 @@ U<br/>
 </span><span class='line'>bundle install --path .bundle
 </span><span class='line'>rake db:migrate</span></code></pre></td></tr></table></div></figure>
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[懒人料理其4 烤牛肉]]></title>
-    <link href="http://Fatman13.github.io/blog/2013/08/21/lan-ren-liao-li-qi-4-kao-niu-rou/"/>
-    <updated>2013-08-21T18:51:00+08:00</updated>
-    <id>http://Fatman13.github.io/blog/2013/08/21/lan-ren-liao-li-qi-4-kao-niu-rou</id>
-    <content type="html"><![CDATA[<p>新食谱。</p>
-
-<!--more-->
-
-
-<h1>懒人料理宗旨</h1>
-
-<p>制作简单，能偷懒就偷懒，但是味道还不错。一般都比较能下饭。</p>
-
-<h1>食材</h1>
-
-<p><img src="http://Fatman13.github.io/images/IMAG0380.resized.jpg" width="260" height="460" title="1" ></p>
-
-<p><strong>1</strong>. 一盒切薄片的<font color="Crimson">牛肉</font>。</p>
-
-<h1>制作方法</h1>
-
-<p><strong>0.1</strong>. 可以用少量<font color="SaddleBrown">料酒</font>，<font color="SaddleBrown">酱油</font>事先淋在肉上。放置半个小时，帮助去除腥味。（<em>注：可选做</em>）</p>
-
-<p><strong>1</strong>. 把炒锅加热至<strong>高温</strong>。加热至<strong>高温</strong>后可关至<strong>中温</strong>。</p>
-
-<p><strong>2</strong>. 把<font color="Crimson">牛肉</font>一片一片小心放入锅内。视牛肉厚薄和锅子温度，翻面2，3次。看见肉被卷起来的时候需要翻面了，最好在卷起之前翻面。（<em>注意：油烟可能会很大注意排风</em>）</p>
-
-<p><strong>3</strong>. 出锅后撒上2勺<font color="SaddleBrown">酱油</font>即可食用。</p>
-
-<h1>出锅</h1>
-
-<p><img src="http://Fatman13.github.io/images/IMAG0790.resized.jpg" width="555" height="313" title="1" ></p>
-
-<p>好吃～</p>
-
-<h1>附录</h1>
-
-<iframe width="640" height="480" src="http://Fatman13.github.io//www.youtube.com/embed/QH2-TGUlwu4" frameborder="0" allowfullscreen></iframe>
-
-
-<p>Nyan Nyan Nyan Nyan Nyan Nyan Nyan Nyan</p>
-
-<!--肉-->
-
-
-<p><font color="Crimson"></font></p>
-
-<!--蔬菜-->
-
-
-<p><font color="ForestGreen"></font></p>
-
-<!--生肉-->
-
-
-<p><font color="DeepPink"></font></p>
-
-<!--水-->
-
-
-<p><font color="DodgerBlue"></font></p>
-
-<!--调料-->
-
-
-<p><font color="SaddleBrown"></font></p>
 ]]></content>
   </entry>
   
