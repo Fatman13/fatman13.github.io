@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Ubuntu | Fatman13]]></title>
-  <link href="http://Fatman13.github.io/blog/categories/ubuntu/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Thinkpad | Fatman13]]></title>
+  <link href="http://Fatman13.github.io/blog/categories/thinkpad/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
   <updated>2014-08-04T20:42:02+08:00</updated>
   <id>http://Fatman13.github.io/</id>
@@ -72,52 +72,6 @@
 <h1>附录4</h1>
 
 <p>关于<a href="https://www.khanacademy.org/economics-finance-domain/core-finance/money-and-banking/bitcoin/v/bitcoin-overview">Bitcoin</a>。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[How-to: Disable Bluetooth on startup (Ubuntu 13.04)]]></title>
-    <link href="http://Fatman13.github.io/blog/2013/07/12/how-to-disable-bluetooth-on-startup-ubuntu-13-dot-04/"/>
-    <updated>2013-07-12T16:53:00+08:00</updated>
-    <id>http://Fatman13.github.io/blog/2013/07/12/how-to-disable-bluetooth-on-startup-ubuntu-13-dot-04</id>
-    <content type="html"><![CDATA[<p>Somehow whenever I boot up my <code>Ubuntu</code>, <code>Bluetooth</code> would be set to <strong>ON</strong>. <code>Ubuntu</code> didn&rsquo;t seem to remember whether <code>Bluetooth</code> was set to <strong>ON</strong> or <strong>OFF</strong> from last session. Personally I don&rsquo;t use any <code>Bluetooth</code> input devices. I&rsquo;d like to have it <strong>OFF</strong> so that it doesn&rsquo;t waste battery.</p>
-
-<!--more-->
-
-
-<p><em>Be warned: This tutorial may only applies to System 76 Gazelle pro running Ubuntu 13.04 64-bit. There is also a risk that your Ubuntu splash screen will behave a little differently after applying the change.</em></p>
-
-<p>There is a good <a href="http://catlingmindswipe.blogspot.com/2012/05/how-to-disable-bluetooth-on-startup.html">post</a> for fixing the problem. But in case of <code>System 76 Gazelle pro</code> running <code>Ubuntu 13.04 64-bit</code>, you only need to apply the following steps. (I guess it is due to more customized driver?)</p>
-
-<p><strong>1</strong>. It is recommended that you back up your config file first.
-<code>
-$ sudo cp /etc/bluetooth/main.conf /etc/bluetooth/main.conf.bak
-</code></p>
-
-<p><strong>2</strong>. Open up the config file in a text editor
-<code>
-$ sudo gedit /etc/bluetooth/main.conf
-</code></p>
-
-<p><strong>3</strong>. Change <code>InitiallyPowered = true</code> to <code>InitiallyPowered = false</code>.</p>
-
-<p>And you are done! Reboot your machine and see the result yourself.</p>
-
-<h1>Update</h1>
-
-<p>If you set <code>Ubuntu</code> to login automatically like I did. Then you might be prompt for login keyring after rebooting. To get rid of the keyring dialog you need to do the <a href="http://askubuntu.com/questions/867/how-can-i-stop-being-prompted-to-unlock-the-default-keyring-on-boot">following</a>.</p>
-
-<p><strong>1</strong>. Launch <code>Passwords and Keys</code> through Utility Launcher.</p>
-
-<p><img src="/images/keyrings.jpeg" width="260" height="260" title="1" ></p>
-
-<p><strong>2</strong>. Go to <code>View</code>&ndash;><code>By keyring</code>. You should see the following window.</p>
-
-<p><img src="/images/pass&amp;keyringWindow.png" width="450" height="577" title="1" ></p>
-
-<p><strong>3</strong>. Right click <code>Login</code>, choose <code>Change Password</code>. Type in your old password, then leave new password as empty.</p>
-
-<p>That&rsquo;s it. Enjoy!</p>
 ]]></content>
   </entry>
   
