@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Tomcat | Fatman13]]></title>
   <link href="http://Fatman13.github.io/blog/categories/tomcat/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2015-01-05T17:27:53+08:00</updated>
+  <updated>2015-04-03T19:57:11+08:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -131,7 +131,7 @@
 
 
 <p>```
-[<a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#x6f;&#58;&#x77;&#111;&#114;&#x6b;&#64;&#115;&#x74;&#48;&#49;&#45;&#x65;&#99;&#111;&#x6d;&#45;&#x6a;&#110;&#x32;&#x2e;&#x73;&#x74;&#48;&#49;&#x2e;&#98;&#97;&#x69;&#x64;&#117;&#x2e;&#x63;&#x6f;&#x6d;">&#119;&#111;&#114;&#107;&#x40;&#115;&#116;&#x30;&#x31;&#x2d;&#x65;&#x63;&#x6f;&#109;&#x2d;&#x6a;&#x6e;&#50;&#46;&#115;&#116;&#48;&#49;&#x2e;&#x62;&#x61;&#x69;&#100;&#x75;&#46;&#99;&#x6f;&#x6d;</a> ant]$ ant dump
+[<a href="&#x6d;&#97;&#105;&#108;&#116;&#x6f;&#58;&#119;&#111;&#114;&#107;&#x40;&#115;&#x74;&#x30;&#x31;&#x2d;&#x65;&#x63;&#x6f;&#109;&#45;&#x6a;&#110;&#50;&#x2e;&#x73;&#x74;&#x30;&#x31;&#x2e;&#98;&#x61;&#x69;&#100;&#x75;&#46;&#99;&#111;&#109;">&#x77;&#111;&#x72;&#x6b;&#x40;&#115;&#116;&#48;&#x31;&#x2d;&#x65;&#x63;&#111;&#109;&#45;&#106;&#x6e;&#x32;&#x2e;&#115;&#x74;&#48;&#49;&#46;&#x62;&#97;&#105;&#x64;&#x75;&#46;&#99;&#111;&#109;</a> ant]$ ant dump
 Buildfile: /home/work/local/hudson_home/workspace/wg_merchant_oc_regression/ant/build.xml</p>
 
 <p>dump:

@@ -4,7 +4,7 @@
   <title><![CDATA[Fatman13]]></title>
   <link href="http://Fatman13.github.io/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2015-01-05T17:27:53+08:00</updated>
+  <updated>2015-04-03T19:57:11+08:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -12,6 +12,91 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[DDoS引发的阅读和感想]]></title>
+    <link href="http://Fatman13.github.io/blog/2015/04/03/ddosyin-fa-de-yue-du-he-gan-xiang/"/>
+    <updated>2015-04-03T19:55:00+08:00</updated>
+    <id>http://Fatman13.github.io/blog/2015/04/03/ddosyin-fa-de-yue-du-he-gan-xiang</id>
+    <content type="html"><![CDATA[<p>又好久没有更新博客了。最近朋友<code>S</code>在微信群里问<code>DDos</code>是啥。一半比较好奇<code>S</code>为啥突然询问<code>DDos</code>，一半巩固一下相关互联网常识。我谷歌了<code>DDos</code>，看到谷歌新闻卡片中，<code>Github</code>遭受<code>DDos</code>攻击的新闻。我想，哦哦哦哦，原来<code>S</code>同志是看到了这个新闻了。<a href="http://www.netresec.com/?month=2015-03&amp;page=blog&amp;post=china%27s-man-on-the-side-attack-on-github">这里</a>有该事件的一些<code>技术</code>分析？</p>
+
+<!--more-->
+
+
+<h1>题外话</h1>
+
+<p>根据我阅读<a href="https://news.ycombinator.com/">HN</a>很多评论的经验来看，大多数意见相左的评论，讨论到最后还是互相不认可对方的观点的。原因无外乎下面这句老话。。。</p>
+
+<blockquote><p>We believe what we want to believe. It is all we ever do.<br/>
+&ndash; flemeth 《<a href="http://en.wikipedia.org/wiki/Dragon_Age:_Origins">Dragon Age</a>》</p></blockquote>
+
+<h1>阅读</h1>
+
+<p>好了，回到原来的新闻事件。出于对该次事件一部分舆论反应的好奇，我在<a href="https://news.ycombinator.com/">HN</a>上搜到相关新闻的<a href="https://news.ycombinator.com/item?id=9293849">帖子</a>。该帖有300多条评论。总体来说，大多数评论<code>反革命</code>情绪比较严重。比如说下面这条评论。</p>
+
+<blockquote><p>&hellip;<br/>
+China and Russia are both (quite unique) examples of countries with an unfathomable degree of control over their citizens. It can be hard to grasp occasionally, coming from a western mindset but for the vast majority within said countries, the entire reality they see and what they believe to be true is heavily distorted&mdash;in that, it is defined by the vision of the oligarchy and information is carefully controlled to produce a desired set of beliefs. North Korea is an extreme caricature of this pattern.<br/>
+&hellip;<br/>
+&ndash; j42</p></blockquote>
+
+<p>不过比较让人欣慰的是，可以看到有人马上回复道。</p>
+
+<blockquote><p>The difference between the U.S. and China/Russia is that the people in China/Russia know the media is controlled by the powers that be.
+Here, our press is also &ldquo;defined by the vision of the oligarchy and information is carefully controlled to produce a desired set of beliefs.&rdquo; We just believe that it&rsquo;s free.
+See: <a href="http://en.wikipedia.org/wiki/Manufacturing_Consent">http://en.wikipedia.org/wiki/Manufacturing_Consent</a><br/>
+&ndash; abalone</p></blockquote>
+
+<p>然后？然后有人看到上面那条评论就开喷了。</p>
+
+<blockquote><p>It is rather stupid to equate the degree of media manipulation in the West vs. China and Russia.<br/>
+ &ndash; obstinate</p></blockquote>
+
+<p>于是，有位有识之士对上面那条评论进行了回复。</p>
+
+<blockquote><p>You are right. The degree and sophistication of media manipulation is profoundly greater in the west. While the Chinese block a lot of media, the manipulation is minimal. Most Chinese are very cynical and know exactly what is going on. The west, or at least the US, traps people in a matrix of sorts where they don&rsquo;t even see the manipulation. The narrative is exquisitely framed and guided to leave people with a sense of moral superiority and basic faith in the system despite perceived flaws, as is ironically exhibited by your comment.
+edit: some good resources on the history and nature of western media manipulation are the BBC documentary &ldquo;The Century of Self&rdquo; and Noam Chomsky&rsquo;s book &ldquo;Manufacturing Consent&rdquo;.<br/>
+&ndash; colordrops</p></blockquote>
+
+<p>继续往下拉，看到一条有趣的评论，还去<code>Github</code>挖了一下一个很久之前的<a href="https://github.com/greatfire/wiki/issues/1">issue</a>。</p>
+
+<blockquote><p>Most people might not know what kind of organization GreatFire really is because too much context is missing. I only discovered recently it&rsquo;s not so simple. There have been a lot of talks about the behavior of GreatFire for quite for a while but most of the talks are in Chinese. There are some in English though, to give everybody a glimpse here is an example: <a href="https://github.com/greatfire/wiki/issues/1">https://github.com/greatfire/wiki/issues/1</a>
+I have an impression is GreatFire tried to weaponize all the users of github. They succeeded.
+I don&rsquo;t like the GFW either. But I think I&rsquo;m very likely to be downvoted because the context of this incident is quite complicated. It&rsquo;s not easy to tell the truth especially when it&rsquo;s against most people&rsquo;s belief.<br/>
+&ndash; jjcc</p></blockquote>
+
+<h1>感想</h1>
+
+<p>由此，我忽然想到另外一个中策。就是在<code>Github</code>上建立小号，并且上传维鸡jie密或者shi诺d的文件。这样<code>Github</code>也有台阶下，不用被套上限制自由的骂名。<code>Github</code>可借机更新<code>ToU</code>，关闭一些政z敏感账号。</p>
+
+<h1>附录</h1>
+
+<p>在读帖子的时候，还看到有趣的2个人的评论。先是一个叫<code>gbog</code>的人写到。</p>
+
+<blockquote><p>You obviously haven&rsquo;t been there. I think Chinese gov have the same level of control over its citizens as France: very erratic, sometime works well, some people try to play with fire, but overall the Chinese are all but lobotomized robots in the hands of a few puppet masters. There&rsquo;s over 500 strikes a year in China, not counting all the ones not big enough to be counted. I have seen streets of pedestrians walking against policemen, who were sweating of fear. Right now the prez is quite appreciated and trusted by the people, so he probably has some level of control, but this is earned by its fight against corruption, and not by some matrix-like brainwashing system.</p></blockquote>
+
+<p>然后一个叫<code>westiseast</code>的人回复道。</p>
+
+<blockquote><p>I have been there ;)
+You&rsquo;re misinterpreting the nature of control. Yes, there are protests, mostly because the government lets them happen. It helps people let off steam, it gives the government an indication of how people feel, and quite often there are conflicting interests which the Party can rise above (remember, government and the Party are not the same thing). So, often it&rsquo;s a bunch of workers protesting against a company, or a corrupt local official in one department &ndash; the Party can let that happen, and choose sides later when they&rsquo;ve decided which way the wind is blowing. Policemen are shitting themselves because the Party mostly sides with the security apparatus but today they might let the protest get a bit wild if they want to allow the protesters a bit of leeway, and then those untrained, poorly equipped policemen will be screwed.
+When stuff he Party doesn&rsquo;t like happens, they shut it down using methods you (on the whole) cannot do in France, the UK, and the U.S. Try introducing political censorship of material critical to Hollande. Try censoring books and courses in university. Try locking up journalists and writers (on tax evasion charges of course) when they say stuff you disagree with. Try rolling out the tanks when a protest gets out of hand. Etc.
+So don&rsquo;t be fooled by the seemingly light hand of the gov &ndash; they&rsquo;ve intentionally backed off from the Cultural Recolution level of control because they know that most people don&rsquo;t give a damn, and if left alone they will do nothing. How about an experiment &ndash; I&rsquo;ll hold up an anti government sign in front of the French parliament, and you do the same in Tiananmen Square and we&rsquo;ll see how much control the Chinese gov has ;)</p></blockquote>
+
+<p><code>gbog</code>继续回复道。</p>
+
+<blockquote><p>You&rsquo;re misinterpreting the nature of control.
+I don&rsquo;t think so. I am just taking the other angle, from the people&rsquo;s perspective, and want to debunk the cliche that Chinese people are easy to control. They&rsquo;ve had much more revolutions than any other country in their long history. They&rsquo;re all but easy to control. In French we say &ldquo;like boiling milk&rdquo;, which means they can easily and suddenly get out of control and wash out anything on their way. Just blocking a few topics on social network is certainly not enough. As for things that are allowed or forbidden, it seems more cultural than anything else: In China direct verbal confrontation is very rare, while it is very common in the West, and this holds in families, in companies and also at the country&rsquo;s level. Not very surprisingly, in France insulting the head of state is not forbidden, and even something like a national entertainment. However, in France we have laws telling people if they are allowed to work on Sundays, which seems extremely weird and borderline &ldquo;totalitarian&rdquo; to the Chinese, which believe people should be allowed to work whenever they need to or want to.
+Also, when talking about China, it needs to be reminded that in fact the core Western values (i.e. Enlightment values) and the core Chinese values (i.e. Confucean values) are very similar, and quite compatible. (See how fast Chinese immigrants adapt to and adopt Western values.) For instance, secularism and religious tolerance, equality of rights and before the law, meritocracy, etc.
+I think the world is going very badly these days, and a big chunk of it is in the hands of people whose values are really opposed to the core of modern humanist values, and this chunk is not China. We&rsquo;d better team up and fight (with ideas, not with guns) what really threatens humanity as a whole. Just my thoughts.</p></blockquote>
+
+<p>这个时候有趣的事情发生了，这个<code>westiseast</code>回复道。</p>
+
+<blockquote><p>Hey, I didn&rsquo;t see it was you! Still at Douban?
+I know what you mean in terms of &ldquo;boiling milk&rdquo; &ndash; in that respect I agree. I keep thinking these days of that old saying of China as a sleeping elephant; instead I think the people are the sleeping elephant. I think the government&rsquo;s strategy relies a lot on ignorance and apathy, but if even half of these stories we read as standard on NYTimes etc made it into the public consciousness, there would be huge issues.
+About the laws &ndash; I guess it&rsquo;s not the actual content of the laws or relatively different values that illustrates control. Eg in your example about working on Sunday&rsquo;s &ndash; if you decided to fight one of those laws, you could do it openly and publicly and in principle it would be a fair fight. You might even embarrass the government or a political leader, but here there&rsquo;s so little chance of that &ndash; that&rsquo;s the different nature of the Communist Party control. The government/party has taken away avenues to legitimately discuss/debate/fight, so the options are either total apathy or explosive revolution. That&rsquo;s scary!</p></blockquote>
+
+<p>这位<code>gbog</code>先生原来在豆瓣上班。。。。。。这是他的<a href="https://github.com/guibog">github</a>和<a href="https://twitter.com/guibog">twitter</a>。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[宗教视频？]]></title>
@@ -2208,78 +2293,6 @@ U</p>
 <p><img src="http://Fatman13.github.io/images/ga_7.resized.JPG"></p>
 
 <p>根据网络供应商划分访客。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[GeoGuessr新手心得]]></title>
-    <link href="http://Fatman13.github.io/blog/2013/09/26/geoguessrxin-shou-xin-de/"/>
-    <updated>2013-09-26T10:52:00+08:00</updated>
-    <id>http://Fatman13.github.io/blog/2013/09/26/geoguessrxin-shou-xin-de</id>
-    <content type="html"><![CDATA[<p>经同事介绍一个叫<a href="http://geoguessr.com/">GeoGuessr</a>的网页小游戏。玩一下还可以。记录一下心得。</p>
-
-<!--more-->
-
-
-<h1>游戏流程</h1>
-
-<p>游戏随机把你放到世界某个地方的谷歌街景。然后你可以根据周围的风景，猜你在哪儿。结果离正确答案越近，分数越高。猜完5次以后，结束一个周目。你获得的总分会被显示出来。</p>
-
-<h1>心得</h1>
-
-<ul>
-<li><p>很多国家还没有谷歌街景，所以一般可以排除非洲大多数国家，南美(除巴西)，中国(除香港)，很多南亚国家，印度，很多中东国家，等等。</p></li>
-<li><p>欧洲很多马路中间分界线是白色的。一般大多数其他国家都是黄色的。</p></li>
-<li><p>土壤是红色的话，这个地方比较热。可以参考猜澳洲，中美洲，巴西。</p></li>
-<li><p>关于高速公路。</p>
-
-<ul>
-<li>看周围的植物。是比较热带的感觉还是比较寒冷的感觉。</li>
-<li>看周围是否是大山环绕，还是开阔的平原。</li>
-<li>看高速路上的标志，是用英制单位还是国际单位。英制单位的话很有可能就是美国了。</li>
-<li>看路上车子的款式。</li>
-</ul>
-</li>
-<li><p>俄罗斯的交通标志跟国内很像。特别是<code>此处有人行道</code>的交通标志。</p></li>
-<li><p>街景中看见地名的标志，路牌等等，当然可以直接谷歌下，但是有舞弊的嫌疑&hellip;</p></li>
-</ul>
-
-
-<h1>截图</h1>
-
-<p><img src="http://Fatman13.github.io/images/g10.JPG" width="665" height="500" title="最高记录" ></p>
-
-<p>随手一猜，竟然只差100公里。啧啧。</p>
-
-<p><img src="http://Fatman13.github.io/images/g20.JPG" width="852" height="600" title="一周目" ></p>
-
-<p>一周目结束。</p>
-
-<h1>附录</h1>
-
-<p>U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U<br/>
-U</p>
-
-<iframe width="480" height="360" src="http://Fatman13.github.io//www.youtube.com/embed/8EmRZO9fwvk" frameborder="0" allowfullscreen></iframe>
-
 ]]></content>
   </entry>
   
