@@ -4,7 +4,7 @@
   <title><![CDATA[Fatman13]]></title>
   <link href="http://Fatman13.github.io/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2015-04-03T19:57:11+08:00</updated>
+  <updated>2015-07-18T13:12:36+08:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -12,6 +12,82 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[如何使用Outlook链接Zimbra邮箱]]></title>
+    <link href="http://Fatman13.github.io/blog/2015/07/18/ru-he-shi-yong-outlooklian-jie-zimbrayou-xiang/"/>
+    <updated>2015-07-18T13:10:00+08:00</updated>
+    <id>http://Fatman13.github.io/blog/2015/07/18/ru-he-shi-yong-outlooklian-jie-zimbrayou-xiang</id>
+    <content type="html"><![CDATA[<p>本文简单介绍如何使用<code>Outlook</code>客户端连接<code>Zimbra</code>邮箱系统。原文在<a href="http://www.upenn.edu/computing/email/help/zimbra/outlook/outlook_config.html">这里</a>。OP还是比较推荐使用<code>Zimbra</code>的<code>Web</code>客户端。</p>
+
+<!--more-->
+
+
+<h1>连接Outlook步骤</h1>
+
+<p>1 <code>工具</code> &ndash;> <code>账户设置</code></p>
+
+<p><img src="http://i.imgur.com/Ez7Tcje.jpg" alt="" /></p>
+
+<p>2 点击<code>新建</code>。</p>
+
+<p><img src="http://i.imgur.com/XySXE0u.jpg" alt="" /></p>
+
+<p>3 点击<code>下一步</code>。（Microsoft Exchange，POP3，IMAP或HTTP）</p>
+
+<p><img src="http://i.imgur.com/Np7kAk1.jpg" alt="" /></p>
+
+<p>4 勾选<code>手动配置服务器设置或其他服务器类型</code>。</p>
+
+<p><img src="http://i.imgur.com/87QVOQd.jpg" alt="" /></p>
+
+<p>5 点击<code>下一步</code>。（Internet电子邮件）</p>
+
+<p><img src="http://i.imgur.com/wIkOsur.jpg" alt="" /></p>
+
+<p>6 您的姓名：你的姓名，电子邮件地址：xyz@shtowercbre.com，账户类型：POP3，接受邮件服务器：mail.shtowercbre.com，发送邮件服务器：mail.shtowercbre.com，用户名：你的用户名，登陆密码：你的登陆密码。</p>
+
+<p><img src="http://i.imgur.com/Bdtb1nn.jpg" alt="" /></p>
+
+<p>7 点击<code>其他设置</code> &ndash;> <code>发送服务器</code> &ndash;> 勾选<code>我的发送服务器需要验证</code>。</p>
+
+<p><img src="http://i.imgur.com/Umk1IjM.jpg" alt="" /></p>
+
+<p>8 还是在<code>其他设置</code> &ndash;> <code>高级</code> &ndash;> 勾选<code>此服务器要求加密连接（SSL）</code>，发送服务器：25,使用以下加密连接类型：TLS。</p>
+
+<p><img src="http://i.imgur.com/HLvkF7y.jpg" alt="" /></p>
+
+<p>8.5 如果需要在服务器上保存邮件副本的话，需更改<code>Outlook</code>默认设置。在上文第7步中，<code>其他设置</code> &ndash;> <code>高级</code> &ndash;> 勾选<code>在服务器上保留邮件副本</code>。</p>
+
+<p><img src="http://i.imgur.com/aA284uj.jpg" alt="" /></p>
+
+<p>9 点击<code>确定</code>，点击<code>测试账户设置</code>。</p>
+
+<p><img src="http://i.imgur.com/8BANwip.jpg" alt="" /></p>
+
+<h1>日常维护小技巧</h1>
+
+<ol>
+<li>添加完新成员后，新邮件填写收件人时，没有自动补完新成员名字？<code>配置</code>&ndash;><code>域名</code>&ndash;>双击右边的域名-><code>GAL</code>&ndash;><code>内部GAL轮询间隔时间</code>改为1分钟或者更低。稍等片刻后，新成员的名字应该就可以自动补完了。</li>
+<li>如何添加会议室？<code>管理</code>&ndash;><code>资源</code>&ndash;>点击右上角齿轮图标-><code>新建</code>。（注意：添加完成后需要GAL更新后才会在用户的新约会中生效）</li>
+<li>使用多个身份发送邮件？<code>管理</code>&ndash;>选择用户->给该用户添加<code>别名</code>。（注意：添加完成后需要GAL更新后别名才会生效）登录该用户账号，<code>首选项</code>&ndash;><code>账户</code>&ndash;><code>添加身份</code>&ndash;>填入<code>帐户名称</code>&ndash;>填入<code>发件人：选择邮件发件栏中显示名称</code>&ndash;>下拉菜单中选择新添加的别名->点击左上角<code>保存</code>。这样该用户在写新邮件时就可以选择使用不同身份发送了。</li>
+</ol>
+
+
+<h1>附 1</h1>
+
+<p>之前公司网络神秘得把TLS加密给屏蔽了。后来经过多方排查，原来是公司网络行为管理服务器，华为ASG2200，中的<code>病毒过滤</code>功能启用后，把TLS过滤掉了。直接禁用<code>病毒过滤</code>后，问题解决。</p>
+
+<h1>附 2</h1>
+
+<p><code>Zimbra</code>管理员操作<a href="https://www.zimbra.com/docs/os/8.6.0/administration_guide/wwhelp/wwhimpl/js/html/wwhelp.htm#href=860_admin_os.Zimbra_Collaboration.html">手册</a>。
+<code>Zimbra</code>安装<a href="https://www.zimbra.com/docs/ne/8.6.0/single_server_install/wwhelp/wwhimpl/js/html/wwhelp.htm#href=860_SingleServer_Install_NE.Performing_a_Single_Server_Installation.html">手册</a>。</p>
+
+<h1>附 3</h1>
+
+<p>华为的一些免费网络<a href="http://support.huawei.com/learning/nodeQueryAction!loadTrainProjectInfo?lang=zh&amp;pbiPath=&amp;courseId=Node1000007759">课程</a>。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[DDoS引发的阅读和感想]]></title>
@@ -2257,42 +2333,6 @@ U</p>
 
 
 
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Google Analytics统计的本博客的流量]]></title>
-    <link href="http://Fatman13.github.io/blog/2013/10/16/google-analyticstong-ji-de-ben-bo-ke-de-liu-liang/"/>
-    <updated>2013-10-16T16:20:00+08:00</updated>
-    <id>http://Fatman13.github.io/blog/2013/10/16/google-analyticstong-ji-de-ben-bo-ke-de-liu-liang</id>
-    <content type="html"><![CDATA[<p>发表一下使用<a href="http://www.google.com/analytics/">Google Analytics</a>统计的本博客的流量。</p>
-
-<!--more-->
-
-
-<p><img src="http://Fatman13.github.io/images/ga_1.resized.JPG" width="951" height="223" title="1" ></p>
-
-<p>55个访客！你们好！</p>
-
-<p><img src="http://Fatman13.github.io/images/ga_2.resized.jpg" width="672" height="415" title="1" ></p>
-
-<p>世界你好！最近习总是不是刚去过坦桑尼亚？之前我记得有2个伊朗的访客呀，被谷歌掐掉了吗？！</p>
-
-<p><img src="http://Fatman13.github.io/images/ga_3.resized.JPG" width="867" height="410" title="1" ></p>
-
-<p>根据国家划分访客。</p>
-
-<p><img src="http://Fatman13.github.io/images/ga_4.resized.JPG" width="848" height="307" title="1" ></p>
-
-<p>根据网页浏览器划分访客。发现Opera&hellip;.</p>
-
-<p><img src="http://Fatman13.github.io/images/ga_6.resized.JPG" width="851" height="245" title="1" ></p>
-
-<p>移动端访客使用的都是苹果&hellip;</p>
-
-<p><img src="http://Fatman13.github.io/images/ga_7.resized.JPG"></p>
-
-<p>根据网络供应商划分访客。</p>
 ]]></content>
   </entry>
   
