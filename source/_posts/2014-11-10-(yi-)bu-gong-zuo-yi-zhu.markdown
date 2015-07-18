@@ -1,0 +1,44 @@
+---
+layout: post
+title: "（译）不工作艺术"
+date: 2014-11-10 19:49
+comments: true
+categories: 
+- 翻译
+---
+This is Chinese translation of the original post [here](http://www.theatlantic.com/business/archive/2014/11/the-art-of-not-working-at-work/382121/?single_page=true) by fatman13.
+
+本文是[原文](http://www.theatlantic.com/business/archive/2014/11/the-art-of-not-working-at-work/382121/?single_page=true)的中文翻译。
+
+<!--more-->
+
+两年前，一名德国`Menden`镇的公务员在退休的那一天给同事们的道别信中写道，他在十四年中几乎没有干过任何事情。他写道，“从1998年开始，我在这儿，但却没有正真在这儿。所以我要为退休做周全的准备。Adieu，拜拜”。这封道别电子邮件被德国`Westfalen`报纸[曝光](http://www.telegraph.co.uk/news/worldnews/europe/germany/9200054/German-civil-servant-says-he-did-nothing-for-14-years.html)，并迅速为全世界所知。国家机关职业道德受到重创，`Menden`镇长在几天后表示对该事件歉意，并称“感受到了公众的愤怒。”
+
+`Menden`镇政府召开新闻发布会，对该名雇员没有向领导报告他的无所事事感到遗憾。一个月之后，在一个曝光度不是很高的`Bild`报[采访](http://www.bild.de/regional/ruhrgebiet/beamter/fauler-verwaltungsangestellter-14-jahre-nichts-getan-745-000-kassiert-23588774.bild.html)中，这位前公务员回应称，他的电子邮件被断章取义了。他14年中没有试图逃避工作；在他部门发展的同时，他的工作被分配给了其他人。他说，“我从来没有感到受挫，即使是今天我也会写一样的电子邮件。我一直提供我的劳动，但是他们不用就不是我的问题了。”
+
+这个德国政府机关的故事引发了一些关于工作偷懒的问题。有一份工作就意味着有事情做吗？如果答案是否定的，那一份工作是如何，为什么失去了他实质的工作内容呢？有什么不让员工偷懒的方法？抑或是，在现有体制下，这是一个正确合理的问题吗？再跟40个超级懒人谈话后，我想我能道出一些答案。
+
+很多社会学家赞成在工作中偷懒只是极少数人，极少，少到可以被忽略。很多[统计](http://digitalcommons.ilr.cornell.edu/cgi/viewcontent.cgi?article=2595&context=ilrreview)都指向了越来越强的工作强度，加班加点，各种压力大。但是也有一些[调查](http://org.sagepub.com/content/early/2013/12/24/1350508413515541.abstract)指出工作时间中平均1到3个小时会被花在私人的事情上。通过对某些网站访问流量的监测，[据查](http://www.sciencedirect.com/science/article/pii/S0010880401800562)，在2000年后，美国色情网站70%的访问流量和全美60%的网上购物都发生在周中的9点到5点之间。工作时上网偷懒不止在美国有，新加坡，德国，芬兰也有。（大部分工作时间调查来自美国）
+
+即使那些自称一直工作很忙的上班族的人数在增加，但是绝大多数人并没有受到影响。实际上，那些说自己工作不忙的人要比说忙的人[多得多](http://www.sciencedirect.com/science/article/pii/S0927537101000276)。关于工作压力大的文章书籍可能有成千上万，但是为什么与之对应的另一个极端却没有那么多文章呢？
+
+懒人们自己已经写了一些关于这个话题的书籍。在“你好懒人”这本书中，法国作者`Corinne Maier`给出了她的解释。`Maier`打开了[最终让他丢掉她工作的书](http://corinnemaier.blogspot.se/2011/07/edf-encules-de-france.html)，声称社会学没能诠释办公室机理：“上百万人都在工作，但是消息并不透明。这是因为谈论这些问题的大多数都是大学教授——他们本身并没有参加工作；他们根本不懂。”`Maier`曾在法国电力公司做过好几年的领导，他得出结论，工作越来越变成假装在办公室，“形象大于产品，诱惑大于效益。”
+
+在这些情况下，假装服从和假装承担变成了工作的重要的一部分，以至于任何有异于以上的假装行为都会被视为令人难堪的举动。`Maier`回忆道：“一天，在一个关于工作积极性的会议上，我大胆地说我来上班只是为了混口饭吃。在15秒的沉默以后，每个人都好像有点别扭。即使法语中工作`travail`一词源于一种刑具，在任何情况下，你都要迫切地让别人知道你正在工作，因为你对你的工作很感兴趣。”
+
+形象和本质的差距也是漫画`Dilbert`中一个老声长谈的主题了。`Dilbert`漫画作者`Scott Adams`从他以前的工作中获得创作灵感。一次又一次，`Adams`质疑工作的合理性，以及工作和效率的关系：“工作可以被定义为‘所有你不高兴做的事情’，效率就是另外一回事儿了。”
+
+在`Dilbert collection This Is the Part Where You Pretend to Add Value`一书的前言中，`Adams`公开的表示了他在`Crocker National Bank`和`Pacific Bell`的16年工作映象。
+
+> “If I had to describe my 16 years of corporate work with one phrase, it would be ‘pretending to add value.’ … The key to career advancement is appearing valuable despite all hard evidence to the contrary. … If you add any actual value to your company today, your career is probably not moving in the right direction. Real work is for people at the bottom who plan to stay there.”
+
+> “如果我一定要用一句话形容我我16年工作的话，那应该是‘假装给公司增加价值’。升职加薪关键在于看上去很有价值，无论有多少铁证说明你没有价值。如果你现在正在为公司增加正真的价值，你的职业道路可能已经走歪了。正真的工作是给那些底层并计划一直呆在底层的人的。”
+
+其他上班族们也有类似的情况。在`Living Dead`一书中，`David Bolchover`称“形象大于实际，忽悠大于清楚，勾心斗角大于工作业绩，是当下主流。”在`City Slackers`一书中，`Steve McKevitt`，一个幻想皮灭的“商务交流专家”，沮丧的写道：“在当前包装就是一切的社会中，你做什么已经不重要了，重要的是你看上去在做什么。”
+
+假装，掩饰，失去意义，行话，勾心斗角，办公室政治，危机，乏味，绝望，这些都是上班族生活经常出现的要素。以上种种经常出现在主流文化中的风险是让我们开始把这些问题当成比喻和夸张。但是如果我们更认真地思考这些“不重要的”工作问题又会是怎能样呢？
+
+在`David Foster Wallace`的小说`The Pale King`中，一个美国税务局的职员死在了他的办公桌上，直到数天后才被发现他已经死了。这个故事可以被解读为工作吸收了个人很多精力，导致没有人注意到你是死是活。但是，这样的事不仅仅发生在小说中。2004年，一个[芬兰税务局的工作人员在检查退税报表时死亡](http://news.bbc.co.uk/2/hi/europe/3410547.stm)。尽管有100个跟他在同一楼层的工作人员，其中30人跟他属于同一部门，直到2天后，他才被发现死亡。没有人因为他没有工作而发现他的死亡；他被发现死亡是因为他的朋友想问他要不要一起吃午饭。
+
+（注1：本文不代表译者立场，仅供娱乐）
+（注2：后面其实还有，但是译者不想翻了。。。）

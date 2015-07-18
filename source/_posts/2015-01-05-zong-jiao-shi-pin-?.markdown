@@ -1,0 +1,86 @@
+---
+layout: post
+title: "宗教视频？"
+date: 2015-01-05 17:11
+comments: true
+categories: 
+- 随笔
+---
+好久没写博客。最近上海新闻综合频道看到关于圣诞节某教堂人满为患，为预防消防隐患，巡查沐恩堂的新闻。镜头里面很多人坐在教堂里面，外面好像还有人排队。联想到好像周围也有些人入了教。。。凑巧看到某tube上的一个视频，感觉不错。做个笔记。
+
+<!--more-->
+
+# 视频
+
+<iframe width="560" height="315" src="//www.youtube.com/embed/sXOdn6vLCuU" frameborder="0" allowfullscreen></iframe>
+
+视频无法显示？搜一下`Don't hug me I am scared 3`，注意是3，应该有人搬运。
+
+# 摘录
+
+引用该视频下，一位用户的评论。（个人感觉写得挺好）
+
+>Let's see if I can offer an analysis of my own.
+
+>--- Overall ---
+
+>It is obvious to anyone who's watched the full thing that this video is about the corrupting influence of religious values and the idea of 'absolute truth' to society, especially children or the weak-minded. Now to the more specific stuff:
+
+>--- Specific moments and potential meaning ---
+
+>0:30 This moment shows the bird killing the butterfly (or 'pesky bee', as he puts it), which upsets the yellow one. This shows that sometimes, people do things that will upset or scare others, because, well, people differ in moral values. However, the yellow one feels it is wrong to the point where he is disillusioned, making him easy prey for the religious.
+
+>0:44 Here we see a priest or preacher-like figure (the butterfly/pesky bee/little baby pigeon) using a common religious tactic: asserting that the entire world is evil to make their own order seem like the good guys. They set the world up to be a horrible place full of hatred, and present their religion as a refuge from that. Such religious strategies are most effective on those easily swayed by smooth talk and misanthropes/the disillusioned and cynical. In this case, the yellow one is a combination of the naive and the disillusioned.
+
+>0:54 Here the priest goes on to say his religion has all the answers. He does not need to present facts, as a naive person will take his assertions at face value. Opening with the rhetorical question of 'have you ever wondered why we're here?' he goes ahead and answers his own question, forcing his own ideas of life and purpose onto the naive recipient of his 'gospel'.
+
+>1:17 Here we have the priest offering comfort (in the form of offering to hold his hand), however, when the yellow one reaches out to hold said hand, the priest ignores his request for comfort. This shows the priests true feelings for his flock's feelings- apathy, merely people to lead along with promises of comfort.
+
+>1:47 Here the priest does another common tactic to ensure loyal followers- implicitly lowering your self-worth by stating (without proof) the world's opinions of you, claiming everyone hates you. It can also be seen as a priest breaking self-esteem by claiming that you, as a mere human, are nothing compared to God and that God should be (as in the Christian faith) torturing you as well as everyone else forever, and only lets some of us not out of his 'love' and 'kindness.
+
+>2:00 Here, the priest offsets real-life needs (like hunger in this case) for imaginary, constructed 'needs', like sin and 'spiritual illness' of similar sorts. He establishes this by calling him lonely, in this case, and later as is shown, the naive believer-to-be genuinely comes to believe that they are 'spiritually ill', cementing their faith through low self-esteem yet again.
+
+>2:05 Here, the proselyte begins to ask questions of his own, however, the priest brushes off the questions due to them not being his own rhetorical ones that will lead into more convincing spiel. Hence he just says that all his questions will be answered soon.
+
+>2:08 His friends are naturally the congregation. Congregations are a necessary structure of religion, as it makes the religion more of a community thing, and ensures conformity to the religion, as if one decides to leave, they will be invariably shunned by the community.
+
+>2:13 Here is a mostly comical interlude, but it does show that when people join a religion that could have deleterious effects, a lot of people, assuming religion is harmless, decide not to lift a finger to stop people falling into insane piety.
+
+>2:32 The insistence that all the congregation loves the proselyte by the priest is another part of his 'refuge' spiel. If they all appear to be friendly from the offset, it allows the proselyte to settle in and become dependent on the community later on, despite its rotten core.
+
+>2:42 This 'furry boy' is a representative of the more perverse members of religious organisations, the ones that exploit the overly trusting nature of religious congregations for sexual purposes.
+
+>2:44 Once again, mostly a comedic aside, but it highlights the sheer apathy people have regarding the deleterious effects of religion on society.
+
+>3:02 The rabbit speaks in a simpleton's voice and is overly physically friendly. He is likely representative of the genuinely kind, good-hearted (yet socially awkward due to religious conditioning) and overall true believers. Unlike the perverse member, who exploits, this one genuinely hangs on to everything the priest says, and as his later words following the Story of Michael show, he is willing to come up with positive interpretations of any and every 'religious text' of his religion.
+
+>3:10 Here the yellow one begins to get carried away and interprets the faith his own way. This is where the priest steps in and corrects him to ensure conformity, as all priests by trade kinda have to do.
+
+>3:12 The idea of 'your special one' is not criticised as a criticism of religion, however it is a criticism of imposing the ideas of absolute truth onto things. The idea of there being a special one for all is dubious to say the least, others would say there are many compatible people for many others, etc, etc, however, the priest states it as an absolute truth, and the proselyte, being simple-minded, believes him.
+
+>3:20 Here we have the proselyte bemoaning his 'spiritual sickness' that he only began realising once the priest fabricated it. This is to show the influence priests have over the weak-willed. The priest then has the gall to say that yes, he is sick, and that he's confused and stupid, and that he should just let him, the priest, do the thinking for him
+
+>3:28 The Story of Michael is analagous to, say, Biblical stories that are meant to illustrate a point, like, say, the love of God, but never actually do, just as the Story of Michael never gets onto Michael finding his special one or being loved. A perfect example would be the Book of Job, wherein God allows an innocent, God-fearing man become the plaything of Satan for, as he puts it, no reason. Satan proceeds to kill his children, servants, and gives Job sores. Job keeps loyal to God for an admirable time before finally God ends the bet and Job rightfully asks why, wondering if he's just. God proceeds to say he's so powerful that he's above good and evil, and Job sarcastically notes he has nothing to say to that. However, both priests and enthusiastic believers (like the aforementioned rabbit) cite the book of Job as a sign of Job's loyalty to God (though he in fact became bitter) and God's love for Job (because apparently replacing Job's children and servants apparently undoes the loss of his first beloved children and all the deaths of the tangentially related servants).
+
+>3:56 Here the priest once again states the proselytes desires for him, giving him needs where he didn't have any before.
+
+>4:01 The idea of being patient and hoping that the promises of the faith be delivered is the crux of holding believers. Paying believers in promises is how priests keep controlling people without repercussions. Heaven will eventually come. Armageddon will eventually come, if you happen to be the death cult-level sects like Jehovah's Witnesses, Jihad, the coming of Kalki, etc etc. All of these are unfulfilled promises religions make to either hold their followers in wait for their reward, or keeps them paralysed in fear of genocide/retribution.
+
+>4:05 Here's the more Judeo-Christian specific areas- 'he's made for her and she's made for him' is the very basis of homophobic attitudes enforced by religion. Saying 'that's the way it's always been', as well as protecting the sanctity of marriage and no divorce being allowed are all alluded to in this segment, and are all criticising the assertions by the religious that straight marriage is the only acceptable form of romantic love.
+
+>4:21 Here is where the final piece of the religious puzzle comes in. So far, the ideas of asserting absolute truths, breaking self esteem to ensure compliance and dependency, and exploiting the naive and disillusioned could all be said of a secular cult of some sort too. However, religion is special in that it also (quite randomly) shoehorns in a supernatural deity, often one which all good sprouts from, but yet can also be angry. Gravel feeding is representative of blood sacrifice, mass, ramadan, any other sort of ritualistic behaviour which the religious demand in order to appease their God.
+
+>4:39 Here is a criticism of another tactic used by priests, related to the poisoning of the prospective proselyte's worldview- in addition to convincing the person that the world cannot be trusted and is evil (as opposed to their cult, which can be, according to them), they also tell them to forget the world, essentially, rejecting true reality for the cult's twisted version. Here they refer to it as 'changing your name' (likely a reference to biblical name changes representing covenants with God, like Abram to Abraham and Jacob to Israel) and 'cleaning your brain' (a reference to rejecting reality that conflicts with your faith).
+
+>4:52 Here the final initiation concludes, and the promise of never being alone acts as a two-edged sword- yes, in a religious community, you'll never be alone, but you can never escape it either, never be free from its judging eyes.
+
+>5:08 Here, in a surprising bit of heartwarming material, the duck shows that (in a way) the world the religious describe as twisted and evil actually DOES care about a person if you let it. Shame it ends on a jump scare.
+
+>Anyway, that's my take on this. I'd like to see what people think!﻿
+
+*注：最近这条评论被删除了也不知道怎么了，好像找不到了。。。*
+
+# 附录
+
+>The role played by time at the beginning of the universe is, I believe, the final key to removing the need for a Grand Designer, and revealing how the universe created itself. … Time itself must come to a stop. You can’t get to a time before the big bang, because there was no time before the big bang. We have finally found something that does not have a cause because there was no time for a cause to exist in. For me this means there is no possibility of a creator because there is no time for a creator to have existed. Since time itself began at the moment of the Big Bang, it was an event that could not have been caused or created by anyone or anything. … So when people ask me if a god created the universe, I tell them the question itself makes no sense. Time didn’t exist before the Big Bang, so there is no time for God to make the universe in. It’s like asking for directions to the edge of the Earth. The Earth is a sphere. It does not have an edge, so looking for it is a futile exercise.  
+> -- [Stephen Hawking](https://www.goodreads.com/author/quotes/1401.Stephen_Hawking)
