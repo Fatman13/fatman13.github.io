@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 编程 | Fatman13]]></title>
+  <link href="http://Fatman13.github.io/blog/categories/bian-cheng/atom.xml" rel="self"/>
+  <link href="http://Fatman13.github.io/"/>
+  <updated>2015-10-10T21:53:21+08:00</updated>
+  <id>http://Fatman13.github.io/</id>
+  <author>
+    <name><![CDATA[Fatman13]]></name>
+    <email><![CDATA[tctctcly@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[最近写的一个小项目]]></title>
+    <link href="http://Fatman13.github.io/blog/2015/10/10/zui-jin-xie-de-%5B%3F%5D-ge-xiao-xiang-mu/"/>
+    <updated>2015-10-10T21:50:00+08:00</updated>
+    <id>http://Fatman13.github.io/blog/2015/10/10/zui-jin-xie-de-[?]-ge-xiao-xiang-mu</id>
+    <content type="html"><![CDATA[<p>最近前同事<code>wgs</code>在谷歌搜索，搜到了我的一篇博客。博主大受鼓舞，连发一篇。最近做了一个实现性的3d模型展示的小项目。在<a href="https://github.com/Fatman13/bim">这里</a>。项目主要为使用<code>three js</code>基于<code>webGL</code>和<code>html5 canvas</code>的一个实验性<code>obj</code>模型展示demo，主要实现了<code>obj</code>模型加载，旋转和放大缩小等等一些功能。现分享一些学习经验。</p>
+
+<!--more-->
+
+
+<h1>实际效果</h1>
+
+<p>实际在我windows phone 8.1手机上用IE打开的运行效果如下。</p>
+
+<p><img src="http://i.imgur.com/fPA9Ihw.jpg" alt="" /></p>
+
+<p>再来一发。</p>
+
+<p><img src="http://i.imgur.com/kUoHSWU.jpg" alt="" /></p>
+
+<h1>主流框架</h1>
+
+<p>现浏览器3d模型展视主流框架有<strong>免费开源</strong>的有像<code>mrdoob</code>先生的<code>three js</code>，微软的<code>babylon js</code>，等等。免费使用但是可能卖钱就要收费的有<code>unity web player</code>，<code>play canvas</code>，等等。还有需要收费功能更丰富的<code>Autodesk</code>的<code>A360</code>，更有一些国产<code>GIS</code>系统，如<code>超级地图</code>，等等。本demo使用了<code>three js</code>，是一个相对比较轻量级的<code>js</code>引擎。入门相对较快。</p>
+
+<h1>主要学习材料</h1>
+
+<ul>
+<li><code>three js</code> <a href="http://threejs.org/">主页</a>里面的<code>example</code></li>
+<li><code>three js</code>的<a href="http://www.smartjava.org/content/all-80-recipes-threejs-cookbook-online">Cook book</a>，非常实用，博主买了一本</li>
+<li><code>StackOverflow</code>，<code>three js</code>2大贡献者<code>mrdoob</code>和<code>WestLanly</code>经常会亲自在里面回答问题，灰常亲切。</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
