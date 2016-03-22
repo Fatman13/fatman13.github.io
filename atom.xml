@@ -4,7 +4,7 @@
   <title><![CDATA[Fatman13]]></title>
   <link href="http://Fatman13.github.io/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2016-01-01T14:44:56+08:00</updated>
+  <updated>2016-03-22T21:37:14+08:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -12,6 +12,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[最近随想_gai]]></title>
+    <link href="http://Fatman13.github.io/blog/2016/03/22/zui-jin-sui-xiang-gai/"/>
+    <updated>2016-03-22T21:35:00+08:00</updated>
+    <id>http://Fatman13.github.io/blog/2016/03/22/zui-jin-sui-xiang-gai</id>
+    <content type="html"><![CDATA[<p>最近的一些随想。比较散，记录一下。</p>
+
+<!--more-->
+
+
+<h1>围棋人机</h1>
+
+<p>关于最近成为话题的<code>Alpha GO</code>对<code>李世石</code>的人机对战。结果<code>Alpha GO</code>在5局3胜的比赛中，直落3盘，打败<code>李世石</code>。我觉得挺开心的。也更加加强了我对棋类高手的智商、以及棋类游戏整体逼格（被公众）评价过高的一个一直以来的想法。首先个人觉得由于各种主流媒体（电影、小说、新闻等等）对AI这个概念的一个比较科幻的描述，公众可能把<code>Alhpa GO</code>理解为他们主观想象的AI，实事上是<a href="http://m.cacm.acm.org/blogs/blog-cacm/199663-alphago-is-not-the-solution-to-ai/fulltext">太抬举</a>了<code>Alpha GO</code>。其实<code>Alpha Go</code>就是<code>Machine learning</code>，远称不上<code>Intelligence</code>的程度。可以参考之前看到朱总分享的<code>facebook</code>的<code>darkforest</code>的负责人对<code>Alpha GO</code>做出的<a href="http://mp.weixin.qq.com/s?__biz=MzI2NjA3NTc4Ng==&amp;mid=402878207&amp;idx=1&amp;sn=a1e85787363d827cd4f922f3ea5579b7&amp;scene=2&amp;srcid=0310EheZaujpZFDCOUxIqbm1&amp;from=timeline&amp;isappinstalled=0#wechat_redirect">技术分析</a>。值得注意的是作者最后在结论中提到这个所谓的人工智能系统“还远未达到通用系统的程度”。再来看这个科研团队的<a href="https://www.youtube.com/watch?v=2e06C-yUwlc">成果</a>，10万个arm架构cpu的理想算力大概就是1只老鼠的大脑，10个老鼠相当于人脑1%的算力。这还是在理想情况下。不同于生理上，每个神经元之间的高效通讯。大数量级情况下，每个cpu节点间的通讯、信息共享也暂时是是无解的。所以在硬件和软件上问题的瓶颈下，个人认为当前是没有什么实质性的能把0和1化为一个有独立逻辑思考能力的，真正意义上的AI。即棋类游戏被经验和<code>Heuristics</code>打败了，并没有太多的<code>Intelligence</code>。</p>
+
+<h1>中世纪2：全面战争</h1>
+
+<p>春节的时候一直在玩<code>中世纪2：全面战争</code>。特别好玩，一下子提起了对中世纪的兴趣。后来网上找了中世纪<a href="http://www.slideshare.net/Halligan/the-middle-ages-introduction-and-overview">精简历史</a>。进一步填充了一下世界观。</p>
+
+<h1>元史演义</h1>
+
+<p>春节的时候表姐A推荐了<code>Netflex</code>拍摄的《马克菠萝》。看了以后勾起了我对元史的兴趣。遂断断续续读了<code>蔡东潘</code>先生的<code>元史演义</code>（至26回）。在忽必烈之前，看得是非常带感，蒙古几乎是打哪儿，就能把哪儿打下来。比如说打回人有一仗，成吉思汗派使者行人先去劝降。回人不买账，直接斩首来使。成吉思汗大怒，饬军攻城，即克，纵兵屠城。看得非常解气啊。还有就是具体哪儿个蒙古将领打哪儿不记得了，蒙古大军攻破了反贼的一开始的几个堡时，反贼头目派了自己儿子来投降。蒙古人说，既然归降，自己过来。反贼头目儿子回去后，几日没有消息。蒙古将领大怒，饬兵继续攻击。再破了几个堡后，反贼头目派了另外一个儿子来，说要投降。蒙古将领说，既然归降，自己过来献城。反贼头目儿子回去，几日没有消息。蒙古将领又大怒，又继续攻城，大破反贼，纵兵屠城。看得真是解气啊。有点像是玩游戏开了外挂一样。什么高丽，西藏，云南旁边的南亚国家，中国，满洲，中东，东欧，全被蒙古人打下来。谁不服，谁不恭敬，一言不合就屠城。</p>
+
+<p>还有一点就是忽必烈统一中国之后，其实并没有我之前想象中汉人被外族统治的那种感觉。忽必烈基本还是用了很多汉人，差不多融入了汉人的文化。在攻打南宋的过程中，蒙古军也吸收了很多汉人叛将，任用他们来攻打南宋。我觉得跟现在完全不一样的就是，当时封建统治者给人洗脑的是君臣之间所谓的“道德规范”，并不是像现在的大多数国家“精英”阶层使用民族主义国家的这个概念来用作“道德规范”。南宋的叛将到蒙古，其实可以形象的比喻为一个跳槽行为。南宋的一个小将校在南宋皮革厂卖死卖活的干活儿，腐败的南宋皮革厂的领导也不给他涨工资。被排挤、压迫的小将校看不到任何前景。然而蒙古皮革厂的崛起，让部分有野心、有才能的南宋小将校看到跳槽升职的机会。于是他们就跳到了蒙古皮革厂，并通过他们的努力，击溃、吞并了南宋皮革厂。这样，南宋皮革厂就倒闭了。原来南宋皮革厂领导的位子，也就顺理成章得自己坐上去了。</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[元旦随笔]]></title>
@@ -2026,194 +2052,6 @@ About the laws &ndash; I guess it&rsquo;s not the actual content of the laws or 
 
 
 <p>最后看<code>@result</code>是否为空，不是的话，就需要断言。说明2份数据有出入。</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[如何使用小黄瓜来做接口级自动化测试]]></title>
-    <link href="http://Fatman13.github.io/blog/2014/02/13/ru-he-shi-yong-xiao-huang-gua-lai-zuo-jie-kou-ji-ce-shi/"/>
-    <updated>2014-02-13T21:08:00+08:00</updated>
-    <id>http://Fatman13.github.io/blog/2014/02/13/ru-he-shi-yong-xiao-huang-gua-lai-zuo-jie-kou-ji-ce-shi</id>
-    <content type="html"><![CDATA[<p>本文将简单介绍如何使用<code>小黄瓜</code>来实现接口级别的自动化测试。如果你还没有对小黄瓜有初步认识的话，推荐阅读我之前写的一篇<a href="http://tauntaunslayer13.me/blog/2014/01/26/ru-he-shi-yong-capybarahe-cucumbershi-xian-ye-mian-ji-bie-zi-dong-hua/">文章</a>。</p>
-
-<!--more-->
-
-
-<h1>运行自动化</h1>
-
-<p>下载代码，解压，打开命令行，切换到解压后的文件夹中，运行<code>bundle install</code>。<br/>
-运行<code>cucumber features/wgpc_check_kai.feature</code>，运行成功的话，应该能看见如下输出。</p>
-
-<p><img src="http://i.imgur.com/ghYr3bJ.jpg" alt="" /></p>
-
-<p>以及其他的一些case等等&hellip;</p>
-
-<h1>feature文档</h1>
-
-<p>用<code>小黄瓜</code>写测试case的第一步就是写case的feature文档。<br/>
-例如：<code>cuke_oc\features\wgoc_check_kai.feature</code>。<br/>
-<code>小黄瓜</code>的feature文档使用<a href="https://github.com/cucumber/cucumber/wiki/Gherkin">Gherkin</a>格式来更好的帮你理解，管理和维护你的case。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class='cucumber'><span class='line'><span class="nt">@checkorder</span><span class="nf"></span>
-</span><span class='line'><span class="k">Feature:</span><span class="nf"> Check Order</span>
-</span><span class='line'><span class="nf">  为了保证订单的准确性，在提交订单之前，对订单进行验对。</span>
-</span><span class='line'>
-</span><span class='line'><span class="nf">  </span><span class="k">Background:</span><span class="nf"></span>
-</span><span class='line'><span class="k">    Given </span><span class="nf">我根据&quot;</span><span class="s">./data/wgoc_cases/shipping_region.txt</span><span class="nf">&quot;设置配送范围</span>
-</span><span class='line'>
-</span><span class='line'><span class="nf">  </span><span class="k">Scenario Outline:</span><span class="nf"> 验单逻辑</span>
-</span><span class='line'><span class="k">    Given </span><span class="nf">我根据 </span><span class="nv">&lt;mprpc_data_file&gt;</span><span class="nf"> 文件中的配置建立运费信息</span>
-</span><span class='line'><span class="nf">    </span><span class="k">And </span><span class="nf">我根据 </span><span class="nv">&lt;mock_data_file&gt;</span><span class="nf"> 文件中的配置制造mock商品信息</span>
-</span><span class='line'><span class="nf">    </span><span class="k">And </span><span class="nf">我从 </span><span class="nv">&lt;request_data_file&gt;</span><span class="nf"> 文件中读取某http请求</span>
-</span><span class='line'><span class="nf">    </span><span class="k">When </span><span class="nf">我用post方法发送该请求至oc的话</span>
-</span><span class='line'><span class="nf">    </span><span class="k">Then </span><span class="nf">我将得到与 </span><span class="nv">&lt;response_data_file&gt;</span><span class="nf"> 文件中相同的json串</span>
-</span><span class='line'>
-</span><span class='line'><span class="nf">  </span><span class="k">Examples:</span><span class="nf"> case_1: 默认全国10块, 非促销商品验单成功（购买1件&amp;支持配送&lt;上海&amp;北京&amp;天津&gt;&amp;未绑定运费模板）</span><span class="k"></span>
-</span><span class='line'><span class="k">    |</span><span class="nv"> mprpc_data_file</span><span class="k"> |</span><span class="nv"> mock_data_file</span><span class="k"> |</span><span class="nv"> request_data_file</span><span class="k"> |</span><span class="nv"> response_data_file</span><span class="k"> |</span><span class="nf"></span>
-</span><span class='line'><span class="k">    |</span><span class="s"> empty.json</span><span class="k"> |</span><span class="s"> check_mock_1.yaml</span><span class="k"> |</span><span class="s"> check_request_1.yaml</span><span class="k"> |</span><span class="s"> check_response_1.json</span><span class="k"> |</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li><code>Feature</code>关键词：简单介绍你要测试的feature。<code>Feature: Check Order</code>的下一行可以跟任意长度的更为详细的功能摘要。一个<code>Feature</code>能包含多个<code>Scenario</code>。（以上例子只有一个<code>Scenario</code>）</li>
-<li><code>Backgroud</code>关键词：定义一个全局的setup的步骤。<code>Background</code>对应的代码，整个feature只运行一次。</li>
-<li><code>Scenario Outline</code>关键词：配合<code>&lt;&gt;</code>括号内的变量与<code>Examples</code>关键词，用<code>Examples</code>下面的表格中定义的具体数值来对应到<code>&lt;&gt;</code>括号中的变量中的位置。（以上面为例，当这个<code>Scenario</code>被执行的时候，<code>&lt;mprpc_data_file&gt;</code>这个参数的数值，就会被<code>Examples</code>中，<code>mprpc_data_file</code>栏中的<code>empty.json</code>替代。）</li>
-<li><code>Given</code>关键词：定义case执行时所要做的一些准备工作。</li>
-<li><code>When</code>关键词：定义case执行时所要做一个关键动作。</li>
-<li><code>Then</code>关键词：定义case执行后，校验工作，一般断言都放在这里。</li>
-<li><code>@checkorder</code>关键词：其实这个也不能算是关键词，<code>@checkorder</code>定义了这个feature会使用名为<code>@checkorder</code>的一个hook。hook定义了这个feature在case级别的setup/teardown应该执行哪儿些代码。</li>
-</ul>
-
-
-<h1>code block生成</h1>
-
-<p>有了feature文档以后，运行<code>cucumber features/wgpc_check_kai.feature</code>，<code>小黄瓜</code>会帮你生成如下各个关键词对应的code block。（在你还没有定义对应的steps.rb才会生成，参见<code>cuke_oc/features/step_definitions/check_kai_steps.rb</code>。文件命名关系不大，但是一般以steps结尾。）</p>
-
-<p><img src="http://i.imgur.com/JqweeIf.jpg" alt="" /></p>
-
-<p>复制粘帖以上<code>小黄瓜</code>的输出至<code>cuke_oc/features/step_definitions/foo_steps.rb</code>然后就可以开始填写代码了。当case运行时，会按序运行各个code block中的代码。使用除了英文以外的语言时，别忘记在文件顶端加上<code># encoding: utf-8</code></p>
-
-<h1>代码详解</h1>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Given</span> <span class="sr">/^我根据 (.*) 文件中的配置建立运费信息$/</span> <span class="k">do</span> <span class="o">|</span><span class="n">mprpc_data_file</span><span class="o">|</span>
-</span><span class='line'>  <span class="vi">@fid</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span class='line'>  <span class="vi">@mprpc_res</span> <span class="o">=</span> <span class="kp">nil</span>
-</span><span class='line'>  <span class="c1"># 从mprpc_data_file文件中读取这个case所需要的运费模板参数</span>
-</span><span class='line'>  <span class="vi">@mprpc_params</span> <span class="o">=</span> <span class="no">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;./data/wgoc_cases/&#39;</span> <span class="o">+</span> <span class="n">mprpc_data_file</span><span class="p">))</span>
-</span><span class='line'>  <span class="c1"># 向桩发送请求，生成运费模板</span>
-</span><span class='line'>  <span class="vi">@mprpc_res</span> <span class="o">=</span> <span class="no">RestClient</span><span class="o">.</span><span class="n">post</span> <span class="no">JSONRPC_SEND_POSTAGEAPI_ADDTEMPLATE_URI</span><span class="p">,</span> <span class="vi">@mprpc_params</span><span class="o">.</span><span class="n">to_json</span> <span class="k">unless</span> <span class="vi">@mprpc_params</span><span class="o">.</span><span class="n">empty?</span>
-</span><span class='line'>  <span class="c1"># 从返回中获得运费模板的id</span>
-</span><span class='line'>  <span class="k">if</span> <span class="o">!</span><span class="vi">@mprpc_res</span><span class="o">.</span><span class="n">nil?</span> <span class="o">&amp;&amp;</span> <span class="vi">@mprpc_res</span><span class="o">.</span><span class="n">code</span> <span class="o">==</span> <span class="mi">200</span>
-</span><span class='line'>    <span class="vi">@fid</span> <span class="o">=</span> <span class="p">(</span><span class="no">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="vi">@mprpc_res</span><span class="o">.</span><span class="n">body</span><span class="p">))</span><span class="o">[</span><span class="s1">&#39;result&#39;</span><span class="o">][</span><span class="s1">&#39;result&#39;</span><span class="o">]</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>向桩发送请求，并根据<code>mprpc_data_file</code>中的参数，生成运费模板。现在<code>mprpc_data_file</code>用的是yaml格式。使用了<a href="https://github.com/rest-client/rest-client">RestClient</a>这个<code>gem</code>来发送各种<code>http</code>请求。（什么是<a href="http://guides.rubygems.org/">gem</a>?）</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Given</span> <span class="sr">/^我根据 (.*) 文件中的配置制造mock商品信息$/</span> <span class="k">do</span> <span class="o">|</span><span class="n">mock_data_file</span><span class="o">|</span>
-</span><span class='line'>  <span class="c1"># 从mock_data_file读取mock商品的参数</span>
-</span><span class='line'>  <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/wgoc_cases/&#39;</span> <span class="o">+</span> <span class="n">mock_data_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span>
-</span><span class='line'>      <span class="vi">@mock_params</span> <span class="o">=</span> <span class="no">YAML</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'>  <span class="c1"># 把前面mprpc返回的delivery_id设定为mock商品的fid</span>
-</span><span class='line'>  <span class="vi">@mock_params</span><span class="o">[</span><span class="s1">&#39;queryInfo&#39;</span><span class="o">][</span><span class="s1">&#39;fid&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="vi">@fid</span> <span class="k">unless</span> <span class="vi">@fid</span> <span class="o">==</span> <span class="mi">0</span>
-</span><span class='line'>  <span class="c1"># 向桩发送请求，生成mock商品的kv和queryInfo信息</span>
-</span><span class='line'>  <span class="no">RestClient</span><span class="o">.</span><span class="n">get</span> <span class="no">SCAFFOLDING_CREATE_KV_URI</span><span class="p">,</span> <span class="ss">:params</span> <span class="o">=&gt;</span> <span class="vi">@mock_params</span><span class="o">[</span><span class="s1">&#39;kv&#39;</span><span class="o">]</span> <span class="k">unless</span> <span class="o">!</span><span class="vi">@mock_params</span><span class="o">.</span><span class="n">key?</span><span class="p">(</span><span class="s1">&#39;kv&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="vi">@mock_params</span><span class="o">[</span><span class="s1">&#39;kv&#39;</span><span class="o">].</span><span class="n">nil?</span>
-</span><span class='line'>  <span class="no">RestClient</span><span class="o">.</span><span class="n">get</span> <span class="no">SCAFFOLDING_CREATE_PRODUCTAPI_QUERYINFO_URI</span><span class="p">,</span> <span class="ss">:params</span> <span class="o">=&gt;</span> <span class="vi">@mock_params</span><span class="o">[</span><span class="s1">&#39;queryInfo&#39;</span><span class="o">]</span> <span class="k">unless</span> <span class="o">!</span><span class="vi">@mock_params</span><span class="o">.</span><span class="n">key?</span><span class="p">(</span><span class="s1">&#39;queryInfo&#39;</span><span class="p">)</span> <span class="o">||</span> <span class="vi">@mock_params</span><span class="o">[</span><span class="s1">&#39;queryInfo&#39;</span><span class="o">].</span><span class="n">nil?</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>向商品库的桩发送请求，并根据<code>mock_data_file</code>中的参数，制造mock商品。现在<code>mock_data_file</code>用的是yaml格式。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Given</span> <span class="sr">/^我从 (.*) 文件中读取某http请求$/</span> <span class="k">do</span> <span class="o">|</span><span class="n">request_data_file</span><span class="o">|</span>
-</span><span class='line'>  <span class="c1"># 从request_data_file中读取验单所需的参数信息</span>
-</span><span class='line'>  <span class="no">File</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;./data/wgoc_cases/&#39;</span> <span class="o">+</span> <span class="n">request_data_file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">file</span><span class="o">|</span>
-</span><span class='line'>      <span class="vi">@request_params</span> <span class="o">=</span> <span class="no">YAML</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">)</span>
-</span><span class='line'>    <span class="p">}</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>读取<code>request_data_file</code>文件中定义的请求信息。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">When</span> <span class="sr">/^我用post方法发送该请求至oc的话$/</span> <span class="k">do</span>
-</span><span class='line'>  <span class="c1"># 向oc发送验单请求</span>
-</span><span class='line'>  <span class="vi">@last_response</span> <span class="o">=</span> <span class="no">RestClient</span><span class="o">.</span><span class="n">get</span> <span class="no">CHECK_REQUEST_URI</span><span class="p">,</span> <span class="ss">:params</span> <span class="o">=&gt;</span> <span class="vi">@request_params</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>根据刚刚读取的请求信息，给oc发送验单请求。</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="no">Then</span> <span class="sr">/^我将得到与 (.*) 文件中相同的json串$/</span> <span class="k">do</span> <span class="o">|</span><span class="n">response_data_file</span><span class="o">|</span>
-</span><span class='line'>  <span class="c1"># 使用了Rspec提供的should的断言方法</span>
-</span><span class='line'>  <span class="no">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="vi">@last_response</span><span class="o">.</span><span class="n">body</span><span class="p">)</span><span class="o">.</span><span class="n">should</span> <span class="o">==</span> <span class="no">JSON</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="no">File</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;./data/wgoc_cases/&#39;</span> <span class="o">+</span> <span class="n">response_data_file</span><span class="p">))</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>跟<code>response_data_file</code>中定义的预期的json串作比较。不相同的话就触发断言。</p>
-
-<h1>总结</h1>
-
-<p>有问题可发送邮件至<code>lengyu@baidu.com</code>。</p>
 ]]></content>
   </entry>
   
