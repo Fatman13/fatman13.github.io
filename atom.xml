@@ -4,7 +4,7 @@
   <title><![CDATA[Fatman13]]></title>
   <link href="http://Fatman13.github.io/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2016-03-22T21:37:14+08:00</updated>
+  <updated>2018-07-10T13:49:15+08:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -14,18 +14,26 @@
 
   
   <entry>
-    <title type="html"><![CDATA[最近随想_gai]]></title>
-    <link href="http://Fatman13.github.io/blog/2016/03/22/zui-jin-sui-xiang-gai/"/>
-    <updated>2016-03-22T21:35:00+08:00</updated>
-    <id>http://Fatman13.github.io/blog/2016/03/22/zui-jin-sui-xiang-gai</id>
-    <content type="html"><![CDATA[<p>最近的一些随想。比较散，记录一下。</p>
+    <title type="html"><![CDATA[围棋人机，中世纪2，元史演义]]></title>
+    <link href="http://Fatman13.github.io/blog/2018/07/10/wei-qi-ren-ji-zhong-shi-ji-2yuan-shi-yan-yi/"/>
+    <updated>2018-07-10T12:55:00+08:00</updated>
+    <id>http://Fatman13.github.io/blog/2018/07/10/wei-qi-ren-ji-zhong-shi-ji-2yuan-shi-yan-yi</id>
+    <content type="html"><![CDATA[<p>之前2016年3月22日写的随笔。也是因为<code>octopress</code>迁移到新买的<code>MacBook Pro</code>上，这片文章没有<code>push</code>到<code>github</code>上，现在重新<code>po</code>一下。至于为什么买了<code>MacBook Pro</code>，好了，之前也被<code>Z</code>君喷了，实在是因为市面上没有更好的<code>Linux</code>本了。之前买的<code>Suystem 76</code>已经<a href="http://tauntaunslayer13.me/blog/2013/07/08/system76-gazelle-prochai-bao-ji-zhu-guan-ping-ce/">吃灰</a>很久了。整体硬件工艺，还有<code>community</code>支持上，不得不说还是<code>MacBook Pro</code>技高一筹。</p>
 
 <!--more-->
 
 
+<p>还有，还有现在看看以前写的东西好像挺傻逼的，哈哈，是不是就是笑来所说的不断觉得过去的自己很傻逼的<a href="https://mp.weixin.qq.com/s/zWklsvrvXABurm8_vcXEyw">道理</a>？</p>
+
+<p>还有，还有，还有最近想研究下如何用<code>Amazon Affiliate Network</code>来<a href="https://www.amazon.com/gp/search?ie=UTF8&amp;tag=fatman13-20&amp;linkCode=ur2&amp;linkId=099b8c1abe52fbe484cee8509b66eb53&amp;camp=1789&amp;creative=9325&amp;index=aps&amp;keywords=hentaimanga">monetize</a>一下自己的博客，兴趣一来，就重新开始更新了。哈哈。</p>
+
+<h1>最近随想_gai</h1>
+
+<p>最近的一些随想。比较散，记录一下。</p>
+
 <h1>围棋人机</h1>
 
-<p>关于最近成为话题的<code>Alpha GO</code>对<code>李世石</code>的人机对战。结果<code>Alpha GO</code>在5局3胜的比赛中，直落3盘，打败<code>李世石</code>。我觉得挺开心的。也更加加强了我对棋类高手的智商、以及棋类游戏整体逼格（被公众）评价过高的一个一直以来的想法。首先个人觉得由于各种主流媒体（电影、小说、新闻等等）对AI这个概念的一个比较科幻的描述，公众可能把<code>Alhpa GO</code>理解为他们主观想象的AI，实事上是<a href="http://m.cacm.acm.org/blogs/blog-cacm/199663-alphago-is-not-the-solution-to-ai/fulltext">太抬举</a>了<code>Alpha GO</code>。其实<code>Alpha Go</code>就是<code>Machine learning</code>，远称不上<code>Intelligence</code>的程度。可以参考之前看到朱总分享的<code>facebook</code>的<code>darkforest</code>的负责人对<code>Alpha GO</code>做出的<a href="http://mp.weixin.qq.com/s?__biz=MzI2NjA3NTc4Ng==&amp;mid=402878207&amp;idx=1&amp;sn=a1e85787363d827cd4f922f3ea5579b7&amp;scene=2&amp;srcid=0310EheZaujpZFDCOUxIqbm1&amp;from=timeline&amp;isappinstalled=0#wechat_redirect">技术分析</a>。值得注意的是作者最后在结论中提到这个所谓的人工智能系统“还远未达到通用系统的程度”。再来看这个科研团队的<a href="https://www.youtube.com/watch?v=2e06C-yUwlc">成果</a>，10万个arm架构cpu的理想算力大概就是1只老鼠的大脑，10个老鼠相当于人脑1%的算力。这还是在理想情况下。不同于生理上，每个神经元之间的高效通讯。大数量级情况下，每个cpu节点间的通讯、信息共享也暂时是是无解的。所以在硬件和软件上问题的瓶颈下，个人认为当前是没有什么实质性的能把0和1化为一个有独立逻辑思考能力的，真正意义上的AI。即棋类游戏被经验和<code>Heuristics</code>打败了，并没有太多的<code>Intelligence</code>。</p>
+<p>关于最近成为话题的<code>Alpha GO</code>对<code>李世石</code>的人机对战。结果<code>Alpha GO</code>在5局3胜的比赛中，直落3盘，打败李世石。我觉得挺开心的。也更加加强了我对棋类高手的智商、以及棋类游戏整体逼格（被公众）评价过高的一个一直以来的想法。首先个人觉得由于各种主流媒体（电影、小说、新闻等等）对AI这个概念的一个比较科幻的描述，公众可能把<code>Alhpa GO</code>理解为他们主观想象的<code>AI</code>，实事上是<a href="http://m.cacm.acm.org/blogs/blog-cacm/199663-alphago-is-not-the-solution-to-ai/fulltext">太抬举</a>了<code>Alpha GO</code>。其实<code>Alpha Go</code>就是<code>Machine learning</code>，远称不上<code>Intelligence</code>的程度。可以参考之前看到朱总分享的<code>facebook</code>的<code>darkforest</code>的负责人对<code>Alpha GO</code>做出的<a href="http://mp.weixin.qq.com/s?__biz=MzI2NjA3NTc4Ng==&amp;mid=402878207&amp;idx=1&amp;sn=a1e85787363d827cd4f922f3ea5579b7&amp;scene=2&amp;srcid=0310EheZaujpZFDCOUxIqbm1&amp;from=timeline&amp;isappinstalled=0#wechat_redirect">技术分析</a>。值得注意的是作者最后在结论中提到这个所谓的人工智能系统“还远未达到通用系统的程度”。再来看这个科研团队的<a href="https://www.youtube.com/watch?v=2e06C-yUwlc">成果</a>，10万个<code>arm</code>架构cpu的理想算力大概就是1只老鼠的大脑，10个老鼠相当于人脑1%的算力。这还是在理想情况下。不同于生理上，每个神经元之间的高效通讯。大数量级情况下，每个cpu节点间的通讯、信息共享也暂时是是无解的。所以在硬件和软件上问题的瓶颈下，个人认为当前是没有什么实质性的能把0和1化为一个有独立逻辑思考能力的，真正意义上的<code>AI</code>。即棋类游戏被经验和<code>Heuristics</code>打败了，并没有太多的<code>Intelligence</code>。</p>
 
 <h1>中世纪2：全面战争</h1>
 
@@ -33,41 +41,54 @@
 
 <h1>元史演义</h1>
 
-<p>春节的时候表姐A推荐了<code>Netflex</code>拍摄的《马克菠萝》。看了以后勾起了我对元史的兴趣。遂断断续续读了<code>蔡东潘</code>先生的<code>元史演义</code>（至26回）。在忽必烈之前，看得是非常带感，蒙古几乎是打哪儿，就能把哪儿打下来。比如说打回人有一仗，成吉思汗派使者行人先去劝降。回人不买账，直接斩首来使。成吉思汗大怒，饬军攻城，即克，纵兵屠城。看得非常解气啊。还有就是具体哪儿个蒙古将领打哪儿不记得了，蒙古大军攻破了反贼的一开始的几个堡时，反贼头目派了自己儿子来投降。蒙古人说，既然归降，自己过来。反贼头目儿子回去后，几日没有消息。蒙古将领大怒，饬兵继续攻击。再破了几个堡后，反贼头目派了另外一个儿子来，说要投降。蒙古将领说，既然归降，自己过来献城。反贼头目儿子回去，几日没有消息。蒙古将领又大怒，又继续攻城，大破反贼，纵兵屠城。看得真是解气啊。有点像是玩游戏开了外挂一样。什么高丽，西藏，云南旁边的南亚国家，中国，满洲，中东，东欧，全被蒙古人打下来。谁不服，谁不恭敬，一言不合就屠城。</p>
+<p>春节的时候表姐<code>A</code>推荐了<code>Netflex</code>拍摄的《马克菠萝》。看了以后勾起了我对元史的兴趣。遂断断续续读了<code>蔡东潘</code>先生的元史演义（至26回）。在<code>忽必烈</code>之前，看得是非常带感，蒙古几乎是打哪儿，就能把哪儿打下来。比如说打回人有一仗，成吉思汗派使者行人先去劝降。回人不买账，直接斩首来使。成吉思汗大怒，饬军攻城，即克，纵兵屠城。看得非常解气啊。还有就是具体哪儿个蒙古将领打哪儿不记得了，蒙古大军攻破了反贼的一开始的几个堡时，反贼头目派了自己儿子来投降。蒙古人说，既然归降，自己过来。反贼头目儿子回去后，几日没有消息。蒙古将领大怒，饬兵继续攻击。再破了几个堡后，反贼头目派了另外一个儿子来，说要投降。蒙古将领说，既然归降，自己过来献城。反贼头目儿子回去，几日没有消息。蒙古将领又大怒，又继续攻城，大破反贼，纵兵屠城。看得真是解气啊。有点像是玩游戏开了外挂一样。什么高丽，西藏，云南旁边的南亚国家，中国，满洲，中东，东欧，全被蒙古人打下来。谁不服，谁不恭敬，一言不合就屠城。</p>
 
-<p>还有一点就是忽必烈统一中国之后，其实并没有我之前想象中汉人被外族统治的那种感觉。忽必烈基本还是用了很多汉人，差不多融入了汉人的文化。在攻打南宋的过程中，蒙古军也吸收了很多汉人叛将，任用他们来攻打南宋。我觉得跟现在完全不一样的就是，当时封建统治者给人洗脑的是君臣之间所谓的“道德规范”，并不是像现在的大多数国家“精英”阶层使用民族主义国家的这个概念来用作“道德规范”。南宋的叛将到蒙古，其实可以形象的比喻为一个跳槽行为。南宋的一个小将校在南宋皮革厂卖死卖活的干活儿，腐败的南宋皮革厂的领导也不给他涨工资。被排挤、压迫的小将校看不到任何前景。然而蒙古皮革厂的崛起，让部分有野心、有才能的南宋小将校看到跳槽升职的机会。于是他们就跳到了蒙古皮革厂，并通过他们的努力，击溃、吞并了南宋皮革厂。这样，南宋皮革厂就倒闭了。原来南宋皮革厂领导的位子，也就顺理成章得自己坐上去了。</p>
+<p>还有一点就是<code>忽必烈</code>统一中国之后，其实并没有我之前想象中汉人被外族统治的那种感觉。忽必烈基本还是用了很多汉人，差不多融入了汉人的文化。在攻打南宋的过程中，蒙古军也吸收了很多汉人叛将，任用他们来攻打南宋。我觉得跟现在完全不一样的就是，当时封建统治者给人洗脑的是君臣之间所谓的“道德规范”，并不是像现在的大多数国家“精英”阶层使用民族主义国家的这个概念来用作“道德规范”。南宋的叛将到蒙古，其实可以形象的比喻为一个跳槽行为。南宋的一个小将校在南宋皮革厂卖死卖活的干活儿，腐败的南宋皮革厂的领导也不给他涨工资。被排挤、压迫的小将校看不到任何前景。然而蒙古皮革厂的崛起，让部分有野心、有才能的南宋小将校看到跳槽升职的机会。于是他们就跳到了蒙古皮革厂，并通过他们的努力，击溃、吞并了南宋皮革厂。这样，南宋皮革厂就倒闭了。原来南宋皮革厂领导的位子，也就顺理成章得自己坐上去了。</p>
+
+<br/>
+
+
+
+
+<div id="amzn-assoc-ad-755ae368-8099-414c-b8cf-4a15b7d140a8"></div>
+
+
+<script async src="http://Fatman13.github.io//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=755ae368-8099-414c-b8cf-4a15b7d140a8"></script>
+
 ]]></content>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[元旦随笔]]></title>
-    <link href="http://Fatman13.github.io/blog/2016/01/01/yuan-dan-sui-bi/"/>
-    <updated>2016-01-01T14:40:00+08:00</updated>
-    <id>http://Fatman13.github.io/blog/2016/01/01/yuan-dan-sui-bi</id>
-    <content type="html"><![CDATA[<p>快要年末了，又好久没有写博客了。。。今朝随便写点生活片段的分享。因为事情太琐碎，讲给谁听估计都不会觉得咋样，就分享给网络吧。</p>
+    <title type="html"><![CDATA[先入感，听歌识曲，郁达夫散文]]></title>
+    <link href="http://Fatman13.github.io/blog/2018/07/10/xian-ru-gan-ting-ge-shi-qu-yu-da-fu-san-wen/"/>
+    <updated>2018-07-10T11:46:00+08:00</updated>
+    <id>http://Fatman13.github.io/blog/2018/07/10/xian-ru-gan-ting-ge-shi-qu-yu-da-fu-san-wen</id>
+    <content type="html"><![CDATA[<p>之前2016年1月1日写的随<a href="https://amzn.to/2KX6nDO">笔</a>。因为<code>octopress</code>迁移到新买的<code>MacBook Pro</code>上，以前的2片文章没有<code>push</code>到<code>github</code>上，现在重新<code>po</code>一下。至于为什么买了<code>MacBook Pro</code>，好了，之前也被<code>Z</code>君喷了，实在是因为市面上没有更好的<code>Linux</code>本了。之前买的<code>Suystem 76</code>已经吃灰很久了。整体硬件工艺，还有<code>community</code>支持上，不得不说还是<code>MacBook Pro</code>技高一<a href="https://amzn.to/2KVYLS4">筹</a>。</p>
 
 <!--more-->
 
 
+<p>还有现在看看以前写的东西好像还挺傻逼的，哈哈。是不是就是笑来所说的不断觉得过去的自己很傻逼的<a href="https://mp.weixin.qq.com/s/zWklsvrvXABurm8_vcXEyw">道理</a>？</p>
+
+<h1>元旦随笔</h1>
+
+<p>快要年末了，又好久没有写博客了。。。今朝随便写点生活片段的分享。因为事情太琐碎，讲给谁听估计都不会觉得咋样，就分享给网络吧。</p>
+
 <h1>先入感</h1>
 
-<p>蛮久之前就想分享<a href="http://www.nytimes.com/interactive/2015/07/03/upshot/a-quick-puzzle-to-test-your-problem-solving.html">这个</a>。按标题来说是一个测试你解决问题的一个小<code>Puzzle</code>。很有趣，建议测一测。然后事情是这样的，有一天正好需要烫一烫西装。妈妈帮我讲解一下，一个买了据说十多年，感觉当时应该还挺贵的<code>Philips</code>的熨斗。见下图。</p>
+<p>蛮久之前就想分享<a href="http://www.nytimes.com/interactive/2015/07/03/upshot/a-quick-puzzle-to-test-your-problem-solving.html">这个</a>。按标题来说是一个测试你解决问题的一个小<code>Puzzle</code>。很有趣，建议测一测。然后事情是这样的，有一天正好需要烫一烫西装。妈妈帮我讲解一下，一个买了据说十多年，感觉当时应该还挺贵的<code>Philips</code>的熨斗。见下图。（edit: 图没了。。）</p>
 
-<p><img src="http://i.imgur.com/Kuo4GZI.jpg" alt="" /></p>
-
-<p>熨斗上方有个按钮，据妈妈说是让熨斗喷雾，并发烫的按钮。她并解释说十多年来都是这么按上面的按钮烫的。（此处为flag。。。）我看了一下这个熨斗，感觉妈妈把熨斗从竖直位置放到水平位置之后，没按按钮之前，熨斗就已经自动出蒸汽并发烫了。我就尝试直接不按按钮，果然只要熨斗水平就会自动发烫。然而妈妈却因为自己的<code>preconception</code>，十年里一直以为要按按钮才会发烫。。。印证了前面那个<a href="http://www.nytimes.com/interactive/2015/07/03/upshot/a-quick-puzzle-to-test-your-problem-solving.html">链接</a>中的<code>puzzle</code>所反映的问题。即，即使打破<code>preconception</code>的代价几乎为零，很多人也不愿意去尝试。很不幸，有时候也包括我自己。。。</p>
+<p>熨斗上方有个按钮，据妈妈说是让熨斗喷雾，并发烫的按钮。她并解释说十多年来都是这么按上面的按钮烫的。（此处为<code>flag</code>。。。）我看了一下这个熨斗，感觉妈妈把熨斗从竖直位置放到水平位置之后，没按按钮之前，熨斗就已经自动出蒸汽并发烫了。我就尝试直接不按按钮，果然只要熨斗水平就会自动发烫。然而妈妈却因为自己的<code>preconception</code>，十年里一直以为要按按钮才会发烫。。。印证了前面那个<a href="http://www.nytimes.com/interactive/2015/07/03/upshot/a-quick-puzzle-to-test-your-problem-solving.html">链接</a>中的<code>puzzle</code>所反映的问题。即，即使打破<code>preconception</code>的代价几乎为零，很多人也不愿意去尝试。很不幸，有时候也包括我自己。。。</p>
 
 <h1>音乐感</h1>
 
-<p>一天跟<code>s</code>君在环球的<code>bibigo</code>里面吃饭的时候，听到在放一首很熟悉的歌。回家以后就在<code>网易云音乐</code>上面想把这首歌找出来。我想这首歌肯定是在哪儿听过的，我使劲想了一下那个旋律，感觉好像是微软<code>SurfaceBook</code>发布用的BGM。就<code>百度</code>了一下，找到视频后发现好像完全不是这首。。。后来继续使劲想了一下那个旋律，终于想起来是在之前<code>B站</code>上看到的<code>M&amp;S food</code>的广告BGM。一<code>百度</code>果然是。好开心，那天晚上一直在重复播放这首歌。很好听，链接在<a href="http://music.163.com/#/song?id=28095742">这里</a>。还有纯音乐版，也很好听，链接在<a href="http://music.163.com/#/song?id=34218195">这里</a>。</p>
+<p>一天跟<code>s</code>君在环球的<code>bibigo</code>里面吃饭的时候，听到在放一首很熟悉的歌。回家以后就在网易云音乐上面想把这首歌找出来。我想这首歌肯定是在哪儿听过的，我使劲想了一下那个旋律，感觉好像是微软<code>SurfaceBook</code>发布用的<code>BGM</code>。就百度了一下，找到视频后发现好像完全不是这首。。。后来继续使劲想了一下那个旋律，终于想起来是在之前B站上看到的<code>M&amp;S food</code>的广告BGM。一百度果然是。好开心，那天晚上一直在重复播放这首歌。很好听，链接在这里。还有纯音乐版，也很好听，链接在<a href="http://music.163.com/#/song?id=34218195">这里</a>。</p>
 
 <h1>读书感</h1>
 
 <p>郁君写的散文，挺感触，看到最后已经是两眼泪汪汪。摘一段，作为我<code>neo士大夫</code>主义的信条，分享一哈。郁君读书多，动不动就用了好多梗，我只知道伍子胥，其他都没有怎么听说过。不禁让我想，要是郁君生在这个时代，会不会还读这么多书呢？</p>
 
-<blockquote><p>一</p>
-
-<p>“比在家庭的怀抱里觉得更好的地方，是什么地方？”象这样的地方，当然是没有的，法国的这一句古歌，实在是把人情世态道尽了。</p>
+<blockquote><p>“比在家庭的怀抱里觉得更好的地方，是什么地方？”象这样的地方，当然是没有的，法国的这一句古歌，实在是把人情世态道尽了。</p>
 
 <p>当微雨潇潇之夜，你若身眠古驿，看看萧条的四壁，看看一点欲尽的寒灯，倘不想起家庭的人，这人便是没有心肠者，任它草堆也好，破窑也好，你儿时放摇篮的地方，便是你死后最好的葬身之所呀！我们在客中卧病的时候，每每要想及家乡，就是这事的明证。</p>
 
@@ -131,7 +152,18 @@
 
 <h1>附</h1>
 
-<p>欢迎大家关注我的微博<a href="http://weibo.com/1767457232">@Fatman13CC</a>和网易云音乐<a href="http://music.163.com/#/user/home?id=46037077">@Fatman13</a>。</p>
+<p>欢迎大家关注我的微博@Fatman13CC和网易云音乐<a href="http://music.163.com/#/user/home?id=46037077">@Fatman13</a>。</p>
+
+<br/>
+
+
+
+
+<div id="amzn-assoc-ad-20352fc5-ee73-41f2-a0b0-a65c43f28b2b"></div>
+
+
+<script async src="http://Fatman13.github.io//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=20352fc5-ee73-41f2-a0b0-a65c43f28b2b"></script>
+
 ]]></content>
   </entry>
   
