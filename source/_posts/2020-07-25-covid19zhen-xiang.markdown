@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "Covid19真相？反应过度"
-date: 2020-07-25 21:35
+title: "Covid19真相"
+date: 2020-07-25 21:48
 comments: true
 categories: 随笔
 ---
@@ -11,7 +11,7 @@ categories: 随笔
 
 ## covid19死亡数字统计问题
 
-一个众所周知，在`joeRogan`的节目上也多次被提到的问题。如，`elonMusk`第二次上他的`podcast`的[时候](https://www.youtube.com/watch?v=RcYjXbSJBN8)，也提出了他对现在医院对`covid`统计方法的不满。`covid19`死亡数字被[人为地](https://youtu.be/x1x8TL1kdZA?t=1108)增高了。有些国家，像美国，统计`covid19`死亡并不区分`die with covid19`和`die from covid19`。有些朋友要问了，为什么不做`die with`和`die from`的区分呢？根据每个国际医疗系统的不同，以及利益分配的差异，有些系统会鼓励多统计`covid`病人赚取国家补贴/援助，收取呼吸机等治疗设备的回扣等等。具体的一些`nuance`可以听听这个[Dr. Shiva](https://www.youtube.com/user/drvashiva/videos?view=0&sort=dd&flow=grid)的说法，虽然这个人政治非常不正确。另外更直观的一个指标就是与以往同期的死亡总人数做比较，一直关注的一个爱尔兰的一个`youTuber`，虽然这个人政治不太正确，援引爱尔兰2020年4月的死亡比2019年同期还要少的这个[报道](https://www.youtube.com/user/LACK78)。
+一个众所周知，在`joeRogan`的节目上也多次被提到的问题。如，`elonMusk`第二次上他的`podcast`的[时候](https://www.youtube.com/watch?v=RcYjXbSJBN8)，也提出了他对现在医院对`covid`统计方法的不满。`covid19`死亡数字被[人为地](https://youtu.be/x1x8TL1kdZA?t=1108)增高了。有些国家，像美国，统计`covid19`死亡并不区分`die with covid19`和`die from covid19`。有些朋友要问了，为什么不做`die with`和`die from`的区分呢？根据每个国家医疗系统的不同，以及利益分配的差异，有些系统会鼓励多统计`covid`病人赚取国家补贴/援助，收取呼吸机等治疗设备的回扣等等。具体的一些`nuance`可以听听这个[Dr. Shiva](https://www.youtube.com/user/drvashiva/videos?view=0&sort=dd&flow=grid)的说法，虽然这个人政治非常不正确。另外更直观的一个指标就是与以往同期的死亡总人数做比较，一直关注的一个爱尔兰的一个`youTuber`，虽然这个人政治不太正确，援引爱尔兰2020年4月的死亡比2019年同期还要少的这个[报道](https://www.youtube.com/user/LACK78)。
 
 ## covid19这个病到底有多厉害
 
@@ -29,4 +29,4 @@ Again，根据[Dr. Shiva](https://www.youtube.com/user/drvashiva/videos?view=0&s
 
 基于以上个人已经失去对`终南山`等一批`covid19`网红的任何`respect`。让我只能觉得他们是利用当前局势来做`power grab`的`bureaucrat`，抑或是知道`covid`不是什么大病的事实，被推出来的领调员？不管怎样，`终南山`我个人已不看好。
 
-注：本文提到的政治不正确都是基于中国的立场。
+*注：本文提到的政治不正确都是基于中国的立场。*
