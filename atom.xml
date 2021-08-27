@@ -4,7 +4,7 @@
   <title><![CDATA[Fatman13]]></title>
   <link href="http://Fatman13.github.io/atom.xml" rel="self"/>
   <link href="http://Fatman13.github.io/"/>
-  <updated>2021-08-16T16:10:08+08:00</updated>
+  <updated>2021-08-27T14:03:21+08:00</updated>
   <id>http://Fatman13.github.io/</id>
   <author>
     <name><![CDATA[Fatman13]]></name>
@@ -12,6 +12,40 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Filecoin演进]]></title>
+    <link href="http://Fatman13.github.io/blog/2021/08/16/filecoinyan-jin/"/>
+    <updated>2021-08-16T16:22:00+08:00</updated>
+    <id>http://Fatman13.github.io/blog/2021/08/16/filecoinyan-jin</id>
+    <content type="html"><![CDATA[<p><code>Filecoin</code>自2020年10月15日主网上线以来，经历了近1年的成长。本文将结合<code>Filecoin</code>的多个重大网络升级，即FIP，按时间顺序讲一讲<code>Filecoin</code>这一年的演进。</p>
+
+<!--more-->
+
+
+<p>2020年9月26日，<a href="https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0002.md">FIP02</a>在Lotus版本<a href="https://github.com/filecoin-project/lotus/releases/tag/v0.8.0">v0.8.0</a>中实现。经历了测试网<code>space race</code>的实践，大家发现最初制定<code>WindowPost</code>一次失败就立即惩罚的机制过于苛刻。全网达成共识，直到连续2次<code>windowPost</code>失败再进行惩罚。提升了网络对存储提供商的容错。</p>
+
+<p>2020年10月13日，<a href="https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0003.md">FIP03</a>引入了<code>Filecoin</code>最初在<a href="https://filecoin.io/zh-cn/2020-engineering-filecoins-economy-zh-cn.pdf">Filecoin经济白皮书</a>中就已经提到的<code>Datacap</code>的概念。并开发了<code>file-plus</code>项目，为更好的激励真实数据被存储到服务商上，提供10倍算力的激励。<a href="https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0003.md">FIP03</a>在社区中也引发了热烈的讨论。@ZX在社区中提到，<code>fplus</code>将使中小服务商获得<a href="https://filecoinproject.slack.com/archives/C01DLAPKDGX/p1613335396153800?thread_ts=1613166741.138800&amp;cid=C01DLAPKDGX">更大的收益</a>。</p>
+
+<p>2020年10月21日，<a href="https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0004.md">FIP04</a>在Lotus版本<a href="https://github.com/filecoin-project/lotus/releases/tag/v1.1.0">v1.1.0</a>中实现。在最初的<a href="https://filecoin.io/zh-cn/2020-engineering-filecoins-economy-zh-cn.pdf">Filecoin经济白皮书</a>中所有奖励都为线性释放，但在主网上线后，全网达成一定共识即需要部分立即释放的奖励提高服务商的流动性。现<code>Filecoin</code>全网奖励25%立即释放，75%线性释放由此而来。</p>
+
+<p>2020年10月23日，<a href="https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0006.md">FIP06</a>由<a href="https://github.com/nicola">@Nicola</a>提出允许在<code>miner</code>负债的情况下提交<code>windowPost</code>，但最终方案于2021年01月05日被否决。</p>
+
+<p>2020年11月19日，<a href="https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0005.md">FIP05</a>在Lotus版本<a href="https://github.com/filecoin-project/lotus/releases/tag/v1.2.0">v1.2.0</a>中实现。主网上线后，<code>Filecoin</code>全网迎来了一波大增速，导致<code>gas</code>费用提升。<a href="https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0005.md">FIP05</a>成为了最早开发者团队降低封装消息<code>gas</code>费用的尝试。把线性奖励释放的计算从<code>precommit</code>和<code>commit</code>中移除，降低对链资源的消耗。</p>
+
+<p>2020年12月17日，<a href="https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0009.md">FIP009</a>在Lotus版本<a href="https://github.com/filecoin-project/lotus/releases/tag/v1.3.0">v1.3.0</a>中实现。全网增速速度大大超出预期，导致<code>gas</code>费用居高不下，社区反映<a href="https://filecoinproject.slack.com/archives/C0179RNEMU4/p1607025028124900">强烈</a>。在短时间内没有明确技术解决方案之前，<code>WindowPost</code>暂停<code>gas-burn</code>部分的费用。经过<a href="https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0009.md">FIP009</a>之后，<code>windowPost</code>的<code>gas</code>被大大缓解。减轻因网络带宽窄带来的<code>gas</code>问题。</p>
+
+<p>2021年2月24日，<a href="https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0007.md">FIP007</a>和<a href="https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0010.md">FIP0010</a>在Lotus版本<a href="https://github.com/filecoin-project/lotus/releases/tag/v1.5.0">v1.5.0</a>中实现。经过中西方2个新年，<code>Filecoin</code>在主网迎来新年的第一个FIP。<a href="https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0007.md">FIP007</a>优化了HAMT和AMT的性能。<a href="https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0010.md">FIP0010</a>允许连下<code>WindowPost</code>验证，大大降低<code>windowPost</code>消耗的<code>gas</code>. <a href="https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0010.md">FIP0010</a>代码逻辑改动较多，上线后，经过了<a href="https://github.com/filecoin-project/lotus/tags?after=v1.5.3">4个不同版本</a>的迭代，稳定了上线后网络环境。</p>
+
+<p>2021年4月6日，<a href="https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0014.md">FIP0014</a>在Lotus版本<a href="https://github.com/filecoin-project/lotus/releases/tag/v1.6.0">v1.6.0</a>中实现。<a href="https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0014.md">FIP0014</a>的焦点在于使用V1类型证明封装的扇区是否可以被正常续期的问题上。有些人认为既然V1类型证明有安全问题，就不应该允许被延期。有些认为基于<a href="https://filecoinproject.slack.com/archives/C01EU76LPCJ/p1615524308014600?thread_ts=1615283805.008800&amp;cid=C01EU76LPCJ">公平原则</a>，应该允许V1扇区被延期。经过社区长期的<a href="https://github.com/filecoin-project/FIPs/issues/56">讨论</a>，最终在经过官方安全团队严谨的<a href="https://github.com/filecoin-project/FIPs/issues/56#issuecomment-804841505">研究</a>和社区<a href="https://filpoll.io/poll/7">投票</a>后，决定实施上线。<a href="https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0014.md">FIP0014</a>代码实现相对比较简单，在通过后即被加入到主代码中。</p>
+
+<p>2021年06月24日，<a href="https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0008.md">FIP-0008</a>，<a href="https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0013.md">FIP-0013</a>和<a href="https://github.com/filecoin-project/FIPs/blob/master/_fips/fip-0015.md">FIP-0015</a>在Lotus版本<a href="https://github.com/filecoin-project/lotus/releases/tag/v1.10.0">v1.10.0</a>中实现，并且<a href="https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0010.md">FIP-009</a>在该版本中被取消，使得<code>windowPost</code>的<code>burnfee</code>不再免费。<a href="https://github.com/filecoin-project/lotus/releases/tag/v1.10.0">v1.10.0</a>被命名为<a href="https://github.com/filecoin-project/community/discussions/74#discussioncomment-707228">HyperDrive</a>升级。此次升级代码改动较大，并且被给予降低全网<code>gas</code>和提升全网带宽的厚望。<a href="https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0008.md">FIP-0008</a>和<a href="https://github.com/filecoin-project/FIPs/blob/master/FIPS/fip-0013.md">FIP-0013</a>分别实现了<code>precommit</code>和<code>provecommit</code>的批量提交功能。全网<code>gas</code>保持了相对2020年11，12月份的低位。存储服务商在<a href="https://github.com/filecoin-project/community/discussions/74#discussioncomment-707228">HyperDrive</a>初期还不适应新增的聚合消息参数，但在磨合一段时间后，存储服务商们逐渐找到了各自最优的配置，使全网<code>gas</code>长期稳定在一定水平。</p>
+
+<p>FIP0016，FIP0017和FIP0018都被相继提出，但是目前尚在讨论中。距离上次网络升级也有一定时间，希望能看到filecoin吸纳FIP的演进。</p>
+
+<p>Filecoin链的演进还在不断进行中。包括最新官方公布的一些<a href="https://protocollabs.notion.site/FVM-Design-Space-PUBLIC-594c2a7a4263490d89e18c4703c41a4e">VM细节规划</a>/展望，以及不断在优化中的<code>market</code>市场组件。期待Filecoin链未来更多，更大的突破，为web3新基建作出一份贡献！</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Covid19真相]]></title>
@@ -1442,217 +1476,6 @@ About the laws &ndash; I guess it&rsquo;s not the actual content of the laws or 
 
 
 <object data="https://s3.amazonaws.com/macslow/clock7.svg?w=3&amp;h=3" id="clock1" type="image/svg+xml"></object>
-
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[如何使用Jacoco远程统计tomcat服务的覆盖率]]></title>
-    <link href="http://Fatman13.github.io/blog/2014/02/27/ru-he-shi-yong-jacocoyuan-cheng-tong-ji-tomcatfu-wu-de-fu-gai-lu/"/>
-    <updated>2014-02-27T20:18:00+08:00</updated>
-    <id>http://Fatman13.github.io/blog/2014/02/27/ru-he-shi-yong-jacocoyuan-cheng-tong-ji-tomcatfu-wu-de-fu-gai-lu</id>
-    <content type="html"><![CDATA[<p>本文将简单介绍如何使用<code>Jacoco</code>生成远程<code>tomcat</code>服务的覆盖率报告。<br/>
-(<em>注：使用<code>jacoco</code>打开远程服务端口，有一定安全风险。</em>)</p>
-
-<!--more-->
-
-
-<h1>软件安装</h1>
-
-<ul>
-<li><a href="http://ant.apache.org/bindownload.cgi">Ant</a></li>
-<li><a href="http://www.eclemma.org/jacoco/">Jacoco</a></li>
-</ul>
-
-
-<h1>远程Tomcat服务配置</h1>
-
-<ul>
-<li><code>sh shutdown.sh</code>先关闭<code>tomcat</code>服务。</li>
-<li>修改<code>bin/catalina.sh</code>中<code>JAVA_OPTS</code>的配置。</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='sh'><span class='line'><span class="c"># -javaagent: 的后面跟jacoco的安装路径</span>
-</span><span class='line'><span class="c"># includes= 选项，选择你要覆盖率的服务</span>
-</span><span class='line'><span class="c"># port= 选项，选择你要打开的端口</span>
-</span><span class='line'><span class="c"># address= 选项，tomcat服务所在机器的ip地址（如果想在跟tomcat服务同一台机器上执行ant任务的话，需要改为127.0.0.1）</span>
-</span><span class='line'><span class="nv">JAVA_OPTS</span><span class="o">=</span><span class="s2">&quot;-javaagent:/path/to/your/jacoco_0.6.4/lib/jacocoagent.jar=includes=com.baidu.*,output=tcpserver,port=8893,address=10.81.14.77&quot;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li><code>sh startup.sh</code>重新启动<code>tomcat</code>服务。</li>
-</ul>
-
-
-<h1>本地Ant任务配置</h1>
-
-<ul>
-<li>配置<code>build.xml</code>。</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
-</span><span class='line'><span class="nt">&lt;project</span> <span class="na">name=</span><span class="s">&quot;Lengyu&quot;</span> <span class="na">xmlns:jacoco=</span><span class="s">&quot;antlib:org.jacoco.ant&quot;</span> <span class="na">default=</span><span class="s">&quot;jacoco&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>    <span class="c">&lt;!--Jacoco的安装路径--&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;jacocoantPath&quot;</span> <span class="na">value=</span><span class="s">&quot;/home/work/software/jacoco_0.6.4/lib/jacocoant.jar&quot;</span><span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="c">&lt;!--最终生成.exec文件的路径，Jacoco就是根据这个文件生成最终的报告的--&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;jacocoexecPath&quot;</span> <span class="na">value=</span><span class="s">&quot;/home/work/local/hudson_home/workspace/wg_merchant_oc_regression/jacoco.exec&quot;</span><span class="nt">/&gt;</span>
-</span><span class='line'>    <span class="c">&lt;!--生成覆盖率报告的路径--&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;reportfolderPath&quot;</span> <span class="na">value=</span><span class="s">&quot;E:/Libs/coverage_ant_task/report/&quot;</span><span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="c">&lt;!--远程tomcat服务的ip地址--&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;server_ip&quot;</span> <span class="na">value=</span><span class="s">&quot;10.81.14.77&quot;</span><span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="c">&lt;!--前面配置的远程tomcat服务打开的端口，要跟上面配置的一样--&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;server_port&quot;</span> <span class="na">value=</span><span class="s">&quot;8893&quot;</span><span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="c">&lt;!--源代码路径--&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;checkOrderSrcpath&quot;</span> <span class="na">value=</span><span class="s">&quot;E:/Src/ordercenter/ordercenter-biz/src/main/java/&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="c">&lt;!--.class文件路径--&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;property</span> <span class="na">name=</span><span class="s">&quot;checkOrderClasspath&quot;</span> <span class="na">value=</span><span class="s">&quot;E:/Src/ordercenter/ordercenter-biz/target/classes/com/baidu/ordercenter/service/Impl&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c">&lt;!--让ant知道去哪儿找Jacoco--&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;taskdef</span> <span class="na">uri=</span><span class="s">&quot;antlib:org.jacoco.ant&quot;</span> <span class="na">resource=</span><span class="s">&quot;org/jacoco/ant/antlib.xml&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;classpath</span> <span class="na">path=</span><span class="s">&quot;${jacocoantPath}&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/taskdef&gt;</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c">&lt;!--dump任务:</span>
-</span><span class='line'><span class="c">      根据前面配置的ip地址，和端口号，</span>
-</span><span class='line'><span class="c">      访问目标tomcat服务，并生成.exec文件。--&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;dump&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;jacoco:dump</span> <span class="na">address=</span><span class="s">&quot;${server_ip}&quot;</span> <span class="na">reset=</span><span class="s">&quot;false&quot;</span> <span class="na">destfile=</span><span class="s">&quot;${jacocoexecPath}&quot;</span> <span class="na">port=</span><span class="s">&quot;${server_port}&quot;</span> <span class="na">append=</span><span class="s">&quot;true&quot;</span><span class="nt">/&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/target&gt;</span>
-</span><span class='line'>  
-</span><span class='line'>  <span class="c">&lt;!--jacoco任务:</span>
-</span><span class='line'><span class="c">      根据前面配置的源代码路径和.class文件路径，</span>
-</span><span class='line'><span class="c">      根据dump后，生成的.exec文件，生成最终的html覆盖率报告。--&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;target</span> <span class="na">name=</span><span class="s">&quot;report&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;delete</span> <span class="na">dir=</span><span class="s">&quot;${reportfolderPath}&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>      <span class="nt">&lt;mkdir</span> <span class="na">dir=</span><span class="s">&quot;${reportfolderPath}&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>      
-</span><span class='line'>      <span class="nt">&lt;jacoco:report&gt;</span>
-</span><span class='line'>          <span class="nt">&lt;executiondata&gt;</span>
-</span><span class='line'>              <span class="nt">&lt;file</span> <span class="na">file=</span><span class="s">&quot;${jacocoexecPath}&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>          <span class="nt">&lt;/executiondata&gt;</span>
-</span><span class='line'>              
-</span><span class='line'>          <span class="nt">&lt;structure</span> <span class="na">name=</span><span class="s">&quot;JaCoCo Report&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>              <span class="nt">&lt;group</span> <span class="na">name=</span><span class="s">&quot;Check Order related&quot;</span><span class="nt">&gt;</span>           
-</span><span class='line'>                  <span class="nt">&lt;classfiles&gt;</span>
-</span><span class='line'>                      <span class="nt">&lt;fileset</span> <span class="na">dir=</span><span class="s">&quot;${checkOrderClasspath}&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>                  <span class="nt">&lt;/classfiles&gt;</span>
-</span><span class='line'>                  <span class="nt">&lt;sourcefiles</span> <span class="na">encoding=</span><span class="s">&quot;gbk&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>                      <span class="nt">&lt;fileset</span> <span class="na">dir=</span><span class="s">&quot;${checkOrderSrcpath}&quot;</span> <span class="nt">/&gt;</span>
-</span><span class='line'>                  <span class="nt">&lt;/sourcefiles&gt;</span>
-</span><span class='line'>              <span class="nt">&lt;/group&gt;</span>
-</span><span class='line'>          <span class="nt">&lt;/structure&gt;</span>
-</span><span class='line'>
-</span><span class='line'>          <span class="nt">&lt;html</span> <span class="na">destdir=</span><span class="s">&quot;${reportfolderPath}&quot;</span> <span class="na">encoding=</span><span class="s">&quot;utf-8&quot;</span> <span class="nt">/&gt;</span>         
-</span><span class='line'>      <span class="nt">&lt;/jacoco:report&gt;</span>
-</span><span class='line'>  <span class="nt">&lt;/target&gt;</span>
-</span><span class='line'><span class="nt">&lt;/project&gt;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h1>生成覆盖率报告</h1>
-
-<ul>
-<li>执行<code>ant dump</code>。成功的话，应会有如下输出。</li>
-</ul>
-
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='xml'><span class='line'>[work@st01-ecom-jn2.st01.baidu.com ant]$ ant dump
-</span><span class='line'>Buildfile: /home/work/local/hudson_home/workspace/wg_merchant_oc_regression/ant/build.xml
-</span><span class='line'>
-</span><span class='line'>dump:
-</span><span class='line'>[jacoco:dump] Connecting to /10.81.14.77:8893
-</span><span class='line'>[jacoco:dump] Dumping execution data to /home/work/local/hudson_home/workspace/wg_merchant_oc_regression/jacoco.exec
-</span><span class='line'>
-</span><span class='line'>BUILD SUCCESSFUL
-</span><span class='line'>Total time: 0 seconds
-</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>最后执行<code>ant report</code>。<code>jacoco</code>就会在你指定的路径生成覆盖率报告了。</li>
-</ul>
-
-
-<h1>附录</h1>
-
-<ul>
-<li>更多关于<code>Jacocoagent</code>以及各种<code>task</code>可以参考<a href="http://www.eclemma.org/jacoco/trunk/doc/ant.html">官方文档</a></li>
-<li><code>Jenkins</code>的<code>Jacoco plugin</code>可以根据<code>.exec</code>文件直接生成覆盖率报告，并在<code>Jenkins</code>中生成图表等等。那样的话，<code>ant report</code>这个任务就没用了。</li>
-<li>如有问题，可发email至<a href="mailto:lengyu@baidu.com">lengyu@baidu.com</a>。</li>
-</ul>
 
 ]]></content>
   </entry>
