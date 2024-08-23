@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-
-Sitemap: http://Fatman13.github.io/sitemap.xml 
